@@ -1,0 +1,142 @@
+{% comment %}
+  Hand-picked reviews for the homepage.
+  IMPORTANT: this section renders nothing until it has at least one real
+  review block. Never fill it with invented testimonials — add a block
+  here only once a genuine review exists (star rating app, email, DM...).
+{% endcomment %}
+
+{%- if section.blocks.size > 0 -%}
+  {{ 'section-reviews-carousel.css' | asset_url | stylesheet_tag }}
+
+  {%- style -%}
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    }
+
+    @media screen and (min-width: 750px) {
+      .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
+  {%- endstyle -%}
+
+  <div class="color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
+    <div class="page-width">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="reviews-carousel__heading h1">{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+
+      <ul class="reviews-carousel__list" role="list">
+        {%- for block in section.blocks -%}
+          <li class="reviews-carousel__card" {{ block.shopify_attributes }}>
+            {%- if block.settings.rating > 0 -%}
+              <div class="reviews-carousel__stars" aria-hidden="true">
+                {%- for i in (1..5) -%}
+                  {%- if i <= block.settings.rating -%}★{%- else -%}☆{%- endif -%}
+                {%- endfor -%}
+              </div>
+            {%- endif -%}
+            <p class="reviews-carousel__text">“{{ block.settings.text | escape }}”</p>
+            <p class="reviews-carousel__author">
+              {{ block.settings.author | escape }}
+              {%- if block.settings.verified -%}
+                <span class="reviews-carousel__verified">· Compra verificada</span>
+              {%- endif -%}
+            </p>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Opiniones (Oelnor)",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Lo que dicen de Oelnor",
+      "label": "Título"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Esquema de color",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Espaciado"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Espaciado superior",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Espaciado inferior",
+      "default": 48
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Opinión real",
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Añade solo opiniones reales de clientes. No inventes ni una."
+        },
+        {
+          "type": "range",
+          "id": "rating",
+          "min": 0,
+          "max": 5,
+          "step": 1,
+          "default": 5,
+          "label": "Puntuación (0 = sin estrellas)"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Texto de la opinión"
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Nombre del cliente"
+        },
+        {
+          "type": "checkbox",
+          "id": "verified",
+          "default": false,
+          "label": "Compra verificada"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Opiniones (Oelnor)",
+      "blocks": []
+    }
+  ]
+}
+{% endschema %}

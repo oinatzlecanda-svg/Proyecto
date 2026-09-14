@@ -1,0 +1,65 @@
+.discover-by-use__heading {
+  margin: 0 0 2.4rem;
+  text-align: center;
+}
+
+.discover-by-use__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2rem;
+}
+
+@media screen and (min-width: 750px) {
+  .discover-by-use__grid--3-col {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .discover-by-use__grid--4-col {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.discover-by-use__card {
+  position: relative;
+  display: block;
+  border-radius: var(--media-radius, 16px);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+}
+
+.discover-by-use__media {
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+}
+
+.discover-by-use__media img,
+.discover-by-use__placeholder {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.discover-by-use__card:hover .discover-by-use__media img,
+.discover-by-use__card:hover .discover-by-use__placeholder {
+  transform: scale(1.05);
+}
+
+.discover-by-use__card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0) 55%);
+}
+
+.discover-by-use__label {
+  position: absolute;
+  left: 1.2rem;
+  bottom: 1.2rem;
+  right: 1.2rem;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  z-index: 1;
+}
