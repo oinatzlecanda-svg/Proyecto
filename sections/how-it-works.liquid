@@ -1,0 +1,134 @@
+{% comment %}
+  Simple numbered steps ("Paso 1 / Paso 2 / Paso 3"), meant to favour a
+  visual demonstration over long blocks of text. Optional per product.
+{% endcomment %}
+
+{%- if section.blocks.size > 0 -%}
+  {{ 'section-how-it-works.css' | asset_url | stylesheet_tag }}
+
+  {%- style -%}
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    }
+
+    @media screen and (min-width: 750px) {
+      .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
+  {%- endstyle -%}
+
+  <div class="color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
+    <div class="page-width">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="how-it-works__heading h1">{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+
+      <div class="how-it-works__grid">
+        {%- for block in section.blocks -%}
+          <div class="how-it-works__step" {{ block.shopify_attributes }}>
+            <div class="how-it-works__media">
+              {%- if block.settings.image -%}
+                {{
+                  block.settings.image
+                  | image_url: width: 700
+                  | image_tag: loading: 'lazy', sizes: '(min-width: 750px) 30vw, 90vw', widths: '300,500,700'
+                }}
+              {%- else -%}
+                {{ 'product-apparel-2' | placeholder_svg_tag: 'how-it-works__placeholder' }}
+              {%- endif -%}
+              <span class="how-it-works__number">{{ forloop.index }}</span>
+            </div>
+            <h3 class="how-it-works__step-heading">{{ block.settings.heading | escape }}</h3>
+            {%- if block.settings.text != blank -%}
+              <p class="how-it-works__text">{{ block.settings.text | escape }}</p>
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Cómo funciona",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Cómo funciona",
+      "label": "Título"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Esquema de color",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Espaciado"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Espaciado superior",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Espaciado inferior",
+      "default": 48
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Paso",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Imagen o captura"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Paso",
+          "label": "Título del paso"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Texto breve"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Cómo funciona",
+      "blocks": [
+        { "type": "step", "settings": { "heading": "Paso 1" } },
+        { "type": "step", "settings": { "heading": "Paso 2" } },
+        { "type": "step", "settings": { "heading": "Paso 3" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

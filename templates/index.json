@@ -1,0 +1,413 @@
+{
+  "sections": {
+    "hero": {
+      "type": "image-banner",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "No lo estabas buscando. Ahora lo quieres.",
+            "heading_size": "hxl"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "Moda, accesorios y objetos diferentes para el día a día.",
+            "text_style": "body"
+          }
+        },
+        "buttons": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Descubrir novedades",
+            "button_link_1": "shopify://collections/novedades",
+            "button_style_secondary_1": false,
+            "button_label_2": "Ver Oelnor",
+            "button_link_2": "shopify://collections/all",
+            "button_style_secondary_2": true
+          }
+        }
+      },
+      "block_order": ["heading", "text", "buttons"],
+      "settings": {
+        "image_overlay_opacity": 20,
+        "image_height": "large",
+        "desktop_content_position": "middle-center",
+        "show_text_box": true,
+        "image_behavior": "none",
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-3",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": true
+      }
+    },
+    "quick-nav": {
+      "type": "collection-list",
+      "blocks": {
+        "col-1": { "type": "featured_collection", "settings": { "collection": "" } },
+        "col-2": { "type": "featured_collection", "settings": { "collection": "" } },
+        "col-3": { "type": "featured_collection", "settings": { "collection": "" } },
+        "col-4": { "type": "featured_collection", "settings": { "collection": "" } },
+        "col-5": { "type": "featured_collection", "settings": { "collection": "" } }
+      },
+      "block_order": ["col-1", "col-2", "col-3", "col-4", "col-5"],
+      "settings": {
+        "title": "Navega por categoría",
+        "heading_size": "h2",
+        "image_ratio": "square",
+        "columns_desktop": 5,
+        "color_scheme": "scheme-1",
+        "show_view_all": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "acaba-de-llegar": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Acaba de llegar",
+        "heading_size": "h1",
+        "description": "Lo último en entrar a Oelnor. Se actualiza solo, sin que tengamos que tocar nada.",
+        "show_description": true,
+        "description_style": "body",
+        "collection": "novedades",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "outline",
+        "enable_desktop_slider": false,
+        "swipe_on_mobile": true,
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": true,
+        "quick_add": "standard",
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "catalogo": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Todo Oelnor",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "all",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-2",
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "swipe_on_mobile": false,
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": true,
+        "quick_add": "standard",
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "producto-protagonista": {
+      "type": "featured-product",
+      "settings": {
+        "product": "",
+        "media_position": "left",
+        "media_size": "large",
+        "color_scheme": "scheme-1",
+        "secondary_background": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "descubre-por-uso": {
+      "type": "discover-by-use",
+      "blocks": {
+        "b1": { "type": "card", "settings": { "title": "Para salir" } },
+        "b2": { "type": "card", "settings": { "title": "Para llevar" } },
+        "b3": { "type": "card", "settings": { "title": "Para organizar" } },
+        "b4": { "type": "card", "settings": { "title": "Para completar el look" } }
+      },
+      "block_order": ["b1", "b2", "b3", "b4"],
+      "settings": {
+        "heading": "Encuentra lo tuyo",
+        "heading_size": "h1",
+        "columns_desktop": "4",
+        "color_scheme": "scheme-1",
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
+    "editorial": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": { "heading": "No metemos cosas por meter.", "heading_size": "h1" }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Si algo entra en Oelnor tiene que tener una razón. Puede ser cómo se ve, cómo funciona o simplemente porque hace mejor algo cotidiano.</p>",
+            "text_style": "body"
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "button_label": "Descubrir Oelnor",
+            "button_link": "shopify://collections/all",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": ["heading", "text", "button"],
+      "settings": {
+        "height": "large",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "color_scheme": "scheme-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "seleccion-oelnor": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Selección Oelnor",
+        "heading_size": "h1",
+        "description": "Productos que representan especialmente bien la tienda, elegidos a mano.",
+        "show_description": true,
+        "description_style": "body",
+        "collection": "seleccion-oelnor",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-5",
+        "full_width": false,
+        "show_view_all": false,
+        "view_all_style": "outline",
+        "enable_desktop_slider": true,
+        "swipe_on_mobile": true,
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": true,
+        "quick_add": "standard",
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "producto-en-uso": {
+      "type": "multirow",
+      "blocks": {
+        "row-1": {
+          "type": "row",
+          "settings": {
+            "caption": "En la calle",
+            "heading": "Encaja en tu día a día",
+            "text": "<p>Fotografía el producto en uso real: calle, casa, trabajo, viaje. Nada de fondo blanco.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": ["row-1"],
+      "settings": {
+        "image_height": "large",
+        "desktop_image_width": "medium",
+        "image_layout": "alternate-left",
+        "heading_size": "h1",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-1",
+        "row_color_scheme": "scheme-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "por-que-oelnor": {
+      "type": "multicolumn",
+      "blocks": {
+        "c1": {
+          "type": "column",
+          "settings": {
+            "title": "Elegido con intención",
+            "text": "<p>No añadimos cosas porque sí.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "c2": {
+          "type": "column",
+          "settings": {
+            "title": "Útil",
+            "text": "<p>Cada producto debe tener algún motivo para existir.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "c3": {
+          "type": "column",
+          "settings": {
+            "title": "Diferente",
+            "text": "<p>Buscamos cosas que no veas en todas partes.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "c4": {
+          "type": "column",
+          "settings": {
+            "title": "Fácil",
+            "text": "<p>Comprar no debería ser complicado.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": ["c1", "c2", "c3", "c4"],
+      "settings": {
+        "title": "Por qué Oelnor",
+        "heading_size": "h1",
+        "image_width": "third",
+        "image_ratio": "square",
+        "column_alignment": "center",
+        "background_style": "none",
+        "color_scheme": "scheme-1",
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
+    "product-discovery": {
+      "type": "product-discovery",
+      "blocks": {
+        "o1": { "type": "option", "settings": { "label": "Algo útil" } },
+        "o2": { "type": "option", "settings": { "label": "Algo diferente" } },
+        "o3": { "type": "option", "settings": { "label": "Un accesorio" } },
+        "o4": { "type": "option", "settings": { "label": "Algo para llevar" } },
+        "o5": { "type": "option", "settings": { "label": "Solo estoy mirando" } }
+      },
+      "block_order": ["o1", "o2", "o3", "o4", "o5"],
+      "settings": {
+        "heading": "¿Qué buscas hoy?",
+        "heading_size": "h2",
+        "color_scheme": "scheme-2",
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
+    "contenido-social": {
+      "type": "social-ugc",
+      "blocks": {
+        "p1": { "type": "post", "settings": { "platform": "instagram" } },
+        "p2": { "type": "post", "settings": { "platform": "tiktok" } },
+        "p3": { "type": "post", "settings": { "platform": "instagram" } },
+        "p4": { "type": "post", "settings": { "platform": "tiktok" } },
+        "p5": { "type": "post", "settings": { "platform": "instagram" } }
+      },
+      "block_order": ["p1", "p2", "p3", "p4", "p5"],
+      "settings": {
+        "heading": "Visto en Oelnor",
+        "heading_size": "h1",
+        "link_label": "Síguenos",
+        "link": "",
+        "color_scheme": "scheme-1",
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
+    "opiniones": {
+      "type": "reviews-carousel",
+      "blocks": {},
+      "block_order": [],
+      "settings": {
+        "heading": "Lo que dicen de Oelnor",
+        "color_scheme": "scheme-1",
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
+    "beneficios": {
+      "type": "trust-bar",
+      "blocks": {
+        "t1": { "type": "item", "settings": { "icon": "shield", "label": "Pago seguro" } },
+        "t2": { "type": "item", "settings": { "icon": "truck", "label": "Seguimiento del pedido" } },
+        "t3": { "type": "item", "settings": { "icon": "chat", "label": "Atención al cliente" } },
+        "t4": { "type": "item", "settings": { "icon": "return", "label": "Devoluciones" } }
+      },
+      "block_order": ["t1", "t2", "t3", "t4"],
+      "settings": {
+        "color_scheme": "scheme-2",
+        "padding_top": 24,
+        "padding_bottom": 24
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": { "heading": "Lo nuevo llega primero aquí.", "heading_size": "h1" }
+        },
+        "paragraph": {
+          "type": "paragraph",
+          "settings": {
+            "text": "Nuevos productos, lanzamientos y alguna sorpresa."
+          }
+        },
+        "email_form": { "type": "email_form" }
+      },
+      "block_order": ["heading", "paragraph", "email_form"],
+      "settings": {
+        "color_scheme": "scheme-4",
+        "full_width": true,
+        "padding_top": 52,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "quick-nav",
+    "acaba-de-llegar",
+    "catalogo",
+    "producto-protagonista",
+    "descubre-por-uso",
+    "editorial",
+    "seleccion-oelnor",
+    "producto-en-uso",
+    "por-que-oelnor",
+    "product-discovery",
+    "contenido-social",
+    "opiniones",
+    "beneficios",
+    "newsletter"
+  ]
+}

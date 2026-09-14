@@ -1,0 +1,126 @@
+{% comment %}
+  Thin, simple row of purchase-confidence points (secure payment, tracking,
+  support, returns). Deliberately light on icons per the brand brief.
+{% endcomment %}
+
+{%- if section.blocks.size > 0 -%}
+  {{ 'section-trust-bar.css' | asset_url | stylesheet_tag }}
+
+  {%- style -%}
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    }
+
+    @media screen and (min-width: 750px) {
+      .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
+  {%- endstyle -%}
+
+  <div class="color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
+    <div class="page-width">
+      <ul class="trust-bar__list" role="list">
+        {%- for block in section.blocks -%}
+          <li class="trust-bar__item" {{ block.shopify_attributes }}>
+            {%- if block.settings.icon != 'none' -%}
+              <span class="trust-bar__icon">
+                {%- case block.settings.icon -%}
+                  {%- when 'shield' -%}
+                    {{ 'icon-lock.svg' | inline_asset_content }}
+                  {%- when 'truck' -%}
+                    {{ 'icon-truck.svg' | inline_asset_content }}
+                  {%- when 'return' -%}
+                    {{ 'icon-return.svg' | inline_asset_content }}
+                  {%- when 'chat' -%}
+                    {{ 'icon-chat-bubble.svg' | inline_asset_content }}
+                {%- endcase -%}
+              </span>
+            {%- endif -%}
+            <span class="trust-bar__label">{{ block.settings.label | escape }}</span>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Beneficios de compra",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Esquema de color",
+      "default": "scheme-2"
+    },
+    {
+      "type": "header",
+      "content": "Espaciado"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "label": "Espaciado superior",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "label": "Espaciado inferior",
+      "default": 24
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Beneficio",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "options": [
+            { "value": "none", "label": "Sin icono" },
+            { "value": "shield", "label": "Candado" },
+            { "value": "truck", "label": "Envío" },
+            { "value": "return", "label": "Devolución" },
+            { "value": "chat", "label": "Chat" }
+          ],
+          "default": "none",
+          "label": "Icono"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "default": "Pago seguro",
+          "label": "Texto"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Beneficios de compra",
+      "blocks": [
+        { "type": "item", "settings": { "label": "Pago seguro" } },
+        { "type": "item", "settings": { "label": "Seguimiento del pedido" } },
+        { "type": "item", "settings": { "label": "Atención al cliente" } },
+        { "type": "item", "settings": { "label": "Devoluciones" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
