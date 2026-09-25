@@ -12,7 +12,8 @@ Anuncio de Meta Ads (Reels / Stories) para la **Colección Otoño OELNOR**.
 
 ## Archivos
 
-- **Vídeo final (con textos):** https://d2ol7oe51mr4n9.cloudfront.net/user_3J3oLu0MClJ7HT7piSotMD6L8d7/fc22f34c-1614-44eb-a7ae-ef594f2b735e.mp4
+- **Vídeo final v2 (voz simplificada + textos):** https://d2ol7oe51mr4n9.cloudfront.net/user_3J3oLu0MClJ7HT7piSotMD6L8d7/11c5b119-2719-4606-a833-bb5afeda7877.mp4
+- Vídeo v1 (voz original generada con el vídeo): https://d2ol7oe51mr4n9.cloudfront.net/user_3J3oLu0MClJ7HT7piSotMD6L8d7/fc22f34c-1614-44eb-a7ae-ef594f2b735e.mp4
 - **Versión limpia sin textos** (para añadir textos o subtítulos en Meta/CapCut): https://d8j0ntlcm91z4.cloudfront.net/user_3J3oLu0MClJ7HT7piSotMD6L8d7/hf_20260925_190802_1a4da599-0e48-48b5-9afd-3dea7f6c048d.mp4
 - Storyboard: https://d8j0ntlcm91z4.cloudfront.net/user_3J3oLu0MClJ7HT7piSotMD6L8d7/hf_20260925_190548_9489d93a-225d-48a2-ae12-bf6c24608b25.png
 
@@ -50,6 +51,22 @@ nublada de otoño, paleta beige / crema / marrón / gris / negro.
 | 10–12,5 s | Macro, sin manos | Detalle de las botas de ante sobre adoquines | (voz en off) "Y tienen una promo de dos artículos" |
 | 12,5–15,5 s | Plano medio abierto | Sentada en la terraza con todo el look, enseña el portalabial | "y te llevas un portalabial gratis." |
 | 15,5–17 s | Plano entero de espaldas | Se aleja y mira atrás por encima del hombro | risa, pasos |
+
+## Voz v2 (simplificada)
+
+El guion original se hacía largo y la voz generada con el vídeo pronunciaba mal algunas
+palabras. En la v2 se sustituye todo el audio por una locución más corta con la voz preset
+**Xenia** (`seed_audio`), más un ambiente de calle muy bajo:
+
+| Entra en | Frase |
+|---|---|
+| 0,15 s | "Mis favoritos para este otoño." |
+| 3,4 s | "Esta chaqueta me encanta." |
+| 7,6 s | "Y estas botas también." |
+| 10,4 s | "Si te llevas dos, el portalabial es gratis." |
+
+Comprobado con Whisper medium: las cuatro frases se transcriben tal cual. Al ser una
+locución nueva, la boca de la chica no va sincronizada con la voz en los planos donde habla.
 
 ## Textos en pantalla (dentro de la zona segura de Reels)
 
