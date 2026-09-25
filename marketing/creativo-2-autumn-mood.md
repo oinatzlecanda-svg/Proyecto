@@ -1,8 +1,9 @@
 # Creativo 2 — Vídeo con música · "Autumn mood Oelnor"
 
 - **Objetivo:** branding + colección + scroll stopper
-- **Formato:** 9:16 · 1080×1920 · 15 s · sin voz · 24 fps
-- **Vídeo final (con textos, audio a −14 LUFS):** https://d2ol7oe51mr4n9.cloudfront.net/user_3J3oLu0MClJ7HT7piSotMD6L8d7/3357c835-be3c-4439-a39c-1a2fa1261939.mp4
+- **Formato:** 9:16 · 1080×1920 · 14,7 s · sin voz · 24 fps
+- **Vídeo final v2 (con textos, audio a −14 LUFS):** https://d2ol7oe51mr4n9.cloudfront.net/user_3J3oLu0MClJ7HT7piSotMD6L8d7/2baee318-85df-4279-9b22-c9c2e2ac2051.mp4
+- ~~v1~~ (descartada: el modelo añadió en los últimos 0,35 s un rótulo inventado "EEAFLOY PARIS"): https://d2ol7oe51mr4n9.cloudfront.net/user_3J3oLu0MClJ7HT7piSotMD6L8d7/3357c835-be3c-4439-a39c-1a2fa1261939.mp4
 - **Versión limpia sin textos:** https://d8j0ntlcm91z4.cloudfront.net/user_3J3oLu0MClJ7HT7piSotMD6L8d7/hf_20260925_195344_8707e886-0a8d-4f20-b8ac-eccbd67a1c0a.mp4
 - Storyboard: https://d8j0ntlcm91z4.cloudfront.net/user_3J3oLu0MClJ7HT7piSotMD6L8d7/hf_20260925_195215_a2e762cc-3afb-4037-8a31-5aec4333a63d.png
 - Generado con Higgsfield: storyboard `gpt_image_2` + realismo `seedream_v5_pro`, vídeo y música
@@ -30,14 +31,14 @@ taupe, jersey negro de pico y jeans Lucía de pierna ancha.
 | 8,0–9,6 s | Macro de la caña de la bota con el herraje dorado |
 | 9,6–11,0 s | Botas subiendo un escalón de piedra, de perfil |
 | 11,0–12,9 s | Tres cortes rápidos: los tres looks |
-| 12,9–15 s | Plano general alejándose con el look completo |
+| 12,9–14,7 s | Plano general alejándose con el look completo (el vídeo se corta aquí) |
 
 ## Texto (mínimo)
 
 | Tiempo | Texto |
 |---|---|
 | 0,1–1,8 s | OTOÑO, / A TU MANERA. |
-| 13,1–15 s | OELNOR · COLECCIÓN OTOÑO |
+| 13,0–14,7 s | OELNOR · COLECCIÓN OTOÑO |
 
 Montserrat ExtraBold en blanco con sombra suave, todo en la franja superior segura (y ≈ 390–600 px).
 
@@ -46,3 +47,9 @@ Montserrat ExtraBold en blanco con sombra suave, todo en la franja superior segu
 Instrumental estilo fashion / indie-electronic chill generada con el propio vídeo (~120 BPM),
 con pasos y roce de ropa muy sutiles. Comprobado con Whisper: no hay voz ni letra. Normalizada a
 −14 LUFS (nivel recomendado para Reels) con un fundido al final.
+
+## Control de texto
+
+El vídeo generado terminaba con un plano extra de 0,35 s (desde 14,71 s) con un rótulo inventado
+"EEAFLOY PARIS". Se ha recortado el vídeo a 14,67 s. Revisión OCR de todo el vídeo final: solo
+aparecen los textos de OELNOR añadidos en edición.
