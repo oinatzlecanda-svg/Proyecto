@@ -5,9 +5,13 @@
   if rail_collection == blank
     assign rail_collection = collections['all']
   endif
+  assign rail_products = rail_collection.products
+  if section.settings.product_list != blank
+    assign rail_products = section.settings.product_list
+  endif
 -%}
 
-<section class="o-section o-rail" data-o-rail>
+<section class="o-section o-rail" data-o-rail{% if section.settings.anchor != blank %} id="{{ section.settings.anchor | handleize }}"{% endif %}>
   <div class="o-rail__sticky">
     <div class="o-rail__head o-container">
       <div>
@@ -16,14 +20,14 @@
         {%- endif -%}
         <h2 class="o-display o-rail__title" data-o-split>{{ section.settings.heading | escape }}</h2>
       </div>
-      <a class="o-btn o-btn--ghost" data-o-magnetic href="{{ rail_collection.url | default: routes.all_products_collection_url }}">
+      <a class="o-btn o-btn--ghost" data-o-magnetic href="{{ section.settings.view_all_link | default: rail_collection.url | default: routes.all_products_collection_url }}">
         {{ section.settings.view_all | escape }} <span class="o-btn__arrow" aria-hidden="true">→</span>
       </a>
     </div>
 
     <div class="o-rail__viewport">
       <ul class="o-rail__track" data-o-rail-track role="list">
-        {%- for product in rail_collection.products limit: section.settings.products_to_show -%}
+        {%- for product in rail_products limit: section.settings.products_to_show -%}
           {%- if product.tags contains 'excluir-catalogo-moda' -%}{% continue %}{%- endif -%}
           {%- assign alt_text = product.featured_media.alt | default: product.title -%}
           <li class="o-rail__item" data-o-reveal="fade" style="--i: {{ forloop.index0 | at_most: 5 }}">
@@ -93,6 +97,14 @@
       "content": "En ordenador la sección se fija y los productos se desplazan en horizontal al hacer scroll. En móvil se deslizan con el dedo."
     },
     { "type": "collection", "id": "collection", "label": "Colección" },
+    {
+      "type": "product_list",
+      "id": "product_list",
+      "label": "O elige productos concretos",
+      "limit": 16
+    },
+    { "type": "url", "id": "view_all_link", "label": "Enlace del botón (opcional)" },
+    { "type": "text", "id": "anchor", "label": "Ancla (para enlazar con #)" },
     {
       "type": "range",
       "id": "products_to_show",

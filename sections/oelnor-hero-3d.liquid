@@ -6,12 +6,17 @@
     assign hero_collection = collections['all']
   endif
   assign limit = section.settings.products_to_show
+  assign hero_products = hero_collection.products
+  if section.settings.product_list != blank
+    assign hero_products = section.settings.product_list
+  endif
 -%}
 
 <section
   class="o-section o-hero3d"
   data-o-hero3d
   data-three-src="{{ 'three.module.min.js' | asset_url }}"
+  data-layout="{{ section.settings.layout }}"
   {% if section.settings.show_intro and template.name == 'index' %}
     data-o-intro="{{ shop.name | upcase | escape }}"
   {% endif %}
@@ -20,7 +25,7 @@
   <div class="o-hero3d__stage" data-o-hero-canvas>
     {%- comment -%} Static fallback while three.js loads (or without WebGL). {%- endcomment -%}
     <div class="o-hero3d__fallback" aria-hidden="true">
-      {%- for product in hero_collection.products limit: 5 -%}
+      {%- for product in hero_products limit: 5 -%}
         {%- if product.featured_media -%}
           <div class="o-hero3d__fallback-item" style="--i: {{ forloop.index0 }}">
             {{
@@ -36,7 +41,7 @@
 
   <script type="application/json" data-o-hero-items>
     [
-      {%- for product in hero_collection.products limit: limit -%}
+      {%- for product in hero_products limit: limit -%}
         {
           "src": {% if product.featured_media %}{{ product.featured_media | image_url: width: 900 | prepend: 'https:' | json }}{% else %}null{% endif %},
           "url": {{ product.url | json }},
@@ -90,12 +95,29 @@
       "type": "paragraph",
       "content": "Anillo 3D interactivo con las fotos de la colección elegida. Se puede arrastrar y cada foto enlaza a su producto."
     },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Movimiento 3D",
+      "options": [
+        { "value": "ring", "label": "Anillo que gira" },
+        { "value": "fall", "label": "Fotos que caen como hojas" }
+      ],
+      "default": "ring"
+    },
     { "type": "collection", "id": "collection", "label": "Colección a mostrar" },
+    {
+      "type": "product_list",
+      "id": "product_list",
+      "label": "O elige productos concretos",
+      "limit": 16,
+      "info": "Si eliges productos, se usan en lugar de la colección."
+    },
     {
       "type": "range",
       "id": "products_to_show",
       "min": 6,
-      "max": 14,
+      "max": 16,
       "step": 1,
       "default": 12,
       "label": "Productos en el anillo"

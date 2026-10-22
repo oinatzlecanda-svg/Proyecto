@@ -247,3 +247,26 @@ desactivada para que no se duplique con la de Oelnor.
 - `/collections` usa `oelnor-collection-list`: tarjeta por colección con
   foto y nº de piezas, y filtros por grupo (cada elemento del menú con
   submenú). Para ocultar alguna, escribe su handle en «Colecciones ocultas».
+
+## 16. Landing «Colección otoño»
+
+`templates/page.autumn.json` es la plantilla que ya usa la página publicada
+`/pages/coleccion-otono` (sufijo `autumn`), con los mismos 12 productos y
+textos de la landing actual:
+
+1. Hero 3D en modo «caída»: las fotos de los 12 productos caen girando como
+   hojas (arrastrar inclina la lluvia, el scroll la acelera; en móvil son más
+   pequeñas y suaves para no tapar el texto).
+2. Marquee de temporada.
+3. «Capas, texturas y carácter.» (Chaqueta Eira).
+4. `oelnor-product-grid` «Piezas que marcan el look.» (ancla `#seleccion`):
+   Sora, Lena, Kaia, Noa, Eira, Mavi.
+5. «Cambia la temporada. No tu estilo.»
+6. Carril «Sigue descubriendo.» (ancla `#sigue`): Elia, Elara, Riven, Naya,
+   Axel, Ciro.
+7. «Por prenda.» — chaquetas y jerséis mujer, calzado, chaquetas y jerséis hombre.
+8. Oferta 25 % y franja de confianza.
+
+Novedades reutilizables: el hero acepta productos concretos y el modo
+«Fotos que caen como hojas»; el carril acepta productos concretos, enlace
+propio y ancla; `oelnor-product-grid` es una cuadrícula editorial nueva.

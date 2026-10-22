@@ -32,9 +32,12 @@ async function mount(hero) {
 
   const THREE = await import(hero.dataset.threeSrc);
 
-  // Fill the ring so it never looks sparse with a small catalogue.
+  // "ring": prints on a turning cylinder. "fall": prints drift down like leaves.
+  const fall = hero.dataset.layout === 'fall';
+
+  // Fill the scene so it never looks sparse with a small catalogue.
   const ring = [];
-  const count = Math.min(14, Math.max(10, items.length));
+  const count = fall ? Math.min(16, Math.max(12, items.length)) : Math.min(14, Math.max(10, items.length));
   for (let i = 0; i < count; i++) ring.push(items[i % items.length]);
 
   const W = 2.4;
@@ -82,6 +85,13 @@ async function mount(hero) {
   }
   geo.computeVertexNormals();
 
+  let fallSpread = 9; // half-width of the shower, recomputed from the viewport
+  const FALL_H = 15;
+  let fallBoost = 0;
+  let fallShift = 0;
+  let printScale = 1; // smaller, softer prints on narrow screens where they sit behind the text
+  let printOpacity = 1;
+
   const loader = new THREE.TextureLoader();
   loader.setCrossOrigin('anonymous');
   const planeAspect = W / H;
@@ -95,10 +105,24 @@ async function mount(hero) {
       side: THREE.FrontSide,
     });
     const mesh = new THREE.Mesh(geo, mat);
-    const theta = (i / count) * Math.PI * 2;
-    mesh.position.set(Math.sin(theta) * R, (i % 2 ? 0.28 : -0.28), Math.cos(theta) * R);
-    mesh.rotation.y = theta;
     mesh.userData = { item, hover: 0, fade: 0, delay: i * 0.06 };
+    if (fall) {
+      // Spread through a tall column; each print gets its own speed and sway.
+      const lane = (i / count) * 2 - 1;
+      mesh.position.set(0, (Math.random() - 0.5) * FALL_H, -Math.random() * 6);
+      Object.assign(mesh.userData, {
+        lane,
+        jitter: (Math.random() - 0.5) * 0.25,
+        speed: 0.006 + Math.random() * 0.006,
+        phase: Math.random() * Math.PI * 2,
+        spinA: 0.25 + Math.random() * 0.35,
+        spinB: 0.2 + Math.random() * 0.3,
+      });
+    } else {
+      const theta = (i / count) * Math.PI * 2;
+      mesh.position.set(Math.sin(theta) * R, i % 2 ? 0.28 : -0.28, Math.cos(theta) * R);
+      mesh.rotation.y = theta;
+    }
     group.add(mesh);
     meshes.push(mesh);
 
@@ -196,7 +220,10 @@ async function mount(hero) {
     () => {
       const d = window.scrollY - lastScroll;
       lastScroll = window.scrollY;
-      if (!reduceMotion) vel += d * 0.00012;
+      if (!reduceMotion) {
+        if (fall) fallBoost += d * 0.0006;
+        else vel += d * 0.00012;
+      }
     },
     { passive: true }
   );
@@ -209,12 +236,26 @@ async function mount(hero) {
     camera.aspect = w / h;
     // Pull the camera back on narrow screens so the ring still fits.
     const narrow = clampNum(1.25 - camera.aspect * 0.35, 0, 0.9);
-    camBase.z = R + 8 + narrow * 10;
-    // Fog follows the camera so the back of the ring fades at any distance.
-    scene.fog.near = camBase.z - R * 0.3;
-    scene.fog.far = camBase.z + R * 1.4;
-    // On wide screens the ring sits to the right, leaving room for the headline.
-    lookX = camera.aspect > 1.2 ? -R * 0.42 : 0;
+    if (fall) {
+      camBase.set(0, 0, 13 + narrow * 4);
+      // Nearest prints stay crisp, the deepest ones fade into the page.
+      scene.fog.near = camBase.z + 2;
+      scene.fog.far = camBase.z + 16;
+      // Wide screens: keep the shower on the right, away from the headline.
+      const halfW = Math.tan(THREE.MathUtils.degToRad(camera.fov / 2)) * camBase.z * camera.aspect;
+      fallShift = camera.aspect > 1.2 ? halfW * 0.4 : 0;
+      fallSpread = camera.aspect > 1.2 ? halfW * 0.55 : halfW * 0.85;
+      printScale = camera.aspect < 1 ? 0.6 : 1;
+      printOpacity = camera.aspect < 1 ? 0.5 : 1;
+      lookX = 0;
+    } else {
+      camBase.z = R + 8 + narrow * 10;
+      // Fog follows the camera so the back of the ring fades at any distance.
+      scene.fog.near = camBase.z - R * 0.3;
+      scene.fog.far = camBase.z + R * 1.4;
+      // On wide screens the ring sits to the right, leaving room for the headline.
+      lookX = camera.aspect > 1.2 ? -R * 0.42 : 0;
+    }
     camera.updateProjectionMatrix();
   }
   const clampNum = (v, a, b) => Math.min(b, Math.max(a, v));
@@ -245,10 +286,32 @@ async function mount(hero) {
     const elapsed = now / 1000;
 
     if (!dragging) {
-      vel += (idle - vel) * 0.035 * dt;
+      vel += ((fall ? 0 : idle) - vel) * 0.035 * dt;
       rot += vel * dt;
     }
-    group.rotation.y = rot;
+    if (fall) {
+      // Dragging tilts the whole shower of prints; scrolling makes it fall faster.
+      group.rotation.y = Math.sin(rot) * 0.5;
+      group.position.x += (fallShift - group.position.x) * 0.08 * dt;
+      fallBoost *= Math.pow(0.94, dt);
+      const pace = reduceMotion ? 0 : 1 + Math.min(4, Math.abs(fallBoost));
+      meshes.forEach((m) => {
+        const u = m.userData;
+        m.position.y -= u.speed * pace * dt;
+        m.position.x = (u.lane + u.jitter) * fallSpread + Math.sin(elapsed * 0.6 + u.phase) * 0.4;
+        if (m.position.y < -FALL_H / 2 - 2) {
+          m.position.y = FALL_H / 2 + 2;
+          u.lane = Math.random() * 2 - 1;
+        }
+        m.rotation.set(
+          Math.sin(elapsed * u.spinA + u.phase) * 0.35,
+          Math.sin(elapsed * u.spinB + u.phase) * 0.55,
+          Math.sin(elapsed * 0.4 + u.phase) * 0.18
+        );
+      });
+    } else {
+      group.rotation.y = rot;
+    }
 
     look.x += (mouse.x - look.x) * 0.05 * dt;
     look.y += (mouse.y - look.y) * 0.05 * dt;
@@ -277,9 +340,9 @@ async function mount(hero) {
     meshes.forEach((m) => {
       const u = m.userData;
       u.fade = Math.min(1, u.fade + (elapsed > u.delay + 0.2 ? 0.02 * dt : 0));
-      m.material.opacity = reduceMotion ? 1 : easeOut(u.fade);
+      m.material.opacity = (reduceMotion ? 1 : easeOut(u.fade)) * printOpacity;
       u.hover += ((m === hovered ? 1 : 0) - u.hover) * 0.12 * dt;
-      const s = 1 + u.hover * 0.06;
+      const s = (1 + u.hover * 0.06) * printScale;
       m.scale.set(s, s, 1);
     });
 

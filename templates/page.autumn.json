@@ -1,0 +1,276 @@
+{
+  "sections": {
+    "hero": {
+      "type": "oelnor-hero-3d",
+      "settings": {
+        "layout": "fall",
+        "collection": "",
+        "product_list": [
+          "botas-beige-ante-sintetico",
+          "chaqueta-lena-cropped-cinturon",
+          "chaqueta-corta-flecos",
+          "bomber-noa-efecto-ante",
+          "chaqueta-impermeable-oversize",
+          "chaqueta-corta-flecos-marron",
+          "chaqueta-elia-cuello-alto",
+          "parka-elara-acolchada",
+          "jersey-riven-efecto-desgastado",
+          "cardigan-naya-punto-rayas",
+          "jeans-axel-baggy-desgastados",
+          "pantalon-ciro-pana-baggy"
+        ],
+        "products_to_show": 12,
+        "eyebrow": "OELNOR / Autumn edit '26",
+        "heading": "Selección de otoño.",
+        "text": "Capas, texturas y tonos cálidos. Piezas con carácter para vestir la temporada a tu manera.",
+        "button_label_1": "Explorar selección",
+        "button_link_1": "/pages/coleccion-otono#seleccion",
+        "button_label_2": "Ver chaquetas",
+        "button_link_2": "shopify://collections/chaquetas-mujer",
+        "hint": "Arrastra para mover",
+        "show_intro": false
+      }
+    },
+    "marquee": {
+      "type": "oelnor-marquee",
+      "blocks": {
+        "m0": {
+          "type": "item",
+          "settings": {
+            "text": "Autumn edit '26"
+          }
+        },
+        "m1": {
+          "type": "item",
+          "settings": {
+            "text": "Capas"
+          }
+        },
+        "m2": {
+          "type": "item",
+          "settings": {
+            "text": "Texturas"
+          }
+        },
+        "m3": {
+          "type": "item",
+          "settings": {
+            "text": "Tonos cálidos"
+          }
+        },
+        "m4": {
+          "type": "item",
+          "settings": {
+            "text": "Your own way"
+          }
+        }
+      },
+      "block_order": [
+        "m0",
+        "m1",
+        "m2",
+        "m3",
+        "m4"
+      ],
+      "settings": {
+        "style": "dark",
+        "speed": 40
+      }
+    },
+    "story": {
+      "type": "oelnor-feature",
+      "settings": {
+        "image": "",
+        "product": "chaqueta-impermeable-oversize",
+        "link": "/pages/coleccion-otono#seleccion",
+        "season": "Otoño",
+        "eyebrow": "El otoño se lleva a tu manera",
+        "heading": "Capas, texturas y carácter.",
+        "text": "Chaquetas, botas y prendas con presencia. Una selección para combinar sin reglas, con la naturalidad de siempre.",
+        "button_label": "Descubrir piezas",
+        "cursor_label": "Ver"
+      }
+    },
+    "seleccion": {
+      "type": "oelnor-product-grid",
+      "settings": {
+        "product_list": [
+          "botas-beige-ante-sintetico",
+          "chaqueta-lena-cropped-cinturon",
+          "chaqueta-corta-flecos",
+          "bomber-noa-efecto-ante",
+          "chaqueta-impermeable-oversize",
+          "chaqueta-corta-flecos-marron"
+        ],
+        "collection": "",
+        "limit": 6,
+        "layout": "editorial",
+        "anchor": "seleccion",
+        "eyebrow": "The autumn edit / 01",
+        "heading": "Piezas que marcan el look.",
+        "text": "Nuestros favoritos para empezar la temporada.",
+        "button_label": "",
+        "button_link": "",
+        "cursor_label": "Ver"
+      }
+    },
+    "manifiesto": {
+      "type": "oelnor-statement",
+      "settings": {
+        "eyebrow": "Autumn edit / OELNOR",
+        "heading": "Cambia la temporada.",
+        "heading_accent": "No tu estilo.",
+        "text": "Diferentes piezas. Una sola forma de llevarlas: la tuya.",
+        "image_1": "shopify://shop_images/oelnor-mujer-jersey-editorial.png",
+        "product_2": "botas-beige-ante-sintetico",
+        "button_label": "Sigue descubriendo",
+        "button_link": "/pages/coleccion-otono#sigue"
+      }
+    },
+    "sigue": {
+      "type": "oelnor-product-rail",
+      "settings": {
+        "collection": "",
+        "product_list": [
+          "chaqueta-elia-cuello-alto",
+          "parka-elara-acolchada",
+          "jersey-riven-efecto-desgastado",
+          "cardigan-naya-punto-rayas",
+          "jeans-axel-baggy-desgastados",
+          "pantalon-ciro-pana-baggy"
+        ],
+        "products_to_show": 6,
+        "eyebrow": "The autumn edit / 02",
+        "heading": "Sigue descubriendo.",
+        "view_all": "Ver Moda Mujer",
+        "view_all_link": "shopify://collections/mujer",
+        "cursor_label": "Ver",
+        "anchor": "sigue"
+      }
+    },
+    "por-prenda": {
+      "type": "oelnor-category-index",
+      "blocks": {
+        "c1": {
+          "type": "category",
+          "settings": {
+            "kicker": "The layers edit",
+            "title": "Chaquetas mujer",
+            "collection": "chaquetas-mujer",
+            "product": "chaqueta-lena-cropped-cinturon"
+          }
+        },
+        "c2": {
+          "type": "category",
+          "settings": {
+            "kicker": "The knitwear edit",
+            "title": "Jerséis mujer",
+            "collection": "jerseis-mujer",
+            "product": "cardigan-naya-punto-rayas"
+          }
+        },
+        "c3": {
+          "type": "category",
+          "settings": {
+            "kicker": "The footwear edit",
+            "title": "Calzado",
+            "collection": "calzado-mujer",
+            "product": "botas-beige-ante-sintetico"
+          }
+        },
+        "c4": {
+          "type": "category",
+          "settings": {
+            "kicker": "The men's layers",
+            "title": "Chaquetas hombre",
+            "collection": "chaquetas-hombre"
+          }
+        },
+        "c5": {
+          "type": "category",
+          "settings": {
+            "kicker": "The men's knit",
+            "title": "Jerséis hombre",
+            "collection": "sudaderas-hombre",
+            "product": "jersey-riven-efecto-desgastado"
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4",
+        "c5"
+      ],
+      "settings": {
+        "eyebrow": "Compra el otoño",
+        "heading": "Por prenda."
+      }
+    },
+    "oferta": {
+      "type": "oelnor-offer",
+      "settings": {
+        "kicker": "OELNOR / Combina a tu manera",
+        "heading": "Dos piezas o más.",
+        "heading_accent": "25 % menos.",
+        "description": "Monta tu look de otoño: el descuento se aplica automáticamente al total de tu pedido.",
+        "number": 25,
+        "top_label": "Tu próxima combinación",
+        "line_1": "En todo tu pedido",
+        "line_2": "Con 2 o más artículos",
+        "button_label": "Volver a la selección",
+        "button_link": "/pages/coleccion-otono#seleccion",
+        "ends_at": ""
+      }
+    },
+    "confianza": {
+      "type": "oelnor-trust",
+      "blocks": {
+        "t1": {
+          "type": "item",
+          "settings": {
+            "icon": "truck",
+            "title": "Envío gratis",
+            "text": "Sin coste de envío"
+          }
+        },
+        "t2": {
+          "type": "item",
+          "settings": {
+            "icon": "return",
+            "title": "30 días para devolver",
+            "text": "Consulta nuestras condiciones"
+          }
+        },
+        "t3": {
+          "type": "item",
+          "settings": {
+            "icon": "lock",
+            "title": "Pago seguro",
+            "text": "Compra con tranquilidad"
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3"
+      ],
+      "settings": {
+        "label": "Información de compra"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "marquee",
+    "story",
+    "seleccion",
+    "manifiesto",
+    "sigue",
+    "por-prenda",
+    "oferta",
+    "confianza"
+  ]
+}

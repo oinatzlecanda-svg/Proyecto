@@ -1637,3 +1637,116 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+/* ---------------- Product grid (landing / editorial) ---------------- */
+.o-pgrid {
+  padding-block: clamp(6rem, 9vw, 11rem);
+  scroll-margin-top: 8rem;
+}
+
+.o-pgrid__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: clamp(3.2rem, 5vw, 6rem);
+}
+
+.o-pgrid__titles {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  max-width: 60rem;
+}
+
+.o-pgrid__title {
+  font-size: clamp(3.6rem, 6vw, 8rem);
+  text-transform: uppercase;
+}
+
+.o-pgrid__text {
+  margin: 0;
+  color: var(--o-text-muted);
+  font-size: 1.6rem;
+  line-height: 1.6;
+}
+
+.o-pgrid__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(3.2rem, 4vw, 5.6rem) clamp(1.6rem, 2vw, 3.2rem);
+}
+
+/* Editorial rhythm: the middle column sits lower */
+@media screen and (min-width: 990px) {
+  .o-pgrid__list--editorial .o-pgrid__item:nth-child(3n + 2) {
+    transform: translateY(8rem);
+  }
+  .o-pgrid__list--editorial {
+    padding-bottom: 8rem;
+  }
+}
+
+.js .o-pgrid__list--editorial .o-pgrid__item[data-o-reveal='fade']:nth-child(3n + 2) {
+  transform: translateY(calc(8rem + 24px));
+}
+
+.js .o-pgrid__list--editorial .o-pgrid__item[data-o-reveal='fade'].is-in:nth-child(3n + 2) {
+  transform: translateY(8rem);
+}
+
+@media screen and (max-width: 989px) {
+  .js .o-pgrid__list--editorial .o-pgrid__item[data-o-reveal='fade']:nth-child(3n + 2),
+  .js .o-pgrid__list--editorial .o-pgrid__item[data-o-reveal='fade'].is-in:nth-child(3n + 2) {
+    transform: none;
+  }
+  .o-pgrid__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.o-card__was {
+  color: var(--o-text-muted);
+  margin-right: 0.6rem;
+  font-size: 0.9em;
+}
+
+.o-pgrid__foot {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(4rem, 6vw, 7rem);
+}
+
+.o-pgrid .o-card__price {
+  white-space: normal;
+  text-align: right;
+}
+
+.o-rail[id] {
+  scroll-margin-top: 8rem;
+}
+
+/* Narrow cards: price drops under the title instead of squeezing it */
+.o-card {
+  container-type: inline-size;
+}
+
+@container (max-width: 280px) {
+  .o-card__info {
+    grid-template-columns: auto 1fr;
+    row-gap: 0.4rem;
+  }
+  .o-card__price,
+  .o-pgrid .o-card__price {
+    grid-column: 2;
+    text-align: left;
+    white-space: nowrap;
+  }
+  .o-card__title {
+    font-size: 1.4rem;
+  }
+}
