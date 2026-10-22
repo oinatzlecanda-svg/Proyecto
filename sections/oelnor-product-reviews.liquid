@@ -1,0 +1,85 @@
+{%- comment -%}
+  Reviews: Loox summary from the product's metafields, the Loox widget
+  (filled by the Loox app embed) and an honest empty state.
+  Never shows reviews that do not exist.
+{%- endcomment -%}
+{%- liquid
+  assign r_avg = product.metafields.loox.avg_rating.value
+  assign r_num = product.metafields.loox.num_reviews.value
+  if r_num == blank and product.metafields.reviews.rating_count.value != blank
+    assign r_num = product.metafields.reviews.rating_count.value
+    assign r_avg = product.metafields.reviews.rating.value.rating
+  endif
+  assign r_num = r_num | default: 0
+  assign r_pct = r_avg | default: 0 | times: 20
+-%}
+
+<section class="o-section o-reviews" id="opiniones">
+  <div class="o-container">
+    <div class="o-reviews__head">
+      <div>
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="o-eyebrow" data-o-reveal="fade">{{ section.settings.eyebrow | escape }}</p>
+        {%- endif -%}
+        <h2 class="o-display o-reviews__title" data-o-split>{{ section.settings.heading | escape }}</h2>
+      </div>
+      {%- if r_num > 0 -%}
+        <div class="o-reviews__summary" data-o-reveal="fade" style="--i: 2">
+          <span class="o-reviews__score">{{ r_avg | round: 1 | replace: '.', ',' }}</span>
+          <span class="o-stars" style="--o-rating: {{ r_pct }}%" aria-hidden="true"></span>
+          <p class="o-reviews__count">
+            {{ section.settings.count_prefix | escape }} {{ r_num }} {% if r_num == 1 %}opinión{% else %}opiniones{% endif %}
+            <span class="visually-hidden">, media {{ r_avg | round: 1 }} de 5</span>
+          </p>
+        </div>
+      {%- endif -%}
+    </div>
+
+    {%- if r_num == 0 -%}
+      <div class="o-reviews__empty" data-o-reveal="fade">
+        <span class="o-reviews__empty-icon" aria-hidden="true">{% render 'oelnor-icon', name: 'star' %}</span>
+        <div>
+          <h3>{{ section.settings.empty_title | escape }}</h3>
+          <p>{{ section.settings.empty_text | escape }}</p>
+        </div>
+      </div>
+    {%- endif -%}
+
+    <div class="o-reviews__widget">
+      {%- if section.settings.loox_widget -%}
+        <div id="looxReviews" data-product-id="{{ product.id }}">{{ product.metafields.loox.reviews }}</div>
+      {%- endif -%}
+      {%- for block in section.blocks -%}
+        {%- if block.type == '@app' -%}{% render block %}{%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Oelnor · Opiniones",
+  "tag": "div",
+  "class": "section-oelnor-reviews",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Muestra las opiniones reales de Loox. Activa la integración de Loox en Configuración del tema → Incrustaciones de aplicaciones."
+    },
+    { "type": "text", "id": "eyebrow", "label": "Antetítulo", "default": "Opiniones" },
+    { "type": "text", "id": "heading", "label": "Titular", "default": "Lo que dice quien ya lo lleva." },
+    { "type": "text", "id": "count_prefix", "label": "Texto antes del número", "default": "Basado en" },
+    { "type": "checkbox", "id": "loox_widget", "label": "Mostrar el widget de Loox", "default": true },
+    { "type": "text", "id": "empty_title", "label": "Sin opiniones: título", "default": "Todavía no hay opiniones de esta pieza." },
+    {
+      "type": "textarea",
+      "id": "empty_text",
+      "label": "Sin opiniones: texto",
+      "default": "Cuando recibas tu pedido podrás contarnos qué te parece. Tu opinión ayuda a otras personas a elegir."
+    }
+  ],
+  "blocks": [{ "type": "@app" }],
+  "enabled_on": { "templates": ["product"] },
+  "presets": [{ "name": "Oelnor · Opiniones" }]
+}
+{% endschema %}

@@ -485,6 +485,8 @@
                     block: block,
                     surface: 'product_page'
                   -%}
+                {%- when 'oelnor_rating', 'oelnor_tip', 'oelnor_delivery', 'oelnor_trust', 'oelnor_accordion' -%}
+                  {% render 'oelnor-pdp-block', block: block, product: product %}
                 {%- when 'oelnor_bundles' -%}
                   {%- liquid
                     assign bundle_option = null
@@ -1015,6 +1017,72 @@
       "type": "quantity_selector",
       "name": "t:sections.main-product.blocks.quantity_selector.name",
       "limit": 1
+    },
+    {
+      "type": "oelnor_rating",
+      "name": "Oelnor · Valoración",
+      "limit": 1,
+      "settings": [
+        { "type": "paragraph", "content": "Muestra la nota media y el número de opiniones de Loox. Enlaza con la sección de opiniones." },
+        { "type": "text", "id": "empty_label", "label": "Texto sin opiniones", "default": "Sé la primera persona en opinar" }
+      ]
+    },
+    {
+      "type": "oelnor_tip",
+      "name": "Oelnor · Cómo llevarlo",
+      "limit": 1,
+      "settings": [
+        { "type": "paragraph", "content": "Usa el metacampo custom.oelnor_style_tip de cada producto." },
+        { "type": "text", "id": "label", "label": "Etiqueta", "default": "Cómo llevarlo" },
+        { "type": "textarea", "id": "fallback", "label": "Texto si el producto no tiene consejo" }
+      ]
+    },
+    {
+      "type": "oelnor_delivery",
+      "name": "Oelnor · Entrega estimada",
+      "limit": 1,
+      "settings": [
+        { "type": "paragraph", "content": "Calcula las fechas sumando días hábiles (sin sábados ni domingos) a la fecha de hoy." },
+        { "type": "text", "id": "badge", "label": "Destacado", "default": "Envío gratis" },
+        { "type": "range", "id": "min_days", "min": 1, "max": 20, "step": 1, "default": 8, "label": "Días hábiles mínimos" },
+        { "type": "range", "id": "max_days", "min": 2, "max": 30, "step": 1, "default": 17, "label": "Días hábiles máximos" },
+        { "type": "text", "id": "note", "label": "Nota", "default": "Con número de seguimiento" }
+      ]
+    },
+    {
+      "type": "oelnor_trust",
+      "name": "Oelnor · Confianza",
+      "limit": 1,
+      "settings": [
+        { "type": "select", "id": "icon_1", "label": "Icono 1", "options": [{ "value": "truck", "label": "Envío" }, { "value": "return", "label": "Devolución" }, { "value": "lock", "label": "Pago seguro" }, { "value": "chat", "label": "Atención" }, { "value": "pin", "label": "Seguimiento" }, { "value": "heart", "label": "Corazón" }, { "value": "star", "label": "Estrella" }], "default": "truck" },
+        { "type": "text", "id": "title_1", "label": "Título 1", "default": "Envío gratis" },
+        { "type": "text", "id": "text_1", "label": "Texto 1", "default": "Con seguimiento" },
+        { "type": "select", "id": "icon_2", "label": "Icono 2", "options": [{ "value": "truck", "label": "Envío" }, { "value": "return", "label": "Devolución" }, { "value": "lock", "label": "Pago seguro" }, { "value": "chat", "label": "Atención" }, { "value": "pin", "label": "Seguimiento" }, { "value": "heart", "label": "Corazón" }, { "value": "star", "label": "Estrella" }], "default": "return" },
+        { "type": "text", "id": "title_2", "label": "Título 2", "default": "30 días" },
+        { "type": "text", "id": "text_2", "label": "Texto 2", "default": "Para devolver" },
+        { "type": "select", "id": "icon_3", "label": "Icono 3", "options": [{ "value": "truck", "label": "Envío" }, { "value": "return", "label": "Devolución" }, { "value": "lock", "label": "Pago seguro" }, { "value": "chat", "label": "Atención" }, { "value": "pin", "label": "Seguimiento" }, { "value": "heart", "label": "Corazón" }, { "value": "star", "label": "Estrella" }], "default": "lock" },
+        { "type": "text", "id": "title_3", "label": "Título 3", "default": "Pago seguro" },
+        { "type": "text", "id": "text_3", "label": "Texto 3", "default": "Datos cifrados" },
+        { "type": "select", "id": "icon_4", "label": "Icono 4", "options": [{ "value": "truck", "label": "Envío" }, { "value": "return", "label": "Devolución" }, { "value": "lock", "label": "Pago seguro" }, { "value": "chat", "label": "Atención" }, { "value": "pin", "label": "Seguimiento" }, { "value": "heart", "label": "Corazón" }, { "value": "star", "label": "Estrella" }], "default": "chat" },
+        { "type": "text", "id": "title_4", "label": "Título 4", "default": "Te ayudamos" },
+        { "type": "text", "id": "text_4", "label": "Texto 4", "default": "Respuesta rápida" },
+        { "type": "checkbox", "id": "show_payments", "label": "Mostrar métodos de pago", "default": true }
+      ]
+    },
+    {
+      "type": "oelnor_accordion",
+      "name": "Oelnor · Detalles",
+      "limit": 1,
+      "settings": [
+        { "type": "text", "id": "description_title", "label": "Título de la descripción", "default": "Descripción" },
+        { "type": "checkbox", "id": "open_description", "label": "Descripción abierta", "default": false },
+        { "type": "text", "id": "title_1", "label": "Título 1", "default": "Envíos" },
+        { "type": "richtext", "id": "content_1", "label": "Contenido 1" },
+        { "type": "text", "id": "title_2", "label": "Título 2", "default": "Devoluciones" },
+        { "type": "richtext", "id": "content_2", "label": "Contenido 2" },
+        { "type": "text", "id": "title_3", "label": "Título 3", "default": "Pago seguro" },
+        { "type": "richtext", "id": "content_3", "label": "Contenido 3" }
+      ]
     },
     {
       "type": "oelnor_bundles",

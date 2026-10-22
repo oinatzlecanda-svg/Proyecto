@@ -6,11 +6,21 @@
         "title": {
           "type": "title"
         },
+        "rating": {
+          "type": "oelnor_rating",
+          "settings": {
+            "empty_label": "Sé la primera persona en opinar"
+          }
+        },
         "price": {
           "type": "price"
         },
-        "rating": {
-          "type": "rating"
+        "tip": {
+          "type": "oelnor_tip",
+          "settings": {
+            "label": "Cómo llevarlo",
+            "fallback": ""
+          }
         },
         "variant_picker": {
           "type": "variant_picker",
@@ -19,8 +29,13 @@
             "swatch_shape": "circle"
           }
         },
-        "quantity_selector": {
-          "type": "quantity_selector"
+        "inventory": {
+          "type": "inventory",
+          "settings": {
+            "text_style": "body",
+            "inventory_threshold": 5,
+            "show_inventory_quantity": true
+          }
         },
         "buy_buttons": {
           "type": "buy_buttons",
@@ -29,48 +44,68 @@
             "show_gift_card_recipient": true
           }
         },
-        "benefits": {
-          "type": "icon-with-text",
+        "delivery": {
+          "type": "oelnor_delivery",
           "settings": {
-            "layout": "horizontal",
-            "icon_1": "lock",
-            "heading_1": "Pago seguro",
-            "icon_2": "truck",
-            "heading_2": "Envío con seguimiento",
-            "icon_3": "chat_bubble",
-            "heading_3": "Atención al cliente"
+            "badge": "Envío gratis",
+            "min_days": 8,
+            "max_days": 17,
+            "note": "Con número de seguimiento"
           }
         },
-        "description": {
-          "type": "description"
+        "trust": {
+          "type": "oelnor_trust",
+          "settings": {
+            "icon_1": "truck",
+            "title_1": "Envío gratis",
+            "text_1": "Con seguimiento",
+            "icon_2": "return",
+            "title_2": "30 días",
+            "text_2": "Para devolver",
+            "icon_3": "lock",
+            "title_3": "Pago seguro",
+            "text_3": "Datos cifrados",
+            "icon_4": "chat",
+            "title_4": "Te ayudamos",
+            "text_4": "Respuesta rápida",
+            "show_payments": true
+          }
+        },
+        "details": {
+          "type": "oelnor_accordion",
+          "settings": {
+            "description_title": "Descripción",
+            "open_description": true,
+            "title_1": "Envíos",
+            "content_1": "<p>Preparamos tu pedido en 1–3 días hábiles y el transporte tarda 7–14 días hábiles. Recibirás un número de seguimiento por email.</p><p><a href=\"/policies/shipping-policy\" title=\"Política de envíos\">Ver política de envíos</a></p>",
+            "title_2": "Devoluciones",
+            "content_2": "<p>Tienes 30 días desde que recibes tu pedido para devolverlo.</p><p><a href=\"/policies/refund-policy\" title=\"Política de devoluciones\">Ver política de devoluciones</a></p>",
+            "title_3": "Pago seguro",
+            "content_3": "<p>El pago se procesa de forma cifrada a través de Shopify con los métodos que ves arriba. Oelnor no guarda los datos de tu tarjeta.</p>"
+          }
         },
         "disclosures": {
           "type": "disclosures"
-        },
-        "share": {
-          "type": "share",
-          "settings": {
-            "share_label": "Compartir"
-          }
         }
       },
       "block_order": [
         "title",
-        "price",
         "rating",
+        "price",
+        "tip",
         "variant_picker",
-        "quantity_selector",
+        "inventory",
         "buy_buttons",
-        "benefits",
-        "description",
-        "disclosures",
-        "share"
+        "delivery",
+        "trust",
+        "details",
+        "disclosures"
       ],
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
         "media_position": "left",
-        "gallery_layout": "thumbnail",
+        "gallery_layout": "stacked",
         "media_size": "large",
         "constrain_to_viewport": true,
         "media_fit": "contain",
@@ -119,7 +154,8 @@
         "desktop_layout": "image_first",
         "padding_top": 0,
         "padding_bottom": 20
-      }
+      },
+      "disabled": true
     },
     "problem-product-result": {
       "type": "problem-product-result",
@@ -129,7 +165,8 @@
         "color_scheme": "scheme-2",
         "padding_top": 48,
         "padding_bottom": 48
-      }
+      },
+      "disabled": true
     },
     "how-it-works": {
       "type": "how-it-works",
@@ -140,7 +177,8 @@
         "color_scheme": "scheme-1",
         "padding_top": 48,
         "padding_bottom": 48
-      }
+      },
+      "disabled": true
     },
     "related-products": {
       "type": "related-products",
@@ -175,16 +213,132 @@
         "text": ""
       },
       "blocks": {},
+      "block_order": [],
+      "disabled": true
+    },
+    "oelnor-barra": {
+      "type": "oelnor-product-sticky",
+      "settings": {
+        "label": "Añadir a la cesta"
+      }
+    },
+    "oelnor-look": {
+      "type": "oelnor-product-look",
+      "settings": {
+        "eyebrow": "Completa el look",
+        "heading": "Combínalo con.",
+        "limit": 4
+      }
+    },
+    "oelnor-opiniones": {
+      "type": "oelnor-product-reviews",
+      "settings": {
+        "eyebrow": "Opiniones",
+        "heading": "Lo que dice quien ya lo lleva.",
+        "count_prefix": "Basado en",
+        "loox_widget": true,
+        "empty_title": "Todavía no hay opiniones de esta pieza.",
+        "empty_text": "Cuando recibas tu pedido podrás contarnos qué te parece. Tu opinión ayuda a otras personas a elegir."
+      },
+      "blocks": {},
       "block_order": []
+    },
+    "oelnor-promesa": {
+      "type": "oelnor-product-promise",
+      "settings": {
+        "eyebrow": "Nuestra promesa",
+        "heading": "Compra con tranquilidad.",
+        "text": "Si algo no es como esperabas, lo solucionamos. Sin letra pequeña."
+      },
+      "blocks": {
+        "p1": {
+          "type": "promise",
+          "settings": {
+            "icon": "truck",
+            "title": "Envío gratis",
+            "text": "Con número de seguimiento en cada pedido.",
+            "link": "shopify://pages/localizar-pedido"
+          }
+        },
+        "p2": {
+          "type": "promise",
+          "settings": {
+            "icon": "return",
+            "title": "30 días para devolver",
+            "text": "Desde que recibes tu pedido.",
+            "link": "/policies/refund-policy"
+          }
+        },
+        "p3": {
+          "type": "promise",
+          "settings": {
+            "icon": "lock",
+            "title": "Pago seguro",
+            "text": "Pagos cifrados con los principales métodos.",
+            "link": ""
+          }
+        },
+        "p4": {
+          "type": "promise",
+          "settings": {
+            "icon": "chat",
+            "title": "Atención cercana",
+            "text": "Escríbenos y te respondemos lo antes posible.",
+            "link": "shopify://pages/contact"
+          }
+        },
+        "f1": {
+          "type": "faq",
+          "settings": {
+            "question": "¿Cuándo llega mi pedido?",
+            "answer": "<p>Lo preparamos en 1–3 días hábiles y el transporte tarda 7–14 días hábiles. En la ficha de cada producto verás la fecha estimada.</p>"
+          }
+        },
+        "f2": {
+          "type": "faq",
+          "settings": {
+            "question": "¿Cómo sé dónde está mi pedido?",
+            "answer": "<p>Te enviamos un número de seguimiento por email. También puedes consultarlo en <a href=\"/pages/localizar-pedido\" title=\"Localizar pedido\">Localizar pedido</a>.</p>"
+          }
+        },
+        "f3": {
+          "type": "faq",
+          "settings": {
+            "question": "¿Puedo devolverlo si no me convence?",
+            "answer": "<p>Sí, tienes 30 días desde que lo recibes. Consulta los pasos en la <a href=\"/policies/refund-policy\" title=\"Política de devoluciones\">política de devoluciones</a>.</p>"
+          }
+        },
+        "f4": {
+          "type": "faq",
+          "settings": {
+            "question": "¿Qué talla elijo?",
+            "answer": "<p>Si dudas entre dos tallas, <a href=\"/pages/contact\" title=\"Contacto\">escríbenos</a> antes de comprar y te ayudamos a elegir.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "p3",
+        "p4",
+        "f1",
+        "f2",
+        "f3",
+        "f4"
+      ]
     }
   },
   "order": [
     "main",
+    "oelnor-barra",
+    "oelnor-look",
+    "oelnor-opiniones",
+    "oelnor-promesa",
     "oelnor-vista-3d",
+    "related-products",
     "oelnor-historia",
     "product-details",
     "problem-product-result",
-    "how-it-works",
-    "related-products"
+    "how-it-works"
   ]
 }

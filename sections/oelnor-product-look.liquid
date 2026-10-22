@@ -1,0 +1,75 @@
+{{ 'oelnor-sections.css' | asset_url | stylesheet_tag }}
+
+{%- comment -%}
+  Complete the look: a detail photo of the product next to Shopify's
+  complementary recommendations (falls back to related products in JS).
+  The section renders itself again as the recommendations endpoint.
+{%- endcomment -%}
+{%- liquid
+  assign look_media = product.media[1] | default: product.featured_media
+-%}
+
+<section class="o-section o-look">
+  <div
+    class="o-container o-look__grid"
+    data-o-look
+    data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit={{ section.settings.limit }}"
+  >
+    <figure class="o-look__media" data-o-reveal="clip">
+      <div class="o-look__parallax" data-o-parallax="0.08">
+        {%- if look_media -%}
+          {{ look_media | image_url: width: 1400 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 40vw, 92vw', widths: '540, 720, 960, 1200, 1400', alt: product.title }}
+        {%- else -%}
+          {{ 'product-apparel-2' | placeholder_svg_tag: 'o-placeholder' }}
+        {%- endif -%}
+      </div>
+    </figure>
+
+    <div class="o-look__copy">
+      <div class="o-look__head">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="o-eyebrow" data-o-reveal="fade">{{ section.settings.eyebrow | escape }}</p>
+        {%- endif -%}
+        <h2 class="o-display o-look__title" data-o-split>{{ section.settings.heading | escape }}</h2>
+      </div>
+      <ul class="o-look__list" role="list" data-o-look-list>
+        {%- if recommendations.performed? and recommendations.products_count > 0 -%}
+          {%- for rec in recommendations.products -%}
+            <li data-o-reveal="fade" style="--i: {{ forloop.index0 }}">
+              <a class="o-card" href="{{ rec.url }}" data-o-cursor="Ver">
+                <div class="o-card__media">
+                  {%- if rec.featured_media -%}
+                    {{ rec.featured_media | image_url: width: 700 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 22vw, 45vw', widths: '360, 540, 700', class: 'o-card__img', alt: rec.title }}
+                  {%- endif -%}
+                </div>
+                <div class="o-card__info">
+                  <h3 class="o-card__title">{{ rec.title | escape }}</h3>
+                  <span class="o-card__price">{{ rec.price | money }}</span>
+                </div>
+              </a>
+            </li>
+          {%- endfor -%}
+        {%- endif -%}
+      </ul>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Oelnor · Completa el look",
+  "tag": "div",
+  "class": "section-oelnor-look",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Usa los productos complementarios de Search & Discovery. Si el producto no tiene, muestra productos relacionados."
+    },
+    { "type": "text", "id": "eyebrow", "label": "Antetítulo", "default": "Completa el look" },
+    { "type": "text", "id": "heading", "label": "Titular", "default": "Combínalo con." },
+    { "type": "range", "id": "limit", "min": 2, "max": 6, "step": 2, "default": 4, "label": "Productos" }
+  ],
+  "enabled_on": { "templates": ["product"] },
+  "presets": [{ "name": "Oelnor · Completa el look" }]
+}
+{% endschema %}

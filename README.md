@@ -351,3 +351,13 @@ Plantilla `page.about.json` (asignada a la página `sobre-oelnor`):
 - **Oelnor · Capítulos** (`oelnor-about-chapters`): capítulos numerados con foto alternando lado (un capítulo sin foto se centra como texto). Lo que nos gusta · Nuestra selección · Cómo vestimos · Nuestro compromiso (con botón a Contacto).
 - Marquee arena "Diseño · Funcionalidad · Personalidad", Filosofía ("Eso es Oelnor") con tres principios, tira de fotos de producto, destacado final "Encuentra lo tuyo." y confianza.
 - Textos tomados de las páginas "Sobre Oelnor" y "Sobre nosotros". El contenido del editor de la página ya no se muestra en esta plantilla: se edita desde el personalizador del tema.
+
+## 23. Página de producto orientada a conversión
+
+Plantillas `product.json` y `product.bundles.json` (mallas con packs):
+
+- **Galería editorial** (`gallery_layout: stacked`): primera foto a ancho completo y el resto en dos columnas, con contador "01 / 05" que sigue el scroll.
+- **Bloques nuevos de la ficha** (snippet `oelnor-pdp-block`): Valoración (Loox), Cómo llevarlo (metacampo `custom.oelnor_style_tip`), Entrega estimada (fecha calculada en días hábiles: 8–17, según la política de envíos), Confianza (4 garantías + métodos de pago reales de la tienda) y Detalles (descripción, envíos, devoluciones y pago en acordeón). Se mantienen el selector de variantes, el aviso de stock bajo (dato real, umbral 5) y el botón de compra de Dawn, así que el carrito (Upcart) sigue funcionando.
+- **Secciones**: Barra de compra fija (aparece al pasar el botón principal y pulsa el botón real), Completa el look (productos complementarios de Search & Discovery o relacionados), Opiniones (widget real de Loox + estado vacío honesto; nunca muestra opiniones inventadas) y Compra tranquila (garantías enlazadas + preguntas frecuentes).
+- CSS y JS propios (`oelnor-product.css`, `oelnor-product.js`) solo se cargan en páginas de producto.
+- **Loox**: activa la incrustación de la app en *Personalizar → Configuración del tema → Incrustaciones de aplicaciones* para que el widget cargue las opiniones.

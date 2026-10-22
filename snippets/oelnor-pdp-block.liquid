@@ -1,0 +1,115 @@
+{%- comment -%}
+  Oelnor buy-box blocks for main-product: rating, style tip, delivery
+  estimate, trust row and details accordion.
+  Accepts: block, product
+{%- endcomment -%}
+{%- case block.type -%}
+  {%- when 'oelnor_rating' -%}
+    {%- liquid
+      assign r_avg = product.metafields.loox.avg_rating.value
+      assign r_num = product.metafields.loox.num_reviews.value
+      if r_num == blank and product.metafields.reviews.rating_count.value != blank
+        assign r_num = product.metafields.reviews.rating_count.value
+        assign r_avg = product.metafields.reviews.rating.value.rating
+      endif
+      assign r_num = r_num | default: 0
+      assign r_pct = r_avg | default: 0 | times: 20
+    -%}
+    <a class="o-pdp-rating" href="#opiniones" {{ block.shopify_attributes }}>
+      {%- if r_num > 0 -%}
+        <span class="o-stars" style="--o-rating: {{ r_pct }}%" aria-hidden="true"></span>
+        <span class="o-pdp-rating__text">
+          <strong>{{ r_avg | round: 1 | replace: '.', ',' }}</strong>
+          <span>{{ r_num }} {% if r_num == 1 %}opinión{% else %}opiniones{% endif %}</span>
+        </span>
+        <span class="visually-hidden">Valoración media {{ r_avg | round: 1 }} de 5</span>
+      {%- else -%}
+        <span class="o-stars o-stars--empty" aria-hidden="true"></span>
+        <span class="o-pdp-rating__text">{{ block.settings.empty_label | escape }}</span>
+      {%- endif -%}
+    </a>
+
+  {%- when 'oelnor_tip' -%}
+    {%- assign tip = product.metafields.custom.oelnor_style_tip.value | default: block.settings.fallback -%}
+    {%- if tip != blank -%}
+      <div class="o-pdp-tip" {{ block.shopify_attributes }}>
+        <span class="o-pdp-tip__label">{{ block.settings.label | escape }}</span>
+        <p class="o-pdp-tip__text">{{ tip | escape }}</p>
+      </div>
+    {%- endif -%}
+
+  {%- when 'oelnor_delivery' -%}
+    <div
+      class="o-pdp-delivery"
+      data-o-delivery
+      data-min="{{ block.settings.min_days }}"
+      data-max="{{ block.settings.max_days }}"
+      {{ block.shopify_attributes }}
+    >
+      <span class="o-pdp-delivery__icon" aria-hidden="true">
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 9h16v13H3zM19 13h6l4 5v4h-10z"/><circle cx="9" cy="24" r="2.5"/><circle cx="24" cy="24" r="2.5"/></svg>
+      </span>
+      <p class="o-pdp-delivery__text">
+        {%- if block.settings.badge != blank -%}<strong>{{ block.settings.badge | escape }}</strong>{%- endif -%}
+        <span data-o-delivery-text>Entrega estimada en {{ block.settings.min_days }}–{{ block.settings.max_days }} días hábiles</span>
+        {%- if block.settings.note != blank -%}<small>{{ block.settings.note | escape }}</small>{%- endif -%}
+      </p>
+    </div>
+
+  {%- when 'oelnor_trust' -%}
+    <div class="o-pdp-trust" {{ block.shopify_attributes }}>
+      <ul class="o-pdp-trust__list" role="list">
+        {%- for i in (1..4) -%}
+          {%- liquid
+            assign t_key = 'title_' | append: i
+            assign x_key = 'text_' | append: i
+            assign i_key = 'icon_' | append: i
+            assign t_title = block.settings[t_key]
+          -%}
+          {%- if t_title != blank -%}
+            <li class="o-pdp-trust__item">
+              <span class="o-pdp-trust__icon" aria-hidden="true">{% render 'oelnor-icon', name: block.settings[i_key] %}</span>
+              <span class="o-pdp-trust__copy">
+                <strong>{{ t_title | escape }}</strong>
+                {%- if block.settings[x_key] != blank -%}<span>{{ block.settings[x_key] | escape }}</span>{%- endif -%}
+              </span>
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ul>
+      {%- if block.settings.show_payments and shop.enabled_payment_types.size > 0 -%}
+        <div class="o-pdp-trust__pay">
+          <span class="visually-hidden">Métodos de pago aceptados</span>
+          <ul class="o-pdp-trust__pay-list" role="list">
+            {%- for type in shop.enabled_payment_types -%}
+              <li>{{ type | payment_type_svg_tag: class: 'o-pay-icon' }}</li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      {%- endif -%}
+    </div>
+
+  {%- when 'oelnor_accordion' -%}
+    <div class="o-pdp-acc" {{ block.shopify_attributes }}>
+      {%- if product.description != blank -%}
+        <details class="o-pdp-acc__item"{% if block.settings.open_description %} open{% endif %}>
+          <summary><span>{{ block.settings.description_title | escape }}</span><span class="o-pdp-acc__plus" aria-hidden="true"></span></summary>
+          <div class="o-pdp-acc__body rte">{{ product.description }}</div>
+        </details>
+      {%- endif -%}
+      {%- for i in (1..3) -%}
+        {%- liquid
+          assign a_tkey = 'title_' | append: i
+          assign a_ckey = 'content_' | append: i
+          assign a_title = block.settings[a_tkey]
+          assign a_body = block.settings[a_ckey]
+        -%}
+        {%- if a_title != blank and a_body != blank -%}
+          <details class="o-pdp-acc__item">
+            <summary><span>{{ a_title | escape }}</span><span class="o-pdp-acc__plus" aria-hidden="true"></span></summary>
+            <div class="o-pdp-acc__body rte">{{ a_body }}</div>
+          </details>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+{%- endcase -%}

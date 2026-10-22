@@ -1,0 +1,40 @@
+{%- comment -%}
+  Sticky add-to-cart bar. Appears once the main "Añadir a la cesta" button
+  has scrolled out of view, mirrors the selected variant and price, and
+  clicks the real button so the cart drawer app keeps working.
+{%- endcomment -%}
+{%- if product -%}
+  <div class="o-sticky-atc" data-o-sticky-atc>
+    <div class="o-sticky-atc__inner">
+      <div class="o-sticky-atc__img">
+        {%- if product.featured_media -%}
+          {{ product.featured_media | image_url: width: 120 | image_tag: loading: 'lazy', alt: '' }}
+        {%- endif -%}
+      </div>
+      <div class="o-sticky-atc__info">
+        <span class="o-sticky-atc__title">{{ product.title | escape }}</span>
+        <span class="o-sticky-atc__meta">
+          <strong data-o-sticky-price>{{ product.selected_or_first_available_variant.price | money }}</strong>
+          <span data-o-sticky-variant></span>
+        </span>
+      </div>
+      <button type="button" class="o-btn" data-o-sticky-btn>
+        <span data-o-sticky-label>{{ section.settings.label | escape }}</span>
+      </button>
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Oelnor · Barra de compra",
+  "tag": "div",
+  "class": "section-oelnor-sticky-atc",
+  "settings": [
+    { "type": "paragraph", "content": "Barra fija con el botón de compra que aparece al bajar por la página de producto." },
+    { "type": "text", "id": "label", "label": "Texto del botón", "default": "Añadir a la cesta" }
+  ],
+  "enabled_on": { "templates": ["product"] },
+  "presets": [{ "name": "Oelnor · Barra de compra" }]
+}
+{% endschema %}

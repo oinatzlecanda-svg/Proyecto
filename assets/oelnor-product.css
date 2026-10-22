@@ -1,0 +1,727 @@
+/* ==========================================================================
+   Oelnor — product page (buy box blocks, gallery counter, sticky bar,
+   complete-the-look, reviews and promise sections).
+   Motion: transform / opacity / clip-path only, reduced-motion aware.
+   ========================================================================== */
+
+/* ---------------- Buy box rhythm ---------------- */
+.product__info-container > * + * {
+  margin-top: 0;
+}
+
+.product__info-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+.product__info-container .product__title {
+  margin: 0;
+}
+
+.product__title h1 {
+  font-size: clamp(3rem, 2.6vw, 4.4rem);
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+/* ---------------- Rating ---------------- */
+.o-stars {
+  --o-star: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1 5.9L10 14.9l-5.2 2.8 1-5.9L1.5 7.7l5.9-.8z'/%3E%3C/svg%3E");
+  display: inline-block;
+  flex: none;
+  width: 9rem;
+  height: 1.6rem;
+  background: linear-gradient(90deg, var(--o-accent) var(--o-rating, 0%), var(--o-surface-strong) 0);
+  -webkit-mask: var(--o-star) left center / 1.8rem 1.6rem repeat-x;
+  mask: var(--o-star) left center / 1.8rem 1.6rem repeat-x;
+}
+
+.o-stars--empty {
+  background: var(--o-surface-strong);
+}
+
+.o-pdp-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  width: fit-content;
+  color: var(--o-text-muted);
+  font-size: 1.4rem;
+  text-decoration: none;
+  touch-action: manipulation;
+}
+
+.o-pdp-rating__text {
+  display: inline-flex;
+  gap: 0.6rem;
+}
+
+.o-pdp-rating__text strong {
+  color: var(--o-text);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .o-pdp-rating:hover .o-pdp-rating__text {
+    text-decoration: underline;
+    text-underline-offset: 0.3em;
+  }
+}
+
+/* ---------------- Style tip ---------------- */
+.o-pdp-tip {
+  position: relative;
+  padding: 1.6rem 1.8rem 1.6rem 2.2rem;
+  border-radius: 1.2rem;
+  background: var(--o-bg-alt);
+}
+
+.o-pdp-tip::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 1.6rem;
+  bottom: 1.6rem;
+  width: 3px;
+  border-radius: 3px;
+  background: var(--o-accent);
+}
+
+.o-pdp-tip__label {
+  display: block;
+  margin-bottom: 0.6rem;
+  font-size: 1.1rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--o-accent);
+}
+
+.o-pdp-tip__text {
+  margin: 0;
+  font-size: 1.5rem;
+  line-height: 1.55;
+  color: var(--o-text);
+}
+
+/* ---------------- Delivery estimate ---------------- */
+.o-pdp-delivery {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  padding: 1.4rem 1.6rem;
+  border: 1px solid var(--o-line);
+  border-radius: 1.2rem;
+}
+
+.o-pdp-delivery__icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background: var(--o-bg-alt);
+  color: var(--o-accent);
+}
+
+.o-pdp-delivery__icon svg {
+  width: 2.2rem;
+}
+
+.o-pdp-delivery__text {
+  display: grid;
+  gap: 0.2rem;
+  margin: 0;
+  font-size: 1.45rem;
+  line-height: 1.4;
+  color: var(--o-text);
+}
+
+.o-pdp-delivery__text strong {
+  font-weight: 600;
+}
+
+.o-pdp-delivery__text small {
+  font-size: 1.25rem;
+  color: var(--o-text-muted);
+}
+
+/* ---------------- Trust grid + payment icons ---------------- */
+.o-pdp-trust__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid var(--o-line);
+}
+
+.o-pdp-trust__item {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.4rem 0.4rem;
+  border-bottom: 1px solid var(--o-line);
+}
+
+.o-pdp-trust__item:nth-child(odd) {
+  padding-right: 1.2rem;
+  border-right: 1px solid var(--o-line);
+}
+
+.o-pdp-trust__item:nth-child(even) {
+  padding-left: 1.6rem;
+}
+
+.o-pdp-trust__icon {
+  flex: none;
+  width: 2.6rem;
+  color: var(--o-accent);
+}
+
+.o-pdp-trust__copy {
+  display: grid;
+  font-size: 1.3rem;
+  line-height: 1.35;
+  color: var(--o-text-muted);
+}
+
+.o-pdp-trust__copy strong {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--o-text);
+}
+
+.o-pdp-trust__pay {
+  margin-top: 1.4rem;
+}
+
+.o-pdp-trust__pay-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.o-pay-icon {
+  display: block;
+  width: 3.8rem;
+  height: 2.4rem;
+}
+
+/* ---------------- Details accordion ---------------- */
+.o-pdp-acc {
+  border-top: 1px solid var(--o-line);
+}
+
+.o-pdp-acc__item {
+  border-bottom: 1px solid var(--o-line);
+}
+
+.o-pdp-acc__item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.6rem;
+  padding: 1.8rem 0;
+  cursor: pointer;
+  list-style: none;
+  font-size: 1.3rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--o-text);
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  user-select: none;
+}
+
+.o-pdp-acc__item summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Plus that turns into a minus: one bar rotates flat */
+.o-pdp-acc__plus {
+  position: relative;
+  flex: none;
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.o-pdp-acc__plus::before,
+.o-pdp-acc__plus::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+}
+
+.o-pdp-acc__plus::after {
+  transform: rotate(90deg);
+  transition: transform 240ms var(--o-ease-out);
+}
+
+.o-pdp-acc__item[open] .o-pdp-acc__plus::after {
+  transform: rotate(0deg);
+}
+
+.o-pdp-acc__body {
+  padding-bottom: 2rem;
+  font-size: 1.5rem;
+  line-height: 1.65;
+  color: var(--o-text-muted);
+}
+
+.o-pdp-acc__item[open] .o-pdp-acc__body {
+  animation: o-acc-in 260ms var(--o-ease-out);
+}
+
+@keyframes o-acc-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+
+/* ---------------- Gallery: image counter ---------------- */
+.o-gallery-count {
+  position: sticky;
+  z-index: 2;
+  bottom: 2.4rem;
+  display: none;
+  width: fit-content;
+  margin: -6.4rem 0 2.4rem 2.4rem;
+  padding: 0.8rem 1.4rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--o-bg) 85%, transparent);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--o-line);
+  font-size: 1.2rem;
+  letter-spacing: 0.16em;
+  font-variant-numeric: tabular-nums;
+  color: var(--o-text);
+  pointer-events: none;
+}
+
+@media screen and (min-width: 990px) {
+  .product--stacked .o-gallery-count {
+    display: block;
+  }
+  .product--stacked .product__media-list {
+    row-gap: 1.2rem;
+  }
+}
+
+/* ---------------- Sticky add-to-cart bar ---------------- */
+.o-sticky-atc {
+  position: fixed;
+  z-index: 30;
+  left: 50%;
+  bottom: 0;
+  width: min(100%, 76rem);
+  padding: 1rem 1rem calc(1rem + env(safe-area-inset-bottom, 0px));
+  transform: translate(-50%, 110%);
+  transition: transform 220ms var(--o-ease-out);
+  pointer-events: none;
+}
+
+.o-sticky-atc.is-visible {
+  transform: translate(-50%, 0);
+  transition: transform 420ms var(--o-ease-drawer);
+  pointer-events: auto;
+}
+
+.o-sticky-atc__inner {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 0.8rem 0.8rem 0.8rem 0.8rem;
+  border-radius: 1.6rem;
+  background: color-mix(in srgb, var(--o-bg) 92%, transparent);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--o-line);
+  box-shadow: 0 1.6rem 4rem -2rem rgba(var(--o-overlay-rgb), 0.35);
+}
+
+.o-sticky-atc__img {
+  flex: none;
+  width: 4.8rem;
+  height: 5.6rem;
+  border-radius: 0.8rem;
+  overflow: hidden;
+  background: var(--o-surface);
+}
+
+.o-sticky-atc__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.o-sticky-atc__info {
+  min-width: 0;
+  flex: 1;
+  display: grid;
+  gap: 0.2rem;
+}
+
+.o-sticky-atc__title {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 1.35rem;
+  color: var(--o-text);
+}
+
+.o-sticky-atc__meta {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 1.25rem;
+  color: var(--o-text-muted);
+}
+
+.o-sticky-atc__meta strong {
+  color: var(--o-text);
+  font-weight: 600;
+}
+
+.o-sticky-atc .o-btn {
+  flex: none;
+  padding: 1.3rem 2rem;
+  font-size: 1.25rem;
+  touch-action: manipulation;
+  user-select: none;
+}
+
+.o-sticky-atc .o-btn[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media screen and (max-width: 749px) {
+  .o-sticky-atc {
+    padding-inline: 0.8rem;
+  }
+  .o-sticky-atc__img {
+    display: none;
+  }
+}
+
+/* ---------------- Complete the look ---------------- */
+.o-look {
+  padding-block: clamp(6rem, 9vw, 12rem);
+}
+
+.o-look__grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: clamp(3.2rem, 6vw, 9rem);
+  align-items: center;
+}
+
+.o-look__media {
+  margin: 0;
+  aspect-ratio: 4 / 5;
+  border-radius: 1.2rem;
+  overflow: hidden;
+  background: var(--o-surface);
+}
+
+.o-look__parallax {
+  height: 120%;
+  margin-top: -10%;
+}
+
+.o-look__parallax img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.o-look__head {
+  display: grid;
+  gap: 1.4rem;
+  margin-bottom: 3.2rem;
+}
+
+.o-look__title {
+  font-size: clamp(3.4rem, 4.4vw, 6.4rem);
+  text-transform: uppercase;
+}
+
+.o-look__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.4rem 1.6rem;
+}
+
+.o-look__empty {
+  color: var(--o-text-muted);
+}
+
+@media screen and (max-width: 989px) {
+  .o-look__grid {
+    grid-template-columns: 1fr;
+  }
+  .o-look__media {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+/* ---------------- Reviews ---------------- */
+.o-reviews {
+  padding-block: clamp(6rem, 9vw, 12rem);
+  scroll-margin-top: 8rem;
+}
+
+.o-reviews__head {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 3.2rem;
+  align-items: end;
+  margin-bottom: clamp(3.2rem, 5vw, 6rem);
+}
+
+.o-reviews__title {
+  font-size: clamp(3.4rem, 5vw, 7.2rem);
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.o-reviews__summary {
+  display: grid;
+  justify-items: start;
+  gap: 1rem;
+  padding: 2.4rem;
+  border-radius: 1.6rem;
+  background: var(--o-bg-alt);
+}
+
+.o-reviews__score {
+  font-family: var(--font-heading-family);
+  font-size: clamp(5.6rem, 6vw, 8rem);
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  color: var(--o-text);
+}
+
+.o-reviews__summary .o-stars {
+  width: 12.5rem;
+  height: 2.2rem;
+  -webkit-mask-size: 2.5rem 2.2rem;
+  mask-size: 2.5rem 2.2rem;
+}
+
+.o-reviews__count {
+  margin: 0;
+  font-size: 1.4rem;
+  color: var(--o-text-muted);
+}
+
+.o-reviews__empty {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2.4rem;
+  align-items: center;
+  padding: clamp(2.4rem, 4vw, 4rem);
+  border: 1px dashed var(--o-line-strong);
+  border-radius: 1.6rem;
+}
+
+.o-reviews__empty-icon {
+  display: grid;
+  place-items: center;
+  width: 6.4rem;
+  height: 6.4rem;
+  border-radius: 50%;
+  background: var(--o-bg-alt);
+  color: var(--o-accent);
+}
+
+.o-reviews__empty-icon svg {
+  width: 3rem;
+}
+
+.o-reviews__empty h3 {
+  margin: 0 0 0.6rem;
+  font-family: var(--font-heading-family);
+  font-size: clamp(2rem, 2vw, 2.6rem);
+  font-weight: 500;
+  color: var(--o-text);
+}
+
+.o-reviews__empty p {
+  margin: 0;
+  max-width: 60ch;
+  font-size: 1.5rem;
+  line-height: 1.6;
+  color: var(--o-text-muted);
+}
+
+/* Loox widget: let it breathe inside our layout */
+.o-reviews__widget:empty {
+  display: none;
+}
+
+.o-reviews__widget {
+  margin-top: 3.2rem;
+}
+
+@media screen and (max-width: 749px) {
+  .o-reviews__head {
+    grid-template-columns: 1fr;
+  }
+  .o-reviews__empty {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------------- Promise / guarantee ---------------- */
+.o-promise {
+  padding-block: clamp(6rem, 9vw, 12rem);
+}
+
+.o-promise__grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: clamp(3.2rem, 6vw, 10rem);
+}
+
+.o-promise__title {
+  font-size: clamp(3.4rem, 4.6vw, 6.8rem);
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.o-promise__lead {
+  display: grid;
+  align-content: start;
+  gap: 2rem;
+}
+
+.o-promise__text {
+  margin: 0;
+  max-width: 40ch;
+  font-size: 1.6rem;
+  line-height: 1.6;
+  color: var(--o-text-muted);
+}
+
+.o-promise__items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
+
+.o-promise__items > li {
+  display: grid;
+}
+
+.o-promise__item {
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+  padding: 2.4rem;
+  border-radius: 1.6rem;
+  background: var(--o-bg-alt);
+  color: inherit;
+  text-decoration: none;
+}
+
+a.o-promise__item {
+  transition: transform 160ms var(--o-ease-out);
+  touch-action: manipulation;
+}
+
+a.o-promise__item:active {
+  transform: scale(0.98);
+}
+
+.o-promise__icon {
+  width: 3.2rem;
+  color: var(--o-accent);
+}
+
+.o-promise__item strong {
+  font-family: var(--font-heading-family);
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--o-text);
+}
+
+.o-promise__item span {
+  font-size: 1.4rem;
+  line-height: 1.5;
+  color: var(--o-text-muted);
+}
+
+.o-promise__faq {
+  margin-top: clamp(4rem, 6vw, 8rem);
+}
+
+@media screen and (max-width: 989px) {
+  .o-promise__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .o-promise__items {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .o-sticky-atc,
+  .o-sticky-atc.is-visible {
+    transition: opacity 200ms ease;
+  }
+  .o-sticky-atc {
+    opacity: 0;
+    transform: translate(-50%, 0);
+  }
+  .o-sticky-atc.is-visible {
+    opacity: 1;
+  }
+  .o-pdp-acc__item[open] .o-pdp-acc__body {
+    animation: none;
+  }
+}
+
+/* Size tables inside product descriptions */
+.o-pdp-acc__body {
+  overflow-x: auto;
+}
+
+.o-pdp-acc__body table {
+  width: 100%;
+  min-width: 32rem;
+  border-collapse: collapse;
+  font-size: 1.3rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--o-text);
+}
+
+.o-pdp-acc__body th,
+.o-pdp-acc__body td {
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid var(--o-line);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.o-pdp-acc__body th {
+  font-weight: 600;
+  background: var(--o-bg-alt);
+}
