@@ -1318,6 +1318,40 @@
     ]
   },
   {
+    "name": "Oelnor · Seguimiento",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Envuelve la página de seguimiento de ParcelPanel con el diseño de Oelnor (cabecera, plazos y ayuda) y adapta su formulario a la estética de la tienda."
+      },
+      {
+        "type": "checkbox",
+        "id": "oelnor_pp_enable",
+        "label": "Aplicar diseño Oelnor a la página de seguimiento",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "oelnor_pp_path",
+        "label": "Ruta de la página de seguimiento",
+        "default": "/apps/parcelpanel",
+        "info": "Cámbiala solo si has cambiado la URL en ParcelPanel."
+      },
+      {
+        "type": "text",
+        "id": "oelnor_pp_heading",
+        "label": "Titular",
+        "default": "Localiza tu pedido."
+      },
+      {
+        "type": "textarea",
+        "id": "oelnor_pp_text",
+        "label": "Texto",
+        "default": "Introduce tu número de pedido y tu email, o el número de seguimiento, para ver dónde está tu envío."
+      }
+    ]
+  },
+  {
     "name": "t:settings_schema.brand_information.name",
     "settings": [
       {

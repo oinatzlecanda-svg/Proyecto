@@ -309,3 +309,17 @@ propio y ancla; `oelnor-product-grid` es una cuadrícula editorial nueva.
   (`/apps/parcelpanel`), el recorrido del pedido con los plazos de la
   política de envíos y ayuda si algo no cuadra. La página
   `localizar-pedido` usa esta plantilla (sufijo `tracking`).
+
+## 19. Página de ParcelPanel (`/apps/parcelpanel`)
+
+ParcelPanel genera su propia página de seguimiento dentro del diseño de la
+tienda (app proxy). El tema la envuelve desde `layout/theme.liquid` con el
+snippet `oelnor-parcelpanel-shell` (cabecera arriba; plazos de envío y ayuda
+abajo) y `assets/oelnor-pages.css` restiliza su formulario, campos, botones,
+resultados y barra de progreso (reglas genéricas dentro de `.o-pp` más los
+selectores `pp_*` de la guía de CSS de ParcelPanel).
+
+Ajustes en Tema → Configuración → **Oelnor · Seguimiento**: activar/desactivar,
+ruta (por defecto `/apps/parcelpanel`), titular y texto. Si ParcelPanel tiene
+CSS propio en su panel («Additional CSS»), conviene vaciarlo para que no
+choque con este estilo.

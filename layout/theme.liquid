@@ -342,10 +342,22 @@
       tabindex="-1"
       data-template="{{ template.name }}"
     >
+      {%- liquid
+        assign oelnor_pp_page = false
+        if settings.oelnor_pp_enable and settings.oelnor_pp_path != blank and request.path contains settings.oelnor_pp_path
+          assign oelnor_pp_page = true
+        endif
+      -%}
       {%- if request.page_type == 'policy' -%}
         {%- render 'oelnor-policy-shell' -%}
       {%- endif -%}
-      {{ content_for_layout }}
+      {%- if oelnor_pp_page -%}
+        {%- render 'oelnor-parcelpanel-shell', position: 'top' -%}
+        <div class="o-pp">{{ content_for_layout }}</div>
+        {%- render 'oelnor-parcelpanel-shell', position: 'bottom' -%}
+      {%- else -%}
+        {{ content_for_layout }}
+      {%- endif -%}
     </main>
 
     {% sections 'footer-group' %}

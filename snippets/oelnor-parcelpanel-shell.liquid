@@ -1,0 +1,58 @@
+{% comment %}
+  Oelnor frame around the ParcelPanel tracking page (an app proxy page whose
+  content the app renders). Rendered from layout/theme.liquid before and
+  after content_for_layout when the request path matches the tracking path.
+
+  Accepts:
+  - position: {String} 'top' | 'bottom'
+{% endcomment %}
+
+{%- if position == 'top' -%}
+  {{ 'oelnor-pages.css' | asset_url | stylesheet_tag }}
+  <section class="o-section o-pphero">
+    <div class="o-container o-pphero__inner">
+      <nav class="o-colhero__crumbs" aria-label="Ruta" data-o-reveal="fade">
+        <a href="{{ routes.root_url }}">Inicio</a>
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">Seguimiento</span>
+      </nav>
+      <p class="o-eyebrow" data-o-reveal="fade" style="--i: 1">OELNOR / Seguimiento</p>
+      <h1 class="o-display o-pphero__title" data-o-split>{{ settings.oelnor_pp_heading | default: 'Localiza tu pedido.' | escape }}</h1>
+      {%- if settings.oelnor_pp_text != blank -%}
+        <p class="o-pphero__text" data-o-reveal="fade" style="--i: 3">{{ settings.oelnor_pp_text | escape }}</p>
+      {%- endif -%}
+      <ul class="o-pphero__tips" role="list" data-o-reveal="fade" style="--i: 4">
+        <li><span aria-hidden="true">01</span>Nº de pedido + email de compra</li>
+        <li><span aria-hidden="true">02</span>O tu número de seguimiento</li>
+      </ul>
+    </div>
+  </section>
+{%- else -%}
+  <section class="o-section o-ppfoot">
+    <div class="o-container o-ppfoot__times">
+      <div class="o-ppfoot__time" data-o-reveal="fade">
+        <span class="o-eyebrow">Preparación</span>
+        <strong>1 a 3 días hábiles</strong>
+      </div>
+      <div class="o-ppfoot__time" data-o-reveal="fade" style="--i: 1">
+        <span class="o-eyebrow">Transporte · Europa</span>
+        <strong>7 a 14 días hábiles</strong>
+      </div>
+      <a class="o-ppfoot__policy" href="{{ shop.shipping_policy.url | default: '/policies/shipping-policy' }}" data-o-reveal="fade" style="--i: 2">
+        Política de envíos <span aria-hidden="true">→</span>
+      </a>
+    </div>
+    <div class="o-dark o-track__help">
+      <div class="o-container o-track__help-grid">
+        <h2 class="o-display o-track__help-title" data-o-split>¿Algo no cuadra?</h2>
+        <div class="o-track__help-copy">
+          <p data-o-reveal="fade">Si no aparece información o necesitas ayuda con tu pedido, escríbenos y lo revisamos contigo.</p>
+          <div class="o-track__actions" data-o-reveal="fade" style="--i: 1">
+            <a class="o-btn" data-o-magnetic href="/pages/contact">Contactar <span class="o-btn__arrow" aria-hidden="true">→</span></a>
+            <a class="o-btn o-btn--ghost" href="mailto:{{ shop.email }}">{{ shop.email }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{%- endif -%}

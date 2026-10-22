@@ -196,7 +196,11 @@
             "color_scheme": "scheme-1"
           }
         }
-      }
+      },
+      "oelnor_pp_enable": true,
+      "oelnor_pp_path": "/apps/parcelpanel",
+      "oelnor_pp_heading": "Localiza tu pedido.",
+      "oelnor_pp_text": "Introduce tu número de pedido y tu email, o el número de seguimiento, para ver dónde está tu envío."
     }
   }
 }

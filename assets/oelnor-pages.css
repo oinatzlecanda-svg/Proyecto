@@ -924,3 +924,266 @@
     animation: none;
   }
 }
+
+/* ---------------- ParcelPanel tracking page (app proxy) ----------------
+   The app renders its own markup. Generic rules style any form, field,
+   button and timeline inside .o-pp; the pp_* selectors (from ParcelPanel's
+   CSS guide) refine the parts that have known class names. */
+.o-pphero {
+  padding-block: clamp(4rem, 7vw, 8rem) clamp(2.4rem, 3vw, 4rem);
+}
+
+.o-pphero__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.o-pphero__title {
+  font-size: clamp(4.4rem, 8vw, 11rem);
+  text-transform: uppercase;
+  max-width: 12ch;
+}
+
+.o-pphero__text {
+  margin: 0;
+  max-width: 52ch;
+  font-size: 1.7rem;
+  line-height: 1.65;
+  color: var(--o-text-muted);
+}
+
+.o-pphero__tips {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.o-pphero__tips li {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.9rem 1.6rem;
+  border-radius: 999px;
+  border: 1px solid var(--o-line-strong);
+  font-size: 1.35rem;
+}
+
+.o-pphero__tips span {
+  font-size: 1.1rem;
+  letter-spacing: 0.16em;
+  color: var(--o-accent);
+}
+
+.o-pp {
+  max-width: 172rem;
+  margin: 0 auto;
+  padding: 0 var(--o-gutter) clamp(5rem, 7vw, 8rem);
+  color: var(--o-text);
+  font-family: var(--font-body-family);
+}
+
+/* Our hero already titles the page */
+.o-pp .pp_tracking_title {
+  display: none;
+}
+
+.o-pp .pp_tracking_form_div,
+.o-pp .pp-tracking-section {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* The form, whatever its wrapper: a soft card */
+.o-pp form,
+.o-pp .tracking-form .box-form {
+  max-width: 72rem;
+  padding: clamp(2.4rem, 3vw, 3.6rem);
+  border-radius: 2rem;
+  border: 1px solid var(--o-line);
+  background: var(--o-bg-alt);
+}
+
+.o-pp label {
+  font-size: 1.25rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--o-text-muted);
+}
+
+.o-pp input[type='text'],
+.o-pp input[type='email'],
+.o-pp input[type='tel'],
+.o-pp input[type='number'],
+.o-pp input[type='search'],
+.o-pp select,
+.o-pp .PP-TextField__Input {
+  width: 100%;
+  min-height: 5.4rem;
+  padding: 1.4rem 1.8rem !important;
+  border: 1px solid var(--o-line-strong) !important;
+  border-radius: 1.2rem !important;
+  background: var(--o-bg) !important;
+  color: var(--o-text) !important;
+  font: inherit !important;
+  font-size: 1.6rem !important;
+  box-shadow: none !important;
+  transition: border-color 200ms ease;
+}
+
+.o-pp input:focus,
+.o-pp select:focus,
+.o-pp .PP-TextField__Input:focus {
+  outline: none !important;
+  border-color: var(--o-text) !important;
+}
+
+.o-pp input::placeholder {
+  color: var(--o-text-faint);
+}
+
+/* Remove the app's own field chrome so only our border shows */
+.o-pp .PP-TextField__Backdrop {
+  display: none !important;
+}
+
+.o-pp button,
+.o-pp input[type='submit'],
+.o-pp .pp_tracking_content button,
+.o-pp #pp-btn-trk-1 {
+  min-height: 5.4rem;
+  padding: 1.4rem 2.6rem !important;
+  border: 1px solid var(--o-text) !important;
+  border-radius: 999px !important;
+  background: var(--o-text) !important;
+  color: var(--o-bg) !important;
+  font: inherit !important;
+  font-size: 1.35rem !important;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: none !important;
+  transition: transform 160ms var(--o-ease-out), background-color 200ms ease, color 200ms ease;
+}
+
+.o-pp button:active,
+.o-pp input[type='submit']:active {
+  transform: scale(0.97);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .o-pp button:hover,
+  .o-pp input[type='submit']:hover,
+  .o-pp .pp_tracking_content button:hover,
+  .o-pp #pp-btn-trk-1:hover {
+    background: var(--o-accent) !important;
+    border-color: var(--o-accent) !important;
+    color: var(--o-bg) !important;
+  }
+}
+
+.o-pp a {
+  color: var(--o-text);
+  text-underline-offset: 0.25em;
+}
+
+.o-pp h1,
+.o-pp h2,
+.o-pp h3 {
+  font-family: var(--font-heading-family);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--o-text);
+}
+
+/* Results */
+.o-pp .pp_tracking_result_parent {
+  margin-top: 3.2rem;
+  padding: clamp(2.4rem, 3vw, 3.6rem);
+  border-radius: 2rem;
+  border: 1px solid var(--o-line);
+  background: var(--o-bg-alt) !important;
+  color: var(--o-text) !important;
+  animation: o-pp-in 420ms var(--o-ease-out);
+}
+
+.o-pp .pp_tracking_product_show .pp_tracking_info_img_span a {
+  color: var(--o-text) !important;
+}
+
+/* Progress bar / milestones */
+.o-pp .progress-bar-style .progress-bar-node {
+  background-color: var(--o-text) !important;
+  border-color: var(--o-text) !important;
+}
+
+.o-pp [class*='progress'] [class*='active'],
+.o-pp [class*='progress'] [class*='done'] {
+  background-color: var(--o-text) !important;
+  border-color: var(--o-text) !important;
+  color: var(--o-bg);
+}
+
+@keyframes o-pp-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+/* Footer of the tracking page */
+.o-ppfoot__times {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  align-items: end;
+  gap: 2.4rem;
+  padding-block: clamp(3.2rem, 5vw, 5.6rem);
+  border-top: 1px solid var(--o-line);
+}
+
+.o-ppfoot__time {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.o-ppfoot__time strong {
+  font-family: var(--font-heading-family);
+  font-weight: 500;
+  font-size: clamp(2.4rem, 3vw, 3.6rem);
+  letter-spacing: -0.02em;
+}
+
+.o-ppfoot__policy {
+  color: var(--o-text);
+  font-size: 1.4rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.o-ppfoot__policy span {
+  display: inline-block;
+  transition: transform 260ms var(--o-ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .o-ppfoot__policy:hover span {
+    transform: translateX(6px);
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .o-ppfoot__times {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .o-pp .pp_tracking_result_parent {
+    animation: none;
+  }
+}
