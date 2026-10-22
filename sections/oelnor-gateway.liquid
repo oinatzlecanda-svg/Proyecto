@@ -1,0 +1,92 @@
+{{ 'oelnor-sections.css' | asset_url | stylesheet_tag }}
+
+<section class="o-section o-gateway">
+  <div class="o-container">
+    {%- if section.settings.heading != blank -%}
+      <div class="o-gateway__head">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="o-eyebrow" data-o-reveal="fade">{{ section.settings.eyebrow | escape }}</p>
+        {%- endif -%}
+        <h2 class="o-display o-gateway__title" data-o-split>{{ section.settings.heading | escape }}</h2>
+      </div>
+    {%- endif -%}
+
+    <ul class="o-gateway__grid" role="list" style="--cols: {{ section.blocks.size | at_most: 3 }}">
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign col = block.settings.collection
+          assign img = block.settings.image
+          if img == blank and block.settings.product != blank
+            assign img = block.settings.product.featured_media
+          endif
+          if img == blank and col != blank
+            assign img = col.featured_image
+          endif
+          assign title = block.settings.title | default: col.title
+          assign link = block.settings.link | default: col.url | default: routes.all_products_collection_url
+        -%}
+        <li class="o-gateway__item" {{ block.shopify_attributes }}>
+          <a class="o-gateway__tile" href="{{ link }}" data-o-cursor="{{ section.settings.cursor_label | escape }}">
+            <div class="o-gateway__media" data-o-reveal="clip" style="--i: {{ forloop.index0 }}">
+              <div class="o-gateway__parallax" data-o-parallax="{% cycle '0.06', '-0.06', '0.04' %}">
+                {%- if img != blank -%}
+                  {{ img | image_url: width: 1400 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 45vw, 100vw', widths: '540, 720, 960, 1200, 1400', alt: title }}
+                {%- else -%}
+                  {{ 'collection-1' | placeholder_svg_tag: 'o-placeholder' }}
+                {%- endif -%}
+              </div>
+            </div>
+            <div class="o-gateway__info">
+              {%- if block.settings.label != blank -%}
+                <span class="o-gateway__label">{{ block.settings.label | escape }}</span>
+              {%- endif -%}
+              <span class="o-gateway__name">{{ title | escape }}</span>
+              <span class="o-gateway__meta">
+                {%- if col != blank -%}{{ col.products_count }} piezas{%- endif -%}
+                <span class="o-gateway__arrow" aria-hidden="true">→</span>
+              </span>
+            </div>
+          </a>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Oelnor · Accesos",
+  "tag": "div",
+  "class": "section-oelnor-gateway",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Antetítulo" },
+    { "type": "text", "id": "heading", "label": "Titular" },
+    { "type": "text", "id": "cursor_label", "label": "Texto del cursor", "default": "Entrar" }
+  ],
+  "blocks": [
+    {
+      "type": "tile",
+      "name": "Acceso",
+      "limit": 3,
+      "settings": [
+        { "type": "collection", "id": "collection", "label": "Colección" },
+        { "type": "text", "id": "title", "label": "Nombre (opcional)" },
+        { "type": "text", "id": "label", "label": "Etiqueta pequeña", "default": "Colección" },
+        { "type": "image_picker", "id": "image", "label": "Imagen (opcional)" },
+        { "type": "product", "id": "product", "label": "O usa la foto de un producto" },
+        { "type": "url", "id": "link", "label": "Enlace (opcional)" }
+      ]
+    }
+  ],
+  "max_blocks": 3,
+  "presets": [
+    {
+      "name": "Oelnor · Accesos",
+      "blocks": [
+        { "type": "tile", "settings": { "title": "Mujer" } },
+        { "type": "tile", "settings": { "title": "Hombre" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

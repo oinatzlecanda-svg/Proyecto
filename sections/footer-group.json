@@ -9,33 +9,25 @@
           "type": "link_list",
           "settings": {
             "heading": "Comprar",
+            "menu": "main-menu"
+          }
+        },
+        "footer-info": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Información",
             "menu": "footer"
-          }
-        },
-        "footer-oelnor": {
-          "type": "link_list",
-          "settings": {
-            "heading": "Oelnor",
-            "menu": "footer-oelnor"
-          }
-        },
-        "footer-ayuda": {
-          "type": "link_list",
-          "settings": {
-            "heading": "Ayuda",
-            "menu": "footer-ayuda"
           }
         }
       },
       "block_order": [
         "footer-comprar",
-        "footer-oelnor",
-        "footer-ayuda"
+        "footer-info"
       ],
       "settings": {
         "color_scheme": "scheme-4",
         "newsletter_enable": false,
-        "newsletter_heading": "Subscribe to our emails",
+        "newsletter_heading": "Novedades OELNOR",
         "enable_follow_on_shop": true,
         "show_social": true,
         "enable_country_selector": true,

@@ -17,7 +17,7 @@
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "Envío con seguimiento",
+            "text": "Envío gratis",
             "text_alignment": "center",
             "color_scheme": "scheme-4",
             "link": ""
@@ -26,7 +26,7 @@
         "announcement-bar-1": {
           "type": "announcement",
           "settings": {
-            "text": "Pago seguro",
+            "text": "30 días para devolver",
             "text_alignment": "center",
             "color_scheme": "scheme-4",
             "link": ""
@@ -35,16 +35,7 @@
         "announcement-bar-2": {
           "type": "announcement",
           "settings": {
-            "text": "Novedades cada semana",
-            "text_alignment": "center",
-            "color_scheme": "scheme-4",
-            "link": ""
-          }
-        },
-        "announcement-bar-3": {
-          "type": "announcement",
-          "settings": {
-            "text": "Devoluciones sencillas",
+            "text": "25 % en todo tu pedido con 2 o más artículos",
             "text_alignment": "center",
             "color_scheme": "scheme-4",
             "link": ""
@@ -54,8 +45,7 @@
       "block_order": [
         "announcement-bar-0",
         "announcement-bar-1",
-        "announcement-bar-2",
-        "announcement-bar-3"
+        "announcement-bar-2"
       ]
     },
     "header": {

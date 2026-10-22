@@ -4,8 +4,18 @@
   <div class="o-container o-statement__grid">
     <div class="o-statement__media o-statement__media--a" data-o-reveal="clip">
       <div class="o-statement__parallax" data-o-parallax="0.08">
-        {%- if section.settings.image_1 != blank -%}
-          {{ section.settings.image_1 | image_url: width: 1200 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 34vw, 80vw', widths: '480, 720, 960, 1200' }}
+        {%- liquid
+          assign img_1 = section.settings.image_1
+          if img_1 == blank and section.settings.product_1 != blank
+            assign img_1 = section.settings.product_1.featured_media
+          endif
+          assign img_2 = section.settings.image_2
+          if img_2 == blank and section.settings.product_2 != blank
+            assign img_2 = section.settings.product_2.featured_media
+          endif
+        -%}
+        {%- if img_1 != blank -%}
+          {{ img_1 | image_url: width: 1200 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 34vw, 80vw', widths: '480, 720, 960, 1200' }}
         {%- else -%}
           {{ 'lifestyle-1' | placeholder_svg_tag: 'o-placeholder' }}
         {%- endif -%}
@@ -15,6 +25,14 @@
     <div class="o-statement__copy">
       {%- if section.settings.eyebrow != blank -%}
         <p class="o-eyebrow" data-o-reveal="fade">{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="o-display o-statement__heading">
+          <span data-o-split>{{ section.settings.heading | escape }}</span>
+          {%- if section.settings.heading_accent != blank -%}
+            <em data-o-split style="--o-split-delay: 160ms">{{ section.settings.heading_accent | escape }}</em>
+          {%- endif -%}
+        </h2>
       {%- endif -%}
       <p class="o-statement__text" data-o-scrub>{{ section.settings.text | escape }}</p>
       {%- if section.settings.button_label != blank -%}
@@ -26,8 +44,8 @@
 
     <div class="o-statement__media o-statement__media--b" data-o-reveal="clip" style="--i: 3">
       <div class="o-statement__parallax" data-o-parallax="-0.12">
-        {%- if section.settings.image_2 != blank -%}
-          {{ section.settings.image_2 | image_url: width: 900 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 22vw, 50vw', widths: '360, 540, 720, 900' }}
+        {%- if img_2 != blank -%}
+          {{ img_2 | image_url: width: 900 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 22vw, 50vw', widths: '360, 540, 720, 900' }}
         {%- else -%}
           {{ 'lifestyle-2' | placeholder_svg_tag: 'o-placeholder' }}
         {%- endif -%}
@@ -43,6 +61,8 @@
   "class": "section-oelnor-statement",
   "settings": [
     { "type": "text", "id": "eyebrow", "label": "Antetítulo", "default": "Oelnor" },
+    { "type": "text", "id": "heading", "label": "Titular (opcional)" },
+    { "type": "text", "id": "heading_accent", "label": "Titular, segunda línea (opcional)" },
     {
       "type": "textarea",
       "id": "text",
@@ -50,7 +70,9 @@
       "default": "Piezas que no sabías que buscabas. Elegidas una a una para que tu día a día tenga un poco más de carácter, sin tener que pensarlo demasiado."
     },
     { "type": "image_picker", "id": "image_1", "label": "Imagen grande" },
+    { "type": "product", "id": "product_1", "label": "O foto de producto (grande)" },
     { "type": "image_picker", "id": "image_2", "label": "Imagen pequeña" },
+    { "type": "product", "id": "product_2", "label": "O foto de producto (pequeña)" },
     { "type": "text", "id": "button_label", "label": "Botón", "default": "Nuestra historia" },
     { "type": "url", "id": "button_link", "label": "Enlace del botón" }
   ],

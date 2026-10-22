@@ -1,0 +1,70 @@
+{{ 'oelnor-sections.css' | asset_url | stylesheet_tag }}
+
+<section class="o-section o-trust" aria-label="{{ section.settings.label | escape }}">
+  <ul class="o-container o-trust__list" role="list">
+    {%- for block in section.blocks -%}
+      <li class="o-trust__item" {{ block.shopify_attributes }} data-o-reveal="fade" style="--i: {{ forloop.index0 }}">
+        <span class="o-trust__icon" aria-hidden="true">
+          {%- case block.settings.icon -%}
+            {%- when 'truck' -%}
+              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 9h16v13H3zM19 13h6l4 5v4h-10z"/><circle cx="9" cy="24" r="2.5"/><circle cx="24" cy="24" r="2.5"/></svg>
+            {%- when 'return' -%}
+              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M9 11H21a6 6 0 0 1 0 12h-9"/><path d="M13 6 8 11l5 5"/></svg>
+            {%- when 'lock' -%}
+              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="7" y="14" width="18" height="13" rx="2"/><path d="M11 14v-4a5 5 0 0 1 10 0v4"/><circle cx="16" cy="20.5" r="1.5"/></svg>
+            {%- else -%}
+              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 6h20v15H13l-6 5v-5H6z"/></svg>
+          {%- endcase -%}
+        </span>
+        <span class="o-trust__body">
+          <strong class="o-trust__title">{{ block.settings.title | escape }}</strong>
+          {%- if block.settings.text != blank -%}
+            <span class="o-trust__text">{{ block.settings.text | escape }}</span>
+          {%- endif -%}
+        </span>
+      </li>
+    {%- endfor -%}
+  </ul>
+</section>
+
+{% schema %}
+{
+  "name": "Oelnor · Confianza",
+  "tag": "div",
+  "class": "section-oelnor-trust",
+  "settings": [{ "type": "text", "id": "label", "label": "Etiqueta accesible", "default": "Información de compra" }],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Ventaja",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icono",
+          "options": [
+            { "value": "truck", "label": "Envío" },
+            { "value": "return", "label": "Devolución" },
+            { "value": "lock", "label": "Pago seguro" },
+            { "value": "chat", "label": "Atención" }
+          ],
+          "default": "truck"
+        },
+        { "type": "text", "id": "title", "label": "Título", "default": "Envío gratis" },
+        { "type": "text", "id": "text", "label": "Texto" }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "Oelnor · Confianza",
+      "blocks": [
+        { "type": "item", "settings": { "icon": "truck", "title": "Envío gratis" } },
+        { "type": "item", "settings": { "icon": "return", "title": "30 días para devolver" } },
+        { "type": "item", "settings": { "icon": "lock", "title": "Pago seguro" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

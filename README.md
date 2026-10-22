@@ -193,3 +193,24 @@ precio del pack). La talla se sigue eligiendo con el selector normal.
 Para dar packs a otro producto: crea una opción llamada `Pack` cuyos
 valores empiecen por el número de unidades (`1 par`, `2 pares`…) y, en
 Admin → Producto → Plantilla del tema, elige `bundles`.
+
+## 13. Home basada en la tienda publicada
+
+La home mantiene el diseño oscuro y animado, pero usa el contenido real de
+la tienda (colecciones, mensajes y oferta del tema publicado):
+
+1. Hero 3D — "Estilo con intención.", anillo con `la-seleccion-oelnor`.
+2. Marquee — Streetwear con intención · Envío gratis · 30 días · Pago seguro.
+3. `oelnor-gateway` — accesos Mujer / Hombre / Accesorios (en móvil se deslizan).
+4. `oelnor-offer` — "Dos piezas o más. 25 % menos." (descuento automático
+   activo en Admin). Tiene fecha de fin opcional: pasada, la banda se oculta.
+5. Índice de categorías con las "edits" (chaquetas, calzado, pantalones…).
+6. Carril horizontal "La selección." (`la-seleccion-oelnor`).
+7. `oelnor-feature` — "El frío no es excusa." → `/pages/coleccion-otono`.
+8. Todo OELNOR (`todos-los-productos-oelnor`).
+9. Manifiesto "Menos básico. Más identidad."
+10. `oelnor-trust` — Envío gratis · 30 días para devolver · Pago seguro.
+11. Newsletter "Novedades OELNOR".
+
+La barra de anuncios y el pie usan los mismos mensajes y menús (`main-menu`,
+`footer`) que la tienda publicada.
