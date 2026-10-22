@@ -20,9 +20,11 @@
         {%- endif -%}
         <h2 class="o-display o-rail__title" data-o-split>{{ section.settings.heading | escape }}</h2>
       </div>
-      <a class="o-btn o-btn--ghost" data-o-magnetic href="{{ section.settings.view_all_link | default: rail_collection.url | default: routes.all_products_collection_url }}">
-        {{ section.settings.view_all | escape }} <span class="o-btn__arrow" aria-hidden="true">→</span>
-      </a>
+      {%- if section.settings.view_all != blank -%}
+        <a class="o-btn o-btn--ghost" data-o-magnetic href="{{ section.settings.view_all_link | default: rail_collection.url | default: routes.all_products_collection_url }}">
+          {{ section.settings.view_all | escape }} <span class="o-btn__arrow" aria-hidden="true">→</span>
+        </a>
+      {%- endif -%}
     </div>
 
     <div class="o-rail__viewport">
@@ -116,7 +118,7 @@
     },
     { "type": "text", "id": "eyebrow", "label": "Antetítulo", "default": "Acaba de llegar" },
     { "type": "text", "id": "heading", "label": "Titular", "default": "Lo nuevo de la temporada" },
-    { "type": "text", "id": "view_all", "label": "Texto del botón", "default": "Ver todo" },
+    { "type": "text", "id": "view_all", "label": "Texto del botón (vacío = sin botón)", "default": "Ver todo" },
     { "type": "text", "id": "cursor_label", "label": "Texto del cursor", "default": "Ver" }
   ],
   "presets": [{ "name": "Oelnor · Carril productos" }]

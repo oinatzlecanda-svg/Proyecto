@@ -264,8 +264,10 @@ textos de la landing actual:
 5. «Cambia la temporada. No tu estilo.»
 6. Carril «Sigue descubriendo.» (ancla `#sigue`): Elia, Elara, Riven, Naya,
    Axel, Ciro.
-7. «Por prenda.» — chaquetas y jerséis mujer, calzado, chaquetas y jerséis hombre.
-8. Oferta 25 % y franja de confianza.
+7. Oferta 25 % y franja de confianza.
+
+La landing solo muestra productos: ningún botón lleva a colecciones (los
+botones bajan a `#seleccion` o `#sigue` dentro de la propia página).
 
 Novedades reutilizables: el hero acepta productos concretos y el modo
 «Fotos que caen como hojas»; el carril acepta productos concretos, enlace

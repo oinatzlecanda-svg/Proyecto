@@ -25,8 +25,8 @@
         "text": "Capas, texturas y tonos cálidos. Piezas con carácter para vestir la temporada a tu manera.",
         "button_label_1": "Explorar selección",
         "button_link_1": "/pages/coleccion-otono#seleccion",
-        "button_label_2": "Ver chaquetas",
-        "button_link_2": "shopify://collections/chaquetas-mujer",
+        "button_label_2": "Sigue descubriendo",
+        "button_link_2": "/pages/coleccion-otono#sigue",
         "hint": "Arrastra para mover",
         "show_intro": false
       }
@@ -142,70 +142,10 @@
         "products_to_show": 6,
         "eyebrow": "The autumn edit / 02",
         "heading": "Sigue descubriendo.",
-        "view_all": "Ver Moda Mujer",
-        "view_all_link": "shopify://collections/mujer",
+        "view_all": "",
+        "view_all_link": "",
         "cursor_label": "Ver",
         "anchor": "sigue"
-      }
-    },
-    "por-prenda": {
-      "type": "oelnor-category-index",
-      "blocks": {
-        "c1": {
-          "type": "category",
-          "settings": {
-            "kicker": "The layers edit",
-            "title": "Chaquetas mujer",
-            "collection": "chaquetas-mujer",
-            "product": "chaqueta-lena-cropped-cinturon"
-          }
-        },
-        "c2": {
-          "type": "category",
-          "settings": {
-            "kicker": "The knitwear edit",
-            "title": "Jerséis mujer",
-            "collection": "jerseis-mujer",
-            "product": "cardigan-naya-punto-rayas"
-          }
-        },
-        "c3": {
-          "type": "category",
-          "settings": {
-            "kicker": "The footwear edit",
-            "title": "Calzado",
-            "collection": "calzado-mujer",
-            "product": "botas-beige-ante-sintetico"
-          }
-        },
-        "c4": {
-          "type": "category",
-          "settings": {
-            "kicker": "The men's layers",
-            "title": "Chaquetas hombre",
-            "collection": "chaquetas-hombre"
-          }
-        },
-        "c5": {
-          "type": "category",
-          "settings": {
-            "kicker": "The men's knit",
-            "title": "Jerséis hombre",
-            "collection": "sudaderas-hombre",
-            "product": "jersey-riven-efecto-desgastado"
-          }
-        }
-      },
-      "block_order": [
-        "c1",
-        "c2",
-        "c3",
-        "c4",
-        "c5"
-      ],
-      "settings": {
-        "eyebrow": "Compra el otoño",
-        "heading": "Por prenda."
       }
     },
     "oferta": {
@@ -269,7 +209,6 @@
     "seleccion",
     "manifiesto",
     "sigue",
-    "por-prenda",
     "oferta",
     "confianza"
   ]
