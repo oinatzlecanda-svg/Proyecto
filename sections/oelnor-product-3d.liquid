@@ -59,6 +59,8 @@
         let lastX = 0, lastT = 0, dragVel = 0;
         let auto = !reduce;
         let raf = 0;
+        let last = 0;
+        let shown = -1;
 
         const render = () => {
           ring.style.transform = `translateZ(calc(var(--r) * -1)) rotateY(${angle}deg)`;
@@ -67,23 +69,31 @@
             let a = (((k * step + angle) % 360) + 540) % 360 - 180; // -180..180
             const d = Math.abs(a);
             if (d < best) { best = d; front = k; }
-            face.style.opacity = (1 - Math.min(d, 150) / 190).toFixed(3);
-            face.style.filter = d > 30 ? `brightness(${(1 - d / 300).toFixed(2)})` : '';
+            // Opacity only: composite-friendly, no filter repaint per frame.
+            face.style.opacity = (1 - Math.min(d, 150) / 175).toFixed(3);
           });
-          current.textContent = String(front + 1).padStart(2, '0');
+          if (front !== shown) {
+            shown = front;
+            current.textContent = String(front + 1).padStart(2, '0');
+          }
         };
 
-        const tick = () => {
+        const tick = (now) => {
+          // Fixed 60Hz physics steps so the spring feels the same at 120Hz.
+          const steps = Math.min(4, Math.max(1, Math.round((now - (last || now - 16.667)) / 16.667)));
+          last = now;
           if (!dragging) {
-            if (auto) target -= 0.08;
-            // critically-damped-ish spring toward target
-            const force = (target - angle) * 0.08;
-            velocity = (velocity + force) * 0.72;
-            angle += velocity;
+            for (let i = 0; i < steps; i++) {
+              if (auto) target -= 0.08;
+              const force = (target - angle) * 0.08;
+              velocity = (velocity + force) * 0.72;
+              angle += velocity;
+            }
           }
           render();
           const settled = !auto && !dragging && Math.abs(target - angle) < 0.01 && Math.abs(velocity) < 0.01;
           raf = settled ? 0 : requestAnimationFrame(tick);
+          if (settled) last = 0;
         };
         const kick = () => { if (!raf) raf = requestAnimationFrame(tick); };
         const snap = () => { target = Math.round(target / step) * step; kick(); };
@@ -131,7 +141,7 @@
 
         new IntersectionObserver(([entry]) => {
           if (entry.isIntersecting) kick();
-          else if (raf) { cancelAnimationFrame(raf); raf = 0; }
+          else if (raf) { cancelAnimationFrame(raf); raf = 0; last = 0; }
         }).observe(root);
         render();
       });

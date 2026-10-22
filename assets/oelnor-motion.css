@@ -194,12 +194,48 @@
 /* Scroll-coloured statement text (opacity driven by JS per word) */
 .o-scrub-word {
   opacity: 0.45;
-  transition: opacity 240ms linear;
+  transition: opacity 180ms linear;
+}
+
+/* Decorative infinite loops stop while they are off screen */
+.is-offscreen .o-marquee__track,
+.is-offscreen.o-marquee .o-marquee__track,
+.o-story__ticker.is-offscreen .o-story__ticker-track,
+.o-offer.is-offscreen .o-offer__ring,
+.o-hero3d__hint.is-offscreen span {
+  animation-play-state: paused;
+}
+
+/* Smooth cross-page transitions (Chrome, Edge, Safari 18.2+; others ignore it) */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root) {
+  animation: o-vt-out 160ms var(--o-ease-out) both;
+}
+
+::view-transition-new(root) {
+  animation: o-vt-in 280ms var(--o-ease-out) both;
+}
+
+@keyframes o-vt-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes o-vt-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
 }
 
 /* ---------- Parallax / tilt (JS writes transform directly) ---------- */
-[data-o-parallax],
-[data-o-tilt] {
+/* Parallax layers are few and move on every scroll: promote them up front.
+   Tilt cards are many, so JS promotes each one only while it is moving. */
+[data-o-parallax] {
   will-change: transform;
 }
 
@@ -208,14 +244,11 @@
 }
 
 .o-tilt-glare {
+  /* Oversized gradient slid with transform by JS: no repaint per frame. */
   position: absolute;
-  inset: 0;
+  inset: -50%;
   pointer-events: none;
-  background: radial-gradient(
-    circle at var(--gx, 50%) var(--gy, 50%),
-    rgba(255, 255, 255, 0.16),
-    rgba(255, 255, 255, 0) 55%
-  );
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0) 30%);
   opacity: 0;
   transition: opacity 300ms ease;
   mix-blend-mode: soft-light;
@@ -259,6 +292,11 @@
 @media not ((hover: hover) and (pointer: fine)) {
   .o-cursor {
     display: none;
+  }
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 120ms;
+    transform: none;
   }
 }
 
@@ -330,6 +368,11 @@
   }
   .o-cursor {
     display: none;
+  }
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 120ms;
+    transform: none;
   }
 }
 

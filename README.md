@@ -272,3 +272,23 @@ botones bajan a `#seleccion` o `#sigue` dentro de la propia página).
 Novedades reutilizables: el hero acepta productos concretos y el modo
 «Fotos que caen como hojas»; el carril acepta productos concretos, enlace
 propio y ancla; `oelnor-product-grid` es una cuadrícula editorial nueva.
+
+## 17. Rendimiento de las animaciones
+
+- Solo se animan `transform`, `opacity` y `clip-path` (sin `transition: all`,
+  sin sombras ni `filter` por fotograma).
+- Los efectos de scroll (parallax, texto que se ilumina, carril horizontal)
+  se calculan solo al hacer scroll y solo para los elementos cercanos a la
+  pantalla: en reposo la página no ejecuta ningún bucle. Se leen todas las
+  medidas antes de escribir estilos (un solo cálculo de layout por frame).
+- Cursor, inclinación 3D, imagen flotante y carrusel 3D se detienen al
+  llegar a reposo y usan suavizado independiente de los Hz de la pantalla
+  (mismo ritmo a 60 y 120 Hz).
+- Las tarjetas con inclinación solo se promueven a capa GPU mientras se
+  mueven; el brillo se desplaza con `transform` en vez de repintarse.
+- Marquees, ticker y anillo de la oferta se pausan fuera de pantalla.
+- El 3D usa como máximo 1,5x de resolución en móvil y se pausa fuera de
+  pantalla o con la pestaña oculta.
+- Transiciones entre páginas con View Transitions (fundido de 280 ms;
+  navegadores sin soporte navegan como siempre). Todo respeta «reducir
+  movimiento».

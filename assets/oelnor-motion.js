@@ -5,8 +5,10 @@
 (() => {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
-  const lerp = (a, b, t) => a + (b - a) * t;
   const clamp = (v, min, max) => Math.min(max, Math.max(min, v));
+  // Frame-rate independent smoothing: the same feel at 60Hz and 120Hz.
+  // k is the fraction covered per 60Hz frame; dt is elapsed ms.
+  const damp = (a, b, k, dt) => b + (a - b) * Math.pow(1 - k, dt / 16.667);
 
   /* ---------- Split headings into masked words ---------- */
   function split(root) {
@@ -60,20 +62,29 @@
       el.setAttribute('data-o-tilt-done', '');
       const max = parseFloat(el.dataset.oTilt) || 8;
       const glare = el.querySelector('.o-tilt-glare');
-      let tx = 0, ty = 0, x = 0, y = 0, raf = 0;
+      let tx = 0, ty = 0, x = 0, y = 0, raf = 0, last = 0, rect = null;
 
-      const tick = () => {
-        x = lerp(x, tx, 0.12);
-        y = lerp(y, ty, 0.12);
+      const tick = (now) => {
+        const dt = Math.min(64, now - (last || now - 16.667));
+        last = now;
+        x = damp(x, tx, 0.12, dt);
+        y = damp(y, ty, 0.12, dt);
         el.style.transform = `perspective(900px) rotateX(${(-y * max).toFixed(3)}deg) rotateY(${(x * max).toFixed(3)}deg)`;
-        if (glare) {
-          glare.style.setProperty('--gx', `${50 + x * 50}%`);
-          glare.style.setProperty('--gy', `${50 + y * 50}%`);
-        }
+        // The glare is a 200% gradient layer slid with transform (composite only).
+        if (glare) glare.style.transform = `translate3d(${(x * 25).toFixed(2)}%, ${(y * 25).toFixed(2)}%, 0)`;
         if (Math.abs(x - tx) > 0.001 || Math.abs(y - ty) > 0.001) {
           raf = requestAnimationFrame(tick);
         } else {
           raf = 0;
+          last = 0;
+          // Settled at rest: drop the transform and release the GPU layer.
+          if (!tx && !ty) {
+            x = y = 0;
+            el.style.transform = '';
+            el.style.willChange = '';
+            if (glare) glare.style.transform = '';
+            rect = null; // the next move promotes the layer again
+          }
         }
       };
       const kick = () => {
@@ -81,7 +92,11 @@
       };
 
       el.addEventListener('pointermove', (e) => {
-        const r = el.getBoundingClientRect();
+        if (!rect) {
+          rect = el.getBoundingClientRect();
+          el.style.willChange = 'transform';
+        }
+        const r = rect;
         tx = ((e.clientX - r.left) / r.width) * 2 - 1;
         ty = ((e.clientY - r.top) / r.height) * 2 - 1;
         kick();
@@ -89,6 +104,7 @@
       el.addEventListener('pointerleave', () => {
         tx = 0;
         ty = 0;
+        rect = null;
         kick();
       });
     });
@@ -99,14 +115,19 @@
     if (!finePointer.matches || reduceMotion.matches) return;
     root.querySelectorAll('[data-o-magnetic]:not([data-o-magnetic-done])').forEach((el) => {
       el.setAttribute('data-o-magnetic-done', '');
+      let rect = null;
+      el.addEventListener('pointerenter', () => {
+        rect = el.getBoundingClientRect();
+      });
       el.addEventListener('pointermove', (e) => {
-        const r = el.getBoundingClientRect();
+        const r = rect || el.getBoundingClientRect();
         const dx = e.clientX - (r.left + r.width / 2);
         const dy = e.clientY - (r.top + r.height / 2);
         el.style.translate = `${dx * 0.18}px ${dy * 0.28}px`;
         el.style.transition = 'transform 160ms var(--o-ease-out), translate 120ms linear, color 200ms ease';
       });
       el.addEventListener('pointerleave', () => {
+        rect = null;
         el.style.transition = 'transform 160ms var(--o-ease-out), translate 500ms var(--o-ease-out), color 200ms ease';
         el.style.translate = '0px 0px';
       });
@@ -122,18 +143,25 @@
       cursor.className = 'o-cursor';
       cursor.setAttribute('aria-hidden', 'true');
       document.body.appendChild(cursor);
-      let cx = 0, cy = 0, x = 0, y = 0;
+      let cx = 0, cy = 0, x = 0, y = 0, raf = 0, last = 0;
+      const loop = (now) => {
+        const dt = Math.min(64, now - (last || now - 16.667));
+        last = now;
+        x = damp(x, cx, 0.22, dt);
+        y = damp(y, cy, 0.22, dt);
+        cursor.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0)`;
+        if (Math.abs(cx - x) > 0.3 || Math.abs(cy - y) > 0.3) {
+          raf = requestAnimationFrame(loop);
+        } else {
+          raf = 0;
+          last = 0;
+        }
+      };
       window.addEventListener('pointermove', (e) => {
         cx = e.clientX;
         cy = e.clientY;
+        if (!raf) raf = requestAnimationFrame(loop);
       }, { passive: true });
-      const loop = () => {
-        x = lerp(x, cx, 0.2);
-        y = lerp(y, cy, 0.2);
-        cursor.style.transform = `translate3d(${x}px, ${y}px, 0)`;
-        requestAnimationFrame(loop);
-      };
-      loop();
     }
     root.querySelectorAll('[data-o-cursor]:not([data-o-cursor-done])').forEach((el) => {
       el.setAttribute('data-o-cursor-done', '');
@@ -145,13 +173,28 @@
     });
   }
 
-  /* ---------- Scroll-driven effects (one rAF loop for all) ---------- */
+  /* ---------- Scroll-driven effects ----------
+   * Runs one rAF per scroll/resize (never while the page is idle) and only
+   * measures elements that are near the viewport. */
   const parallaxEls = new Set();
   const scrubEls = new Set();
   const rails = new Set();
+  const nearViewport = new Set();
+  const proximity = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((e) => (e.isIntersecting ? nearViewport.add(e.target) : nearViewport.delete(e.target)));
+      requestScrollFrame();
+    },
+    { rootMargin: '25% 0px 25% 0px' }
+  );
+  const watch = (el) => proximity.observe(el);
 
   function collectScroll(root) {
-    root.querySelectorAll('[data-o-parallax]').forEach((el) => parallaxEls.add(el));
+    root.querySelectorAll('[data-o-parallax]').forEach((el) => {
+      if (parallaxEls.has(el)) return;
+      parallaxEls.add(el);
+      watch(el);
+    });
     root.querySelectorAll('[data-o-scrub]:not([data-o-scrub-done])').forEach((el) => {
       el.setAttribute('data-o-scrub-done', '');
       const words = el.textContent.trim().split(/\s+/);
@@ -159,9 +202,18 @@
       el.innerHTML = words
         .map((w) => `<span class="o-scrub-word" aria-hidden="true">${w.replace(/</g, '&lt;')}</span>`)
         .join(' ');
+      el._words = [...el.children];
+      el._lit = -1;
       scrubEls.add(el);
+      watch(el);
     });
-    root.querySelectorAll('[data-o-rail]').forEach((el) => rails.add(el));
+    root.querySelectorAll('[data-o-rail]').forEach((el) => {
+      if (rails.has(el)) return;
+      el._track = el.querySelector('[data-o-rail-track]');
+      el._bar = el.querySelector('[data-o-rail-progress]');
+      rails.add(el);
+      watch(el);
+    });
     layoutRails();
   }
 
@@ -171,7 +223,7 @@
 
   function layoutRails() {
     rails.forEach((rail) => {
-      const track = rail.querySelector('[data-o-rail-track]');
+      const track = rail._track;
       if (!track) return;
       if (!railActive()) {
         rail.style.height = '';
@@ -184,47 +236,58 @@
       rail._distance = distance;
       rail.style.height = `${window.innerHeight + distance}px`;
     });
+    requestScrollFrame();
   }
 
-  function onFrame() {
+  let scrollRaf = 0;
+  function requestScrollFrame() {
+    if (!scrollRaf) scrollRaf = requestAnimationFrame(onScrollFrame);
+  }
+
+  function onScrollFrame() {
+    scrollRaf = 0;
     const vh = window.innerHeight;
+    // Read every rect first, then write, so the browser lays out once.
+    const writes = [];
 
-    if (!reduceMotion.matches) {
-      parallaxEls.forEach((el) => {
-        if (!el.isConnected) return parallaxEls.delete(el);
-        const r = el.getBoundingClientRect();
-        if (r.bottom < -200 || r.top > vh + 200) return;
-        const speed = parseFloat(el.dataset.oParallax) || 0.15;
-        const offset = (r.top + r.height / 2 - vh / 2) * -speed;
-        el.style.transform = `translate3d(0, ${offset.toFixed(1)}px, 0)`;
-      });
-    }
-
-    scrubEls.forEach((el) => {
-      if (!el.isConnected) return scrubEls.delete(el);
+    nearViewport.forEach((el) => {
+      if (!el.isConnected) {
+        nearViewport.delete(el);
+        return;
+      }
       const r = el.getBoundingClientRect();
-      const progress = clamp((vh * 0.85 - r.top) / (r.height + vh * 0.35), 0, 1);
-      const words = el.children;
-      const lit = progress * words.length;
-      for (let i = 0; i < words.length; i++) {
-        words[i].style.opacity = reduceMotion.matches ? 1 : clamp(lit - i, 0.45, 1);
+      if (!r.width && !r.height) return; // in a hidden view
+
+      if (parallaxEls.has(el)) {
+        if (reduceMotion.matches) return;
+        const speed = parseFloat(el.dataset.oParallax) || 0.15;
+        const offset = ((r.top + r.height / 2 - vh / 2) * -speed).toFixed(1);
+        if (offset !== el._offset) {
+          el._offset = offset;
+          writes.push(() => (el.style.transform = `translate3d(0, ${offset}px, 0)`));
+        }
+      } else if (scrubEls.has(el)) {
+        const progress = clamp((vh * 0.85 - r.top) / (r.height + vh * 0.35), 0, 1);
+        const lit = reduceMotion.matches ? el._words.length : Math.round(progress * el._words.length * 20) / 20;
+        if (lit !== el._lit) {
+          el._lit = lit;
+          writes.push(() =>
+            el._words.forEach((w, i) => {
+              w.style.opacity = clamp(lit - i, 0.45, 1).toFixed(2);
+            })
+          );
+        }
+      } else if (rails.has(el) && railActive() && el._track) {
+        const distance = el._distance || 0;
+        const p = clamp(-r.top / Math.max(1, distance), 0, 1);
+        writes.push(() => {
+          el._track.style.transform = `translate3d(${(-p * distance).toFixed(1)}px, 0, 0)`;
+          if (el._bar) el._bar.style.transform = `scaleX(${p.toFixed(4)})`;
+        });
       }
     });
 
-    if (railActive()) {
-      rails.forEach((rail) => {
-        if (!rail.isConnected) return rails.delete(rail);
-        const track = rail.querySelector('[data-o-rail-track]');
-        const r = rail.getBoundingClientRect();
-        const distance = rail._distance || 0;
-        const p = clamp(-r.top / Math.max(1, distance), 0, 1);
-        track.style.transform = `translate3d(${(-p * distance).toFixed(1)}px, 0, 0)`;
-        const bar = rail.querySelector('[data-o-rail-progress]');
-        if (bar) bar.style.transform = `scaleX(${p.toFixed(4)})`;
-      });
-    }
-
-    requestAnimationFrame(onFrame);
+    writes.forEach((w) => w());
   }
 
   /* ---------- First-visit intro (once per session, home only) ---------- */
@@ -258,7 +321,7 @@
     });
     root.querySelectorAll('.product__info-container:not([data-o-stagger])').forEach((el) => {
       el.setAttribute('data-o-stagger', '');
-      [...el.children].forEach((child, i) => child.style.setProperty('--i', Math.min(i, 10)));
+      [...el.children].forEach((child, i) => child.style.setProperty('--i', Math.min(i, 6)));
       requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add('is-in')));
     });
   }
@@ -284,7 +347,20 @@
     new MutationObserver(() => init(container)).observe(container, { childList: true });
   }
 
+  /* ---------- Pause infinite CSS loops while off screen ---------- */
+  const loopObserver = new IntersectionObserver((entries) => {
+    entries.forEach((e) => e.target.classList.toggle('is-offscreen', !e.isIntersecting));
+  });
+  function pauseLoops(root) {
+    root.querySelectorAll('.o-marquee, .o-story__ticker, .o-offer, .o-hero3d__hint').forEach((el) => {
+      if (el.dataset.oLoop) return;
+      el.dataset.oLoop = '';
+      loopObserver.observe(el);
+    });
+  }
+
   function init(root = document) {
+    pauseLoops(root);
     enhanceCollection(root);
     enhanceProduct(root);
     split(root);
@@ -293,6 +369,7 @@
     magnetic(root);
     cursorLabel(root);
     collectScroll(root);
+    requestScrollFrame();
   }
 
   window.Oelnor = Object.assign(window.Oelnor || {}, { initMotion: init });
@@ -301,7 +378,7 @@
     intro();
     init();
     watchGrid();
-    requestAnimationFrame(onFrame);
+    window.addEventListener('scroll', requestScrollFrame, { passive: true });
     window.addEventListener('resize', layoutRails, { passive: true });
     window.addEventListener('load', layoutRails);
   };

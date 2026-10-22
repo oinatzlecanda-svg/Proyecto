@@ -63,15 +63,22 @@
       if (!fine) return;
       const float = root.querySelector('.o-catindex__float');
       const inner = float.querySelector('.o-catindex__float-inner');
-      let tx = 0, ty = 0, x = 0, y = 0, vx = 0, raf = 0, active = false;
-      const loop = () => {
-        const nx = x + (tx - x) * 0.14;
-        vx = nx - x;
+      let tx = 0, ty = 0, x = 0, y = 0, vx = 0, raf = 0, last = 0, active = false;
+      // Frame-rate independent follow: same feel at 60Hz and 120Hz.
+      const follow = (dt) => 1 - Math.pow(1 - 0.14, dt / 16.667);
+      const loop = (now) => {
+        const dt = Math.min(64, now - (last || now - 16.667));
+        last = now;
+        const k = follow(dt);
+        const nx = x + (tx - x) * k;
+        vx = ((nx - x) * 16.667) / dt;
         x = nx;
-        y += (ty - y) * 0.14;
+        y += (ty - y) * k;
         const rot = reduce ? 0 : Math.max(-12, Math.min(12, vx * 0.6));
-        float.style.transform = `translate3d(${x}px, ${y}px, 0) rotate(${rot}deg)`;
-        raf = active || Math.abs(tx - x) > 0.5 ? requestAnimationFrame(loop) : 0;
+        float.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0) rotate(${rot.toFixed(2)}deg)`;
+        const moving = Math.abs(tx - x) > 0.5 || Math.abs(ty - y) > 0.5;
+        raf = moving ? requestAnimationFrame(loop) : 0;
+        if (!raf) last = 0;
       };
       root.addEventListener('pointermove', (e) => {
         tx = e.clientX;
