@@ -485,6 +485,23 @@
                     block: block,
                     surface: 'product_page'
                   -%}
+                {%- when 'oelnor_bundles' -%}
+                  {%- liquid
+                    assign bundle_option = null
+                    for option in product.options_with_values
+                      if option.name == block.settings.option_name
+                        assign bundle_option = option
+                      endif
+                    endfor
+                  -%}
+                  {%- if bundle_option and bundle_option.values.size > 1 -%}
+                    {% render 'oelnor-bundles',
+                      product: product,
+                      option: bundle_option,
+                      block: block,
+                      section_id: section.id
+                    %}
+                  {%- endif -%}
                 {%- when 'variant_picker' -%}
                   {% render 'product-variant-picker',
                     product: product,
@@ -998,6 +1015,30 @@
       "type": "quantity_selector",
       "name": "t:sections.main-product.blocks.quantity_selector.name",
       "limit": 1
+    },
+    {
+      "type": "oelnor_bundles",
+      "name": "Oelnor · Packs",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Muestra una opción del producto (por ejemplo «Pack») como tarjetas con el ahorro calculado a partir de los precios reales. Colócalo encima del selector de variantes."
+        },
+        { "type": "text", "id": "option_name", "label": "Nombre de la opción", "default": "Pack" },
+        { "type": "text", "id": "heading", "label": "Título", "default": "Elige tu pack" },
+        {
+          "type": "range",
+          "id": "popular_position",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 2,
+          "label": "Posición destacada"
+        },
+        { "type": "text", "id": "popular_label", "label": "Etiqueta destacada", "default": "Más elegido" },
+        { "type": "text", "id": "best_label", "label": "Etiqueta del último pack", "default": "Mejor precio" }
+      ]
     },
     {
       "type": "variant_picker",

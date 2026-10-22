@@ -191,3 +191,210 @@ body {
     transition: opacity 400ms ease;
   }
 }
+
+/* ---------------- Pack / bundle cards (product.bundles) ---------------- */
+.o-bundles {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  margin: 0.4rem 0 1.6rem;
+}
+
+.o-bundles__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.o-bundles__title,
+.o-bundles__current {
+  margin: 0;
+  font-size: 1.2rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.o-bundles__current {
+  color: var(--o-sand);
+}
+
+.o-bundles__list {
+  display: grid;
+  gap: 1rem;
+}
+
+.o-bundle {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto auto 1fr auto;
+  align-items: center;
+  gap: 1.4rem;
+  width: 100%;
+  padding: 1.8rem 2rem;
+  border-radius: 1.4rem;
+  border: 1px solid rgba(var(--color-foreground), 0.16);
+  background: rgba(var(--color-foreground), 0.03);
+  color: rgb(var(--color-foreground));
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 160ms var(--o-ease-out), border-color 200ms ease, background-color 200ms ease;
+}
+
+.o-bundle:active {
+  transform: scale(0.98);
+}
+
+.o-bundle:focus-visible {
+  outline: 1px solid var(--o-sand);
+  outline-offset: 2px;
+}
+
+.o-bundle[aria-checked='true'] {
+  border-color: var(--o-sand);
+  background: rgba(201, 184, 155, 0.08);
+}
+
+.o-bundle[data-unavailable] {
+  opacity: 0.5;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .o-bundle:hover {
+    border-color: rgba(var(--color-foreground), 0.4);
+  }
+  .o-bundle[aria-checked='true']:hover {
+    border-color: var(--o-sand);
+  }
+}
+
+.o-bundle__radio {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: 1px solid rgba(var(--color-foreground), 0.4);
+  display: grid;
+  place-items: center;
+  transition: border-color 200ms ease;
+}
+
+.o-bundle__radio::after {
+  content: '';
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: var(--o-sand);
+  transform: scale(0.4);
+  opacity: 0;
+  transition: transform 220ms var(--o-ease-out), opacity 160ms ease;
+}
+
+.o-bundle[aria-checked='true'] .o-bundle__radio {
+  border-color: var(--o-sand);
+}
+
+.o-bundle[aria-checked='true'] .o-bundle__radio::after {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Small stacked "pairs" that fan out when the pack is selected */
+.o-bundle__stack {
+  position: relative;
+  width: 3.6rem;
+  height: 4.4rem;
+}
+
+.o-bundle__stack span {
+  position: absolute;
+  inset: 0 0.8rem 0 0;
+  border-radius: 0.6rem;
+  background: linear-gradient(160deg, var(--o-smoke), var(--o-char));
+  border: 1px solid rgba(var(--color-foreground), 0.14);
+  transform: translateX(calc(var(--s) * 0.35rem)) rotate(calc(var(--s) * 4deg));
+  transform-origin: bottom center;
+  transition: transform 360ms var(--o-ease-out);
+}
+
+.o-bundle[aria-checked='true'] .o-bundle__stack span {
+  transform: translateX(calc(var(--s) * 0.6rem)) rotate(calc(var(--s) * 9deg));
+}
+
+.o-bundle__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 0;
+}
+
+.o-bundle__name {
+  font-family: var(--font-heading-family);
+  font-size: 1.8rem;
+  letter-spacing: -0.01em;
+}
+
+.o-bundle__unit {
+  font-size: 1.3rem;
+  color: rgba(var(--color-foreground), 0.6);
+}
+
+.o-bundle__save {
+  font-size: 1.25rem;
+  color: var(--o-sand);
+  letter-spacing: 0.04em;
+}
+
+.o-bundle__price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.2rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.o-bundle__now {
+  font-size: 1.8rem;
+}
+
+.o-bundle__was {
+  font-size: 1.3rem;
+  color: rgba(var(--color-foreground), 0.45);
+}
+
+.o-bundle__flag {
+  position: absolute;
+  top: -1rem;
+  right: 1.6rem;
+  padding: 0.35rem 1rem;
+  border-radius: 999px;
+  background: var(--o-sand);
+  color: var(--o-ink);
+  font-size: 1.05rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.o-bundle__flag--ghost {
+  background: rgb(var(--color-background));
+  color: var(--o-sand);
+  border: 1px solid var(--o-sand);
+}
+
+@media screen and (max-width: 420px) {
+  .o-bundle {
+    grid-template-columns: auto 1fr auto;
+    padding: 1.6rem;
+  }
+  .o-bundle__stack {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .o-bundle__stack span,
+  .o-bundle__radio::after {
+    transition: opacity 160ms ease;
+  }
+}

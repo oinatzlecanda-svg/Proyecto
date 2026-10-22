@@ -177,3 +177,19 @@ cursor "Ver" sobre productos, intro con el nombre de la tienda (una vez por
 visita) y entrada escalonada en la ficha de producto. Todo respeta
 "reducir movimiento" del sistema y solo anima `transform`, `opacity` y
 `clip-path`.
+
+## 12. Páginas de producto con packs (bundles)
+
+Todos los productos usan la plantilla `product`. Los productos que se venden
+por packs (ahora mismo las **Medias térmicas efecto transparente**) usan la
+plantilla `product.bundles`: es idéntica, pero añade el bloque
+**Oelnor · Packs** encima del selector de variantes.
+
+El bloque convierte la opción `Pack` (1 par / 2 pares / 3 pares) en
+tarjetas con el precio por par y el ahorro, calculados con los precios
+reales de las variantes (precio de 1 unidad × nº de unidades frente al
+precio del pack). La talla se sigue eligiendo con el selector normal.
+
+Para dar packs a otro producto: crea una opción llamada `Pack` cuyos
+valores empiecen por el número de unidades (`1 par`, `2 pares`…) y, en
+Admin → Producto → Plantilla del tema, elige `bundles`.

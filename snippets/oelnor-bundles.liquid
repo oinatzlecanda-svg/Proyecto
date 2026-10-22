@@ -1,0 +1,157 @@
+{% comment %}
+  Renders pack/bundle cards for one product option (e.g. "Pack": 1 par / 2 pares / 3 pares).
+  The cards drive Dawn's own variant picker, so price, availability, URL and
+  add-to-cart keep working exactly as on every other product.
+
+  Savings are calculated from real variant prices: the first value is the
+  single unit, and each value's leading number is its unit count.
+
+  Accepts:
+  - product: {Object}
+  - option: {Object} product_option_value list from product.options_with_values
+  - block: {Object} oelnor_bundles block
+  - section_id: {String}
+{% endcomment %}
+
+{%- liquid
+  assign option_key = 'option' | append: option.position
+  assign base_variant = product.variants | where: option_key, option.values.first | first
+  assign base_price = base_variant.price
+  assign popular_index = block.settings.popular_position | minus: 1
+  assign last_index = option.values.size | minus: 1
+-%}
+
+<div
+  class="o-bundles"
+  data-o-bundles
+  data-option-name="{{ option.name | escape }}"
+  data-section="{{ section_id }}"
+  {{ block.shopify_attributes }}
+>
+  <div class="o-bundles__head">
+    <p class="o-bundles__title">{{ block.settings.heading | escape }}</p>
+    <p class="o-bundles__current"><span data-o-bundles-selected>{{ option.selected_value | escape }}</span></p>
+  </div>
+
+  <div class="o-bundles__list" role="radiogroup" aria-label="{{ block.settings.heading | escape }}">
+    {%- for value in option.values -%}
+      {%- liquid
+        assign variant = product.variants | where: option_key, value | first
+        assign units = value | split: ' ' | first | plus: 0
+        if units < 1
+          assign units = 1
+        endif
+        assign compare_total = base_price | times: units
+        assign saving = compare_total | minus: variant.price
+        assign per_unit = variant.price | divided_by: units
+        assign saving_pct = 0
+        if saving > 0 and compare_total > 0
+          assign half = compare_total | divided_by: 2
+          assign saving_pct = saving | times: 100 | plus: half | divided_by: compare_total
+        endif
+        assign unit_label = value | remove_first: units | strip
+      -%}
+      <button
+        type="button"
+        role="radio"
+        class="o-bundle{% if forloop.index0 == popular_index %} o-bundle--popular{% endif %}"
+        data-value="{{ value | escape }}"
+        aria-checked="{{ value.selected }}"
+        {% unless value.available %}data-unavailable{% endunless %}
+      >
+        {%- if forloop.index0 == popular_index and block.settings.popular_label != blank -%}
+          <span class="o-bundle__flag">{{ block.settings.popular_label | escape }}</span>
+        {%- elsif forloop.index0 == last_index and saving > 0 and block.settings.best_label != blank -%}
+          <span class="o-bundle__flag o-bundle__flag--ghost">{{ block.settings.best_label | escape }}</span>
+        {%- endif -%}
+
+        <span class="o-bundle__radio" aria-hidden="true"></span>
+
+        <span class="o-bundle__stack" aria-hidden="true">
+          {%- for i in (1..units) limit: 3 -%}<span style="--s: {{ forloop.index0 }}"></span>{%- endfor -%}
+        </span>
+
+        <span class="o-bundle__body">
+          <span class="o-bundle__name">{{ value | escape }}</span>
+          {%- if units > 1 and unit_label != blank -%}
+            <span class="o-bundle__unit">{{ per_unit | money }} / {{ unit_label | split: ' ' | first | remove_last: 'es' | default: 'ud' }}</span>
+          {%- endif -%}
+          {%- if saving > 0 -%}
+            <span class="o-bundle__save">Ahorras {{ saving | money }} · {{ saving_pct }}%</span>
+          {%- endif -%}
+        </span>
+
+        <span class="o-bundle__price">
+          <span class="o-bundle__now">{{ variant.price | money }}</span>
+          {%- if saving > 0 -%}
+            <s class="o-bundle__was">{{ compare_total | money }}</s>
+          {%- endif -%}
+        </span>
+      </button>
+    {%- endfor -%}
+  </div>
+</div>
+
+<style>
+  /* The cards replace this option's default pills; other options (talla) stay. */
+  #MainProduct-{{ section_id }} variant-selects fieldset:has(input[data-option-name="{{ option.name | escape }}"]),
+  #MainProduct-{{ section_id }} variant-selects .product-form__input--dropdown:has(select[name="options[{{ option.name | escape }}]"]) {
+    display: none;
+  }
+</style>
+
+<script>
+  (() => {
+    const root = document.currentScript.previousElementSibling.previousElementSibling;
+    if (!root || root.dataset.ready) return;
+    root.dataset.ready = '';
+    const name = root.dataset.optionName;
+    const scope = root.closest('product-info') || document;
+    const label = root.querySelector('[data-o-bundles-selected]');
+    const cards = [...root.querySelectorAll('.o-bundle')];
+
+    const findInput = (value) =>
+      scope.querySelector(`variant-selects input[data-option-name="${CSS.escape(name)}"][value="${CSS.escape(value)}"]`);
+    const findSelect = () => scope.querySelector(`variant-selects select[name="options[${CSS.escape(name)}]"]`);
+
+    const mark = (value) => {
+      cards.forEach((c) => c.setAttribute('aria-checked', String(c.dataset.value === value)));
+      if (label) label.textContent = value;
+    };
+
+    const select = (value) => {
+      mark(value);
+      const input = findInput(value);
+      if (input) {
+        if (input.checked) return;
+        input.checked = true;
+        input.dispatchEvent(new Event('change', { bubbles: true }));
+        return;
+      }
+      const sel = findSelect();
+      if (sel && sel.value !== value) {
+        sel.value = value;
+        sel.dispatchEvent(new Event('change', { bubbles: true }));
+      }
+    };
+
+    cards.forEach((card, i) => {
+      card.addEventListener('click', () => select(card.dataset.value));
+      card.addEventListener('keydown', (e) => {
+        const step = e.key === 'ArrowDown' || e.key === 'ArrowRight' ? 1 : e.key === 'ArrowUp' || e.key === 'ArrowLeft' ? -1 : 0;
+        if (!step) return;
+        e.preventDefault();
+        const next = cards[(i + step + cards.length) % cards.length];
+        next.focus();
+        select(next.dataset.value);
+      });
+    });
+
+    // Keep in sync when the picker changes another way (URL ?variant=, re-render).
+    scope.addEventListener('change', (e) => {
+      const t = e.target;
+      if (t.matches?.(`input[data-option-name="${CSS.escape(name)}"]`) && t.checked) mark(t.value);
+      if (t.matches?.(`select[name="options[${CSS.escape(name)}]"]`)) mark(t.value);
+    });
+  })();
+</script>
