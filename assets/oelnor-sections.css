@@ -2177,3 +2177,230 @@
     aspect-ratio: 4 / 3;
   }
 }
+
+/* ---------------- About hero ---------------- */
+.o-abhero {
+  position: relative;
+  min-height: calc(100svh - 10rem);
+  display: grid;
+  align-items: center;
+  padding-block: clamp(6rem, 9vw, 12rem);
+}
+
+.o-abhero__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(4rem, 6vw, 10rem);
+  align-items: center;
+}
+
+.o-abhero__copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2.8rem;
+}
+
+.o-abhero__title {
+  display: flex;
+  flex-direction: column;
+  font-size: clamp(5.2rem, 8vw, 13rem);
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.o-abhero__title em {
+  font-style: normal;
+  color: var(--o-accent);
+  padding-left: 0.8em;
+}
+
+.o-abhero__lead {
+  max-width: 30ch;
+  margin: 0;
+  font-family: var(--font-heading-family);
+  font-size: clamp(2.2rem, 2vw, 3rem);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--o-text);
+}
+
+.o-abhero__sign {
+  margin: 0;
+  font-size: 1.3rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--o-text-muted);
+}
+
+/* Three overlapping photos, each drifting at its own parallax speed */
+.o-abhero__collage {
+  position: relative;
+  aspect-ratio: 1 / 1.05;
+}
+
+.o-abhero__img {
+  position: absolute;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 1.2rem;
+  background: var(--o-surface);
+  box-shadow: 0 2.4rem 6rem -3rem rgba(var(--o-overlay-rgb), 0.35);
+}
+
+.o-abhero__img--a {
+  left: 0;
+  top: 6%;
+  width: 56%;
+  aspect-ratio: 3 / 4;
+  z-index: 1;
+}
+
+.o-abhero__img--b {
+  right: 0;
+  top: 0;
+  width: 42%;
+  aspect-ratio: 4 / 5;
+}
+
+.o-abhero__img--c {
+  right: 10%;
+  bottom: 0;
+  width: 38%;
+  aspect-ratio: 1 / 1;
+  z-index: 2;
+}
+
+.o-chapter__parallax {
+  height: 120%;
+  margin-top: -10%;
+}
+
+/* The hero photos start near the top of the page, where parallax offsets
+   are largest, so they get a deeper overscan. */
+.o-abhero__parallax {
+  height: 140%;
+  margin-top: -20%;
+}
+
+.o-abhero__parallax img,
+.o-abhero__parallax svg,
+.o-chapter__parallax img,
+.o-chapter__parallax svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 989px) {
+  .o-abhero {
+    min-height: 0;
+  }
+  .o-abhero__grid {
+    grid-template-columns: 1fr;
+  }
+  .o-abhero__title em {
+    padding-left: 0;
+  }
+  .o-abhero__scroll,
+  .o-abhero .o-hero3d__scroll {
+    display: none;
+  }
+}
+
+/* ---------------- About chapters ---------------- */
+.o-chapters {
+  padding-block: clamp(6rem, 10vw, 14rem);
+}
+
+.o-chapters__head {
+  display: grid;
+  gap: 1.6rem;
+  margin-bottom: clamp(5rem, 8vw, 10rem);
+}
+
+.o-chapters__heading {
+  font-size: clamp(3.6rem, 6vw, 8rem);
+  text-transform: uppercase;
+}
+
+.o-chapters__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: clamp(8rem, 12vw, 16rem);
+}
+
+.o-chapter {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(4rem, 7vw, 12rem);
+  align-items: center;
+}
+
+/* Alternate the photo side on every other chapter */
+.o-chapter:nth-child(even) .o-chapter__media {
+  order: 2;
+}
+
+.o-chapter--text {
+  grid-template-columns: 1fr;
+}
+
+.o-chapter--text .o-chapter__copy {
+  max-width: 72rem;
+  margin-inline: auto;
+  align-items: center;
+  text-align: center;
+}
+
+.o-chapter__media {
+  margin: 0;
+  aspect-ratio: 4 / 5;
+  border-radius: 1.2rem;
+  overflow: hidden;
+  background: var(--o-surface);
+}
+
+.o-chapter__copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.o-chapter__num {
+  font-family: var(--font-heading-family);
+  font-size: clamp(6rem, 8vw, 12rem);
+  line-height: 0.8;
+  letter-spacing: -0.05em;
+  color: var(--o-accent);
+}
+
+.o-chapter__title {
+  font-size: clamp(3.2rem, 4vw, 5.6rem);
+  line-height: 1;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.o-chapter__text {
+  max-width: 44ch;
+  margin: 0;
+  font-size: clamp(1.7rem, 1.3vw, 2rem);
+  line-height: 1.6;
+  color: var(--o-text-muted);
+}
+
+@media screen and (max-width: 989px) {
+  .o-chapter {
+    grid-template-columns: 1fr;
+  }
+  .o-chapter:nth-child(even) .o-chapter__media {
+    order: 0;
+  }
+  .o-chapter__media {
+    aspect-ratio: 4 / 3;
+  }
+}

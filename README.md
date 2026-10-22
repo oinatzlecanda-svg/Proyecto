@@ -342,3 +342,12 @@ choque con este estilo.
 - **Nueva sección `oelnor-philosophy`** (Oelnor · Filosofía): frase principal que se ilumina con el scroll, texto, botón a "Sobre Oelnor", foto con parallax y hasta 4 principios numerados (bloques). Textos tomados de la página "Sobre Oelnor".
 - **Orden de la home**: Hero → Filosofía → Mujer/Hombre/Accesorios → La selección → Tira de fotos → Otoño → Categorías → Menos básico, más identidad (con su frase) → Confianza → Newsletter. El grid genérico "Todo OELNOR" queda desactivado (lo cubren el carril y las categorías).
 - La landing de otoño usa el mismo hero: "Selección / de otoño." con su contador.
+
+## 22. Página "Sobre Oelnor"
+
+Plantilla `page.about.json` (asignada a la página `sobre-oelnor`):
+
+- **Oelnor · Hero Sobre** (`oelnor-about-hero`): "Una idea / sencilla.", frase de origen de la marca, firma y collage de tres fotos con parallax a distintas velocidades.
+- **Oelnor · Capítulos** (`oelnor-about-chapters`): capítulos numerados con foto alternando lado (un capítulo sin foto se centra como texto). Lo que nos gusta · Nuestra selección · Cómo vestimos · Nuestro compromiso (con botón a Contacto).
+- Marquee arena "Diseño · Funcionalidad · Personalidad", Filosofía ("Eso es Oelnor") con tres principios, tira de fotos de producto, destacado final "Encuentra lo tuyo." y confianza.
+- Textos tomados de las páginas "Sobre Oelnor" y "Sobre nosotros". El contenido del editor de la página ya no se muestra en esta plantilla: se edita desde el personalizador del tema.

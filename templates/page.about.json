@@ -1,0 +1,236 @@
+{
+  "sections": {
+    "hero": {
+      "type": "oelnor-about-hero",
+      "settings": {
+        "eyebrow": "Sobre Oelnor",
+        "heading": "Una idea",
+        "heading_accent": "sencilla.",
+        "text": "Oelnor nace de una idea sencilla: vestir bien también puede ser una forma de expresarte.",
+        "signature": "— El equipo Oelnor",
+        "product_1": "chaqueta-lena-cropped-cinturon",
+        "product_2": "musthave-suede-bag-coffee",
+        "product_3": "botas-beige-ante-sintetico"
+      }
+    },
+    "historia": {
+      "type": "oelnor-about-chapters",
+      "settings": {
+        "eyebrow": "",
+        "heading": ""
+      },
+      "blocks": {
+        "c1": {
+          "type": "chapter",
+          "settings": {
+            "kicker": "Lo que nos gusta",
+            "title": "Piezas con algo especial.",
+            "text": "Nos gustan las prendas y los accesorios que tienen algo especial, ya sea por su diseño, por un detalle diferente o simplemente porque consiguen hacer tuyo un look.",
+            "image": "shopify://shop_images/oelnor-mujer-jersey-editorial.png",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "c2": {
+          "type": "chapter",
+          "settings": {
+            "kicker": "Nuestra selección",
+            "title": "Elegidas una a una.",
+            "text": "Cada producto pasa por un proceso cuidadoso de selección. Buscamos diseños atemporales y materiales que se adaptan a diferentes estilos y ocasiones, desde el trabajo hasta el fin de semana.",
+            "product": "jersey-dalia-asimetrico",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "c3": {
+          "type": "chapter",
+          "settings": {
+            "kicker": "Cómo vestimos",
+            "title": "Sin demasiadas reglas.",
+            "text": "No buscamos seguir todas las tendencias. Creemos en probar, combinar y sentirte cómodo con lo que llevas, eligiendo aquello que realmente representa tu estilo.",
+            "product": "bomber-milo",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "c4": {
+          "type": "chapter",
+          "settings": {
+            "kicker": "Nuestro compromiso",
+            "title": "Siempre cerca de ti.",
+            "text": "Tu satisfacción es nuestra prioridad. Enviamos con cuidado, respondemos rápido y gestionamos las devoluciones sin complicaciones. Si tienes cualquier duda, estamos aquí para ayudarte.",
+            "button_label": "Escríbenos",
+            "button_link": "shopify://pages/contact"
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4"
+      ]
+    },
+    "palabras": {
+      "type": "oelnor-marquee",
+      "settings": {
+        "style": "sand",
+        "speed": 40
+      },
+      "blocks": {
+        "m1": {
+          "type": "item",
+          "settings": {
+            "text": "Diseño"
+          }
+        },
+        "m2": {
+          "type": "item",
+          "settings": {
+            "text": "Funcionalidad"
+          }
+        },
+        "m3": {
+          "type": "item",
+          "settings": {
+            "text": "Personalidad"
+          }
+        },
+        "m4": {
+          "type": "item",
+          "settings": {
+            "text": "Tu estilo, tus reglas"
+          }
+        }
+      },
+      "block_order": [
+        "m1",
+        "m2",
+        "m3",
+        "m4"
+      ]
+    },
+    "valores": {
+      "type": "oelnor-philosophy",
+      "settings": {
+        "eyebrow": "Eso es Oelnor",
+        "quote": "Diseño, funcionalidad y personalidad en piezas pensadas para acompañarte.",
+        "text": "Moda moderna y versátil, accesible para el día a día y pensada para sentirse tuya.",
+        "button_label": "",
+        "button_link": "",
+        "image": "shopify://shop_images/handbags-and-accessories-natural-4.jpg",
+        "caption": ""
+      },
+      "blocks": {
+        "v1": {
+          "type": "pillar",
+          "settings": {
+            "title": "Diseño",
+            "text": "Prendas con un detalle que las hace diferentes."
+          }
+        },
+        "v2": {
+          "type": "pillar",
+          "settings": {
+            "title": "Funcionalidad",
+            "text": "Piezas cómodas y versátiles, del trabajo al fin de semana."
+          }
+        },
+        "v3": {
+          "type": "pillar",
+          "settings": {
+            "title": "Personalidad",
+            "text": "Elige lo que te representa y hazlo tuyo."
+          }
+        }
+      },
+      "block_order": [
+        "v1",
+        "v2",
+        "v3"
+      ]
+    },
+    "fotos": {
+      "type": "oelnor-photo-strip",
+      "settings": {
+        "product_list": [
+          "chaqueta-corta-flecos",
+          "vintage-city-bag-black",
+          "jersey-riven-efecto-desgastado",
+          "lace-ballerina-flat-black",
+          "parka-elara-acolchada",
+          "black-jeans-shiny-star",
+          "cardigan-naya-punto-rayas",
+          "bomber-noa-efecto-ante",
+          "jeans-kairo-telarania",
+          "chaqueta-lena-cropped-cinturon",
+          "musthave-suede-bag-coffee",
+          "botas-beige-ante-sintetico"
+        ],
+        "collection": "",
+        "limit": 12,
+        "speed": 55,
+        "label": "Piezas Oelnor"
+      }
+    },
+    "cierre": {
+      "type": "oelnor-feature",
+      "settings": {
+        "product": "chaqueta-corta-flecos",
+        "link": "shopify://collections/todos-los-productos-oelnor",
+        "season": "",
+        "eyebrow": "Tu turno",
+        "heading": "Encuentra lo tuyo.",
+        "text": "",
+        "button_label": "Ver toda la colección",
+        "cursor_label": "Ver"
+      }
+    },
+    "confianza": {
+      "type": "oelnor-trust",
+      "settings": {
+        "label": "Información de compra"
+      },
+      "blocks": {
+        "t1": {
+          "type": "item",
+          "settings": {
+            "icon": "truck",
+            "title": "Envío gratis",
+            "text": ""
+          }
+        },
+        "t2": {
+          "type": "item",
+          "settings": {
+            "icon": "return",
+            "title": "30 días para devolver",
+            "text": ""
+          }
+        },
+        "t3": {
+          "type": "item",
+          "settings": {
+            "icon": "lock",
+            "title": "Pago seguro",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3"
+      ]
+    }
+  },
+  "order": [
+    "hero",
+    "historia",
+    "palabras",
+    "valores",
+    "fotos",
+    "cierre",
+    "confianza"
+  ]
+}
