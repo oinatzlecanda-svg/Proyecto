@@ -1750,3 +1750,24 @@
     font-size: 1.4rem;
   }
 }
+
+/* Narrow cards: price drops under the title instead of squeezing it */
+.o-card {
+  container-type: inline-size;
+}
+
+@container (max-width: 280px) {
+  .o-card__info {
+    grid-template-columns: auto 1fr;
+    row-gap: 0.4rem;
+  }
+  .o-card__price,
+  .o-pgrid .o-card__price {
+    grid-column: 2;
+    text-align: left;
+    white-space: nowrap;
+  }
+  .o-card__title {
+    font-size: 1.4rem;
+  }
+}
