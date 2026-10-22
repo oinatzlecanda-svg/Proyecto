@@ -1,6 +1,6 @@
 {{ 'oelnor-sections.css' | asset_url | stylesheet_tag }}
 
-<section class="o-section o-catindex" data-o-catindex>
+<section class="o-section o-catindex{% if section.settings.layout == 'cards' %} o-catindex--cards{% endif %}"{% unless section.settings.layout == 'cards' %} data-o-catindex{% endunless %}>
   <div class="o-container">
     <div class="o-catindex__head">
       {%- if section.settings.eyebrow != blank -%}
@@ -9,6 +9,36 @@
       <h2 class="o-display o-catindex__title" data-o-split>{{ section.settings.heading | escape }}</h2>
     </div>
 
+    {%- if section.settings.layout == 'cards' -%}
+    <ul class="o-catcards" role="list">
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign col = block.settings.collection
+          assign img = block.settings.image
+          if img == blank and block.settings.product != blank
+            assign img = block.settings.product.featured_media
+          endif
+          if img == blank and col != blank
+            assign img = col.featured_image
+          endif
+          assign title = block.settings.title | default: col.title
+          assign link = block.settings.link | default: col.url | default: routes.all_products_collection_url
+        -%}
+        <li class="o-catcards__item" {{ block.shopify_attributes }} data-o-reveal="fade" style="--i: {{ forloop.index0 | modulo: 4 }}">
+          <a class="o-catcards__tile" href="{{ link }}" data-o-cursor="Ver">
+            <div class="o-catcards__media">
+              {%- if img != blank -%}
+                {{ img | image_url: width: 900 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 24vw, 50vw', widths: '360, 540, 720, 900', alt: title }}
+              {%- else -%}
+                {{ 'collection-1' | placeholder_svg_tag: 'o-placeholder' }}
+              {%- endif -%}
+            </div>
+            <span class="o-catcards__name">{{ title | escape }} <span aria-hidden="true">↗</span></span>
+          </a>
+        </li>
+      {%- endfor -%}
+    </ul>
+    {%- else -%}
     <ul class="o-catindex__list" role="list">
       {%- for block in section.blocks -%}
         {%- liquid
@@ -50,8 +80,11 @@
         </li>
       {%- endfor -%}
     </ul>
+    {%- endif -%}
   </div>
-  <div class="o-catindex__float" aria-hidden="true"><div class="o-catindex__float-inner"></div></div>
+  {%- unless section.settings.layout == 'cards' -%}
+    <div class="o-catindex__float" aria-hidden="true"><div class="o-catindex__float-inner"></div></div>
+  {%- endunless -%}
 </section>
 
 <script>
@@ -113,6 +146,16 @@
   "tag": "div",
   "class": "section-oelnor-catindex",
   "settings": [
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Diseño",
+      "options": [
+        { "value": "list", "label": "Lista grande con foto flotante" },
+        { "value": "cards", "label": "Tarjetas con foto" }
+      ],
+      "default": "list"
+    },
     { "type": "text", "id": "eyebrow", "label": "Antetítulo", "default": "Explora" },
     { "type": "text", "id": "heading", "label": "Titular", "default": "Encuentra lo tuyo" }
   ],

@@ -34,7 +34,9 @@
           {%- endif -%}
         </h2>
       {%- endif -%}
-      <p class="o-statement__text" data-o-scrub>{{ section.settings.text | escape }}</p>
+      {%- if section.settings.text != blank -%}
+        <p class="o-statement__text" data-o-scrub>{{ section.settings.text | escape }}</p>
+      {%- endif -%}
       {%- if section.settings.button_label != blank -%}
         <a class="o-btn o-btn--ghost" data-o-magnetic data-o-reveal="fade" href="{{ section.settings.button_link | default: routes.all_products_collection_url }}">
           {{ section.settings.button_label | escape }} <span class="o-btn__arrow" aria-hidden="true">→</span>

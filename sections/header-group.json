@@ -31,21 +31,11 @@
             "color_scheme": "scheme-4",
             "link": ""
           }
-        },
-        "announcement-bar-2": {
-          "type": "announcement",
-          "settings": {
-            "text": "25 % en todo tu pedido con 2 o más artículos",
-            "text_alignment": "center",
-            "color_scheme": "scheme-4",
-            "link": ""
-          }
         }
       },
       "block_order": [
         "announcement-bar-0",
-        "announcement-bar-1",
-        "announcement-bar-2"
+        "announcement-bar-1"
       ]
     },
     "header": {

@@ -323,3 +323,15 @@ Ajustes en Tema → Configuración → **Oelnor · Seguimiento**: activar/desact
 ruta (por defecto `/apps/parcelpanel`), titular y texto. Si ParcelPanel tiene
 CSS propio en su panel («Additional CSS»), conviene vaciarlo para que no
 choque con este estilo.
+
+## 20. Home más visual y con menos texto
+
+- Sin banda de oferta y sin el mensaje del 25 % en la barra de anuncios.
+- Fuera párrafos y antetítulos: solo titulares cortos y botones.
+- `oelnor-photo-strip`: tira de fotos de producto en bucle (se pausa al
+  pasar el ratón y fuera de pantalla); sustituye al texto en movimiento.
+- `oelnor-category-index` tiene ahora un diseño «Tarjetas con foto» (el de
+  lista sigue disponible); la home lo usa para las 8 edits.
+- Orden: hero 3D → tira de fotos → Mujer/Hombre/Accesorios → La selección →
+  El frío no es excusa → categorías → Todo OELNOR → Menos básico. Más
+  identidad. → envío/devoluciones/pago → newsletter.

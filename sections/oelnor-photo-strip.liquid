@@ -1,0 +1,50 @@
+{{ 'oelnor-sections.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign strip_products = section.settings.product_list
+  if strip_products == blank and section.settings.collection != blank
+    assign strip_products = section.settings.collection.products
+  endif
+-%}
+
+<section class="o-section o-photostrip" style="--o-strip-duration: {{ section.settings.speed }}s" aria-label="{{ section.settings.label | escape }}">
+  <div class="o-photostrip__track">
+    {%- for i in (1..2) -%}
+      <ul class="o-photostrip__group" role="list"{% if forloop.last %} aria-hidden="true"{% endif %}>
+        {%- for product in strip_products limit: section.settings.limit -%}
+          {%- if product.featured_media == blank -%}{%- continue -%}{%- endif -%}
+          <li class="o-photostrip__item">
+            <a class="o-photostrip__link" href="{{ product.url }}" data-o-cursor="Ver"{% if forloop.parentloop.last %} tabindex="-1"{% endif %}>
+              {{
+                product.featured_media
+                | image_url: width: 600
+                | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 16vw, 38vw', widths: '300, 450, 600', alt: product.title
+              }}
+              <span class="o-photostrip__name">{{ product.title | escape }}</span>
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Oelnor · Tira de fotos",
+  "tag": "div",
+  "class": "section-oelnor-photostrip",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Fotos de producto que avanzan solas en bucle. Se pausan al pasar el ratón y cada foto lleva a su producto."
+    },
+    { "type": "product_list", "id": "product_list", "label": "Productos", "limit": 16 },
+    { "type": "collection", "id": "collection", "label": "O una colección" },
+    { "type": "range", "id": "limit", "min": 4, "max": 16, "step": 1, "default": 12, "label": "Máximo de fotos" },
+    { "type": "range", "id": "speed", "min": 20, "max": 120, "step": 5, "unit": "s", "default": 60, "label": "Duración de una vuelta" },
+    { "type": "text", "id": "label", "label": "Etiqueta accesible", "default": "Selección de productos" }
+  ],
+  "presets": [{ "name": "Oelnor · Tira de fotos" }]
+}
+{% endschema %}

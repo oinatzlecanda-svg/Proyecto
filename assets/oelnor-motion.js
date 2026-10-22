@@ -352,7 +352,7 @@
     entries.forEach((e) => e.target.classList.toggle('is-offscreen', !e.isIntersecting));
   });
   function pauseLoops(root) {
-    root.querySelectorAll('.o-marquee, .o-story__ticker, .o-offer, .o-hero3d__hint').forEach((el) => {
+    root.querySelectorAll('.o-marquee, .o-story__ticker, .o-offer, .o-hero3d__hint, .o-photostrip').forEach((el) => {
       if (el.dataset.oLoop) return;
       el.dataset.oLoop = '';
       loopObserver.observe(el);

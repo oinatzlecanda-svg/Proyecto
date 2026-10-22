@@ -557,19 +557,12 @@
             "heading_size": "h1"
           }
         },
-        "paragraph": {
-          "type": "paragraph",
-          "settings": {
-            "text": "<p>Recibe novedades y descubre las próximas selecciones de OELNOR.</p>"
-          }
-        },
         "email_form": {
           "type": "email_form"
         }
       },
       "block_order": [
         "heading",
-        "paragraph",
         "email_form"
       ],
       "settings": {
@@ -586,7 +579,7 @@
         "products_to_show": 12,
         "eyebrow": "OELNOR / Nueva temporada",
         "heading": "Estilo con intención.",
-        "text": "Prendas y accesorios con carácter para vestir a tu manera.",
+        "text": "",
         "button_label_1": "Ver todo",
         "button_link_1": "shopify://collections/todos-los-productos-oelnor",
         "button_label_2": "Colección otoño",
@@ -632,7 +625,8 @@
       "settings": {
         "style": "dark",
         "speed": 40
-      }
+      },
+      "disabled": true
     },
     "oelnor-categorias": {
       "type": "oelnor-category-index",
@@ -640,7 +634,7 @@
         "chaquetas": {
           "type": "category",
           "settings": {
-            "kicker": "The layers edit",
+            "kicker": "",
             "title": "Chaquetas",
             "collection": "chaquetas-mujer",
             "product": "chaqueta-lena-cropped-cinturon"
@@ -649,7 +643,7 @@
         "calzado": {
           "type": "category",
           "settings": {
-            "kicker": "The footwear edit",
+            "kicker": "",
             "title": "Calzado",
             "collection": "calzado-mujer",
             "product": "botas-beige-ante-sintetico"
@@ -658,7 +652,7 @@
         "pmujer": {
           "type": "category",
           "settings": {
-            "kicker": "The women's denim edit",
+            "kicker": "",
             "title": "Pantalones mujer",
             "collection": "pantalones-mujer",
             "product": "black-jeans-shiny-star"
@@ -667,7 +661,7 @@
         "phombre": {
           "type": "category",
           "settings": {
-            "kicker": "The denim edit",
+            "kicker": "",
             "title": "Pantalones hombre",
             "collection": "pantalones-hombre",
             "product": "pantalon-ciro-pana-baggy"
@@ -676,7 +670,7 @@
         "jerseis": {
           "type": "category",
           "settings": {
-            "kicker": "The knitwear edit",
+            "kicker": "",
             "title": "Jerséis",
             "collection": "jerseis-mujer",
             "product": "jersey-dalia-asimetrico"
@@ -685,7 +679,7 @@
         "bolsos": {
           "type": "category",
           "settings": {
-            "kicker": "The bags edit",
+            "kicker": "",
             "title": "Bolsos",
             "collection": "bolsos",
             "product": "musthave-suede-bag-coffee"
@@ -694,7 +688,7 @@
         "accesorios": {
           "type": "category",
           "settings": {
-            "kicker": "The details edit",
+            "kicker": "",
             "title": "Accesorios",
             "collection": "accesorios",
             "product": "portalabial-espejo-corazon"
@@ -703,7 +697,7 @@
         "sudaderas": {
           "type": "category",
           "settings": {
-            "kicker": "The comfort edit",
+            "kicker": "",
             "title": "Sudaderas hombre",
             "collection": "sudaderas-hombre",
             "product": "sudadera-relaxed-algodon"
@@ -721,8 +715,9 @@
         "sudaderas"
       ],
       "settings": {
-        "eyebrow": "Las edits",
-        "heading": "Encuentra tu próxima pieza."
+        "eyebrow": "",
+        "heading": "Encuentra tu próxima pieza.",
+        "layout": "cards"
       }
     },
     "oelnor-carril": {
@@ -730,19 +725,19 @@
       "settings": {
         "collection": "la-seleccion-oelnor",
         "products_to_show": 13,
-        "eyebrow": "Curated / OELNOR",
+        "eyebrow": "",
         "heading": "La selección.",
-        "view_all": "Ver la selección",
+        "view_all": "Ver todo",
         "cursor_label": "Ver"
       }
     },
     "oelnor-manifiesto": {
       "type": "oelnor-statement",
       "settings": {
-        "eyebrow": "OELNOR / Your style",
+        "eyebrow": "",
         "heading": "Menos básico.",
         "heading_accent": "Más identidad.",
-        "text": "No es llevar lo de siempre. Es encontrar esas piezas que hacen que el look sea tuyo.",
+        "text": "",
         "image_1": "shopify://shop_images/handbags-and-accessories-natural-4.jpg",
         "product_2": "jeans-kairo-telarania",
         "button_label": "Descubre OELNOR",
@@ -790,7 +785,7 @@
           "settings": {
             "collection": "mujer",
             "title": "Mujer",
-            "label": "Moda mujer",
+            "label": "",
             "product": "chaqueta-lena-cropped-cinturon"
           }
         },
@@ -799,7 +794,7 @@
           "settings": {
             "collection": "hombre",
             "title": "Hombre",
-            "label": "Moda hombre",
+            "label": "",
             "product": "bomber-milo"
           }
         },
@@ -808,7 +803,7 @@
           "settings": {
             "collection": "accesorios",
             "title": "Accesorios",
-            "label": "Bolsos y detalles",
+            "label": "",
             "product": "musthave-suede-bag-coffee"
           }
         }
@@ -819,7 +814,7 @@
         "accesorios"
       ],
       "settings": {
-        "eyebrow": "Compra por",
+        "eyebrow": "",
         "heading": "Tu estilo, tus reglas.",
         "cursor_label": "Entrar"
       }
@@ -838,7 +833,8 @@
         "button_label": "Descúbrelo",
         "button_link": "shopify://collections/todos-los-productos-oelnor",
         "ends_at": ""
-      }
+      },
+      "disabled": true
     },
     "oelnor-otono": {
       "type": "oelnor-feature",
@@ -846,9 +842,9 @@
         "image": "shopify://shop_images/oelnor-mujer-jersey-editorial.png",
         "link": "shopify://pages/coleccion-otono",
         "season": "Otoño",
-        "eyebrow": "Selección de otoño",
+        "eyebrow": "",
         "heading": "El frío no es excusa.",
-        "text": "Botas, capas, punto y denim para cuando baja la temperatura.",
+        "text": "",
         "button_label": "Ver la selección",
         "cursor_label": "Ver"
       }
@@ -861,7 +857,7 @@
           "settings": {
             "icon": "truck",
             "title": "Envío gratis",
-            "text": "Sin coste de envío"
+            "text": ""
           }
         },
         "t2": {
@@ -869,7 +865,7 @@
           "settings": {
             "icon": "return",
             "title": "30 días para devolver",
-            "text": "Consulta nuestras condiciones"
+            "text": ""
           }
         },
         "t3": {
@@ -877,7 +873,7 @@
           "settings": {
             "icon": "lock",
             "title": "Pago seguro",
-            "text": "Compra con tranquilidad"
+            "text": ""
           }
         }
       },
@@ -889,20 +885,46 @@
       "settings": {
         "label": "Información de compra"
       }
+    },
+    "oelnor-fotos": {
+      "type": "oelnor-photo-strip",
+      "settings": {
+        "product_list": [
+          "bomber-noa-efecto-ante",
+          "musthave-suede-bag-coffee",
+          "botas-beige-ante-sintetico",
+          "black-jeans-shiny-star",
+          "chaqueta-lena-cropped-cinturon",
+          "jersey-dalia-asimetrico",
+          "vintage-city-bag-black",
+          "lace-ballerina-flat-black",
+          "parka-elara-acolchada",
+          "jersey-riven-efecto-desgastado",
+          "cardigan-naya-punto-rayas",
+          "chaqueta-corta-flecos",
+          "bomber-milo",
+          "jeans-kairo-telarania"
+        ],
+        "collection": "",
+        "limit": 14,
+        "speed": 60,
+        "label": "Selección de productos"
+      }
     }
   },
   "order": [
     "oelnor-hero",
-    "oelnor-marquee",
+    "oelnor-fotos",
     "oelnor-accesos",
-    "oelnor-oferta",
-    "oelnor-categorias",
     "oelnor-carril",
     "oelnor-otono",
+    "oelnor-categorias",
     "catalogo",
     "oelnor-manifiesto",
     "oelnor-confianza",
     "newsletter",
+    "oelnor-marquee",
+    "oelnor-oferta",
     "producto-protagonista",
     "seleccion-oelnor",
     "oelnor-marquee-2",

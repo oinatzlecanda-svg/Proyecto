@@ -1784,3 +1784,173 @@
     font-size: 1.4rem;
   }
 }
+
+/* ---------------- Photo strip (product photos in a slow loop) ---------------- */
+.o-photostrip {
+  padding-block: clamp(3.2rem, 5vw, 6rem);
+  overflow: hidden;
+}
+
+.o-photostrip__track {
+  display: flex;
+  width: max-content;
+  animation: o-marquee var(--o-strip-duration, 60s) linear infinite;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .o-photostrip:hover .o-photostrip__track {
+    animation-play-state: paused;
+  }
+}
+
+.o-photostrip__group {
+  display: flex;
+  gap: clamp(1.2rem, 1.4vw, 2rem);
+  padding-right: clamp(1.2rem, 1.4vw, 2rem);
+  margin: 0;
+  list-style: none;
+}
+
+.o-photostrip__item {
+  width: clamp(15rem, 16vw, 26rem);
+  flex-shrink: 0;
+}
+
+/* Gentle alternating lean gives the strip a hand-placed rhythm */
+.o-photostrip__item:nth-child(odd) {
+  transform: translateY(1.6rem) rotate(-1.2deg);
+}
+
+.o-photostrip__item:nth-child(even) {
+  transform: rotate(1.2deg);
+}
+
+.o-photostrip__link {
+  position: relative;
+  display: block;
+  aspect-ratio: 3 / 4;
+  border-radius: 1.2rem;
+  overflow: hidden;
+  background: var(--o-surface);
+  color: var(--o-text);
+}
+
+.o-photostrip__link img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 700ms var(--o-ease-out);
+}
+
+.o-photostrip__name {
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+  padding: 0.6rem 1rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--o-bg) 88%, transparent);
+  font-size: 1.2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 200ms ease, transform 260ms var(--o-ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .o-photostrip__link:hover img {
+    transform: scale(1.06);
+  }
+  .o-photostrip__link:hover .o-photostrip__name,
+  .o-photostrip__link:focus-visible .o-photostrip__name {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .o-photostrip__track {
+    animation-duration: calc(var(--o-strip-duration, 60s) * 3);
+  }
+}
+
+/* ---------------- Category cards ---------------- */
+.o-catindex--cards {
+  padding-block: clamp(6rem, 9vw, 11rem);
+}
+
+.o-catcards {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(1.2rem, 1.6vw, 2.4rem);
+}
+
+.o-catcards__tile {
+  position: relative;
+  display: block;
+  border-radius: 1.2rem;
+  overflow: hidden;
+  color: #f4f0e9;
+  text-decoration: none;
+}
+
+.o-catcards__media {
+  aspect-ratio: 3 / 4;
+  background: var(--o-surface);
+}
+
+.o-catcards__media img,
+.o-catcards__media svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 900ms var(--o-ease-out);
+}
+
+.o-catcards__tile::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgba(var(--o-overlay-rgb), 0.7));
+  pointer-events: none;
+}
+
+.o-catcards__name {
+  position: absolute;
+  left: clamp(1.4rem, 1.6vw, 2.2rem);
+  right: clamp(1.4rem, 1.6vw, 2.2rem);
+  bottom: clamp(1.4rem, 1.6vw, 2.2rem);
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  font-family: var(--font-heading-family);
+  font-size: clamp(1.8rem, 1.8vw, 2.6rem);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.o-catcards__name span {
+  transition: transform 300ms var(--o-ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .o-catcards__tile:hover img {
+    transform: scale(1.05);
+  }
+  .o-catcards__tile:hover .o-catcards__name span {
+    transform: translate(3px, -3px);
+  }
+}
+
+@media screen and (max-width: 989px) {
+  .o-catcards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
