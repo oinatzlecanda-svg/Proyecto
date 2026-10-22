@@ -1,0 +1,233 @@
+{{ 'oelnor-pages.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign contact_email = section.settings.email | default: shop.email
+-%}
+
+<section class="o-section o-contact">
+  <div class="o-container">
+    <header class="o-contact__head">
+      <nav class="o-colhero__crumbs" aria-label="Ruta" data-o-reveal="fade">
+        <a href="{{ routes.root_url }}">Inicio</a>
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">{{ page.title | default: 'Contacto' | escape }}</span>
+      </nav>
+      <p class="o-eyebrow" data-o-reveal="fade" style="--i: 1">{{ section.settings.eyebrow | escape }}</p>
+      <h1 class="o-display o-contact__title" data-o-split>{{ section.settings.heading | escape }}</h1>
+      {%- if section.settings.text != blank -%}
+        <p class="o-contact__lead" data-o-reveal="fade" style="--i: 3">{{ section.settings.text | escape }}</p>
+      {%- endif -%}
+    </header>
+
+    <div class="o-contact__grid">
+      <div class="o-contact__form-wrap" data-o-reveal="fade" style="--i: 2">
+        {%- form 'contact', id: 'OelnorContactForm', class: 'o-form', novalidate: 'novalidate' -%}
+          {%- if form.posted_successfully? -%}
+            <div class="o-form__status o-form__status--ok" role="status" tabindex="-1" autofocus>
+              <span class="o-form__status-icon" aria-hidden="true">✓</span>
+              <div>
+                <strong>{{ section.settings.success_title | escape }}</strong>
+                <p>{{ section.settings.success_text | escape }}</p>
+              </div>
+            </div>
+          {%- elsif form.errors -%}
+            <div class="o-form__status o-form__status--error" role="alert" tabindex="-1" autofocus>
+              <span class="o-form__status-icon" aria-hidden="true">!</span>
+              <div>
+                <strong>Revisa el formulario</strong>
+                <p>{{ form.errors | default_errors }}</p>
+              </div>
+            </div>
+          {%- endif -%}
+
+          <fieldset class="o-form__topics">
+            <legend class="o-form__label">¿Sobre qué nos escribes?</legend>
+            <div class="o-form__chips">
+              {%- assign topics = section.settings.topics | split: ',' -%}
+              {%- for topic in topics -%}
+                {%- assign topic_clean = topic | strip -%}
+                <label class="o-chip o-form__chip">
+                  <input type="radio" name="contact[Tema]" value="{{ topic_clean | escape }}" {% if forloop.first %}checked{% endif %}>
+                  <span>{{ topic_clean | escape }}</span>
+                </label>
+              {%- endfor -%}
+            </div>
+          </fieldset>
+
+          <div class="o-form__row">
+            <div class="o-field">
+              <input class="o-field__input" type="text" id="ContactName" name="contact[name]" autocomplete="name" placeholder=" " value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}">
+              <label class="o-field__label" for="ContactName">Nombre</label>
+            </div>
+            <div class="o-field">
+              <input class="o-field__input" type="email" id="ContactEmail" name="contact[email]" autocomplete="email" spellcheck="false" autocapitalize="off" required aria-required="true" placeholder=" " value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}">
+              <label class="o-field__label" for="ContactEmail">Email <span aria-hidden="true">*</span></label>
+            </div>
+          </div>
+
+          <div class="o-form__row">
+            <div class="o-field">
+              <input class="o-field__input" type="text" id="ContactOrder" name="contact[Número de pedido]" placeholder=" " inputmode="text">
+              <label class="o-field__label" for="ContactOrder">Nº de pedido (opcional)</label>
+            </div>
+            <div class="o-field">
+              <input class="o-field__input" type="tel" id="ContactPhone" name="contact[phone]" autocomplete="tel" placeholder=" " value="{{ form.phone }}">
+              <label class="o-field__label" for="ContactPhone">Teléfono (opcional)</label>
+            </div>
+          </div>
+
+          <div class="o-field">
+            <textarea class="o-field__input o-field__input--area" id="ContactBody" name="contact[body]" rows="6" required aria-required="true" placeholder=" ">{{- form.body -}}</textarea>
+            <label class="o-field__label" for="ContactBody">Cuéntanos qué necesitas <span aria-hidden="true">*</span></label>
+          </div>
+
+          <div class="o-form__foot">
+            <button type="submit" class="o-btn o-form__submit">
+              <span class="o-form__submit-text">{{ section.settings.button_label | escape }}</span>
+              <span class="o-btn__arrow" aria-hidden="true">→</span>
+            </button>
+            <p class="o-form__note">Al enviar aceptas nuestra <a href="{{ shop.privacy_policy.url | default: '/policies/privacy-policy' }}">política de privacidad</a>.</p>
+          </div>
+        {%- endform -%}
+      </div>
+
+      <aside class="o-contact__aside">
+        <div class="o-contact__card o-dark" data-o-reveal="fade" style="--i: 3">
+          <p class="o-eyebrow">Escríbenos directamente</p>
+          <a class="o-contact__email" href="mailto:{{ contact_email }}">{{ contact_email }}</a>
+          <button type="button" class="o-chip o-contact__copy" data-o-copy="{{ contact_email | escape }}">
+            <span data-o-copy-label>Copiar email</span>
+          </button>
+          {%- if section.settings.response_note != blank -%}
+            <p class="o-contact__note">{{ section.settings.response_note | escape }}</p>
+          {%- endif -%}
+        </div>
+
+        <ul class="o-contact__links" role="list" data-o-reveal="fade" style="--i: 4">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'link' -%}
+              <li {{ block.shopify_attributes }}>
+                <a class="o-contact__link" href="{{ block.settings.url }}">
+                  <span>
+                    <strong>{{ block.settings.title | escape }}</strong>
+                    {%- if block.settings.text != blank -%}<small>{{ block.settings.text | escape }}</small>{%- endif -%}
+                  </span>
+                  <span class="o-contact__link-arrow" aria-hidden="true">→</span>
+                </a>
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      </aside>
+    </div>
+
+    {%- assign faq_count = 0 -%}
+    {%- for block in section.blocks -%}{%- if block.type == 'faq' -%}{%- assign faq_count = faq_count | plus: 1 -%}{%- endif -%}{%- endfor -%}
+    {%- if faq_count > 0 -%}
+      <div class="o-faq">
+        <div class="o-faq__head">
+          <p class="o-eyebrow" data-o-reveal="fade">{{ section.settings.faq_eyebrow | escape }}</p>
+          <h2 class="o-display o-faq__title" data-o-split>{{ section.settings.faq_heading | escape }}</h2>
+        </div>
+        <div class="o-faq__list">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'faq' -%}
+              <details class="o-faq__item" {{ block.shopify_attributes }} data-o-reveal="fade" style="--i: {{ forloop.index0 | at_most: 5 }}">
+                <summary class="o-faq__q">
+                  <span>{{ block.settings.question | escape }}</span>
+                  <span class="o-faq__icon" aria-hidden="true"></span>
+                </summary>
+                <div class="o-faq__a"><div class="o-faq__a-inner">{{ block.settings.answer }}</div></div>
+              </details>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+<script>
+  (() => {
+    document.querySelectorAll('[data-o-copy]:not([data-ready])').forEach((btn) => {
+      btn.dataset.ready = '';
+      const label = btn.querySelector('[data-o-copy-label]');
+      btn.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(btn.dataset.oCopy);
+          label.textContent = 'Copiado';
+        } catch (e) {
+          label.textContent = btn.dataset.oCopy;
+        }
+        clearTimeout(btn._t);
+        btn._t = setTimeout(() => (label.textContent = 'Copiar email'), 1800);
+      });
+    });
+    document.querySelectorAll('#OelnorContactForm:not([data-ready])').forEach((form) => {
+      form.dataset.ready = '';
+      form.addEventListener('submit', (e) => {
+        // Native validation first; only lock the button when the form is valid.
+        if (!form.checkValidity()) {
+          e.preventDefault();
+          form.reportValidity();
+          return;
+        }
+        const btn = form.querySelector('.o-form__submit');
+        btn.setAttribute('aria-busy', 'true');
+        btn.querySelector('.o-form__submit-text').textContent = 'Enviando…';
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Oelnor · Contacto",
+  "tag": "div",
+  "class": "section-oelnor-contact",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Antetítulo", "default": "OELNOR / Contacto" },
+    { "type": "text", "id": "heading", "label": "Titular", "default": "Hablemos de lo que necesites." },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Texto",
+      "default": "¿Una duda con tu pedido, las tallas o una devolución? Estamos aquí para ayudarte. Cuéntanos qué necesitas y te responderemos lo antes posible."
+    },
+    {
+      "type": "text",
+      "id": "topics",
+      "label": "Temas (separados por comas)",
+      "default": "Mi pedido, Tallas, Devoluciones, Otra consulta"
+    },
+    { "type": "text", "id": "button_label", "label": "Botón", "default": "Enviar mensaje" },
+    { "type": "text", "id": "success_title", "label": "Título al enviar", "default": "Mensaje enviado" },
+    { "type": "text", "id": "success_text", "label": "Texto al enviar", "default": "Gracias por escribirnos. Te responderemos lo antes posible." },
+    { "type": "text", "id": "email", "label": "Email visible", "info": "Vacío = email de la tienda." },
+    { "type": "text", "id": "response_note", "label": "Nota bajo el email", "default": "Te responderemos lo antes posible." },
+    { "type": "text", "id": "faq_eyebrow", "label": "Antetítulo de preguntas", "default": "Respuestas rápidas" },
+    { "type": "text", "id": "faq_heading", "label": "Titular de preguntas", "default": "Antes de escribir." }
+  ],
+  "blocks": [
+    {
+      "type": "link",
+      "name": "Acceso rápido",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Título", "default": "Localizar mi pedido" },
+        { "type": "text", "id": "text", "label": "Texto" },
+        { "type": "url", "id": "url", "label": "Enlace" }
+      ]
+    },
+    {
+      "type": "faq",
+      "name": "Pregunta",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Pregunta", "default": "Pregunta" },
+        { "type": "richtext", "id": "answer", "label": "Respuesta", "default": "<p>Respuesta</p>" }
+      ]
+    }
+  ],
+  "enabled_on": { "templates": ["page"] },
+  "presets": [{ "name": "Oelnor · Contacto" }]
+}
+{% endschema %}

@@ -1,0 +1,108 @@
+{% comment %}
+  Header for Shopify policy pages (/policies/*). Shopify renders the policy
+  itself through content_for_layout; this adds the Oelnor hero, quick links
+  between policies and a table of contents built from the policy's headings.
+  Rendered from layout/theme.liquid when request.page_type == 'policy'.
+{% endcomment %}
+
+{%- liquid
+  assign current_policy = null
+  for policy in shop.policies
+    if request.path contains policy.url or policy.url contains request.path
+      assign current_policy = policy
+    endif
+  endfor
+-%}
+
+{{ 'oelnor-pages.css' | asset_url | stylesheet_tag }}
+
+<section class="o-section o-policyhero">
+  <div class="o-container">
+    <nav class="o-colhero__crumbs" aria-label="Ruta" data-o-reveal="fade">
+      <a href="{{ routes.root_url }}">Inicio</a>
+      <span aria-hidden="true">/</span>
+      <span>Información legal</span>
+      {%- if current_policy -%}
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">{{ current_policy.title | escape }}</span>
+      {%- endif -%}
+    </nav>
+    <p class="o-eyebrow" data-o-reveal="fade" style="--i: 1">OELNOR / Políticas</p>
+    <h1 class="o-display o-policyhero__title" data-o-split>
+      {{- current_policy.title | default: 'Políticas' | escape -}}
+    </h1>
+    {%- if shop.policies.size > 1 -%}
+      <nav aria-label="Otras políticas" data-o-reveal="fade" style="--i: 3">
+        <ul class="o-colhero__chips" role="list">
+          {%- for policy in shop.policies -%}
+            {%- assign is_current = false -%}
+            {%- if current_policy and policy.url == current_policy.url -%}{%- assign is_current = true -%}{%- endif -%}
+            <li>
+              <a class="o-chip{% if is_current %} is-current{% endif %}" href="{{ policy.url }}"{% if is_current %} aria-current="page"{% endif %}>
+                {{- policy.title | escape -}}
+              </a>
+            </li>
+          {%- endfor -%}
+        </ul>
+      </nav>
+    {%- endif -%}
+  </div>
+</section>
+
+<script>
+  (() => {
+    // Turn the policy body into a two-column read: sticky table of contents
+    // (built from its h2 headings) and the text, with the active section marked.
+    const run = () => document.querySelectorAll('.shopify-policy__container').forEach(setup);
+    const setup = (container) => {
+      const body = container.querySelector('.shopify-policy__body');
+      if (!body || container.dataset.oReady) return;
+      container.dataset.oReady = '';
+      container.classList.add('o-policy');
+
+      const headings = [...body.querySelectorAll('h2')];
+      if (headings.length < 2) return;
+
+      const toc = document.createElement('nav');
+      toc.className = 'o-policy__toc';
+      toc.setAttribute('aria-label', 'En esta página');
+      const list = document.createElement('ol');
+      const slug = (t) =>
+        t.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/^\d+\.\s*/, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+      const used = new Set();
+      headings.forEach((h, i) => {
+        if (!h.id) {
+          let id = slug(h.textContent) || 'apartado-' + (i + 1);
+          while (used.has(id)) id += '-' + (i + 1);
+          used.add(id);
+          h.id = id;
+        }
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = '#' + h.id;
+        a.textContent = h.textContent.trim().replace(/^\d+\.\s*/, '');
+        li.appendChild(a);
+        list.appendChild(li);
+      });
+      const label = document.createElement('p');
+      label.className = 'o-policy__toc-label';
+      label.textContent = 'En esta página';
+      toc.append(label, list);
+      container.insertBefore(toc, container.firstChild);
+
+      const links = [...list.querySelectorAll('a')];
+      const spy = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            links.forEach((l) => l.classList.toggle('is-active', l.hash === '#' + entry.target.id));
+          });
+        },
+        { rootMargin: '-20% 0px -70% 0px' }
+      );
+      headings.forEach((h) => spy.observe(h));
+    };
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run, { once: true });
+    else run();
+  })();
+</script>

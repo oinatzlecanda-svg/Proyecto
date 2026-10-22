@@ -1,0 +1,65 @@
+{
+  "sections": {
+    "main": {
+      "type": "oelnor-tracking",
+      "settings": {
+        "eyebrow": "OELNOR / Seguimiento",
+        "heading": "¿Dónde está tu pedido?",
+        "text": "Introduce tus datos en nuestro localizador y revisa el estado del envío en cualquier momento.",
+        "button_label": "Localizar mi pedido",
+        "tracker_url": "/apps/parcelpanel",
+        "helper": "Ten a mano tu número de pedido y el email con el que compraste.",
+        "steps_eyebrow": "El viaje de tu pedido",
+        "steps_heading": "Así llega a tu casa.",
+        "footnote": "Plazos estimados según nuestra política de envíos: pueden variar según el destino, el transportista o los periodos de alta demanda. Los envíos a Canarias pueden requerir trámites aduaneros que alarguen la entrega.",
+        "help_heading": "¿Algo no cuadra?",
+        "help_text": "Si no aparece información o necesitas ayuda con tu pedido, escríbenos y lo revisamos contigo.",
+        "help_button": "Contactar",
+        "help_link": "/pages/contact"
+      },
+      "blocks": {
+        "s1": {
+          "type": "step",
+          "settings": {
+            "title": "Confirmado",
+            "time": "",
+            "text": "Recibimos tu pedido y te enviamos la confirmación por email."
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "title": "Preparando",
+            "time": "1 a 3 días hábiles",
+            "text": "Preparamos tu pedido. En fines de semana, festivos o campañas puede tardar algo más."
+          }
+        },
+        "s3": {
+          "type": "step",
+          "settings": {
+            "title": "En camino",
+            "time": "7 a 14 días hábiles · Europa",
+            "text": "Cuando el envío tiene número de seguimiento, puedes consultarlo en el localizador."
+          }
+        },
+        "s4": {
+          "type": "step",
+          "settings": {
+            "title": "Entregado",
+            "time": "",
+            "text": "Revisa tu pedido al recibirlo. Si algo no está bien, escríbenos."
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3",
+        "s4"
+      ]
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

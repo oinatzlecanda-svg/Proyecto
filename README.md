@@ -292,3 +292,20 @@ propio y ancla; `oelnor-product-grid` es una cuadrícula editorial nueva.
 - Transiciones entre páginas con View Transitions (fundido de 280 ms;
   navegadores sin soporte navegan como siempre). Todo respeta «reducir
   movimiento».
+
+## 18. Políticas, contacto y localizar envío
+
+- **Políticas** (`/policies/*`): Shopify genera estas páginas, así que el
+  tema añade desde `layout/theme.liquid` el snippet `oelnor-policy-shell`
+  (cabecera, accesos a todas las políticas e índice lateral fijo creado con
+  los apartados de cada política, que marca el apartado que se está
+  leyendo). El texto sigue editándose en Admin → Configuración → Políticas.
+- **Contacto** (`templates/page.contact.json`, sección `oelnor-contact`):
+  formulario real de Shopify con tema, nº de pedido y teléfono opcionales,
+  email con botón de copiar, accesos rápidos y preguntas frecuentes
+  redactadas a partir de las políticas de envío y devolución.
+- **Localizar envío** (`templates/page.tracking.json`, sección
+  `oelnor-tracking`): botón al localizador de ParcelPanel
+  (`/apps/parcelpanel`), el recorrido del pedido con los plazos de la
+  política de envíos y ayuda si algo no cuadra. La página
+  `localizar-pedido` usa esta plantilla (sufijo `tracking`).

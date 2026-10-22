@@ -342,6 +342,9 @@
       tabindex="-1"
       data-template="{{ template.name }}"
     >
+      {%- if request.page_type == 'policy' -%}
+        {%- render 'oelnor-policy-shell' -%}
+      {%- endif -%}
       {{ content_for_layout }}
     </main>
 
