@@ -1,20 +1,22 @@
 /* ==========================================================================
-   Oelnor — motion & dark editorial layer
+   Oelnor — motion & editorial layer
    Shared by every oelnor-* section. Animates only transform / opacity /
    clip-path / filter. Every movement has a reduced-motion fallback.
    ========================================================================== */
 
 :root {
-  --o-ink: #0e0d0c;
-  --o-coal: #151311;
-  --o-char: #1e1b18;
-  --o-smoke: #2a2622;
-  --o-taupe: #6e655a;
-  --o-mute: #9a9286;
-  --o-sand: #c9b89b;
-  --o-bone: #ece6dc;
-  --o-line: rgba(236, 230, 220, 0.12);
-  --o-line-strong: rgba(236, 230, 220, 0.28);
+  /* Light neutral palette: warm off-white ground, near-black text. */
+  --o-bg: #f4f0e9;
+  --o-bg-alt: #ebe5db;
+  --o-surface: #e3dcd0;
+  --o-surface-strong: #d3c9b9;
+  --o-text-faint: #9a9081;
+  --o-text-muted: #5b544a;
+  --o-accent: #77583a;
+  --o-text: #1a1714;
+  --o-line: rgba(26, 23, 20, 0.12);
+  --o-line-strong: rgba(26, 23, 20, 0.3);
+  --o-overlay-rgb: 26, 23, 20;
 
   --o-ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --o-ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
@@ -30,7 +32,7 @@
   font-size: 1.1rem;
   letter-spacing: 0.32em;
   text-transform: uppercase;
-  color: var(--o-mute);
+  color: var(--o-text-muted);
   margin: 0;
 }
 
@@ -40,13 +42,27 @@
   letter-spacing: -0.035em;
   line-height: 0.92;
   margin: 0;
-  color: var(--o-bone);
+  color: var(--o-text);
+}
+
+/* Dark band: drop on any section to invert the palette (offer, footer…) */
+.o-dark {
+  --o-bg: #1a1714;
+  --o-bg-alt: #221e1a;
+  --o-surface: #2b2621;
+  --o-surface-strong: #3a342d;
+  --o-text-faint: #8f8576;
+  --o-text-muted: #c4bbad;
+  --o-accent: #d6c3a1;
+  --o-text: #f4f0e9;
+  --o-line: rgba(244, 240, 233, 0.14);
+  --o-line-strong: rgba(244, 240, 233, 0.32);
 }
 
 .o-section {
   position: relative;
-  background: var(--o-ink);
-  color: var(--o-bone);
+  background: var(--o-bg);
+  color: var(--o-text);
   overflow: clip;
 }
 
@@ -58,8 +74,8 @@
 
 /* ---------- Buttons (press feedback + magnetic) ---------- */
 .o-btn {
-  --o-btn-bg: var(--o-bone);
-  --o-btn-fg: var(--o-ink);
+  --o-btn-bg: var(--o-text);
+  --o-btn-fg: var(--o-bg);
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -86,14 +102,14 @@
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: var(--o-sand);
+  background: var(--o-accent);
   clip-path: inset(100% 0 0 0);
   transition: clip-path 360ms var(--o-ease-out);
 }
 
 .o-btn--ghost {
   --o-btn-bg: transparent;
-  --o-btn-fg: var(--o-bone);
+  --o-btn-fg: var(--o-text);
   border-color: var(--o-line-strong);
 }
 
@@ -111,7 +127,7 @@
     clip-path: inset(0 0 0 0);
   }
   .o-btn:hover {
-    color: var(--o-ink);
+    color: var(--o-bg);
   }
   .o-btn:hover .o-btn__arrow {
     transform: translateX(4px);
@@ -177,7 +193,7 @@
 
 /* Scroll-coloured statement text (opacity driven by JS per word) */
 .o-scrub-word {
-  opacity: 0.16;
+  opacity: 0.45;
   transition: opacity 240ms linear;
 }
 
@@ -223,8 +239,8 @@
   border-radius: 50%;
   display: grid;
   place-items: center;
-  background: var(--o-bone);
-  color: var(--o-ink);
+  background: var(--o-text);
+  color: var(--o-bg);
   font-family: var(--font-body-family);
   font-size: 1.15rem;
   letter-spacing: 0.2em;
@@ -253,8 +269,8 @@
   z-index: 1000;
   display: grid;
   place-items: center;
-  background: var(--o-ink);
-  color: var(--o-bone);
+  background: var(--o-bg);
+  color: var(--o-text);
   clip-path: inset(0 0 0 0);
   transition: clip-path 900ms var(--o-ease-in-out);
 }

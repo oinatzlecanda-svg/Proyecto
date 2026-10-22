@@ -207,7 +207,7 @@
       const words = el.children;
       const lit = progress * words.length;
       for (let i = 0; i < words.length; i++) {
-        words[i].style.opacity = reduceMotion.matches ? 1 : clamp(lit - i, 0.16, 1);
+        words[i].style.opacity = reduceMotion.matches ? 1 : clamp(lit - i, 0.45, 1);
       }
     });
 

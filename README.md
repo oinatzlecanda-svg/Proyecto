@@ -142,12 +142,15 @@ colecciones de Shopify, así que la tienda funciona igual con 5, 50 o 500
 productos sin rediseñar nada. Añadir categorías nuevas es cuestión de crear
 la colección y añadirla al menú — el tema no necesita cambios de código.
 
-## 11. Rediseño oscuro con animaciones y 3D
+## 11. Rediseño con animaciones y 3D
 
-Paleta neutra oscura (tinta `#0E0D0C`, carbón, hueso `#ECE6DC`, arena
-`#C9B89B`) aplicada desde los **Esquemas de color** del tema, así que el
-header, carrito, tarjetas y página de producto cambian a la vez. El
-esquema 5 (arena) queda como acento claro.
+Paleta neutra clara: fondo blanco roto `#F4F0E9`, texto casi negro
+`#1A1714` (contraste 15,7:1), texto secundario `#5B544A` (6,6:1) y acento
+marrón `#77583A` (5,7:1), todos por encima de WCAG AA. Se aplica desde los
+**Esquemas de color** del tema (header, carrito, tarjetas y página de
+producto) y desde las variables `--o-*` de `assets/oelnor-motion.css`.
+Los esquemas 3 y 4 son oscuros (barra de anuncios, pie). Cualquier sección
+Oelnor puede invertirse con la clase `o-dark` (la banda de oferta la usa).
 
 Secciones nuevas (todas editables desde el editor de temas):
 

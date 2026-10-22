@@ -48,7 +48,20 @@ async function mount(hero) {
   host.appendChild(renderer.domElement);
 
   const scene = new THREE.Scene();
-  scene.fog = new THREE.Fog(0x0e0d0c, R + 4, R * 2 + 12);
+  // Colours come from the page palette so the ring always melts into the background.
+  const css = getComputedStyle(hero);
+  const cssColor = (name, fallback) => {
+    const v = css.getPropertyValue(name).trim();
+    try {
+      return new THREE.Color(v || fallback);
+    } catch (e) {
+      return new THREE.Color(fallback);
+    }
+  };
+  const bgColor = cssColor('--o-bg', '#f4f0e9');
+  const accentColor = cssColor('--o-accent', '#77583a');
+  const surfaceColor = cssColor('--o-surface', '#e3dcd0');
+  scene.fog = new THREE.Fog(bgColor, R + 4, R * 2 + 12);
 
   const camera = new THREE.PerspectiveCamera(32, 1, 0.1, 100);
   const camBase = new THREE.Vector3(0, 1.6, R + 9.5);
@@ -76,7 +89,7 @@ async function mount(hero) {
 
   ring.forEach((item, i) => {
     const mat = new THREE.MeshBasicMaterial({
-      color: 0x3a3631,
+      color: surfaceColor,
       transparent: true,
       opacity: 0,
       side: THREE.FrontSide,
@@ -101,7 +114,7 @@ async function mount(hero) {
         tex.offset.set(0, (1 - tex.repeat.y) / 2);
       }
       mat.map = tex;
-      mat.color.set(0xd9d3c9);
+      mat.color.set(0xffffff);
       mat.needsUpdate = true;
     });
   });
@@ -118,7 +131,7 @@ async function mount(hero) {
   dustGeo.setAttribute('position', new THREE.BufferAttribute(dustPos, 3));
   const dust = new THREE.Points(
     dustGeo,
-    new THREE.PointsMaterial({ color: 0xc9b89b, size: 0.035, transparent: true, opacity: 0.55, depthWrite: false })
+    new THREE.PointsMaterial({ color: accentColor, size: 0.035, transparent: true, opacity: 0.45, depthWrite: false })
   );
   scene.add(dust);
 

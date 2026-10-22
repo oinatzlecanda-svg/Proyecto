@@ -1,7 +1,7 @@
 {{ 'oelnor-sections.css' | asset_url | stylesheet_tag }}
 
 <section
-  class="o-section o-offer"
+  class="o-section o-dark o-offer"
   data-o-offer
   {% if section.settings.ends_at != blank %}data-ends-at="{{ section.settings.ends_at | escape }}"{% endif %}
   aria-labelledby="OfferTitle-{{ section.id }}"

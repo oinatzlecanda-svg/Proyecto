@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Oelnor dark layer over Dawn — header, product cards, product page.
+   Oelnor layer over Dawn — header, product cards, product page.
    Colours come from the theme colour schemes; this file only adds the
    motion and finish details Dawn does not have.
    ========================================================================== */
@@ -10,8 +10,8 @@ body {
 }
 
 ::selection {
-  background: var(--o-sand);
-  color: var(--o-ink);
+  background: var(--o-accent);
+  color: var(--o-bg);
 }
 
 /* Header: translucent glass over the dark page */
@@ -86,7 +86,7 @@ body {
 }
 
 .card-information .price {
-  color: var(--o-sand);
+  color: var(--o-accent);
 }
 
 /* ---------------- Product page ---------------- */
@@ -153,7 +153,7 @@ body {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: var(--o-sand);
+  background: var(--o-accent);
   clip-path: inset(100% 0 0 0);
   transition: clip-path 360ms var(--o-ease-out);
 }
@@ -163,7 +163,7 @@ body {
     clip-path: inset(0 0 0 0);
   }
   .product-form__submit:not([disabled]):hover {
-    color: var(--o-ink);
+    color: var(--o-bg);
   }
 }
 
@@ -216,7 +216,7 @@ body {
 }
 
 .o-bundles__current {
-  color: var(--o-sand);
+  color: var(--o-accent);
 }
 
 .o-bundles__list {
@@ -248,13 +248,13 @@ body {
 }
 
 .o-bundle:focus-visible {
-  outline: 1px solid var(--o-sand);
+  outline: 1px solid var(--o-accent);
   outline-offset: 2px;
 }
 
 .o-bundle[aria-checked='true'] {
-  border-color: var(--o-sand);
-  background: rgba(201, 184, 155, 0.08);
+  border-color: var(--o-accent);
+  background: color-mix(in srgb, var(--o-accent) 9%, transparent);
 }
 
 .o-bundle[data-unavailable] {
@@ -266,7 +266,7 @@ body {
     border-color: rgba(var(--color-foreground), 0.4);
   }
   .o-bundle[aria-checked='true']:hover {
-    border-color: var(--o-sand);
+    border-color: var(--o-accent);
   }
 }
 
@@ -285,14 +285,14 @@ body {
   width: 1rem;
   height: 1rem;
   border-radius: 50%;
-  background: var(--o-sand);
+  background: var(--o-accent);
   transform: scale(0.4);
   opacity: 0;
   transition: transform 220ms var(--o-ease-out), opacity 160ms ease;
 }
 
 .o-bundle[aria-checked='true'] .o-bundle__radio {
-  border-color: var(--o-sand);
+  border-color: var(--o-accent);
 }
 
 .o-bundle[aria-checked='true'] .o-bundle__radio::after {
@@ -311,7 +311,7 @@ body {
   position: absolute;
   inset: 0 0.8rem 0 0;
   border-radius: 0.6rem;
-  background: linear-gradient(160deg, var(--o-smoke), var(--o-char));
+  background: linear-gradient(160deg, var(--o-surface-strong), var(--o-surface));
   border: 1px solid rgba(var(--color-foreground), 0.14);
   transform: translateX(calc(var(--s) * 0.35rem)) rotate(calc(var(--s) * 4deg));
   transform-origin: bottom center;
@@ -342,7 +342,7 @@ body {
 
 .o-bundle__save {
   font-size: 1.25rem;
-  color: var(--o-sand);
+  color: var(--o-accent);
   letter-spacing: 0.04em;
 }
 
@@ -369,8 +369,8 @@ body {
   right: 1.6rem;
   padding: 0.35rem 1rem;
   border-radius: 999px;
-  background: var(--o-sand);
-  color: var(--o-ink);
+  background: var(--o-accent);
+  color: var(--o-bg);
   font-size: 1.05rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -378,8 +378,8 @@ body {
 
 .o-bundle__flag--ghost {
   background: rgb(var(--color-background));
-  color: var(--o-sand);
-  border: 1px solid var(--o-sand);
+  color: var(--o-accent);
+  border: 1px solid var(--o-accent);
 }
 
 @media screen and (max-width: 420px) {
