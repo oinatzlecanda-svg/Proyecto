@@ -179,11 +179,14 @@
   color: var(--o-text-muted);
 }
 
+/* Hovered product name: bottom centre, in the free gap between the
+   buttons and the counter, so it never covers the headline. */
 .o-hero3d__label {
   position: absolute;
   z-index: 3;
   left: 50%;
-  top: 50%;
+  bottom: calc(clamp(3.2rem, 6vh, 6.4rem) + 0.6rem);
+  max-width: min(36rem, calc(100vw - 96rem));
   margin: 0;
   padding: 0.9rem 1.6rem;
   border-radius: 999px;
@@ -193,15 +196,33 @@
   border: 1px solid var(--o-line);
   font-size: 1.3rem;
   letter-spacing: 0.06em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   pointer-events: none;
   opacity: 0;
-  transform: translate(-50%, calc(-50% + 8px));
+  transform: translate(-50%, 8px);
   transition: opacity 200ms ease, transform 260ms var(--o-ease-out);
 }
 
 .o-hero3d__label.is-active {
   opacity: 1;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0);
+}
+
+/* Narrower screens: the bottom row is full, use the gap under the top bar */
+@media screen and (max-width: 1199px) {
+  .o-hero3d__label {
+    bottom: auto;
+    top: calc(clamp(3.2rem, 6vh, 6.4rem) + 6rem);
+    max-width: 60vw;
+  }
+}
+
+@media not ((hover: hover) and (pointer: fine)) {
+  .o-hero3d__label {
+    display: none;
+  }
 }
 
 /* Scroll cue: a thin line that draws itself downwards */
