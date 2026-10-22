@@ -235,3 +235,15 @@ La barra de anuncios y el pie usan los mismos mensajes y menús (`main-menu`,
 
 La animación de entrada propia de Dawn (`animations_reveal_on_scroll`) está
 desactivada para que no se duplique con la de Oelnor.
+
+## 15. Navegación entre colecciones
+
+- Las 23 colecciones usan `templates/collection.json` (ninguna tiene
+  plantilla propia), así que todas comparten el diseño.
+- Accesos de la cabecera de colección: si la colección está en un submenú
+  del `main-menu`, se muestran sus hermanas (si está en varios, el submenú
+  más grande); si no, los accesos principales (Moda Mujer, Moda Hombre,
+  Accesorios). Siempre hay un último acceso a «Todas las colecciones».
+- `/collections` usa `oelnor-collection-list`: tarjeta por colección con
+  foto y nº de piezas, y filtros por grupo (cada elemento del menú con
+  submenú). Para ocultar alguna, escribe su handle en «Colecciones ocultas».

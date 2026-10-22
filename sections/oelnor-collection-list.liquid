@@ -1,0 +1,141 @@
+{{ 'oelnor-sections.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign menu = section.settings.menu
+  assign hidden = section.settings.hidden_handles | split: ','
+  assign total = 0
+  for col in collections
+    if col.products_count > 0
+      assign total = total | plus: 1
+    endif
+  endfor
+-%}
+
+<section class="o-section o-collist" data-o-collist>
+  <div class="o-container">
+    <div class="o-collist__head">
+      <nav class="o-colhero__crumbs" aria-label="Ruta" data-o-reveal="fade">
+        <a href="{{ routes.root_url }}">Inicio</a>
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">{{ section.settings.heading | escape }}</span>
+      </nav>
+      <p class="o-eyebrow o-colhero__eyebrow" data-o-reveal="fade" style="--i: 1">
+        {{ section.settings.eyebrow | escape }}
+        <span class="o-colhero__count">{{ total }} colecciones</span>
+      </p>
+      <h1 class="o-display o-collist__title" data-o-split>{{ section.settings.heading | escape }}</h1>
+
+      {%- if menu != blank -%}
+        <div class="o-colhero__chips o-collist__filters" role="group" aria-label="{{ section.settings.filter_label | escape }}" data-o-reveal="fade" style="--i: 3">
+          <button type="button" class="o-chip is-current" data-o-filter="" aria-pressed="true">{{ section.settings.all_label | escape }}</button>
+          {%- for link in linklists[menu].links -%}
+            {%- if link.links.size > 0 and link.url contains '/collections' -%}
+              <button type="button" class="o-chip" data-o-filter="{{ link.title | handleize }}" aria-pressed="false">{{ link.title | escape }}</button>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    <ul class="o-collist__grid" role="list">
+      {%- for col in collections -%}
+        {%- if col.products_count == 0 or hidden contains col.handle -%}{%- continue -%}{%- endif -%}
+        {%- liquid
+          assign groups = ''
+          if menu != blank
+            for link in linklists[menu].links
+              assign group_handle = link.title | handleize
+              if link.url == col.url
+                assign groups = groups | append: ' ' | append: group_handle
+              endif
+              for child in link.links
+                if child.url == col.url
+                  assign groups = groups | append: ' ' | append: group_handle
+                endif
+              endfor
+            endfor
+          endif
+          assign img = col.featured_image
+          if img == blank
+            assign img = col.products.first.featured_media
+          endif
+        -%}
+        <li class="o-collist__item" data-o-groups="{{ groups | strip }}" data-o-reveal="fade" style="--i: {{ forloop.index0 | modulo: 4 }}">
+          <a class="o-collist__tile" href="{{ col.url }}" data-o-cursor="Entrar">
+            <div class="o-collist__media">
+              {%- if img != blank -%}
+                {{ img | image_url: width: 800 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 24vw, (min-width: 750px) 32vw, 50vw', widths: '360, 540, 720, 800', alt: col.title }}
+              {%- else -%}
+                {{ 'collection-1' | placeholder_svg_tag: 'o-placeholder' }}
+              {%- endif -%}
+            </div>
+            <div class="o-collist__info">
+              <span class="o-collist__name">{{ col.title | escape }}</span>
+              <span class="o-collist__meta">{{ col.products_count }} piezas <span class="o-collist__arrow" aria-hidden="true">→</span></span>
+            </div>
+          </a>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+
+<script>
+  (() => {
+    document.querySelectorAll('[data-o-collist]:not([data-ready])').forEach((root) => {
+      root.dataset.ready = '';
+      const buttons = [...root.querySelectorAll('[data-o-filter]')];
+      const items = [...root.querySelectorAll('.o-collist__item')];
+      buttons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const group = btn.dataset.oFilter;
+          btn.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
+          buttons.forEach((b) => {
+            const on = b === btn;
+            b.classList.toggle('is-current', on);
+            b.setAttribute('aria-pressed', String(on));
+          });
+          let shown = 0;
+          items.forEach((item) => {
+            const match = !group || (' ' + item.dataset.oGroups + ' ').includes(' ' + group + ' ');
+            item.hidden = !match;
+            if (match) {
+              item.style.setProperty('--i', shown % 4);
+              item.classList.remove('is-in');
+              requestAnimationFrame(() => requestAnimationFrame(() => item.classList.add('is-in')));
+              shown++;
+            }
+          });
+        });
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Oelnor · Colecciones",
+  "tag": "div",
+  "class": "section-oelnor-collist",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Antetítulo", "default": "OELNOR / Explora" },
+    { "type": "text", "id": "heading", "label": "Titular", "default": "Todas las colecciones" },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menú para agrupar",
+      "info": "Cada elemento con submenú (Moda Mujer, Moda Hombre…) se convierte en un filtro.",
+      "default": "main-menu"
+    },
+    { "type": "text", "id": "all_label", "label": "Texto del filtro «todas»", "default": "Todas" },
+    { "type": "text", "id": "filter_label", "label": "Etiqueta accesible de los filtros", "default": "Filtrar colecciones" },
+    {
+      "type": "text",
+      "id": "hidden_handles",
+      "label": "Colecciones ocultas",
+      "info": "Handles separados por comas, sin espacios."
+    }
+  ],
+  "enabled_on": { "templates": ["list-collections"] }
+}
+{% endschema %}

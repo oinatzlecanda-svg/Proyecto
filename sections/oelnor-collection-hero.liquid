@@ -1,22 +1,36 @@
 {{ 'oelnor-sections.css' | asset_url | stylesheet_tag }}
 
 {%- liquid
+  # Chips for moving between collections:
+  # 1. the collection's siblings when it lives in a submenu of the chosen menu
+  #    (the largest submenu wins when it appears in several),
+  # 2. otherwise the menu's top-level collection links,
+  # and always a last chip to the full list of collections.
   assign nav_links = null
   assign nav_parent = null
   assign menu = section.settings.menu
   if menu != blank
+    # When the collection sits in several submenus, keep the largest one.
+    assign best_size = 0
     for link in linklists[menu].links
+      assign is_member = false
       for child in link.links
         if child.url == collection.url
-          assign nav_links = link.links
-          assign nav_parent = link
+          assign is_member = true
         endif
       endfor
       if link.url == collection.url and link.links.size > 0
+        assign is_member = true
+      endif
+      if is_member and link.links.size > best_size
         assign nav_links = link.links
         assign nav_parent = link
+        assign best_size = link.links.size
       endif
     endfor
+    if nav_links == null
+      assign nav_links = linklists[menu].links
+    endif
   endif
 
   assign fan_count = 0
@@ -48,18 +62,29 @@
         <div class="o-colhero__text rte" data-o-reveal="fade" style="--i: 4">{{ collection.description }}</div>
       {%- endif -%}
 
-      {%- if nav_links and nav_links.size > 1 -%}
-        <ul class="o-colhero__chips" role="list" data-o-reveal="fade" style="--i: 5">
-          {%- for link in nav_links -%}
-            {%- assign is_current = false -%}
-            {%- if link.url == collection.url or link.current -%}{%- assign is_current = true -%}{%- endif -%}
-            <li>
-              <a class="o-chip{% if is_current %} is-current{% endif %}" href="{{ link.url }}"{% if is_current %} aria-current="page"{% endif %}>
-                {{- link.title | escape -}}
-              </a>
-            </li>
-          {%- endfor -%}
-        </ul>
+      {%- if nav_links or section.settings.show_all_chip -%}
+        <nav aria-label="{{ section.settings.chips_label | escape }}" data-o-reveal="fade" style="--i: 5">
+          <ul class="o-colhero__chips" role="list">
+            {%- for link in nav_links -%}
+              {%- unless link.url contains '/collections' -%}{%- continue -%}{%- endunless -%}
+              {%- if link.url == routes.collections_url and section.settings.show_all_chip -%}{%- continue -%}{%- endif -%}
+              {%- assign is_current = false -%}
+              {%- if link.url == collection.url or link.current -%}{%- assign is_current = true -%}{%- endif -%}
+              <li>
+                <a class="o-chip{% if is_current %} is-current{% endif %}" href="{{ link.url }}"{% if is_current %} aria-current="page"{% endif %}>
+                  {{- link.title | escape -}}
+                </a>
+              </li>
+            {%- endfor -%}
+            {%- if section.settings.show_all_chip -%}
+              <li>
+                <a class="o-chip o-chip--all" href="{{ routes.collections_url }}">
+                  {{- section.settings.all_label | escape }} <span aria-hidden="true">→</span>
+                </a>
+              </li>
+            {%- endif -%}
+          </ul>
+        </nav>
       {%- endif -%}
     </div>
 
@@ -107,7 +132,10 @@
       "label": "Menú para las colecciones hermanas",
       "info": "Si la colección está dentro de un submenú, se muestran sus hermanas como accesos rápidos.",
       "default": "main-menu"
-    }
+    },
+    { "type": "text", "id": "chips_label", "label": "Etiqueta accesible de los accesos", "default": "Otras colecciones" },
+    { "type": "checkbox", "id": "show_all_chip", "label": "Añadir acceso a todas las colecciones", "default": true },
+    { "type": "text", "id": "all_label", "label": "Texto de ese acceso", "default": "Todas las colecciones" }
   ],
   "enabled_on": { "templates": ["collection"] }
 }

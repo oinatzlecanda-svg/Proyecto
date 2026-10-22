@@ -1522,3 +1522,118 @@
     transition: opacity 400ms ease;
   }
 }
+
+.o-chip--all {
+  gap: 0.6rem;
+  border-style: dashed;
+}
+
+/* ---------------- All collections page ---------------- */
+.o-collist {
+  padding-block: clamp(4rem, 7vw, 9rem) clamp(6rem, 9vw, 11rem);
+}
+
+.o-collist__head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: clamp(3.2rem, 5vw, 6rem);
+}
+
+.o-collist__title {
+  font-size: clamp(4.4rem, 8vw, 12rem);
+  text-transform: uppercase;
+}
+
+.o-collist__filters .o-chip {
+  background: transparent;
+  font: inherit;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.o-collist__filters .o-chip.is-current {
+  background: var(--o-text);
+  color: var(--o-bg);
+}
+
+.o-collist__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(2.4rem, 3vw, 4rem) clamp(1.2rem, 1.6vw, 2.4rem);
+}
+
+.o-collist__item[hidden] {
+  display: none;
+}
+
+.o-collist__tile {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  color: var(--o-text);
+  text-decoration: none;
+}
+
+.o-collist__media {
+  aspect-ratio: 4 / 5;
+  border-radius: 1.2rem;
+  overflow: hidden;
+  background: var(--o-surface);
+}
+
+.o-collist__media img,
+.o-collist__media svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 900ms var(--o-ease-out);
+}
+
+.o-collist__info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--o-line-strong);
+}
+
+.o-collist__name {
+  font-family: var(--font-heading-family);
+  font-size: clamp(2rem, 1.8vw, 2.6rem);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.o-collist__meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--o-text-muted);
+}
+
+.o-collist__arrow {
+  color: var(--o-text);
+  transition: transform 300ms var(--o-ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .o-collist__tile:hover .o-collist__media img {
+    transform: scale(1.05);
+  }
+  .o-collist__tile:hover .o-collist__arrow {
+    transform: translateX(6px);
+  }
+}
+
+@media screen and (max-width: 989px) {
+  .o-collist__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

@@ -35,7 +35,10 @@
         "eyebrow": "OELNOR / Colección",
         "show_description": true,
         "show_collection_image": false,
-        "menu": "main-menu"
+        "menu": "main-menu",
+        "chips_label": "Otras colecciones",
+        "show_all_chip": true,
+        "all_label": "Todas las colecciones"
       }
     },
     "oelnor-oferta": {
