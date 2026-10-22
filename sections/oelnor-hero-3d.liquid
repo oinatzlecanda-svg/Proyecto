@@ -1,0 +1,120 @@
+{{ 'oelnor-sections.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign hero_collection = section.settings.collection
+  if hero_collection == blank
+    assign hero_collection = collections['all']
+  endif
+  assign limit = section.settings.products_to_show
+-%}
+
+<section
+  class="o-section o-hero3d"
+  data-o-hero3d
+  data-three-src="{{ 'three.module.min.js' | asset_url }}"
+  {% if section.settings.show_intro and template.name == 'index' %}
+    data-o-intro="{{ shop.name | upcase | escape }}"
+  {% endif %}
+  aria-label="{{ section.settings.heading | escape }}"
+>
+  <div class="o-hero3d__stage" data-o-hero-canvas>
+    {%- comment -%} Static fallback while three.js loads (or without WebGL). {%- endcomment -%}
+    <div class="o-hero3d__fallback" aria-hidden="true">
+      {%- for product in hero_collection.products limit: 5 -%}
+        {%- if product.featured_media -%}
+          <div class="o-hero3d__fallback-item" style="--i: {{ forloop.index0 }}">
+            {{
+              product.featured_media
+              | image_url: width: 700
+              | image_tag: loading: 'eager', sizes: '30vw', alt: ''
+            }}
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+
+  <script type="application/json" data-o-hero-items>
+    [
+      {%- for product in hero_collection.products limit: limit -%}
+        {
+          "src": {% if product.featured_media %}{{ product.featured_media | image_url: width: 900 | prepend: 'https:' | json }}{% else %}null{% endif %},
+          "url": {{ product.url | json }},
+          "title": {{ product.title | json }}
+        }{% unless forloop.last %},{% endunless %}
+      {%- endfor -%}
+    ]
+  </script>
+
+  <div class="o-hero3d__veil" aria-hidden="true"></div>
+
+  <div class="o-hero3d__content o-container">
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="o-eyebrow" data-o-reveal="fade">{{ section.settings.eyebrow | escape }}</p>
+    {%- endif -%}
+    <h1 class="o-display o-hero3d__title" data-o-split style="--o-split-delay: 250ms">
+      {{- section.settings.heading | escape -}}
+    </h1>
+    <div class="o-hero3d__bottom">
+      {%- if section.settings.text != blank -%}
+        <p class="o-hero3d__text" data-o-reveal="fade" style="--i: 6">{{ section.settings.text | escape }}</p>
+      {%- endif -%}
+      <div class="o-hero3d__actions" data-o-reveal="fade" style="--i: 8">
+        {%- if section.settings.button_label_1 != blank -%}
+          <a class="o-btn" data-o-magnetic href="{{ section.settings.button_link_1 | default: routes.all_products_collection_url }}">
+            {{ section.settings.button_label_1 | escape }} <span class="o-btn__arrow" aria-hidden="true">→</span>
+          </a>
+        {%- endif -%}
+        {%- if section.settings.button_label_2 != blank -%}
+          <a class="o-btn o-btn--ghost" data-o-magnetic href="{{ section.settings.button_link_2 | default: routes.all_products_collection_url }}">
+            {{ section.settings.button_label_2 | escape }}
+          </a>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+
+  <p class="o-hero3d__label" data-o-hero-label aria-hidden="true"></p>
+  <p class="o-hero3d__hint" aria-hidden="true"><span></span>{{ section.settings.hint | escape }}</p>
+</section>
+
+<script src="{{ 'oelnor-hero-3d.js' | asset_url }}" type="module"></script>
+
+{% schema %}
+{
+  "name": "Oelnor · Hero 3D",
+  "tag": "div",
+  "class": "section-oelnor-hero",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Anillo 3D interactivo con las fotos de la colección elegida. Se puede arrastrar y cada foto enlaza a su producto."
+    },
+    { "type": "collection", "id": "collection", "label": "Colección a mostrar" },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 6,
+      "max": 14,
+      "step": 1,
+      "default": 12,
+      "label": "Productos en el anillo"
+    },
+    { "type": "text", "id": "eyebrow", "label": "Antetítulo", "default": "Colección otoño · 2026" },
+    { "type": "text", "id": "heading", "label": "Titular", "default": "No lo estabas buscando. Ahora lo quieres." },
+    { "type": "text", "id": "text", "label": "Texto", "default": "Moda, accesorios y objetos diferentes para el día a día." },
+    { "type": "text", "id": "button_label_1", "label": "Botón 1", "default": "Descubrir novedades" },
+    { "type": "url", "id": "button_link_1", "label": "Enlace botón 1" },
+    { "type": "text", "id": "button_label_2", "label": "Botón 2", "default": "Ver todo" },
+    { "type": "url", "id": "button_link_2", "label": "Enlace botón 2" },
+    { "type": "text", "id": "hint", "label": "Pista de interacción", "default": "Arrastra para girar" },
+    {
+      "type": "checkbox",
+      "id": "show_intro",
+      "label": "Intro con el nombre de la tienda (una vez por visita)",
+      "default": true
+    }
+  ],
+  "presets": [{ "name": "Oelnor · Hero 3D" }]
+}
+{% endschema %}

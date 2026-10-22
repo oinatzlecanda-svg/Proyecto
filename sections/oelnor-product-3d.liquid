@@ -1,0 +1,159 @@
+{{ 'oelnor-sections.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign images = product.media | where: 'media_type', 'image'
+  assign image_count = images.size
+-%}
+
+{%- if image_count > 2 -%}
+  <section class="o-section o-p3d" data-o-p3d aria-roledescription="carrusel 3D" aria-label="{{ section.settings.heading | escape }}">
+    <div class="o-container o-p3d__head">
+      <p class="o-eyebrow" data-o-reveal="fade">{{ section.settings.eyebrow | escape }}</p>
+      <h2 class="o-display o-p3d__title" data-o-split>{{ section.settings.heading | escape }}</h2>
+    </div>
+
+    <div class="o-p3d__stage" data-o-p3d-stage tabindex="0" aria-describedby="P3dHint-{{ section.id }}">
+      <div class="o-p3d__ring" data-o-p3d-ring style="--n: {{ image_count | at_most: 12 }}">
+        {%- for media in images limit: 12 -%}
+          <figure class="o-p3d__face" style="--k: {{ forloop.index0 }}" data-o-p3d-face>
+            {{
+              media
+              | image_url: width: 900
+              | image_tag:
+                loading: 'lazy',
+                sizes: '(min-width: 990px) 26vw, 60vw',
+                widths: '360, 540, 720, 900',
+                alt: media.alt,
+                draggable: 'false'
+            }}
+          </figure>
+        {%- endfor -%}
+      </div>
+      <div class="o-p3d__floor" aria-hidden="true"></div>
+    </div>
+
+    <div class="o-container o-p3d__controls">
+      <button type="button" class="o-p3d__btn" data-o-p3d-prev aria-label="Imagen anterior">←</button>
+      <p class="o-p3d__counter" aria-live="polite"><span data-o-p3d-current>01</span> / {{ image_count | at_most: 12 | prepend: '0' | slice: -2, 2 }}</p>
+      <button type="button" class="o-p3d__btn" data-o-p3d-next aria-label="Imagen siguiente">→</button>
+    </div>
+    <p class="o-p3d__hint" id="P3dHint-{{ section.id }}">{{ section.settings.hint | escape }}</p>
+  </section>
+
+  <script>
+    (() => {
+      const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      document.querySelectorAll('[data-o-p3d]:not([data-ready])').forEach((root) => {
+        root.dataset.ready = '';
+        const stage = root.querySelector('[data-o-p3d-stage]');
+        const ring = root.querySelector('[data-o-p3d-ring]');
+        const faces = [...root.querySelectorAll('[data-o-p3d-face]')];
+        const current = root.querySelector('[data-o-p3d-current]');
+        const n = faces.length;
+        const step = 360 / n;
+
+        let angle = 0;        // rendered rotation (deg)
+        let target = 0;       // where the spring is heading
+        let velocity = 0;
+        let dragging = false;
+        let lastX = 0, lastT = 0, dragVel = 0;
+        let auto = !reduce;
+        let raf = 0;
+
+        const render = () => {
+          ring.style.transform = `translateZ(calc(var(--r) * -1)) rotateY(${angle}deg)`;
+          let front = 0, best = 999;
+          faces.forEach((face, k) => {
+            let a = (((k * step + angle) % 360) + 540) % 360 - 180; // -180..180
+            const d = Math.abs(a);
+            if (d < best) { best = d; front = k; }
+            face.style.opacity = (1 - Math.min(d, 150) / 190).toFixed(3);
+            face.style.filter = d > 30 ? `brightness(${(1 - d / 300).toFixed(2)})` : '';
+          });
+          current.textContent = String(front + 1).padStart(2, '0');
+        };
+
+        const tick = () => {
+          if (!dragging) {
+            if (auto) target -= 0.08;
+            // critically-damped-ish spring toward target
+            const force = (target - angle) * 0.08;
+            velocity = (velocity + force) * 0.72;
+            angle += velocity;
+          }
+          render();
+          const settled = !auto && !dragging && Math.abs(target - angle) < 0.01 && Math.abs(velocity) < 0.01;
+          raf = settled ? 0 : requestAnimationFrame(tick);
+        };
+        const kick = () => { if (!raf) raf = requestAnimationFrame(tick); };
+        const snap = () => { target = Math.round(target / step) * step; kick(); };
+        const go = (dir) => { auto = false; target = Math.round(target / step) * step - dir * step; kick(); };
+
+        stage.addEventListener('pointerdown', (e) => {
+          dragging = true;
+          auto = false;
+          lastX = e.clientX;
+          lastT = performance.now();
+          dragVel = 0;
+          stage.setPointerCapture(e.pointerId);
+          stage.classList.add('is-dragging');
+        });
+        stage.addEventListener('pointermove', (e) => {
+          if (!dragging) return;
+          const now = performance.now();
+          const dx = e.clientX - lastX;
+          angle += dx * 0.25;
+          target = angle;
+          dragVel = (dx * 0.25) / Math.max(1, now - lastT);
+          lastX = e.clientX;
+          lastT = now;
+          render();
+        });
+        const release = (e) => {
+          if (!dragging) return;
+          dragging = false;
+          stage.classList.remove('is-dragging');
+          if (stage.hasPointerCapture(e.pointerId)) stage.releasePointerCapture(e.pointerId);
+          // A flick carries momentum: project it forward, then snap to a face.
+          target = angle + dragVel * 220;
+          velocity = 0;
+          snap();
+        };
+        stage.addEventListener('pointerup', release);
+        stage.addEventListener('pointercancel', release);
+
+        root.querySelector('[data-o-p3d-prev]').addEventListener('click', () => go(-1));
+        root.querySelector('[data-o-p3d-next]').addEventListener('click', () => go(1));
+        stage.addEventListener('keydown', (e) => {
+          if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); }
+          if (e.key === 'ArrowRight') { e.preventDefault(); go(1); }
+        });
+
+        new IntersectionObserver(([entry]) => {
+          if (entry.isIntersecting) kick();
+          else if (raf) { cancelAnimationFrame(raf); raf = 0; }
+        }).observe(root);
+        render();
+      });
+    })();
+  </script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Oelnor · Vista 3D",
+  "tag": "div",
+  "class": "section-oelnor-p3d",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Carrusel 3D con las fotos del producto. Solo aparece si el producto tiene 3 fotos o más."
+    },
+    { "type": "text", "id": "eyebrow", "label": "Antetítulo", "default": "Vista 360°" },
+    { "type": "text", "id": "heading", "label": "Titular", "default": "Míralo desde todos los ángulos" },
+    { "type": "text", "id": "hint", "label": "Pista", "default": "Arrastra o usa las flechas para girar" }
+  ],
+  "enabled_on": { "templates": ["product"] },
+  "presets": [{ "name": "Oelnor · Vista 3D" }]
+}
+{% endschema %}

@@ -1,0 +1,318 @@
+/* ==========================================================================
+   Oelnor — motion & dark editorial layer
+   Shared by every oelnor-* section. Animates only transform / opacity /
+   clip-path / filter. Every movement has a reduced-motion fallback.
+   ========================================================================== */
+
+:root {
+  --o-ink: #0e0d0c;
+  --o-coal: #151311;
+  --o-char: #1e1b18;
+  --o-smoke: #2a2622;
+  --o-taupe: #6e655a;
+  --o-mute: #9a9286;
+  --o-sand: #c9b89b;
+  --o-bone: #ece6dc;
+  --o-line: rgba(236, 230, 220, 0.12);
+  --o-line-strong: rgba(236, 230, 220, 0.28);
+
+  --o-ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --o-ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --o-ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+
+  --o-gutter: clamp(1.6rem, 4vw, 5.6rem);
+  --o-radius: 1.6rem;
+}
+
+/* ---------- Typographic helpers ---------- */
+.o-eyebrow {
+  font-family: var(--font-body-family);
+  font-size: 1.1rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--o-mute);
+  margin: 0;
+}
+
+.o-display {
+  font-family: var(--font-heading-family);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  line-height: 0.92;
+  margin: 0;
+  color: var(--o-bone);
+}
+
+.o-section {
+  position: relative;
+  background: var(--o-ink);
+  color: var(--o-bone);
+  overflow: clip;
+}
+
+.o-container {
+  padding-inline: var(--o-gutter);
+  max-width: 172rem;
+  margin-inline: auto;
+}
+
+/* ---------- Buttons (press feedback + magnetic) ---------- */
+.o-btn {
+  --o-btn-bg: var(--o-bone);
+  --o-btn-fg: var(--o-ink);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem 2.6rem;
+  border-radius: 999px;
+  background: var(--o-btn-bg);
+  color: var(--o-btn-fg);
+  font-family: var(--font-body-family);
+  font-size: 1.4rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid var(--o-btn-bg);
+  cursor: pointer;
+  overflow: hidden;
+  isolation: isolate;
+  transition: transform 160ms var(--o-ease-out), color 200ms ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.o-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--o-sand);
+  clip-path: inset(100% 0 0 0);
+  transition: clip-path 360ms var(--o-ease-out);
+}
+
+.o-btn--ghost {
+  --o-btn-bg: transparent;
+  --o-btn-fg: var(--o-bone);
+  border-color: var(--o-line-strong);
+}
+
+.o-btn:active {
+  transform: scale(0.97);
+}
+
+.o-btn__arrow {
+  display: inline-block;
+  transition: transform 240ms var(--o-ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .o-btn:hover::before {
+    clip-path: inset(0 0 0 0);
+  }
+  .o-btn:hover {
+    color: var(--o-ink);
+  }
+  .o-btn:hover .o-btn__arrow {
+    transform: translateX(4px);
+  }
+}
+
+/* ---------- Scroll reveals ---------- */
+[data-o-reveal] {
+  --o-delay: calc(var(--i, 0) * 60ms);
+}
+
+.js [data-o-reveal='fade'] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 900ms var(--o-ease-out) var(--o-delay), transform 900ms var(--o-ease-out) var(--o-delay);
+}
+
+.js [data-o-reveal='clip'] {
+  clip-path: inset(100% 0 0 0);
+  transition: clip-path 1200ms var(--o-ease-in-out) var(--o-delay);
+}
+
+.js [data-o-reveal='clip'] img {
+  transform: scale(1.18);
+  transition: transform 1600ms var(--o-ease-out) var(--o-delay);
+}
+
+.js [data-o-reveal='line'] {
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 1200ms var(--o-ease-in-out) var(--o-delay);
+}
+
+.js [data-o-reveal].is-in {
+  opacity: 1;
+  transform: none;
+  clip-path: inset(0 0 0 0);
+}
+
+.js [data-o-reveal='clip'].is-in img {
+  transform: scale(1);
+}
+
+/* Split headings: each word rises out of its own mask */
+.o-word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+
+.o-word > span {
+  display: inline-block;
+  transform: translateY(105%);
+  transition: transform 1000ms var(--o-ease-out);
+  transition-delay: calc(var(--w, 0) * 45ms + var(--o-split-delay, 0ms));
+}
+
+[data-o-split].is-in .o-word > span {
+  transform: none;
+}
+
+/* Scroll-coloured statement text (opacity driven by JS per word) */
+.o-scrub-word {
+  opacity: 0.16;
+  transition: opacity 240ms linear;
+}
+
+/* ---------- Parallax / tilt (JS writes transform directly) ---------- */
+[data-o-parallax],
+[data-o-tilt] {
+  will-change: transform;
+}
+
+[data-o-tilt] {
+  transform-style: preserve-3d;
+}
+
+.o-tilt-glare {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at var(--gx, 50%) var(--gy, 50%),
+    rgba(255, 255, 255, 0.16),
+    rgba(255, 255, 255, 0) 55%
+  );
+  opacity: 0;
+  transition: opacity 300ms ease;
+  mix-blend-mode: soft-light;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  [data-o-tilt]:hover .o-tilt-glare {
+    opacity: 1;
+  }
+}
+
+/* ---------- Cursor label ("Ver") ---------- */
+.o-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 8.4rem;
+  height: 8.4rem;
+  margin: -4.2rem 0 0 -4.2rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--o-bone);
+  color: var(--o-ink);
+  font-family: var(--font-body-family);
+  font-size: 1.15rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  pointer-events: none;
+  opacity: 0;
+  scale: 0.6;
+  transition: opacity 200ms ease, scale 260ms var(--o-ease-out);
+}
+
+.o-cursor.is-active {
+  opacity: 1;
+  scale: 1;
+}
+
+@media not ((hover: hover) and (pointer: fine)) {
+  .o-cursor {
+    display: none;
+  }
+}
+
+/* ---------- First-visit intro curtain ---------- */
+.o-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  background: var(--o-ink);
+  color: var(--o-bone);
+  clip-path: inset(0 0 0 0);
+  transition: clip-path 900ms var(--o-ease-in-out);
+}
+
+.o-intro.is-out {
+  clip-path: inset(0 0 100% 0);
+}
+
+.o-intro__word {
+  display: flex;
+  overflow: hidden;
+  font-family: var(--font-heading-family);
+  font-size: clamp(4.8rem, 12vw, 16rem);
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.o-intro__word span {
+  display: inline-block;
+  transform: translateY(110%);
+  animation: o-rise 800ms var(--o-ease-out) forwards;
+  animation-delay: calc(var(--l) * 55ms + 100ms);
+}
+
+@keyframes o-rise {
+  to {
+    transform: none;
+  }
+}
+
+/* ---------- Reduced motion: keep fades, drop movement ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .js [data-o-reveal='fade'],
+  .js [data-o-reveal='clip'],
+  .js [data-o-reveal='line'] {
+    transform: none;
+    clip-path: none;
+    transition: opacity 400ms ease;
+  }
+  .js [data-o-reveal='clip']:not(.is-in),
+  .js [data-o-reveal='line']:not(.is-in) {
+    opacity: 0;
+  }
+  .js [data-o-reveal='clip'] img {
+    transform: none;
+  }
+  .o-word > span {
+    transform: none;
+    opacity: 0;
+    transition: opacity 400ms ease;
+  }
+  [data-o-split].is-in .o-word > span {
+    opacity: 1;
+  }
+  .o-intro {
+    display: none;
+  }
+  .o-cursor {
+    display: none;
+  }
+}

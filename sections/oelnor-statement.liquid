@@ -1,0 +1,59 @@
+{{ 'oelnor-sections.css' | asset_url | stylesheet_tag }}
+
+<section class="o-section o-statement">
+  <div class="o-container o-statement__grid">
+    <div class="o-statement__media o-statement__media--a" data-o-reveal="clip">
+      <div class="o-statement__parallax" data-o-parallax="0.08">
+        {%- if section.settings.image_1 != blank -%}
+          {{ section.settings.image_1 | image_url: width: 1200 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 34vw, 80vw', widths: '480, 720, 960, 1200' }}
+        {%- else -%}
+          {{ 'lifestyle-1' | placeholder_svg_tag: 'o-placeholder' }}
+        {%- endif -%}
+      </div>
+    </div>
+
+    <div class="o-statement__copy">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="o-eyebrow" data-o-reveal="fade">{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+      <p class="o-statement__text" data-o-scrub>{{ section.settings.text | escape }}</p>
+      {%- if section.settings.button_label != blank -%}
+        <a class="o-btn o-btn--ghost" data-o-magnetic data-o-reveal="fade" href="{{ section.settings.button_link | default: routes.all_products_collection_url }}">
+          {{ section.settings.button_label | escape }} <span class="o-btn__arrow" aria-hidden="true">→</span>
+        </a>
+      {%- endif -%}
+    </div>
+
+    <div class="o-statement__media o-statement__media--b" data-o-reveal="clip" style="--i: 3">
+      <div class="o-statement__parallax" data-o-parallax="-0.12">
+        {%- if section.settings.image_2 != blank -%}
+          {{ section.settings.image_2 | image_url: width: 900 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 22vw, 50vw', widths: '360, 540, 720, 900' }}
+        {%- else -%}
+          {{ 'lifestyle-2' | placeholder_svg_tag: 'o-placeholder' }}
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Oelnor · Manifiesto",
+  "tag": "div",
+  "class": "section-oelnor-statement",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Antetítulo", "default": "Oelnor" },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Texto (se ilumina palabra a palabra al hacer scroll)",
+      "default": "Piezas que no sabías que buscabas. Elegidas una a una para que tu día a día tenga un poco más de carácter, sin tener que pensarlo demasiado."
+    },
+    { "type": "image_picker", "id": "image_1", "label": "Imagen grande" },
+    { "type": "image_picker", "id": "image_2", "label": "Imagen pequeña" },
+    { "type": "text", "id": "button_label", "label": "Botón", "default": "Nuestra historia" },
+    { "type": "url", "id": "button_link", "label": "Enlace del botón" }
+  ],
+  "presets": [{ "name": "Oelnor · Manifiesto" }]
+}
+{% endschema %}

@@ -141,3 +141,39 @@ Ninguna sección de la home tiene productos "quemados": todas apuntan a
 colecciones de Shopify, así que la tienda funciona igual con 5, 50 o 500
 productos sin rediseñar nada. Añadir categorías nuevas es cuestión de crear
 la colección y añadirla al menú — el tema no necesita cambios de código.
+
+## 11. Rediseño oscuro con animaciones y 3D
+
+Paleta neutra oscura (tinta `#0E0D0C`, carbón, hueso `#ECE6DC`, arena
+`#C9B89B`) aplicada desde los **Esquemas de color** del tema, así que el
+header, carrito, tarjetas y página de producto cambian a la vez. El
+esquema 5 (arena) queda como acento claro.
+
+Secciones nuevas (todas editables desde el editor de temas):
+
+- `sections/oelnor-hero-3d.liquid` — anillo 3D (three.js) con las fotos de
+  la colección elegida. Se puede arrastrar, gira con el scroll y cada foto
+  enlaza a su producto. three.js solo se descarga cuando el hero está en
+  pantalla; sin WebGL se muestra un collage estático.
+- `sections/oelnor-marquee.liquid` — texto en bucle (oscuro o arena).
+- `sections/oelnor-category-index.liquid` — índice de categorías a gran
+  tamaño con una imagen que sigue al ratón.
+- `sections/oelnor-product-rail.liquid` — en ordenador la sección se fija y
+  los productos avanzan en horizontal con el scroll; en móvil se deslizan.
+  Tarjetas con inclinación 3D y segunda foto al pasar el ratón. Omite los
+  productos con el tag `excluir-catalogo-moda`.
+- `sections/oelnor-statement.liquid` — manifiesto que se ilumina palabra a
+  palabra con el scroll, con imágenes en parallax.
+- `sections/oelnor-product-3d.liquid` — (producto) carrusel 3D con las
+  fotos del producto: arrastrar con inercia, flechas y teclado. Solo
+  aparece si el producto tiene 3 fotos o más.
+- `sections/oelnor-product-story.liquid` — (producto) "Por qué te va a
+  gustar": usa el inicio de la descripción y bloques de ventajas
+  opcionales.
+
+Animación global en `assets/oelnor-motion.js` / `oelnor-motion.css`:
+revelado al hacer scroll, titulares palabra a palabra, botones magnéticos,
+cursor "Ver" sobre productos, intro con el nombre de la tienda (una vez por
+visita) y entrada escalonada en la ficha de producto. Todo respeta
+"reducir movimiento" del sistema y solo anima `transform`, `opacity` y
+`clip-path`.

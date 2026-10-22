@@ -1,0 +1,193 @@
+/* ==========================================================================
+   Oelnor dark layer over Dawn — header, product cards, product page.
+   Colours come from the theme colour schemes; this file only adds the
+   motion and finish details Dawn does not have.
+   ========================================================================== */
+
+body {
+  background: rgb(var(--color-background));
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--o-sand);
+  color: var(--o-ink);
+}
+
+/* Header: translucent glass over the dark page */
+.section-header .header-wrapper {
+  background: rgba(var(--color-background), 0.72);
+  backdrop-filter: saturate(140%) blur(14px);
+  -webkit-backdrop-filter: saturate(140%) blur(14px);
+  border-bottom: 1px solid rgba(var(--color-foreground), 0.08);
+}
+
+.header__heading-link .h2,
+.header__heading-logo-wrapper {
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+
+.header__menu-item span {
+  position: relative;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .header__menu-item span::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -0.3rem;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 350ms var(--o-ease-out);
+  }
+  .header__menu-item:hover span::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  .header__menu-item:hover span {
+    text-decoration: none;
+  }
+}
+
+/* Every pressable thing answers the press */
+.button,
+.shopify-payment-button__button,
+.quantity__button,
+.product-form__input label,
+.header__icon {
+  transition: transform 160ms var(--o-ease-out), background-color 200ms ease, color 200ms ease, box-shadow 200ms ease;
+}
+
+.button:active:not([disabled]),
+.shopify-payment-button__button:active,
+.quantity__button:active,
+.header__icon:active {
+  transform: scale(0.97);
+}
+
+/* Product cards (collections, related products, search) */
+.card-wrapper .card__media img {
+  transition: transform 900ms var(--o-ease-out), opacity 500ms ease, filter 500ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .card-wrapper:hover .card__media img:first-child {
+    transform: scale(1.045);
+  }
+}
+
+.card__heading a {
+  letter-spacing: 0.01em;
+}
+
+.card-information .price {
+  color: var(--o-sand);
+}
+
+/* ---------------- Product page ---------------- */
+.product__title h1 {
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.product .price-item--regular,
+.product .price-item--sale {
+  font-size: 2rem;
+  letter-spacing: 0.02em;
+}
+
+.product__media-item .product__media,
+.product__media-list .media {
+  border-radius: 1.2rem;
+  overflow: hidden;
+}
+
+/* Gallery: first images uncover on load, the rest on scroll (JS adds .is-in) */
+.js .product__media-list .product__media-item[data-o-reveal='clip'] {
+  clip-path: inset(0 0 100% 0 round 1.2rem);
+}
+
+.js .product__media-list .product__media-item.is-in {
+  clip-path: inset(0 0 0 0 round 1.2rem);
+}
+
+/* Info column entrance, staggered */
+.js .product__info-container[data-o-stagger] > * {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 700ms var(--o-ease-out), transform 700ms var(--o-ease-out);
+  transition-delay: calc(var(--i, 0) * 55ms + 150ms);
+}
+
+.js .product__info-container[data-o-stagger].is-in > * {
+  opacity: 1;
+  transform: none;
+}
+
+/* Variant pills */
+.product-form__input input[type='radio'] + label {
+  transition: transform 160ms var(--o-ease-out), background-color 200ms ease, color 200ms ease, border-color 200ms ease;
+}
+
+.product-form__input input[type='radio'] + label:active {
+  transform: scale(0.96);
+}
+
+/* Add to cart: sand wipe on hover, same language as .o-btn */
+.product-form__submit {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  min-height: 5.6rem;
+}
+
+.product-form__submit::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--o-sand);
+  clip-path: inset(100% 0 0 0);
+  transition: clip-path 360ms var(--o-ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .product-form__submit:not([disabled]):hover::before {
+    clip-path: inset(0 0 0 0);
+  }
+  .product-form__submit:not([disabled]):hover {
+    color: var(--o-ink);
+  }
+}
+
+/* Accordions */
+.product .accordion summary,
+.collapsible-content .accordion summary {
+  padding-block: 2rem;
+}
+
+.accordion .icon-caret {
+  transition: transform 260ms var(--o-ease-out);
+}
+
+/* Cart drawer slides with the iOS drawer curve */
+.drawer__inner {
+  transition-timing-function: var(--o-ease-drawer) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .product__media-list .product__media-item[data-o-reveal='clip'] {
+    clip-path: none;
+  }
+  .js .product__info-container[data-o-stagger] > * {
+    transform: none;
+    transition: opacity 400ms ease;
+  }
+}

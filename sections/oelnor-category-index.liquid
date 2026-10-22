@@ -1,0 +1,130 @@
+{{ 'oelnor-sections.css' | asset_url | stylesheet_tag }}
+
+<section class="o-section o-catindex" data-o-catindex>
+  <div class="o-container">
+    <div class="o-catindex__head">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="o-eyebrow" data-o-reveal="fade">{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+      <h2 class="o-display o-catindex__title" data-o-split>{{ section.settings.heading | escape }}</h2>
+    </div>
+
+    <ul class="o-catindex__list" role="list">
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign col = block.settings.collection
+          assign img = block.settings.image
+          if img == blank and col != blank
+            assign img = col.featured_image
+          endif
+          assign title = block.settings.title
+          if title == blank and col != blank
+            assign title = col.title
+          endif
+          assign link = block.settings.link
+          if link == blank and col != blank
+            assign link = col.url
+          endif
+        -%}
+        <li class="o-catindex__row" {{ block.shopify_attributes }} data-o-reveal="fade" style="--i: {{ forloop.index0 }}">
+          <span class="o-catindex__rule" data-o-reveal="line" style="--i: {{ forloop.index0 }}" aria-hidden="true"></span>
+          <a class="o-catindex__link" href="{{ link | default: routes.all_products_collection_url }}">
+            <span class="o-catindex__num">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+            <span class="o-catindex__name">{{ title | escape }}</span>
+            {%- if col != blank -%}
+              <span class="o-catindex__count">{{ col.products_count }} piezas</span>
+            {%- endif -%}
+            <span class="o-catindex__arrow" aria-hidden="true">↗</span>
+          </a>
+          {%- if img != blank -%}
+            <template data-o-catindex-img>
+              {{ img | image_url: width: 640 | image_tag: loading: 'lazy', alt: '', sizes: '320px' }}
+            </template>
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+  <div class="o-catindex__float" aria-hidden="true"><div class="o-catindex__float-inner"></div></div>
+</section>
+
+<script>
+  (() => {
+    const fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.querySelectorAll('[data-o-catindex]:not([data-ready])').forEach((root) => {
+      root.dataset.ready = '';
+      if (!fine) return;
+      const float = root.querySelector('.o-catindex__float');
+      const inner = float.querySelector('.o-catindex__float-inner');
+      let tx = 0, ty = 0, x = 0, y = 0, vx = 0, raf = 0, active = false;
+      const loop = () => {
+        const nx = x + (tx - x) * 0.14;
+        vx = nx - x;
+        x = nx;
+        y += (ty - y) * 0.14;
+        const rot = reduce ? 0 : Math.max(-12, Math.min(12, vx * 0.6));
+        float.style.transform = `translate3d(${x}px, ${y}px, 0) rotate(${rot}deg)`;
+        raf = active || Math.abs(tx - x) > 0.5 ? requestAnimationFrame(loop) : 0;
+      };
+      root.addEventListener('pointermove', (e) => {
+        tx = e.clientX;
+        ty = e.clientY;
+        if (!raf) raf = requestAnimationFrame(loop);
+      });
+      root.querySelectorAll('.o-catindex__row').forEach((row) => {
+        const tpl = row.querySelector('[data-o-catindex-img]');
+        row.addEventListener('pointerenter', (e) => {
+          if (!tpl) return;
+          if (!active) {
+            x = tx = e.clientX;
+            y = ty = e.clientY;
+          }
+          active = true;
+          inner.replaceChildren(tpl.content.cloneNode(true));
+          float.classList.add('is-active');
+          if (!raf) raf = requestAnimationFrame(loop);
+        });
+        row.addEventListener('pointerleave', () => {
+          active = false;
+          float.classList.remove('is-active');
+        });
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Oelnor · Categorías",
+  "tag": "div",
+  "class": "section-oelnor-catindex",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Antetítulo", "default": "Explora" },
+    { "type": "text", "id": "heading", "label": "Titular", "default": "Encuentra lo tuyo" }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Categoría",
+      "settings": [
+        { "type": "collection", "id": "collection", "label": "Colección" },
+        { "type": "text", "id": "title", "label": "Nombre (opcional)" },
+        { "type": "image_picker", "id": "image", "label": "Imagen al pasar el ratón (opcional)" },
+        { "type": "url", "id": "link", "label": "Enlace (opcional)" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Oelnor · Categorías",
+      "blocks": [
+        { "type": "category", "settings": { "title": "Mujer" } },
+        { "type": "category", "settings": { "title": "Hombre" } },
+        { "type": "category", "settings": { "title": "Bolsos" } },
+        { "type": "category", "settings": { "title": "Calzado" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

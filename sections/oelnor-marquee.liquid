@@ -1,0 +1,68 @@
+{{ 'oelnor-sections.css' | asset_url | stylesheet_tag }}
+
+<section
+  class="o-section o-marquee{% if section.settings.style == 'sand' %} o-marquee--sand{% endif %}"
+  style="--o-marquee-duration: {{ section.settings.speed }}s"
+>
+  <p class="visually-hidden">
+    {%- for block in section.blocks -%}{{ block.settings.text | escape }}{% unless forloop.last %} · {% endunless %}{%- endfor -%}
+  </p>
+  <div class="o-marquee__track" aria-hidden="true">
+    {%- for i in (1..2) -%}
+      <div class="o-marquee__group">
+        {%- for block in section.blocks -%}
+          <span class="o-marquee__item" {{ block.shopify_attributes }}>{{ block.settings.text | escape }}</span>
+          <span class="o-marquee__dot">✦</span>
+        {%- endfor -%}
+      </div>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Oelnor · Marquee",
+  "tag": "div",
+  "class": "section-oelnor-marquee",
+  "settings": [
+    {
+      "type": "select",
+      "id": "style",
+      "label": "Estilo",
+      "options": [
+        { "value": "dark", "label": "Oscuro" },
+        { "value": "sand", "label": "Arena" }
+      ],
+      "default": "dark"
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "min": 15,
+      "max": 80,
+      "step": 5,
+      "unit": "s",
+      "default": 40,
+      "label": "Duración de una vuelta"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Texto",
+      "settings": [{ "type": "text", "id": "text", "label": "Texto", "default": "Nueva colección" }]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Oelnor · Marquee",
+      "blocks": [
+        { "type": "item", "settings": { "text": "Nueva colección" } },
+        { "type": "item", "settings": { "text": "Moda" } },
+        { "type": "item", "settings": { "text": "Accesorios" } },
+        { "type": "item", "settings": { "text": "Lifestyle" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

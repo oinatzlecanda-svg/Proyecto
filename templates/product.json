@@ -6,13 +6,6 @@
         "title": {
           "type": "title"
         },
-        "tagline": {
-          "type": "text",
-          "settings": {
-            "text": "Escribe aquí una frase corta que explique de un vistazo para qué sirve este producto.",
-            "text_style": "subtitle"
-          }
-        },
         "price": {
           "type": "price"
         },
@@ -40,12 +33,12 @@
           "type": "icon-with-text",
           "settings": {
             "layout": "horizontal",
-            "icon_1": "check_mark",
-            "heading_1": "Beneficio 1 — explica qué gana el cliente, no solo la característica",
-            "icon_2": "check_mark",
-            "heading_2": "Beneficio 2 — explica qué gana el cliente, no solo la característica",
-            "icon_3": "check_mark",
-            "heading_3": "Beneficio 3 — explica qué gana el cliente, no solo la característica"
+            "icon_1": "lock",
+            "heading_1": "Pago seguro",
+            "icon_2": "truck",
+            "heading_2": "Envío con seguimiento",
+            "icon_3": "chat_bubble",
+            "heading_3": "Atención al cliente"
           }
         },
         "description": {
@@ -63,7 +56,6 @@
       },
       "block_order": [
         "title",
-        "tagline",
         "price",
         "rating",
         "variant_picker",
@@ -110,7 +102,10 @@
           }
         }
       },
-      "block_order": ["row-1", "row-2"],
+      "block_order": [
+        "row-1",
+        "row-2"
+      ],
       "settings": {
         "caption": "",
         "heading": "",
@@ -164,10 +159,29 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "oelnor-vista-3d": {
+      "type": "oelnor-product-3d",
+      "settings": {
+        "eyebrow": "Vista 360°",
+        "heading": "Míralo desde todos los ángulos",
+        "hint": "Arrastra o usa las flechas para girar"
+      }
+    },
+    "oelnor-historia": {
+      "type": "oelnor-product-story",
+      "settings": {
+        "eyebrow": "Por qué te va a gustar",
+        "text": ""
+      },
+      "blocks": {},
+      "block_order": []
     }
   },
   "order": [
     "main",
+    "oelnor-vista-3d",
+    "oelnor-historia",
     "product-details",
     "problem-product-result",
     "how-it-works",
