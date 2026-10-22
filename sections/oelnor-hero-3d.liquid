@@ -54,33 +54,61 @@
   <div class="o-hero3d__veil" aria-hidden="true"></div>
 
   <div class="o-hero3d__content o-container">
-    {%- if section.settings.eyebrow != blank -%}
-      <p class="o-eyebrow" data-o-reveal="fade">{{ section.settings.eyebrow | escape }}</p>
-    {%- endif -%}
-    <h1 class="o-display o-hero3d__title" data-o-split style="--o-split-delay: 250ms">
-      {{- section.settings.heading | escape -}}
-    </h1>
-    <div class="o-hero3d__bottom">
-      {%- if section.settings.text != blank -%}
-        <p class="o-hero3d__text" data-o-reveal="fade" style="--i: 6">{{ section.settings.text | escape }}</p>
+    <div class="o-hero3d__top">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="o-eyebrow" data-o-reveal="fade">{{ section.settings.eyebrow | escape }}</p>
       {%- endif -%}
-      <div class="o-hero3d__actions" data-o-reveal="fade" style="--i: 8">
-        {%- if section.settings.button_label_1 != blank -%}
-          <a class="o-btn" data-o-magnetic href="{{ section.settings.button_link_1 | default: routes.all_products_collection_url }}">
-            {{ section.settings.button_label_1 | escape }} <span class="o-btn__arrow" aria-hidden="true">→</span>
-          </a>
+      {%- if section.settings.tagline != blank -%}
+        <p class="o-eyebrow o-hero3d__tagline" data-o-reveal="fade" style="--i: 2">{{ section.settings.tagline | escape }}</p>
+      {%- endif -%}
+    </div>
+
+    <h1 class="o-display o-hero3d__title">
+      <span data-o-split style="--o-split-delay: 250ms">{{ section.settings.heading | escape }}</span>
+      {%- if section.settings.heading_accent != blank -%}
+        <em data-o-split style="--o-split-delay: 420ms">{{ section.settings.heading_accent | escape }}</em>
+      {%- endif -%}
+    </h1>
+
+    <div class="o-hero3d__bottom">
+      <div class="o-hero3d__intro">
+        {%- if section.settings.text != blank -%}
+          <p class="o-hero3d__text" data-o-reveal="fade" style="--i: 6">{{ section.settings.text | escape }}</p>
         {%- endif -%}
-        {%- if section.settings.button_label_2 != blank -%}
-          <a class="o-btn o-btn--ghost" data-o-magnetic href="{{ section.settings.button_link_2 | default: routes.all_products_collection_url }}">
-            {{ section.settings.button_label_2 | escape }}
-          </a>
-        {%- endif -%}
+        <div class="o-hero3d__actions" data-o-reveal="fade" style="--i: 8">
+          {%- if section.settings.button_label_1 != blank -%}
+            <a class="o-btn" data-o-magnetic href="{{ section.settings.button_link_1 | default: routes.all_products_collection_url }}">
+              {{ section.settings.button_label_1 | escape }} <span class="o-btn__arrow" aria-hidden="true">→</span>
+            </a>
+          {%- endif -%}
+          {%- if section.settings.button_label_2 != blank -%}
+            <a class="o-btn o-btn--ghost" data-o-magnetic href="{{ section.settings.button_link_2 | default: routes.all_products_collection_url }}">
+              {{ section.settings.button_label_2 | escape }}
+            </a>
+          {%- endif -%}
+        </div>
       </div>
+
+      {%- if section.settings.note != blank -%}
+        {%- liquid
+          assign shown = hero_products.size
+          if shown > limit
+            assign shown = limit
+          endif
+        -%}
+        <p class="o-hero3d__note" data-o-reveal="fade" style="--i: 10">
+          <span class="o-hero3d__count">{{ shown | prepend: '0' | slice: -2, 2 }}</span>
+          <span class="o-hero3d__note-text">
+            {{- section.settings.note | escape -}}
+            {%- if section.settings.hint != blank -%}<span class="o-hero3d__note-hint">{{ section.settings.hint | escape }}</span>{%- endif -%}
+          </span>
+        </p>
+      {%- endif -%}
     </div>
   </div>
 
   <p class="o-hero3d__label" data-o-hero-label aria-hidden="true"></p>
-  <p class="o-hero3d__hint" aria-hidden="true"><span></span>{{ section.settings.hint | escape }}</p>
+  <span class="o-hero3d__scroll" aria-hidden="true"><span></span></span>
 </section>
 
 <script src="{{ 'oelnor-hero-3d.js' | asset_url }}" type="module"></script>
@@ -123,12 +151,15 @@
       "label": "Productos en el anillo"
     },
     { "type": "text", "id": "eyebrow", "label": "Antetítulo", "default": "Colección otoño · 2026" },
-    { "type": "text", "id": "heading", "label": "Titular", "default": "No lo estabas buscando. Ahora lo quieres." },
-    { "type": "text", "id": "text", "label": "Texto", "default": "Moda, accesorios y objetos diferentes para el día a día." },
+    { "type": "text", "id": "tagline", "label": "Frase de la esquina (opcional)", "default": "Mujer · Hombre · Accesorios" },
+    { "type": "text", "id": "heading", "label": "Titular", "default": "Estilo" },
+    { "type": "text", "id": "heading_accent", "label": "Titular, segunda línea (destacada)", "default": "con intención." },
+    { "type": "textarea", "id": "text", "label": "Texto", "default": "Prendas y accesorios con carácter, elegidos uno a uno para que vistas a tu manera." },
     { "type": "text", "id": "button_label_1", "label": "Botón 1", "default": "Descubrir novedades" },
     { "type": "url", "id": "button_link_1", "label": "Enlace botón 1" },
     { "type": "text", "id": "button_label_2", "label": "Botón 2", "default": "Ver todo" },
     { "type": "url", "id": "button_link_2", "label": "Enlace botón 2" },
+    { "type": "text", "id": "note", "label": "Contador: texto (vacío lo oculta)", "default": "piezas en la selección" },
     { "type": "text", "id": "hint", "label": "Pista de interacción", "default": "Arrastra para girar" },
     {
       "type": "checkbox",

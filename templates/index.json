@@ -158,7 +158,8 @@
         "columns_mobile": "2",
         "padding_top": 36,
         "padding_bottom": 36
-      }
+      },
+      "disabled": true
     },
     "producto-protagonista": {
       "type": "featured-product",
@@ -577,15 +578,18 @@
       "settings": {
         "collection": "la-seleccion-oelnor",
         "products_to_show": 12,
-        "eyebrow": "OELNOR / Nueva temporada",
-        "heading": "Estilo con intención.",
-        "text": "",
+        "eyebrow": "OELNOR — Nueva temporada",
+        "heading": "Estilo",
+        "text": "Prendas y accesorios con carácter, elegidos uno a uno para que vistas a tu manera.",
         "button_label_1": "Ver todo",
         "button_link_1": "shopify://collections/todos-los-productos-oelnor",
         "button_label_2": "Colección otoño",
         "button_link_2": "shopify://pages/coleccion-otono",
         "hint": "Arrastra para girar",
-        "show_intro": true
+        "show_intro": true,
+        "tagline": "Mujer · Hombre · Accesorios",
+        "heading_accent": "con intención.",
+        "note": "piezas en la selección"
       }
     },
     "oelnor-marquee": {
@@ -737,7 +741,7 @@
         "eyebrow": "",
         "heading": "Menos básico.",
         "heading_accent": "Más identidad.",
-        "text": "",
+        "text": "No es llevar lo de siempre. Es encontrar esas piezas que hacen que el look sea tuyo.",
         "image_1": "shopify://shop_images/handbags-and-accessories-natural-4.jpg",
         "product_2": "jeans-kairo-telarania",
         "button_label": "Descubre OELNOR",
@@ -910,19 +914,60 @@
         "speed": 60,
         "label": "Selección de productos"
       }
+    },
+    "oelnor-filosofia": {
+      "type": "oelnor-philosophy",
+      "blocks": {
+        "p1": {
+          "type": "pillar",
+          "settings": {
+            "title": "Personalidad",
+            "text": "Piezas con un detalle diferente, elegidas para hacer tuyo cualquier look."
+          }
+        },
+        "p2": {
+          "type": "pillar",
+          "settings": {
+            "title": "Sin reglas",
+            "text": "Probar, combinar y vestir a tu manera, sin seguir cada tendencia."
+          }
+        },
+        "p3": {
+          "type": "pillar",
+          "settings": {
+            "title": "Para cada día",
+            "text": "Diseño, comodidad y calidad que te acompañan del lunes al domingo."
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "p3"
+      ],
+      "settings": {
+        "eyebrow": "Nuestra filosofía",
+        "quote": "Vestir bien también puede ser una forma de expresarte.",
+        "text": "No buscamos seguir todas las tendencias, sino encontrar piezas con personalidad que encajen de forma natural en tu día a día.",
+        "button_label": "Nuestra historia",
+        "button_link": "shopify://pages/sobre-oelnor",
+        "product": "cardigan-naya-punto-rayas",
+        "caption": "Cárdigan Naya"
+      }
     }
   },
   "order": [
     "oelnor-hero",
-    "oelnor-fotos",
+    "oelnor-filosofia",
     "oelnor-accesos",
     "oelnor-carril",
+    "oelnor-fotos",
     "oelnor-otono",
     "oelnor-categorias",
-    "catalogo",
     "oelnor-manifiesto",
     "oelnor-confianza",
     "newsletter",
+    "catalogo",
     "oelnor-marquee",
     "oelnor-oferta",
     "producto-protagonista",

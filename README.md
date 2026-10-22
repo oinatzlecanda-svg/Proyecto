@@ -335,3 +335,10 @@ choque con este estilo.
 - Orden: hero 3D → tira de fotos → Mujer/Hombre/Accesorios → La selección →
   El frío no es excusa → categorías → Todo OELNOR → Menos básico. Más
   identidad. → envío/devoluciones/pago → newsletter.
+
+## 21. Home: hero editorial y filosofía de marca
+
+- **Hero 3D** (`oelnor-hero-3d`): titular en dos líneas (`heading` + `heading_accent`, la segunda en color acento y sangrada), barra superior con antetítulo y frase (`tagline`), texto de marca, botones y un contador ligado al anillo 3D (`note` + `hint`; vacío lo oculta). La pista vertical se sustituye por una línea de scroll.
+- **Nueva sección `oelnor-philosophy`** (Oelnor · Filosofía): frase principal que se ilumina con el scroll, texto, botón a "Sobre Oelnor", foto con parallax y hasta 4 principios numerados (bloques). Textos tomados de la página "Sobre Oelnor".
+- **Orden de la home**: Hero → Filosofía → Mujer/Hombre/Accesorios → La selección → Tira de fotos → Otoño → Categorías → Menos básico, más identidad (con su frase) → Confianza → Newsletter. El grid genérico "Todo OELNOR" queda desactivado (lo cubren el carril y las categorías).
+- La landing de otoño usa el mismo hero: "Selección / de otoño." con su contador.

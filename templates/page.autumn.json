@@ -20,15 +20,18 @@
           "pantalon-ciro-pana-baggy"
         ],
         "products_to_show": 12,
-        "eyebrow": "OELNOR / Autumn edit '26",
-        "heading": "Selección de otoño.",
+        "eyebrow": "OELNOR — Autumn edit '26",
+        "heading": "Selección",
         "text": "Capas, texturas y tonos cálidos. Piezas con carácter para vestir la temporada a tu manera.",
         "button_label_1": "Explorar selección",
         "button_link_1": "/pages/coleccion-otono#seleccion",
         "button_label_2": "Sigue descubriendo",
         "button_link_2": "/pages/coleccion-otono#sigue",
         "hint": "Arrastra para mover",
-        "show_intro": false
+        "show_intro": false,
+        "heading_accent": "de otoño.",
+        "tagline": "Capas · Texturas · Tonos cálidos",
+        "note": "piezas de otoño"
       }
     },
     "marquee": {

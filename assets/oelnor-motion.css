@@ -202,7 +202,7 @@
 .is-offscreen.o-marquee .o-marquee__track,
 .o-story__ticker.is-offscreen .o-story__ticker-track,
 .o-offer.is-offscreen .o-offer__ring,
-.o-hero3d__hint.is-offscreen span,
+.o-hero3d__scroll.is-offscreen span,
 .o-photostrip.is-offscreen .o-photostrip__track {
   animation-play-state: paused;
 }

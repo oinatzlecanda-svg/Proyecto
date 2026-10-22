@@ -74,12 +74,11 @@
   position: relative;
   z-index: 2;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 4rem;
-  padding-top: clamp(10rem, 16vh, 16rem);
-  padding-bottom: clamp(4rem, 8vh, 8rem);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 3.2rem;
+  padding-top: clamp(3.2rem, 6vh, 6.4rem);
+  padding-bottom: clamp(3.2rem, 6vh, 6.4rem);
   pointer-events: none;
 }
 
@@ -87,11 +86,33 @@
   pointer-events: auto;
 }
 
+.o-hero3d__top {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-bottom: 1.6rem;
+  border-bottom: 1px solid var(--o-line);
+}
+
+.o-hero3d__tagline {
+  color: var(--o-text);
+}
+
+/* Two-line headline: plain first line, accented and indented second line */
 .o-hero3d__title {
-  font-size: clamp(4.2rem, 7.2vw, 12rem);
-  max-width: 11ch;
-  margin-top: 1.6rem;
-  text-wrap: balance;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  font-size: clamp(5.6rem, 8.6vw, 15rem);
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.o-hero3d__title em {
+  font-style: normal;
+  color: var(--o-accent);
+  padding-left: 0.9em;
+  white-space: nowrap;
 }
 
 .o-hero3d__bottom {
@@ -102,11 +123,17 @@
   justify-content: space-between;
 }
 
+.o-hero3d__intro {
+  display: grid;
+  gap: 2.4rem;
+  max-width: 44rem;
+}
+
 .o-hero3d__text {
   max-width: 34ch;
-  font-size: 1.7rem;
-  line-height: 1.5;
-  color: var(--o-text-muted);
+  font-size: clamp(1.7rem, 1.4vw, 2rem);
+  line-height: 1.45;
+  color: var(--o-text);
   margin: 0;
 }
 
@@ -114,6 +141,42 @@
   display: flex;
   flex-wrap: wrap;
   gap: 1.2rem;
+}
+
+/* Counter tied to the 3D ring: "12 piezas en la selección" */
+.o-hero3d__note {
+  display: flex;
+  align-items: flex-end;
+  gap: 1.4rem;
+  margin: 0;
+  padding: 1.4rem 2rem 1.4rem 1.6rem;
+  border-radius: 1.2rem;
+  border: 1px solid var(--o-line);
+  background: color-mix(in srgb, var(--o-bg) 72%, transparent);
+  backdrop-filter: blur(12px);
+}
+
+.o-hero3d__count {
+  font-family: var(--font-heading-family);
+  font-size: clamp(4rem, 4.4vw, 6.4rem);
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  color: var(--o-accent);
+}
+
+.o-hero3d__note-text {
+  display: grid;
+  gap: 0.4rem;
+  font-size: 1.4rem;
+  line-height: 1.3;
+  color: var(--o-text);
+}
+
+.o-hero3d__note-hint {
+  font-size: 1.1rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--o-text-muted);
 }
 
 .o-hero3d__label {
@@ -141,47 +204,58 @@
   transform: translate(-50%, -50%);
 }
 
-.o-hero3d__hint {
+/* Scroll cue: a thin line that draws itself downwards */
+.o-hero3d__scroll {
   position: absolute;
   z-index: 2;
-  right: var(--o-gutter);
-  top: 50%;
-  margin: 0;
-  writing-mode: vertical-rl;
-  font-size: 1.1rem;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--o-text-muted);
-  display: flex;
-  align-items: center;
-  gap: 1.2rem;
-  transform: translateY(-50%);
-}
-
-.o-hero3d__hint span {
+  left: 50%;
+  bottom: 0;
   width: 1px;
-  height: 5rem;
-  background: linear-gradient(var(--o-accent), transparent);
-  animation: o-hint 2.4s var(--o-ease-in-out) infinite;
-  transform-origin: top;
+  height: clamp(4rem, 7vh, 7rem);
+  overflow: hidden;
+  pointer-events: none;
 }
 
-@keyframes o-hint {
-  0% { transform: scaleY(0); }
-  50% { transform: scaleY(1); transform-origin: top; }
-  51% { transform-origin: bottom; }
-  100% { transform: scaleY(0); transform-origin: bottom; }
+.o-hero3d__scroll span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(transparent, var(--o-text-muted));
+  animation: o-scroll-cue 2.4s var(--o-ease-in-out) infinite;
+}
+
+@keyframes o-scroll-cue {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(100%); }
 }
 
 @media screen and (max-width: 749px) {
-  .o-hero3d__hint {
+  .o-hero3d__tagline,
+  .o-hero3d__scroll {
     display: none;
   }
-  .o-hero3d__content {
-    justify-content: flex-end;
-  }
   .o-hero3d__title {
-    margin-bottom: 30vh;
+    align-self: start;
+    margin-top: 1.2rem;
+    font-size: clamp(4.4rem, 15vw, 7.2rem);
+  }
+  .o-hero3d__title em {
+    padding-left: 0;
+    white-space: normal;
+  }
+  .o-hero3d__veil {
+    background:
+      linear-gradient(180deg, color-mix(in srgb, var(--o-bg) 70%, transparent) 0%, transparent 34%),
+      linear-gradient(180deg, transparent 50%, color-mix(in srgb, var(--o-bg) 92%, transparent) 72%, var(--o-bg) 100%);
+  }
+  .o-hero3d__note {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .o-hero3d__scroll span {
+    animation: none;
   }
 }
 
@@ -1952,5 +2026,133 @@
 @media screen and (max-width: 989px) {
   .o-catcards {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ---------------- Philosophy ---------------- */
+.o-philo {
+  padding-block: clamp(8rem, 12vw, 16rem);
+}
+
+.o-philo__grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(4rem, 7vw, 12rem);
+  align-items: center;
+}
+
+.o-philo__lead {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3.2rem;
+}
+
+.o-philo__quote {
+  font-size: clamp(3.4rem, 4.6vw, 7.2rem);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.o-philo__text {
+  max-width: 44ch;
+  margin: 0;
+  font-size: clamp(1.7rem, 1.3vw, 2rem);
+  line-height: 1.55;
+  color: var(--o-text-muted);
+}
+
+.o-philo__media {
+  position: relative;
+  margin: 0;
+  aspect-ratio: 4 / 5;
+  border-radius: 1.2rem;
+  overflow: hidden;
+  background: var(--o-surface);
+}
+
+.o-philo__parallax {
+  height: 120%;
+  margin-top: -10%;
+}
+
+.o-philo__parallax img,
+.o-philo__parallax svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.o-philo__caption {
+  position: absolute;
+  left: 1.6rem;
+  bottom: 1.6rem;
+  padding: 0.8rem 1.4rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--o-bg) 85%, transparent);
+  backdrop-filter: blur(10px);
+  font-size: 1.2rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--o-text);
+}
+
+.o-philo__pillars {
+  list-style: none;
+  margin-block: clamp(6rem, 9vw, 11rem) 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+  gap: 4rem clamp(2.4rem, 4vw, 6rem);
+}
+
+.o-philo__pillar {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.2rem 2rem;
+  padding-top: 2.4rem;
+}
+
+.o-philo__rule {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 1px;
+  background: var(--o-line-strong);
+}
+
+.o-philo__num {
+  font-family: var(--font-heading-family);
+  font-size: 1.3rem;
+  letter-spacing: 0.1em;
+  color: var(--o-accent);
+  padding-top: 0.5rem;
+}
+
+.o-philo__title {
+  margin: 0;
+  font-family: var(--font-heading-family);
+  font-size: clamp(2.2rem, 2vw, 2.8rem);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--o-text);
+}
+
+.o-philo__body {
+  grid-column: 2;
+  margin: 0;
+  max-width: 34ch;
+  font-size: 1.6rem;
+  line-height: 1.55;
+  color: var(--o-text-muted);
+}
+
+@media screen and (max-width: 989px) {
+  .o-philo__grid {
+    grid-template-columns: 1fr;
+  }
+  .o-philo__media {
+    aspect-ratio: 4 / 3;
   }
 }
