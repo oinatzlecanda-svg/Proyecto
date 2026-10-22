@@ -1,0 +1,114 @@
+{{ 'oelnor-sections.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign nav_links = null
+  assign nav_parent = null
+  assign menu = section.settings.menu
+  if menu != blank
+    for link in linklists[menu].links
+      for child in link.links
+        if child.url == collection.url
+          assign nav_links = link.links
+          assign nav_parent = link
+        endif
+      endfor
+      if link.url == collection.url and link.links.size > 0
+        assign nav_links = link.links
+        assign nav_parent = link
+      endif
+    endfor
+  endif
+
+  assign fan_count = 0
+-%}
+
+<section class="o-section o-colhero">
+  <div class="o-container o-colhero__grid">
+    <div class="o-colhero__copy">
+      <nav class="o-colhero__crumbs" aria-label="Ruta" data-o-reveal="fade">
+        <a href="{{ routes.root_url }}">Inicio</a>
+        <span aria-hidden="true">/</span>
+        {%- if nav_parent and nav_parent.url != collection.url -%}
+          <a href="{{ nav_parent.url }}">{{ nav_parent.title | escape }}</a>
+          <span aria-hidden="true">/</span>
+        {%- endif -%}
+        <span aria-current="page">{{ collection.title | escape }}</span>
+      </nav>
+
+      <p class="o-eyebrow o-colhero__eyebrow" data-o-reveal="fade" style="--i: 1">
+        {{ section.settings.eyebrow | escape }}
+        <span class="o-colhero__count">{{ collection.products_count }} piezas</span>
+      </p>
+
+      <h1 class="o-display o-colhero__title" data-o-split style="--o-split-delay: 120ms">
+        {{- collection.title | escape -}}
+      </h1>
+
+      {%- if section.settings.show_description and collection.description != blank -%}
+        <div class="o-colhero__text rte" data-o-reveal="fade" style="--i: 4">{{ collection.description }}</div>
+      {%- endif -%}
+
+      {%- if nav_links and nav_links.size > 1 -%}
+        <ul class="o-colhero__chips" role="list" data-o-reveal="fade" style="--i: 5">
+          {%- for link in nav_links -%}
+            {%- assign is_current = false -%}
+            {%- if link.url == collection.url or link.current -%}{%- assign is_current = true -%}{%- endif -%}
+            <li>
+              <a class="o-chip{% if is_current %} is-current{% endif %}" href="{{ link.url }}"{% if is_current %} aria-current="page"{% endif %}>
+                {{- link.title | escape -}}
+              </a>
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+    </div>
+
+    {%- comment -%} Fan of the first product photos, tilts with the pointer. {%- endcomment -%}
+    <div class="o-colhero__stage" data-o-tilt="7" aria-hidden="true">
+      <div class="o-colhero__fan">
+        {%- if section.settings.show_collection_image and collection.featured_image -%}
+          {%- assign fan_count = 1 -%}
+          <div class="o-colhero__card" style="--k: 0">
+            {{ collection.featured_image | image_url: width: 900 | image_tag: loading: 'eager', sizes: '(min-width: 990px) 22vw, 45vw', widths: '360, 540, 720, 900', alt: '' }}
+          </div>
+        {%- endif -%}
+        {%- for product in collection.products limit: 3 -%}
+          {%- if fan_count >= 3 -%}{%- break -%}{%- endif -%}
+          {%- if product.featured_media -%}
+            <div class="o-colhero__card" style="--k: {{ fan_count }}">
+              {{ product.featured_media | image_url: width: 900 | image_tag: loading: 'eager', sizes: '(min-width: 990px) 22vw, 45vw', widths: '360, 540, 720, 900', alt: '' }}
+            </div>
+            {%- assign fan_count = fan_count | plus: 1 -%}
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+      <span class="o-tilt-glare"></span>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Oelnor · Colección",
+  "tag": "div",
+  "class": "section-oelnor-colhero",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Antetítulo", "default": "OELNOR / Colección" },
+    { "type": "checkbox", "id": "show_description", "label": "Mostrar descripción de la colección", "default": true },
+    {
+      "type": "checkbox",
+      "id": "show_collection_image",
+      "label": "Usar la imagen de la colección como primera foto",
+      "default": false
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menú para las colecciones hermanas",
+      "info": "Si la colección está dentro de un submenú, se muestran sus hermanas como accesos rápidos.",
+      "default": "main-menu"
+    }
+  ],
+  "enabled_on": { "templates": ["collection"] }
+}
+{% endschema %}

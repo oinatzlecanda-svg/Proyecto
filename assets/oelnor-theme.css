@@ -398,3 +398,161 @@ body {
     transition: opacity 160ms ease;
   }
 }
+
+/* ---------------- Collection grid (Dawn) in the Oelnor style ---------------- */
+.product-grid {
+  row-gap: clamp(2.4rem, 3vw, 4rem);
+}
+
+.product-card-wrapper .card__inner {
+  border-radius: 1.2rem;
+  overflow: hidden;
+  background: var(--o-surface);
+}
+
+.product-card-wrapper .card__media .media img {
+  transition: transform 900ms var(--o-ease-out), opacity 500ms ease, filter 500ms ease;
+}
+
+/* Second photo crossfades in with a short blur, like the home rail */
+.product-card-wrapper .media--hover-effect > img + img {
+  filter: blur(6px);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .product-card-wrapper:hover .media--hover-effect > img + img {
+    filter: blur(0);
+  }
+  .product-card-wrapper:hover .media--hover-effect > img:first-child:not(:only-child) {
+    filter: blur(4px);
+  }
+}
+
+.product-card-wrapper .card__content {
+  padding-top: 1.4rem;
+}
+
+.product-card-wrapper .card__heading {
+  font-family: var(--font-body-family);
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.35;
+}
+
+.product-card-wrapper .card__heading a {
+  color: var(--o-text);
+}
+
+.product-card-wrapper .price {
+  color: var(--o-accent);
+  font-size: 1.45rem;
+  letter-spacing: 0.02em;
+}
+
+.product-card-wrapper .badge {
+  border-radius: 999px;
+  padding: 0.4rem 1rem;
+  font-size: 1.05rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* Quick add button sits as a pill under the card */
+.product-card-wrapper .quick-add__submit {
+  border-radius: 999px;
+  min-height: 4.2rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+}
+
+/* Filters & sorting toolbar */
+.facets-container {
+  border-block: 1px solid var(--o-line);
+  padding-block: 1.4rem;
+  margin-bottom: clamp(2.4rem, 3vw, 4rem);
+}
+
+.facets__summary,
+.mobile-facets__open {
+  border-radius: 999px;
+  border: 1px solid var(--o-line-strong);
+  padding: 0.9rem 1.6rem;
+  font-size: 1.3rem;
+  letter-spacing: 0.06em;
+  transition: border-color 200ms ease, background-color 200ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .facets__summary:hover {
+    border-color: var(--o-text);
+  }
+}
+
+.facets__disclosure[open] .facets__summary {
+  background: var(--o-text);
+  border-color: var(--o-text);
+  color: var(--o-bg);
+}
+
+.facets__display {
+  border-radius: 1.2rem;
+  border: 1px solid var(--o-line);
+  box-shadow: 0 2rem 4rem rgba(var(--o-overlay-rgb), 0.12);
+  transform-origin: top left;
+}
+
+details[open] > .facets__display {
+  animation: o-pop 180ms var(--o-ease-out);
+}
+
+@keyframes o-pop {
+  from {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.98);
+  }
+}
+
+.active-facets__button-inner {
+  border-radius: 999px;
+  padding: 0.6rem 1.4rem;
+  box-shadow: none;
+  border: 1px solid var(--o-line-strong);
+}
+
+.facet-filters__sort,
+.facets__form .select__select {
+  border-radius: 999px;
+}
+
+.product-count__text {
+  font-size: 1.2rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--o-text-muted);
+}
+
+/* Pagination */
+.pagination__item {
+  border-radius: 50%;
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+.pagination__item--current {
+  background: var(--o-text);
+  color: var(--o-bg);
+}
+
+.pagination__item--current::after {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  details[open] > .facets__display {
+    animation: none;
+  }
+  .product-card-wrapper .media--hover-effect > img + img {
+    filter: none;
+  }
+}

@@ -263,7 +263,29 @@
     });
   }
 
+  /* ---------- Collection pages: hero fan + Dawn product grid ---------- */
+  function enhanceCollection(root) {
+    root.querySelectorAll('.o-colhero:not(.is-ready)').forEach((el) => {
+      requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add('is-ready')));
+    });
+    root.querySelectorAll('.product-grid > .grid__item:not([data-o-reveal])').forEach((item, i) => {
+      item.setAttribute('data-o-reveal', 'fade');
+      item.style.setProperty('--i', i % 4);
+      const media = item.querySelector('.card__inner');
+      if (media) media.setAttribute('data-o-cursor', 'Ver');
+    });
+  }
+
+  // Dawn swaps the grid's HTML when filters, sorting or pages change.
+  function watchGrid() {
+    const container = document.getElementById('ProductGridContainer');
+    if (!container || container.dataset.oWatched) return;
+    container.dataset.oWatched = '';
+    new MutationObserver(() => init(container)).observe(container, { childList: true });
+  }
+
   function init(root = document) {
+    enhanceCollection(root);
     enhanceProduct(root);
     split(root);
     reveal(root);
@@ -278,6 +300,7 @@
   const start = () => {
     intro();
     init();
+    watchGrid();
     requestAnimationFrame(onFrame);
     window.addEventListener('resize', layoutRails, { passive: true });
     window.addEventListener('load', layoutRails);

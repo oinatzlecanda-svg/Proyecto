@@ -1313,3 +1313,212 @@
   font-size: 1.4rem;
   color: var(--o-text-muted);
 }
+
+/* ---------------- Collection hero ---------------- */
+.o-colhero {
+  padding-block: clamp(4rem, 7vw, 9rem) clamp(3rem, 5vw, 6rem);
+  border-bottom: 1px solid var(--o-line);
+}
+
+.o-colhero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: clamp(3rem, 6vw, 10rem);
+  align-items: center;
+}
+
+.o-colhero__copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  min-width: 0;
+}
+
+.o-colhero__crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  font-size: 1.25rem;
+  letter-spacing: 0.08em;
+  color: var(--o-text-muted);
+}
+
+.o-colhero__crumbs a {
+  color: inherit;
+  text-decoration: none;
+  background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
+  transition: background-size 300ms var(--o-ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .o-colhero__crumbs a:hover {
+    background-size: 100% 1px;
+  }
+}
+
+.o-colhero__crumbs [aria-current] {
+  color: var(--o-text);
+}
+
+.o-colhero__eyebrow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.o-colhero__count {
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  border: 1px solid var(--o-line-strong);
+  color: var(--o-text);
+  letter-spacing: 0.16em;
+}
+
+.o-colhero__title {
+  font-size: clamp(4.4rem, 6.6vw, 10.4rem);
+  text-transform: uppercase;
+  overflow-wrap: break-word;
+  hyphens: manual;
+}
+
+.o-colhero__text {
+  max-width: 52ch;
+  color: var(--o-text-muted);
+  font-size: 1.6rem;
+  line-height: 1.65;
+}
+
+.o-colhero__text p {
+  margin: 0;
+}
+
+.o-colhero__chips {
+  list-style: none;
+  margin: 0.8rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.o-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 1rem 1.8rem;
+  border-radius: 999px;
+  border: 1px solid var(--o-line-strong);
+  color: var(--o-text);
+  font-size: 1.3rem;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  transition: transform 160ms var(--o-ease-out), background-color 200ms ease, color 200ms ease, border-color 200ms ease;
+}
+
+.o-chip:active {
+  transform: scale(0.96);
+}
+
+.o-chip.is-current {
+  background: var(--o-text);
+  border-color: var(--o-text);
+  color: var(--o-bg);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .o-chip:not(.is-current):hover {
+    border-color: var(--o-text);
+  }
+}
+
+/* Fan of three photos, opens up once the hero has entered */
+.o-colhero__stage {
+  position: relative;
+  height: clamp(30rem, 34vw, 50rem);
+  perspective: 1400px;
+}
+
+.o-colhero__fan {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  transform-style: preserve-3d;
+}
+
+.o-colhero__card {
+  grid-area: 1 / 1;
+  width: clamp(16rem, 17vw, 26rem);
+  aspect-ratio: 3 / 4;
+  border-radius: 1.2rem;
+  overflow: hidden;
+  background: var(--o-surface);
+  box-shadow: 0 2.4rem 5rem rgba(var(--o-overlay-rgb), 0.18);
+  transform: translateY(2rem) rotate(0deg) scale(0.92);
+  opacity: 0;
+  transition: transform 1100ms var(--o-ease-out), opacity 700ms ease;
+  transition-delay: calc(var(--k) * 90ms + 250ms);
+}
+
+.o-colhero__card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.o-colhero.is-ready .o-colhero__card {
+  opacity: 1;
+}
+
+.o-colhero.is-ready .o-colhero__card:nth-child(1) {
+  transform: translateX(-62%) rotate(-9deg) translateZ(-40px);
+}
+
+.o-colhero.is-ready .o-colhero__card:nth-child(2) {
+  transform: translateY(-4%) translateZ(30px);
+  z-index: 2;
+}
+
+.o-colhero.is-ready .o-colhero__card:nth-child(3) {
+  transform: translateX(62%) rotate(9deg) translateZ(-40px);
+}
+
+.o-colhero.is-ready .o-colhero__card:only-child {
+  transform: none;
+}
+
+@media screen and (max-width: 749px) {
+  .o-colhero__grid {
+    grid-template-columns: 1fr;
+  }
+  .o-colhero__copy {
+    align-items: stretch;
+  }
+  .o-colhero__chips {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    margin-inline: calc(var(--o-gutter) * -1);
+    padding-inline: var(--o-gutter);
+  }
+  .o-colhero__chips::-webkit-scrollbar {
+    display: none;
+  }
+  .o-chip {
+    white-space: nowrap;
+  }
+  .o-colhero__stage {
+    height: 26rem;
+    order: -1;
+  }
+  .o-colhero__card {
+    width: 13rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .o-colhero__card {
+    transition: opacity 400ms ease;
+  }
+}

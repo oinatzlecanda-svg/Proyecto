@@ -217,3 +217,21 @@ la tienda (colecciones, mensajes y oferta del tema publicado):
 
 La barra de anuncios y el pie usan los mismos mensajes y menús (`main-menu`,
 `footer`) que la tienda publicada.
+
+## 14. Páginas de colección
+
+`templates/collection.json` sigue el estilo de la home:
+
+1. `oelnor-collection-hero` — ruta (Inicio / Moda Mujer / …), nº de piezas,
+   título grande que entra palabra a palabra, descripción de la colección y
+   accesos a las colecciones hermanas (se leen del `main-menu`: si la
+   colección está en un submenú, se muestran sus hermanas). A la derecha, las
+   tres primeras fotos se abren en abanico 3D y se inclinan con el ratón.
+2. Cuadrícula de Dawn (filtros, orden, paginación y añadido rápido intactos)
+   con tarjetas redondeadas, segunda foto con fundido y desenfoque, precios en
+   color acento, filtros en forma de píldora y entrada escalonada; la
+   animación se vuelve a aplicar cuando cambias filtros o página.
+3. Banda de oferta 25 % (oscura) y franja de confianza.
+
+La animación de entrada propia de Dawn (`animations_reveal_on_scroll`) está
+desactivada para que no se duplique con la de Oelnor.
