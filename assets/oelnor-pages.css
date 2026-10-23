@@ -326,8 +326,7 @@
   color: var(--o-text);
 }
 
-.o-field__input[aria-invalid='true'],
-.o-form.was-validated .o-field__input:invalid {
+.o-field__input[aria-invalid='true'] {
   border-color: #a0412d;
 }
 

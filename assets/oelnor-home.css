@@ -157,6 +157,15 @@
   }
 }
 
+/* Phones/tablets: keep the colour, drop the animated layers (battery, jank). */
+@media screen and (max-width: 989px), (pointer: coarse) {
+  .shopify-section[id*='__oelnor-']::before {
+    animation: none;
+    will-change: auto;
+    inset: -10%;
+  }
+}
+
 /* ---------- Paper grain ---------- */
 body::after {
   content: '';

@@ -401,3 +401,21 @@ Todo vive en `assets/oelnor-product.js` / `assets/oelnor-product.css` (solo se c
 - **Movimiento más ligero en móvil**: sin capa de halos animada (solo un degradado del color del producto), sin parallax ni zoom; la cascada del bloque de compra es más corta.
 - **Tallas/colores** con zona táctil de 44 px; tarjetas de "Nuestra promesa" en 2×2 compacto; sin la foto grande de "Combínalo con" en móvil; espacio reservado para que la barra fija de compra no tape el final.
 - Resultado en la vista previa: la ficha en móvil pasa de ~6.400 px a ~4.800 px de alto.
+
+## 29. Rendimiento, limpieza y enlaces
+
+**Velocidad**
+- `oelnor-sections.css` se carga una sola vez desde `<head>` (antes cada sección añadía su propia etiqueta: hasta 10 duplicadas en la home).
+- Los estilos exclusivos de la ficha de producto salen de `oelnor-theme.css` (que se carga en todas las páginas) y pasan a `oelnor-product.css` (solo en producto): la hoja global baja de 12,5 KB a 5,7 KB.
+- three.js (~690 KB) del hero 3D ya no compite con la primera carga: espera al evento `load` y a un momento libre del navegador, y no se descarga con ahorro de datos, conexión 2G o móviles con ≤2 GB de RAM (se quedan con las imágenes estáticas). Antialias solo en pantallas sin alta densidad.
+- Móvil/táctil: sin parallax por JavaScript y halos de color estáticos en home y otoño (menos trabajo por fotograma y menos batería).
+
+**Limpieza**
+- Eliminadas secciones sin uso y su CSS: `oelnor-offer`, `oelnor-product-story`, `discover-by-use`, `how-it-works`, `problem-product-result`, `product-discovery`, `reviews-carousel`, `social-ugc`, `trust-bar` (+ `component-progress-bar.css`, `customer.js`, sin referencias).
+- Quitadas de las plantillas las 25 secciones desactivadas que ya no se mostraban (home, producto, colección): `index.json` pasa de 25 KB a 9 KB.
+- CSS muerto eliminado de las hojas `oelnor-*` (selectores de secciones borradas, estados nunca usados). Se conservan a propósito las clases que inyectan Shopify o ParcelPanel en tiempo de ejecución.
+- Theme Check de Shopify: sin errores en los archivos propios del tema.
+
+**Enlaces**
+- Revisadas todas las colecciones, páginas, productos, políticas y anclas que usa el tema: existen y están publicadas.
+- Corregido en el menú principal de Shopify: "Colección otoño" apuntaba a `/collections` (listado genérico) y ahora lleva a `/pages/coleccion-otono`.

@@ -189,9 +189,13 @@
   );
   const watch = (el) => proximity.observe(el);
 
+  // Touch screens skip JS parallax: it costs a layout read per frame while
+  // the finger scrolls, and the frames are designed to look right static.
+  const touchOnly = window.matchMedia('(pointer: coarse)').matches;
+
   function collectScroll(root) {
     root.querySelectorAll('[data-o-parallax]').forEach((el) => {
-      if (parallaxEls.has(el)) return;
+      if (touchOnly || parallaxEls.has(el)) return;
       parallaxEls.add(el);
       watch(el);
     });
@@ -352,7 +356,7 @@
     entries.forEach((e) => e.target.classList.toggle('is-offscreen', !e.isIntersecting));
   });
   function pauseLoops(root) {
-    root.querySelectorAll('.o-marquee, .o-story__ticker, .o-offer, .o-hero3d__scroll, .o-photostrip').forEach((el) => {
+    root.querySelectorAll('.o-marquee, .o-hero3d__scroll, .o-photostrip').forEach((el) => {
       if (el.dataset.oLoop) return;
       el.dataset.oLoop = '';
       loopObserver.observe(el);

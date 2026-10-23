@@ -45,7 +45,7 @@ async function mount(hero) {
   const GAP = 0.55;
   const R = (count * (W + GAP)) / (Math.PI * 2);
 
-  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' });
+  const renderer = new THREE.WebGLRenderer({ antialias: window.devicePixelRatio < 2, alpha: true, powerPreference: 'high-performance' });
   // Phones have dense screens but small GPUs: 1.5x is visually identical and far cheaper.
   const coarse = window.matchMedia('(pointer: coarse)').matches;
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, coarse ? 1.5 : 1.75));
@@ -357,13 +357,30 @@ async function mount(hero) {
   wake();
 }
 
+// The hero sits above the fold, so three.js (~690 KB) would compete with the
+// page's first paint. Wait for the load event plus an idle slot, and skip the
+// 3D entirely on data-saver / very slow connections or low-memory phones: the
+// static prints underneath are the designed fallback.
+function lightweightOnly() {
+  const c = navigator.connection;
+  if (c && (c.saveData || /(^|-)2g$/.test(c.effectiveType || ''))) return true;
+  return typeof navigator.deviceMemory === 'number' && navigator.deviceMemory <= 2;
+}
+
+function whenIdle(fn) {
+  const run = () => ('requestIdleCallback' in window ? requestIdleCallback(fn, { timeout: 2500 }) : setTimeout(fn, 600));
+  if (document.readyState === 'complete') run();
+  else window.addEventListener('load', run, { once: true });
+}
+
 function boot(root = document) {
+  if (lightweightOnly()) return;
   root.querySelectorAll('[data-o-hero3d]').forEach((hero) => {
     const io = new IntersectionObserver(
       ([entry]) => {
         if (!entry.isIntersecting) return;
         io.disconnect();
-        mount(hero).catch((err) => console.warn('[Oelnor] 3D hero disabled:', err));
+        whenIdle(() => mount(hero).catch((err) => console.warn('[Oelnor] 3D hero disabled:', err)));
       },
       { rootMargin: '200px' }
     );
