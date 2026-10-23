@@ -5,7 +5,7 @@
    fully autumnal and swings hard between light and dark — cream and amber,
    rust and oxblood, a burnt-orange manifesto, a pale sage rail, then a
    chocolate close. Most chapters hand their colour to the next; the jumps
-   into the manifesto and the offer are deliberate hard cuts. Drifting glows animate transform only, parallax with
+   into the manifesto and the closing trust band are deliberate hard cuts. Drifting glows animate transform only, parallax with
    scroll where supported, and stop under reduced motion.
    ========================================================================== */
 
@@ -31,7 +31,6 @@
 /* Dark chapters: invert text, lines and buttons. */
 [id$='__story'] > .o-section,
 [id$='__seleccion'] > .o-section,
-[id$='__oferta'] > .o-section,
 [id$='__confianza'] > .o-section {
   --o-bg-alt: #3a1d14;
   --o-surface: #4a2a1c;
@@ -65,8 +64,7 @@
   --o-accent: #6e260c;
 }
 [id$='__sigue'] { --o-tone-top: #f3cf9e; --o-tone-mid: #f1e6d2; --o-tone-mid-at: 30%; --o-tone-bottom: #dfe3cc; }
-[id$='__oferta'] { --o-tone-top: #331810; --o-tone-mid: #5a2414; --o-tone-bottom: #22130c; }
-[id$='__confianza'] { --o-tone-top: #22130c; --o-tone-bottom: #1a1714; }
+[id$='__confianza'] { --o-tone-top: #2e140d; --o-tone-bottom: #1a1714; }
 
 /* ---------- Drifting glows ---------- */
 #MainContent > .shopify-section::before {
@@ -114,12 +112,6 @@
     radial-gradient(34% 30% at 82% 30%, rgba(160, 178, 120, 0.45), transparent 70%),
     radial-gradient(30% 28% at 14% 74%, rgba(236, 160, 90, 0.4), transparent 70%);
   --o-drift: 19s;
-}
-[id$='__oferta'] {
-  --o-glow:
-    radial-gradient(40% 50% at 84% 50%, rgba(232, 116, 48, 0.5), transparent 72%),
-    radial-gradient(26% 30% at 16% 20%, rgba(250, 190, 110, 0.25), transparent 70%);
-  --o-drift: 12s;
 }
 
 /* Alternate direction so neighbouring chapters never move in sync. */

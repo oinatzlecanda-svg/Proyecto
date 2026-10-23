@@ -41,22 +41,6 @@
         "all_label": "Todas las colecciones"
       }
     },
-    "oelnor-oferta": {
-      "type": "oelnor-offer",
-      "settings": {
-        "kicker": "OELNOR / Combina a tu manera",
-        "heading": "Dos piezas o más.",
-        "heading_accent": "25 % menos.",
-        "description": "El descuento se aplica automáticamente al total de tu pedido. Sin códigos ni complicaciones.",
-        "number": 25,
-        "top_label": "Tu próxima combinación",
-        "line_1": "En todo tu pedido",
-        "line_2": "Con 2 o más artículos",
-        "button_label": "",
-        "button_link": "",
-        "ends_at": ""
-      }
-    },
     "oelnor-confianza": {
       "type": "oelnor-trust",
       "blocks": {
@@ -98,7 +82,6 @@
   "order": [
     "oelnor-cabecera",
     "product-grid",
-    "oelnor-oferta",
     "oelnor-confianza",
     "banner"
   ]

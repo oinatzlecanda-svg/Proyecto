@@ -151,22 +151,6 @@
         "anchor": "sigue"
       }
     },
-    "oferta": {
-      "type": "oelnor-offer",
-      "settings": {
-        "kicker": "OELNOR / Combina a tu manera",
-        "heading": "Dos piezas o más.",
-        "heading_accent": "25 % menos.",
-        "description": "Monta tu look de otoño: el descuento se aplica automáticamente al total de tu pedido.",
-        "number": 25,
-        "top_label": "Tu próxima combinación",
-        "line_1": "En todo tu pedido",
-        "line_2": "Con 2 o más artículos",
-        "button_label": "Volver a la selección",
-        "button_link": "/pages/coleccion-otono#seleccion",
-        "ends_at": ""
-      }
-    },
     "confianza": {
       "type": "oelnor-trust",
       "blocks": {
@@ -212,7 +196,6 @@
     "seleccion",
     "manifiesto",
     "sigue",
-    "oferta",
     "confianza"
   ]
 }
