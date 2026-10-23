@@ -282,6 +282,9 @@
     {{ 'base.css' | asset_url | stylesheet_tag }}
     {{ 'oelnor-motion.css' | asset_url | stylesheet_tag }}
     {{ 'oelnor-theme.css' | asset_url | stylesheet_tag }}
+    {%- if request.page_type == 'index' -%}
+      {{ 'oelnor-home.css' | asset_url | stylesheet_tag }}
+    {%- endif -%}
     {%- if request.page_type == 'product' -%}
       {{ 'oelnor-product.css' | asset_url | stylesheet_tag }}
       <script src="{{ 'oelnor-product.js' | asset_url }}" defer="defer"></script>

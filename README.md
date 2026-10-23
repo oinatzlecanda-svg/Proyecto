@@ -361,3 +361,10 @@ Plantillas `product.json` y `product.bundles.json` (mallas con packs):
 - **Secciones**: Barra de compra fija (aparece al pasar el botón principal y pulsa el botón real), Completa el look (productos complementarios de Search & Discovery o relacionados), Opiniones (widget real de Loox + estado vacío honesto; nunca muestra opiniones inventadas) y Compra tranquila (garantías enlazadas + preguntas frecuentes).
 - CSS y JS propios (`oelnor-product.css`, `oelnor-product.js`) solo se cargan en páginas de producto.
 - **Loox**: activa la incrustación de la app en *Personalizar → Configuración del tema → Incrustaciones de aplicaciones* para que el widget cargue las opiniones.
+
+## 24. Home: fondo con color y profundidad
+
+- `assets/oelnor-home.css` (solo se carga en la home) convierte el fondo en un degradado cálido continuo: cada sección termina en el color con el que empieza la siguiente (arena → caramelo → arcilla → toffee), así no hay cortes entre bloques.
+- Hero, filosofía, otoño y manifiesto llevan un halo de color que deriva muy despacio (solo `transform`, 26–32 s, `ease-in-out`); con "reducir movimiento" se queda quieto.
+- Textura de papel muy suave sobre toda la página (ruido SVG, sin coste de animación).
+- Los tonos se aplican por la clave de la sección en `templates/index.json` (`oelnor-hero`, `oelnor-filosofia`…). Si se cambia el orden de las secciones, ajusta los colores `--o-tone-top` / `--o-tone-bottom` en ese archivo para que sigan encadenando.
