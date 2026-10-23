@@ -362,9 +362,10 @@ Plantillas `product.json` y `product.bundles.json` (mallas con packs):
 - CSS y JS propios (`oelnor-product.css`, `oelnor-product.js`) solo se cargan en páginas de producto.
 - **Loox**: activa la incrustación de la app en *Personalizar → Configuración del tema → Incrustaciones de aplicaciones* para que el widget cargue las opiniones.
 
-## 24. Home: fondo con color y profundidad
+## 24. Home: fondo con color y movimiento
 
-- `assets/oelnor-home.css` (solo se carga en la home) convierte el fondo en un degradado cálido continuo: cada sección termina en el color con el que empieza la siguiente (arena → caramelo → arcilla → toffee), así no hay cortes entre bloques.
-- Hero, filosofía, otoño y manifiesto llevan un halo de color que deriva muy despacio (solo `transform`, 26–32 s, `ease-in-out`); con "reducir movimiento" se queda quieto.
-- Textura de papel muy suave sobre toda la página (ruido SVG, sin coste de animación).
-- Los tonos se aplican por la clave de la sección en `templates/index.json` (`oelnor-hero`, `oelnor-filosofia`…). Si se cambia el orden de las secciones, ajusta los colores `--o-tone-top` / `--o-tone-bottom` en ese archivo para que sigan encadenando.
+- `assets/oelnor-home.css` (solo se carga en la home) recorre la página por capítulos de color marcados: crema → melocotón → caramelo (filosofía y accesos) → marfil (selección) → salvia → óxido (otoño) → chocolate (categorías, manifiesto y confianza). Cada sección termina en el color con el que empieza la siguiente, así que los cambios son fuertes pero sin cortes.
+- Los capítulos oscuros invierten textos, líneas y botones con los mismos tokens que `.o-dark`.
+- Cada sección lleva halos de color que se desplazan solos (12–20 s, solo `transform`) y, en navegadores con animaciones ligadas al scroll, además suben y bajan al hacer scroll. Con "reducir movimiento" se quedan quietos.
+- Textura de papel muy suave sobre toda la página.
+- Los tonos van por la clave de la sección en `templates/index.json` (`oelnor-hero`, `oelnor-filosofia`…). Si se cambia el orden de las secciones, ajusta `--o-tone-top` / `--o-tone-mid` / `--o-tone-bottom` en ese archivo para que sigan encadenando.

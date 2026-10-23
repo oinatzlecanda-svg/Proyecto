@@ -1,17 +1,18 @@
 /* ==========================================================================
    Oelnor — home tone
-   Loaded on the home page only. Each section is a stop in one continuous
-   warm gradient: its bottom colour is the next section's top colour, so the
-   page flows from sand to clay to toffee without hard seams. A few sections
-   carry a slow ambient glow and the whole page gets a fine paper grain.
-   Glows animate transform only and stop under reduced motion.
+   Loaded on the home page only. The page travels through bold tonal
+   chapters — cream, caramel, sage, rust, chocolate — and each section's
+   bottom colour is the next one's top, so the shifts are strong but never
+   a hard seam. Every chapter carries drifting colour glows (transform only)
+   that also parallax with scroll where the browser supports scroll-driven
+   animations. Everything stops under reduced motion.
    ========================================================================== */
 
 .shopify-section[id*='__oelnor-'] {
   position: relative;
   isolation: isolate;
   overflow: clip;
-  background: linear-gradient(180deg, var(--o-tone-top, #f4f0e9), var(--o-tone-bottom, #f4f0e9));
+  background: linear-gradient(180deg, var(--o-tone-top, #f4f0e9) 0%, var(--o-tone-mid, var(--o-tone-top, #f4f0e9)) 45%, var(--o-tone-bottom, #f4f0e9) 100%);
 }
 
 /* The section paints nothing itself; --o-bg follows the tone so veils,
@@ -21,82 +22,138 @@
   background: transparent;
 }
 
-/* ---------- Tone stops (top → bottom), in page order ---------- */
-[id$='__oelnor-hero'] { --o-tone-top: #f8f2e8; --o-tone-bottom: #efe3d1; }
-[id$='__oelnor-filosofia'] { --o-tone-top: #efe3d1; --o-tone-bottom: #e8d7c1; }
-[id$='__oelnor-accesos'] { --o-tone-top: #e8d7c1; --o-tone-bottom: #f1e9dd; }
-[id$='__oelnor-carril'] { --o-tone-top: #f1e9dd; --o-tone-bottom: #f4eee5; }
-[id$='__oelnor-fotos'] { --o-tone-top: #f4eee5; --o-tone-bottom: #eee3d4; }
-[id$='__oelnor-otono'] { --o-tone-top: #eee3d4; --o-tone-bottom: #e3cbb0; }
-[id$='__oelnor-categorias'] { --o-tone-top: #e3cbb0; --o-tone-bottom: #e8d6bf; }
-[id$='__oelnor-manifiesto'] {
-  --o-tone-top: #e8d6bf;
-  --o-tone-bottom: #dcc2a2;
-  --o-text-muted: #4a433a;
-}
-[id$='__oelnor-confianza'] {
-  --o-tone-top: #dcc2a2;
-  --o-tone-bottom: #ebe5db;
-  --o-text-muted: #4a433a;
+/* Dark chapters: same tokens as .o-dark so text, lines and buttons invert. */
+[id$='__oelnor-otono'] > .o-section,
+[id$='__oelnor-categorias'] > .o-section,
+[id$='__oelnor-manifiesto'] > .o-section,
+[id$='__oelnor-confianza'] > .o-section {
+  --o-surface: #3a2a20;
+  --o-surface-strong: #4a3628;
+  --o-text-faint: #b39e88;
+  --o-text-muted: #e2d3bf;
+  --o-accent: #f0c995;
+  --o-text: #fbf5ec;
+  --o-line: rgba(251, 245, 236, 0.16);
+  --o-line-strong: rgba(251, 245, 236, 0.36);
+  color: var(--o-text);
 }
 
-/* ---------- Ambient glows ---------- */
-[id$='__oelnor-hero']::before,
-[id$='__oelnor-filosofia']::before,
-[id$='__oelnor-otono']::before,
-[id$='__oelnor-manifiesto']::before {
+/* ---------- Tone chapters (top → mid → bottom), in page order ---------- */
+[id$='__oelnor-hero'] { --o-tone-top: #fbf4e8; --o-tone-mid: #f6e3cb; --o-tone-bottom: #efc9a0; }
+[id$='__oelnor-filosofia'] { --o-tone-top: #efc9a0; --o-tone-mid: #e3ae7f; --o-tone-bottom: #d9a174; --o-text-muted: #4a3526; --o-accent: #6a3f22; }
+[id$='__oelnor-accesos'] { --o-tone-top: #d9a174; --o-tone-mid: #e8c7a6; --o-tone-bottom: #f3e9dc; --o-text-muted: #4a3a2c; }
+[id$='__oelnor-carril'] { --o-tone-top: #f3e9dc; --o-tone-bottom: #eef0e4; }
+[id$='__oelnor-fotos'] { --o-tone-top: #eef0e4; --o-tone-mid: #c9d2b4; --o-tone-bottom: #9a6a46; }
+[id$='__oelnor-otono'] { --o-tone-top: #9a6a46; --o-tone-mid: #7a3f22; --o-tone-bottom: #4f2716; }
+[id$='__oelnor-categorias'] { --o-tone-top: #4f2716; --o-tone-mid: #3d2015; --o-tone-bottom: #2b1a12; }
+[id$='__oelnor-manifiesto'] { --o-tone-top: #2b1a12; --o-tone-mid: #4a2a1a; --o-tone-bottom: #241710; }
+[id$='__oelnor-confianza'] { --o-tone-top: #241710; --o-tone-bottom: #1a1714; }
+
+/* ---------- Drifting glows ---------- */
+.shopify-section[id*='__oelnor-']::before {
   content: '';
   position: absolute;
-  inset: -15%;
+  inset: -20%;
   z-index: -1;
   pointer-events: none;
   will-change: transform;
+  background: var(--o-glow, none);
+  animation: o-drift-a var(--o-drift, 18s) var(--o-ease-in-out) infinite alternate;
 }
 
-[id$='__oelnor-hero']::before {
-  background:
-    radial-gradient(38% 34% at 18% 28%, rgba(214, 168, 118, 0.38), transparent 70%),
-    radial-gradient(34% 30% at 82% 64%, rgba(170, 182, 150, 0.3), transparent 70%),
-    radial-gradient(30% 26% at 62% 18%, rgba(232, 196, 160, 0.34), transparent 70%);
-  animation: o-aura-a 26s var(--o-ease-in-out) infinite alternate;
+[id$='__oelnor-hero'] {
+  --o-glow:
+    radial-gradient(34% 32% at 16% 26%, rgba(236, 150, 92, 0.55), transparent 70%),
+    radial-gradient(30% 30% at 84% 66%, rgba(150, 176, 128, 0.5), transparent 70%),
+    radial-gradient(26% 24% at 62% 14%, rgba(244, 196, 120, 0.55), transparent 70%);
+  --o-drift: 14s;
+}
+[id$='__oelnor-filosofia'] {
+  --o-glow:
+    radial-gradient(34% 40% at 86% 28%, rgba(184, 92, 48, 0.45), transparent 70%),
+    radial-gradient(30% 34% at 10% 78%, rgba(250, 214, 160, 0.6), transparent 70%);
+  --o-drift: 17s;
+}
+[id$='__oelnor-accesos'] {
+  --o-glow: radial-gradient(40% 34% at 70% 20%, rgba(214, 120, 70, 0.35), transparent 70%);
+  --o-drift: 20s;
+}
+[id$='__oelnor-fotos'] {
+  --o-glow:
+    radial-gradient(36% 40% at 22% 40%, rgba(120, 150, 100, 0.45), transparent 70%),
+    radial-gradient(30% 34% at 80% 80%, rgba(196, 112, 60, 0.45), transparent 70%);
+  --o-drift: 15s;
+}
+[id$='__oelnor-otono'] {
+  --o-glow:
+    radial-gradient(40% 36% at 22% 70%, rgba(226, 122, 56, 0.55), transparent 70%),
+    radial-gradient(32% 30% at 80% 20%, rgba(240, 180, 90, 0.4), transparent 70%);
+  --o-drift: 13s;
+}
+[id$='__oelnor-categorias'] {
+  --o-glow:
+    radial-gradient(36% 34% at 84% 18%, rgba(190, 96, 52, 0.42), transparent 70%),
+    radial-gradient(30% 30% at 12% 86%, rgba(120, 140, 96, 0.3), transparent 70%);
+  --o-drift: 19s;
+}
+[id$='__oelnor-manifiesto'] {
+  --o-glow:
+    radial-gradient(42% 46% at 50% 50%, rgba(214, 118, 60, 0.45), transparent 72%),
+    radial-gradient(26% 30% at 14% 20%, rgba(246, 200, 140, 0.32), transparent 70%);
+  --o-drift: 12s;
 }
 
-[id$='__oelnor-filosofia']::before {
-  background:
-    radial-gradient(36% 40% at 86% 30%, rgba(196, 138, 98, 0.26), transparent 70%),
-    radial-gradient(30% 34% at 10% 80%, rgba(225, 196, 160, 0.4), transparent 70%);
-  animation: o-aura-b 32s var(--o-ease-in-out) infinite alternate;
+/* Alternate the drift direction so neighbouring chapters don't move in sync. */
+[id$='__oelnor-filosofia']::before,
+[id$='__oelnor-fotos']::before,
+[id$='__oelnor-categorias']::before {
+  animation-name: o-drift-b;
 }
 
-[id$='__oelnor-otono']::before {
-  background:
-    radial-gradient(40% 36% at 24% 70%, rgba(176, 106, 64, 0.24), transparent 70%),
-    radial-gradient(32% 30% at 78% 22%, rgba(214, 170, 110, 0.32), transparent 70%);
-  animation: o-aura-a 30s var(--o-ease-in-out) infinite alternate-reverse;
-}
-
-[id$='__oelnor-manifiesto']::before {
-  background:
-    radial-gradient(42% 46% at 50% 50%, rgba(160, 108, 70, 0.26), transparent 72%),
-    radial-gradient(28% 30% at 14% 20%, rgba(240, 220, 190, 0.5), transparent 70%);
-  animation: o-aura-b 28s var(--o-ease-in-out) infinite alternate;
-}
-
-@keyframes o-aura-a {
+@keyframes o-drift-a {
   from {
-    transform: translate3d(-3%, -2%, 0) scale(1);
+    transform: translate3d(-8%, -5%, 0) scale(1);
   }
   to {
-    transform: translate3d(4%, 3%, 0) scale(1.08);
+    transform: translate3d(8%, 6%, 0) scale(1.18);
   }
 }
 
-@keyframes o-aura-b {
+@keyframes o-drift-b {
   from {
-    transform: translate3d(3%, 2%, 0) rotate(0deg) scale(1.04);
+    transform: translate3d(7%, 5%, 0) rotate(0deg) scale(1.12);
   }
   to {
-    transform: translate3d(-4%, -3%, 0) rotate(6deg) scale(1);
+    transform: translate3d(-8%, -6%, 0) rotate(12deg) scale(0.96);
+  }
+}
+
+/* Scroll parallax on the glows, on top of the drift (separate `translate`). */
+@supports (animation-timeline: view()) {
+  .shopify-section[id*='__oelnor-']::before {
+    animation:
+      o-drift-a var(--o-drift, 18s) var(--o-ease-in-out) infinite alternate,
+      o-glow-scroll linear both;
+    animation-timeline: auto, view();
+  }
+  [id$='__oelnor-filosofia']::before,
+  [id$='__oelnor-fotos']::before,
+  [id$='__oelnor-categorias']::before {
+    animation-name: o-drift-b, o-glow-scroll;
+  }
+  @keyframes o-glow-scroll {
+    from {
+      translate: 0 18%;
+      opacity: 0.4;
+    }
+    40%,
+    60% {
+      opacity: 1;
+    }
+    to {
+      translate: 0 -18%;
+      opacity: 0.4;
+    }
   }
 }
 
@@ -107,15 +164,12 @@ body::after {
   inset: 0;
   z-index: 2;
   pointer-events: none;
-  opacity: 0.07;
+  opacity: 0.08;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.24 0 0 0 0 0.17 0 0 0 0 0.1 0 0 0 0.9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 @media (prefers-reduced-motion: reduce) {
-  [id$='__oelnor-hero']::before,
-  [id$='__oelnor-filosofia']::before,
-  [id$='__oelnor-otono']::before,
-  [id$='__oelnor-manifiesto']::before {
+  .shopify-section[id*='__oelnor-']::before {
     animation: none;
   }
 }
