@@ -369,3 +369,9 @@ Plantillas `product.json` y `product.bundles.json` (mallas con packs):
 - Cada sección lleva halos de color que se desplazan solos (12–20 s, solo `transform`) y, en navegadores con animaciones ligadas al scroll, además suben y bajan al hacer scroll. Con "reducir movimiento" se quedan quietos.
 - Textura de papel muy suave sobre toda la página.
 - Los tonos van por la clave de la sección en `templates/index.json` (`oelnor-hero`, `oelnor-filosofia`…). Si se cambia el orden de las secciones, ajusta `--o-tone-top` / `--o-tone-mid` / `--o-tone-bottom` en ese archivo para que sigan encadenando.
+
+## 25. Landing "Colección otoño": color y movimiento
+
+- `assets/oelnor-autumn.css` (solo se carga en la plantilla `page.autumn`) aplica el mismo sistema que la home con una paleta otoñal: crema y ámbar (portada) → naranja (cinta) → óxido y granate (historia) → chocolate (selección) → corte a naranja quemado (manifiesto) → arena y salvia (sigue descubriendo) → corte a chocolate (oferta y confianza).
+- Las secciones oscuras invierten textos, líneas y botones; todas llevan halos de color que se desplazan solos (9–19 s, solo `transform`) y con scroll en navegadores compatibles. Con "reducir movimiento" se quedan quietos.
+- Los tonos van por la clave de la sección en `templates/page.autumn.json` (`hero`, `marquee`, `story`, `seleccion`, `manifiesto`, `sigue`, `oferta`, `confianza`).

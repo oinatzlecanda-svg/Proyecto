@@ -1,0 +1,194 @@
+/* ==========================================================================
+   Oelnor — autumn landing tone
+   Loaded on page.autumn only. Same system as the home (oelnor-home.css):
+   each section is a chapter in one continuous gradient, but the palette is
+   fully autumnal and swings hard between light and dark — cream and amber,
+   rust and oxblood, a burnt-orange manifesto, a pale sage rail, then a
+   chocolate close. Most chapters hand their colour to the next; the jumps
+   into the manifesto and the offer are deliberate hard cuts. Drifting glows animate transform only, parallax with
+   scroll where supported, and stop under reduced motion.
+   ========================================================================== */
+
+#MainContent > .shopify-section {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  background: linear-gradient(
+    180deg,
+    var(--o-tone-top, #f4f0e9) 0%,
+    var(--o-tone-mid, var(--o-tone-top, #f4f0e9)) var(--o-tone-mid-at, 45%),
+    var(--o-tone-bottom, #f4f0e9) 100%
+  );
+}
+
+/* Sections paint nothing themselves; --o-bg follows the tone so veils and
+   fades blend into the gradient underneath. */
+#MainContent > .shopify-section > .o-section {
+  --o-bg: var(--o-tone-bottom, #f4f0e9);
+  background: transparent;
+}
+
+/* Dark chapters: invert text, lines and buttons. */
+[id$='__story'] > .o-section,
+[id$='__seleccion'] > .o-section,
+[id$='__oferta'] > .o-section,
+[id$='__confianza'] > .o-section {
+  --o-bg-alt: #3a1d14;
+  --o-surface: #4a2a1c;
+  --o-surface-strong: #5c3624;
+  --o-text-faint: #b89c84;
+  --o-text-muted: #e8d4bd;
+  --o-accent: #f2b878;
+  --o-text: #fcf4e8;
+  --o-line: rgba(252, 244, 232, 0.16);
+  --o-line-strong: rgba(252, 244, 232, 0.36);
+  color: var(--o-text);
+}
+
+/* ---------- Chapters (top → mid → bottom), in page order ---------- */
+[id$='__hero'] { --o-tone-top: #fdf3e2; --o-tone-mid: #f6d7a8; --o-tone-bottom: #eeb36f; }
+[id$='__marquee'] {
+  --o-tone-top: #eeb36f;
+  --o-tone-bottom: #d98544;
+  --o-text: #2a160c;
+  --o-text-muted: #3d2414;
+  --o-accent: #7a2e12;
+  --o-line: rgba(42, 22, 12, 0.2);
+}
+[id$='__story'] { --o-tone-top: #d98544; --o-tone-mid: #9c3f1c; --o-tone-bottom: #5e2112; }
+[id$='__seleccion'] { --o-tone-top: #5e2112; --o-tone-mid: #3f1910; --o-tone-bottom: #2e140d; }
+[id$='__manifiesto'] {
+  --o-tone-top: #e07a35;
+  --o-tone-mid: #eba25e;
+  --o-tone-bottom: #f3cf9e;
+  --o-text-muted: #3a2416;
+  --o-accent: #6e260c;
+}
+[id$='__sigue'] { --o-tone-top: #f3cf9e; --o-tone-mid: #f1e6d2; --o-tone-mid-at: 30%; --o-tone-bottom: #dfe3cc; }
+[id$='__oferta'] { --o-tone-top: #331810; --o-tone-mid: #5a2414; --o-tone-bottom: #22130c; }
+[id$='__confianza'] { --o-tone-top: #22130c; --o-tone-bottom: #1a1714; }
+
+/* ---------- Drifting glows ---------- */
+#MainContent > .shopify-section::before {
+  content: '';
+  position: absolute;
+  inset: -20%;
+  z-index: -1;
+  pointer-events: none;
+  will-change: transform;
+  background: var(--o-glow, none);
+  animation: o-fall-a var(--o-drift, 16s) var(--o-ease-in-out) infinite alternate;
+}
+
+[id$='__hero'] {
+  --o-glow:
+    radial-gradient(34% 32% at 14% 24%, rgba(240, 140, 60, 0.55), transparent 70%),
+    radial-gradient(30% 30% at 86% 70%, rgba(196, 72, 34, 0.38), transparent 70%),
+    radial-gradient(26% 24% at 60% 12%, rgba(250, 206, 120, 0.6), transparent 70%);
+  --o-drift: 13s;
+}
+[id$='__marquee'] {
+  --o-glow: radial-gradient(30% 120% at 30% 50%, rgba(255, 214, 150, 0.55), transparent 70%);
+  --o-drift: 9s;
+}
+[id$='__story'] {
+  --o-glow:
+    radial-gradient(40% 36% at 20% 70%, rgba(240, 120, 48, 0.55), transparent 70%),
+    radial-gradient(32% 30% at 82% 22%, rgba(250, 186, 96, 0.42), transparent 70%);
+  --o-drift: 14s;
+}
+[id$='__seleccion'] {
+  --o-glow:
+    radial-gradient(34% 30% at 86% 16%, rgba(200, 84, 40, 0.42), transparent 70%),
+    radial-gradient(30% 30% at 10% 84%, rgba(150, 52, 30, 0.45), transparent 70%);
+  --o-drift: 18s;
+}
+[id$='__manifiesto'] {
+  --o-glow:
+    radial-gradient(44% 40% at 50% 46%, rgba(255, 170, 80, 0.5), transparent 72%),
+    radial-gradient(26% 30% at 12% 18%, rgba(140, 40, 20, 0.4), transparent 70%);
+  --o-drift: 11s;
+}
+[id$='__sigue'] {
+  --o-glow:
+    radial-gradient(34% 30% at 82% 30%, rgba(160, 178, 120, 0.45), transparent 70%),
+    radial-gradient(30% 28% at 14% 74%, rgba(236, 160, 90, 0.4), transparent 70%);
+  --o-drift: 19s;
+}
+[id$='__oferta'] {
+  --o-glow:
+    radial-gradient(40% 50% at 84% 50%, rgba(232, 116, 48, 0.5), transparent 72%),
+    radial-gradient(26% 30% at 16% 20%, rgba(250, 190, 110, 0.25), transparent 70%);
+  --o-drift: 12s;
+}
+
+/* Alternate direction so neighbouring chapters never move in sync. */
+[id$='__marquee']::before,
+[id$='__seleccion']::before,
+[id$='__sigue']::before {
+  animation-name: o-fall-b;
+}
+
+@keyframes o-fall-a {
+  from {
+    transform: translate3d(-8%, -6%, 0) scale(1);
+  }
+  to {
+    transform: translate3d(8%, 6%, 0) scale(1.2);
+  }
+}
+
+@keyframes o-fall-b {
+  from {
+    transform: translate3d(8%, 5%, 0) rotate(0deg) scale(1.14);
+  }
+  to {
+    transform: translate3d(-8%, -6%, 0) rotate(-12deg) scale(0.96);
+  }
+}
+
+/* Scroll parallax on top of the drift (separate `translate` property). */
+@supports (animation-timeline: view()) {
+  #MainContent > .shopify-section::before {
+    animation:
+      o-fall-a var(--o-drift, 16s) var(--o-ease-in-out) infinite alternate,
+      o-fall-scroll linear both;
+    animation-timeline: auto, view();
+  }
+  [id$='__marquee']::before,
+  [id$='__seleccion']::before,
+  [id$='__sigue']::before {
+    animation-name: o-fall-b, o-fall-scroll;
+  }
+  @keyframes o-fall-scroll {
+    from {
+      translate: 0 18%;
+      opacity: 0.4;
+    }
+    40%,
+    60% {
+      opacity: 1;
+    }
+    to {
+      translate: 0 -18%;
+      opacity: 0.4;
+    }
+  }
+}
+
+/* ---------- Paper grain ---------- */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.08;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.24 0 0 0 0 0.17 0 0 0 0 0.1 0 0 0 0.9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #MainContent > .shopify-section::before {
+    animation: none;
+  }
+}

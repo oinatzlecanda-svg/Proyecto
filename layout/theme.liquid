@@ -285,6 +285,9 @@
     {%- if request.page_type == 'index' -%}
       {{ 'oelnor-home.css' | asset_url | stylesheet_tag }}
     {%- endif -%}
+    {%- if template.name == 'page' and template.suffix == 'autumn' -%}
+      {{ 'oelnor-autumn.css' | asset_url | stylesheet_tag }}
+    {%- endif -%}
     {%- if request.page_type == 'product' -%}
       {{ 'oelnor-product.css' | asset_url | stylesheet_tag }}
       <script src="{{ 'oelnor-product.js' | asset_url }}" defer="defer"></script>
