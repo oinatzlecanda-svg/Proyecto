@@ -379,3 +379,16 @@ Plantillas `product.json` y `product.bundles.json` (mallas con packs):
 ## 26. Sin oferta del 25 %
 
 - Se ha quitado la sección `oelnor-offer` ("Dos piezas o más. 25 % menos.") de la home, la landing de otoño, la página de colecciones y la plantilla de colección. La sección sigue disponible en el editor por si se quiere volver a usar con otra promoción.
+
+## 27. Página de producto con animación
+
+Todo vive en `assets/oelnor-product.js` / `assets/oelnor-product.css` (solo se cargan en producto):
+
+- **Capítulo de color propio**: el script lee la foto principal del producto, saca su tono medio y tiñe la parte alta de la ficha con ese color, con halos que se mueven despacio. Cada producto se ve distinto (una chaqueta verde da una ficha verdosa, una azul una azulada). Si la imagen no se puede leer, usa un tono cálido por defecto.
+- **Galería**: las fotos aparecen con un recorte y se asientan desde un ligero zoom; en ordenador, al pasar el ratón la foto se amplía siguiendo el cursor; con scroll, la imagen se desplaza un poco dentro de su marco (navegadores compatibles).
+- **Título**: las palabras suben una a una desde una máscara.
+- **Tallas y colores**: una píldora oscura se desliza hasta la opción elegida (curva tipo iOS).
+- **Precio**: cuando cambia con la variante, entra con un pequeño rodillo y desenfoque.
+- **Botón "Añadir a la cesta"**: un brillo lo recorre una vez al aparecer y al pasar el ratón; se hunde ligeramente al pulsar.
+- **Iconos**: el camión de la entrega entra rodando, los iconos de confianza se dibujan solos y la línea del consejo de estilo crece.
+- Con "reducir movimiento" se mantienen los colores y se elimina el movimiento.

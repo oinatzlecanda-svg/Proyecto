@@ -725,3 +725,273 @@ a.o-promise__item:active {
   font-weight: 600;
   background: var(--o-bg-alt);
 }
+
+/* ==========================================================================
+   Motion layer
+   ========================================================================== */
+
+/* ---------- Colour chapter: tint sampled from the product photo ---------- */
+.o-pdp-tone {
+  --o-tint-h: 30;
+  --o-tint-s: 42%;
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  background: linear-gradient(
+    180deg,
+    hsl(var(--o-tint-h) var(--o-tint-s) 80%) 0,
+    hsl(var(--o-tint-h) calc(var(--o-tint-s) * 0.85) 86%) 60rem,
+    var(--o-bg) 140rem
+  );
+  transition: background-color 600ms ease;
+}
+
+.o-pdp-tone::before {
+  content: '';
+  position: absolute;
+  inset: -12rem -10% auto;
+  height: 150rem;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(32% 26% at 14% 18%, hsl(var(--o-tint-h) calc(var(--o-tint-s) + 16%) 60% / 0.6), transparent 70%),
+    radial-gradient(28% 24% at 82% 30%, hsl(calc(var(--o-tint-h) + 34) calc(var(--o-tint-s) + 8%) 66% / 0.55), transparent 70%),
+    radial-gradient(30% 22% at 48% 62%, hsl(calc(var(--o-tint-h) - 24) var(--o-tint-s) 72% / 0.5), transparent 70%);
+  will-change: transform;
+  animation: o-pdp-drift 16s var(--o-ease-in-out) infinite alternate;
+}
+
+@keyframes o-pdp-drift {
+  from {
+    transform: translate3d(-5%, -2%, 0) scale(1);
+  }
+  to {
+    transform: translate3d(5%, 4%, 0) scale(1.12) rotate(4deg);
+  }
+}
+
+/* ---------- Gallery: settle-in scale and cursor zoom ---------- */
+.product__media-list .product__media-item {
+  overflow: hidden;
+}
+
+.js .product__media-list .product__media-item[data-o-reveal='clip'] img {
+  scale: 1.18;
+  transition: scale 1400ms var(--o-ease-out), transform 500ms var(--o-ease-out);
+}
+
+.js .product__media-list .product__media-item.is-in img {
+  scale: 1;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .product__media-item[data-o-zoom] {
+    cursor: zoom-in;
+  }
+  .product__media-item.is-zoom img {
+    transform: scale(1.7);
+    transition: scale 1400ms var(--o-ease-out), transform 600ms var(--o-ease-out);
+  }
+}
+
+/* Gentle scroll parallax inside each frame where the browser supports it. */
+@supports (animation-timeline: view()) {
+  .js .product__media-list .product__media-item.is-in img {
+    scale: 1.08;
+    animation: o-media-drift linear both;
+    animation-timeline: view();
+  }
+  @keyframes o-media-drift {
+    from {
+      translate: 0 -3.5%;
+    }
+    to {
+      translate: 0 3.5%;
+    }
+  }
+}
+
+/* ---------- Title: words rise from a mask ---------- */
+.product__title h1[data-o-words] .o-word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+
+.product__title h1[data-o-words] .o-word > span {
+  display: inline-block;
+  transform: translateY(108%);
+  transition: transform 900ms var(--o-ease-out);
+  transition-delay: calc(var(--w) * 55ms + 200ms);
+}
+
+.product__title h1[data-o-words].is-in .o-word > span {
+  transform: none;
+}
+
+/* ---------- Variant pills: sliding indicator ---------- */
+.product-form__input--pill.has-ind {
+  position: relative;
+}
+
+.o-pill-origin {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+}
+
+.o-pill-ind {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  border-radius: 999px;
+  background: var(--o-text);
+  pointer-events: none;
+}
+
+.o-pill-ind.is-ready {
+  transition: transform 420ms var(--o-ease-drawer), width 420ms var(--o-ease-drawer), height 420ms var(--o-ease-drawer), opacity 200ms ease;
+}
+
+.product-form__input--pill.has-ind input[type='radio'] + label {
+  position: relative;
+  z-index: 1;
+  background: transparent;
+  background-color: transparent;
+}
+
+.product-form__input--pill.has-ind input[type='radio']:checked + label {
+  background: transparent;
+  background-color: transparent;
+  color: var(--o-bg);
+  border-color: var(--o-text);
+  transition: color 260ms ease 80ms, transform 160ms var(--o-ease-out);
+}
+
+/* ---------- Price roll on variant change ---------- */
+.o-roll {
+  animation: o-price-roll 460ms var(--o-ease-out);
+}
+
+@keyframes o-price-roll {
+  from {
+    opacity: 0;
+    transform: translateY(40%);
+    filter: blur(4px);
+  }
+}
+
+/* ---------- Add to cart: shine sweep once in view, and on hover ---------- */
+.o-shine {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.o-shine::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(105deg, transparent 30%, rgba(255, 255, 255, 0.38) 50%, transparent 70%);
+  transform: translateX(-120%);
+}
+
+.o-shine.is-shining::after {
+  animation: o-shine 1100ms var(--o-ease-in-out) 700ms 1;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .o-shine:hover::after {
+    animation: o-shine 900ms var(--o-ease-out) 1;
+  }
+}
+
+@keyframes o-shine {
+  to {
+    transform: translateX(120%);
+  }
+}
+
+.product-form__submit {
+  transition: transform 160ms var(--o-ease-out), background-color 200ms ease;
+}
+
+.product-form__submit:active {
+  transform: scale(0.97);
+}
+
+/* ---------- Icons draw in, the truck drives in, the tip rule grows ---------- */
+[data-o-draw] svg :is(path, circle, rect, polyline, line) {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+[data-o-draw].is-drawn svg :is(path, circle, rect, polyline, line) {
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 1100ms var(--o-ease-out);
+}
+
+.o-pdp-trust__list.is-drawn .o-pdp-trust__item:nth-child(2) svg * { transition-delay: 120ms; }
+.o-pdp-trust__list.is-drawn .o-pdp-trust__item:nth-child(3) svg * { transition-delay: 240ms; }
+.o-pdp-trust__list.is-drawn .o-pdp-trust__item:nth-child(4) svg * { transition-delay: 360ms; }
+
+.o-pdp-delivery .o-pdp-delivery__icon svg {
+  transform: translateX(-35%);
+  opacity: 0;
+}
+
+.o-pdp-delivery.is-drawn .o-pdp-delivery__icon svg {
+  transform: none;
+  opacity: 1;
+  transition: transform 900ms var(--o-ease-out), opacity 300ms ease;
+}
+
+.o-pdp-tip::before {
+  transform-origin: top;
+}
+
+.js .o-pdp-tip[data-o-draw]::before {
+  transform: scaleY(0);
+}
+
+.js .o-pdp-tip.is-drawn::before {
+  transform: none;
+  transition: transform 900ms var(--o-ease-out) 200ms;
+}
+
+/* ---------- Reduced motion: keep colour, drop movement ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .o-pdp-tone::before,
+  .o-shine.is-shining::after,
+  .o-shine:hover::after,
+  .o-roll,
+  .js .product__media-list .product__media-item.is-in img {
+    animation: none;
+  }
+  .js .product__media-list .product__media-item[data-o-reveal='clip'] img,
+  .js .product__media-list .product__media-item.is-in img {
+    scale: 1;
+    transition: none;
+  }
+  .product__media-item.is-zoom img {
+    transition: none;
+  }
+  [data-o-draw] svg :is(path, circle, rect, polyline, line) {
+    stroke-dashoffset: 0;
+  }
+  .o-pdp-delivery .o-pdp-delivery__icon svg,
+  .js .o-pdp-tip[data-o-draw]::before {
+    transform: none;
+    opacity: 1;
+  }
+  .o-pill-ind.is-ready {
+    transition: opacity 200ms ease;
+  }
+}
