@@ -419,3 +419,10 @@ Todo vive en `assets/oelnor-product.js` / `assets/oelnor-product.css` (solo se c
 **Enlaces**
 - Revisadas todas las colecciones, páginas, productos, políticas y anclas que usa el tema: existen y están publicadas.
 - Corregido en el menú principal de Shopify: "Colección otoño" apuntaba a `/collections` (listado genérico) y ahora lleva a `/pages/coleccion-otono`.
+
+## 30. Fichas de producto en la tienda real
+
+- Tras subir el tema, `templates/product.json`, `product.bundles.json` y `sections/main-product.liquid` del tema publicado fueron sustituidos (22:45) por una versión básica de otro tema, así que las fichas perdieron todos los bloques de Oelnor.
+- Se ha creado en Shopify la copia **"OELNOR · Producto arreglado · 24 OCT"** con las fichas restauradas (y una copia de seguridad del estado anterior: **"Copia de seguridad · antes de arreglar producto · 23 OCT"**). La API de Shopify no permite escribir en el tema publicado: hay que revisar la copia y publicarla desde el admin.
+- En esa copia `main-product.liquid` va en una versión reducida (solo los bloques que usa la ficha), porque la API limita el tamaño de los archivos Liquid enviados.
+- Eliminada la barra de compra fija que traía `main-product.liquid`: duplicaba la sección "Barra de compra" en móvil.
