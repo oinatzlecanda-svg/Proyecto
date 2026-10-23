@@ -85,7 +85,7 @@
           "type": "oelnor_accordion",
           "settings": {
             "description_title": "Descripción",
-            "open_description": true,
+            "open_description": false,
             "title_1": "Envíos",
             "content_1": "<p>Preparamos tu pedido en 1–3 días hábiles y el transporte tarda 7–14 días hábiles. Recibirás un número de seguimiento por email.</p><p><a href=\"/policies/shipping-policy\" title=\"Política de envíos\">Ver política de envíos</a></p>",
             "title_2": "Devoluciones",
@@ -102,12 +102,12 @@
         "title",
         "rating",
         "price",
-        "tip",
         "bundles",
         "variant_picker",
         "inventory",
         "buy_buttons",
         "delivery",
+        "tip",
         "trust",
         "details",
         "disclosures"

@@ -392,3 +392,12 @@ Todo vive en `assets/oelnor-product.js` / `assets/oelnor-product.css` (solo se c
 - **Botón "Añadir a la cesta"**: un brillo lo recorre una vez al aparecer y al pasar el ratón; se hunde ligeramente al pulsar.
 - **Iconos**: el camión de la entrega entra rodando, los iconos de confianza se dibujan solos y la línea del consejo de estilo crece.
 - Con "reducir movimiento" se mantienen los colores y se elimina el movimiento.
+
+## 28. Ficha de producto optimizada para móvil
+
+- **Orden pensado para comprar**: título → valoraciones → precio → variantes → botón de compra → entrega → consejo de estilo → confianza (en `templates/product.json` y `product.bundles.json`).
+- **Descripción cerrada por defecto**: las tablas de tallas ya no alargan la página; en móvil la tabla se desliza en horizontal con la primera columna fija.
+- **Galería móvil**: barra segmentada que indica la foto actual (sustituye al contador con flechas de Dawn); la primera foto se pinta al instante, sin recorte ni zoom de entrada.
+- **Movimiento más ligero en móvil**: sin capa de halos animada (solo un degradado del color del producto), sin parallax ni zoom; la cascada del bloque de compra es más corta.
+- **Tallas/colores** con zona táctil de 44 px; tarjetas de "Nuestra promesa" en 2×2 compacto; sin la foto grande de "Combínalo con" en móvil; espacio reservado para que la barra fija de compra no tape el final.
+- Resultado en la vista previa: la ficha en móvil pasa de ~6.400 px a ~4.800 px de alto.

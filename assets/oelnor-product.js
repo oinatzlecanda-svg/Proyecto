@@ -62,6 +62,46 @@
     });
   }
 
+  /* ---------- Mobile gallery: segmented progress under the swipe slider ---------- */
+  function galleryDots(root) {
+    root.querySelectorAll('.product__media-list:not([data-o-dots])').forEach((list) => {
+      list.setAttribute('data-o-dots', '');
+      const items = [...list.children].filter((el) => el.classList.contains('product__media-item'));
+      if (items.length < 2) return;
+      const bar = document.createElement('div');
+      bar.className = 'o-gal-dots';
+      bar.setAttribute('aria-hidden', 'true');
+      bar.innerHTML = items.map(() => '<span></span>').join('');
+      list.after(bar);
+      const dots = [...bar.children];
+      let current = -1;
+      let queued = false;
+      const update = () => {
+        queued = false;
+        const step = items[1].offsetLeft - items[0].offsetLeft || list.clientWidth;
+        if (!step) return; // hidden or not laid out yet
+        const n = Math.min(items.length - 1, Math.max(0, Math.round(list.scrollLeft / step)));
+        if (n === current) return;
+        if (current >= 0) dots[current].classList.remove('is-on');
+        dots[n].classList.add('is-on');
+        current = n;
+      };
+      list.addEventListener('scroll', () => {
+        if (queued) return;
+        queued = true;
+        requestAnimationFrame(update);
+      }, { passive: true });
+      update();
+      if (current < 0 && 'ResizeObserver' in window) {
+        const ro = new ResizeObserver(() => {
+          update();
+          if (current >= 0) ro.disconnect();
+        });
+        ro.observe(list);
+      }
+    });
+  }
+
   /* ---------- Sticky add-to-cart bar ---------- */
   function stickyBar(root) {
     root.querySelectorAll('[data-o-sticky-atc]:not([data-ready])').forEach((bar) => {
@@ -283,6 +323,7 @@
   const init = (root = document) => {
     delivery(root);
     galleryCount(root);
+    galleryDots(root);
     stickyBar(root);
     look(root);
     tone(root);

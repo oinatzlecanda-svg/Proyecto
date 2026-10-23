@@ -71,7 +71,7 @@
 /* ---------------- Style tip ---------------- */
 .o-pdp-tip {
   position: relative;
-  padding: 1.6rem 1.8rem 1.6rem 2.2rem;
+  padding: 1.6rem 1.8rem 1.6rem 3rem;
   border-radius: 1.2rem;
   background: var(--o-bg-alt);
 }
@@ -79,9 +79,9 @@
 .o-pdp-tip::before {
   content: '';
   position: absolute;
-  left: 0;
-  top: 1.6rem;
-  bottom: 1.6rem;
+  left: 1.4rem;
+  top: 1.8rem;
+  bottom: 1.8rem;
   width: 3px;
   border-radius: 3px;
   background: var(--o-accent);
@@ -794,12 +794,14 @@ a.o-promise__item:active {
   }
 }
 
-/* Gentle scroll parallax inside each frame where the browser supports it. */
+/* Gentle scroll parallax inside each frame: desktop only, where supported. */
 @supports (animation-timeline: view()) {
-  .js .product__media-list .product__media-item.is-in img {
-    scale: 1.08;
-    animation: o-media-drift linear both;
-    animation-timeline: view();
+  @media (hover: hover) and (pointer: fine) and (min-width: 990px) {
+    .js .product__media-list .product__media-item.is-in img {
+      scale: 1.08;
+      animation: o-media-drift linear both;
+      animation-timeline: view();
+    }
   }
   @keyframes o-media-drift {
     from {
@@ -964,6 +966,135 @@ a.o-promise__item:active {
 .js .o-pdp-tip.is-drawn::before {
   transform: none;
   transition: transform 900ms var(--o-ease-out) 200ms;
+}
+
+/* ---------- Mobile gallery progress ---------- */
+.o-gal-dots {
+  display: none;
+}
+
+/* ==========================================================================
+   Phones and tablets: layout fixes + lighter motion
+   No drifting glow layer, no clipped/scaled gallery entrance (the slider
+   images stay crisp and the first one paints immediately), no parallax or
+   hover zoom, and a quicker buy-box cascade.
+   ========================================================================== */
+@media screen and (max-width: 989px) {
+  .o-pdp-tone {
+    background: linear-gradient(
+      180deg,
+      hsl(var(--o-tint-h) var(--o-tint-s) 84%) 0,
+      hsl(var(--o-tint-h) calc(var(--o-tint-s) * 0.7) 89%) 42rem,
+      var(--o-bg) 90rem
+    );
+  }
+  .o-pdp-tone::before {
+    content: none;
+  }
+
+  .js .product__media-list .product__media-item[data-o-reveal='clip'],
+  .js .product__media-list .product__media-item.is-in {
+    clip-path: none;
+  }
+  .js .product__media-list .product__media-item[data-o-reveal='clip'] img,
+  .js .product__media-list .product__media-item.is-in img {
+    scale: 1;
+    transition: none;
+  }
+
+  /* Our segmented bar replaces Dawn's arrow counter under the slider. */
+  .product__media-wrapper .slider-buttons {
+    display: none;
+  }
+  .o-gal-dots {
+    display: flex;
+    gap: 0.4rem;
+    justify-content: center;
+    margin: 1.2rem auto 0;
+    width: min(60%, 22rem);
+  }
+  .o-gal-dots span {
+    flex: 1;
+    height: 3px;
+    border-radius: 3px;
+    background: rgba(var(--o-overlay-rgb), 0.16);
+    overflow: hidden;
+  }
+  .o-gal-dots span::after {
+    content: '';
+    display: block;
+    height: 100%;
+    background: var(--o-text);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 280ms var(--o-ease-out);
+  }
+  .o-gal-dots span.is-on::after {
+    transform: none;
+  }
+
+  .js .product__info-container[data-o-stagger] > * {
+    transform: translateY(8px);
+    transition-duration: 420ms;
+    transition-delay: calc(var(--i, 0) * 30ms + 60ms);
+  }
+
+  .product__title h1 {
+    font-size: clamp(2.8rem, 8vw, 3.6rem);
+  }
+  .product__info-container > * + * {
+    margin-top: 1.4rem;
+  }
+
+  /* Leave room so the sticky bar never covers the end of the page. */
+  body:has(.o-sticky-atc.is-visible) {
+    padding-bottom: calc(7.6rem + env(safe-area-inset-bottom, 0px));
+  }
+
+  /* Variant pills: comfortable 44px touch targets. */
+  .product-form__input--pill input[type='radio'] + label {
+    min-height: 4.4rem;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .o-pdp-acc__body table th:first-child,
+  .o-pdp-acc__body table td:first-child {
+    position: sticky;
+    left: 0;
+    background: var(--o-bg);
+  }
+  .o-pdp-acc__body table th:first-child {
+    background: var(--o-bg-alt);
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .o-look__media {
+    display: none;
+  }
+  /* Promise: compact 2x2 cards instead of four tall stacked ones. */
+  .o-promise__items {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+  }
+  .o-promise__item {
+    padding: 1.6rem;
+    gap: 0.6rem;
+  }
+  .o-promise__icon {
+    width: 2.6rem;
+  }
+  .o-promise__item strong {
+    font-size: 1.6rem;
+    line-height: 1.2;
+  }
+  .o-promise__item span {
+    font-size: 1.3rem;
+  }
+  .o-look__head {
+    margin-bottom: 2.4rem;
+  }
 }
 
 /* ---------- Reduced motion: keep colour, drop movement ---------- */
