@@ -1,0 +1,59 @@
+{%- comment -%}
+  OELNOR 3.0 — Newsletter signup (Shopify customer form, tagged "newsletter").
+{%- endcomment -%}
+<section class="o3 o3-signup" aria-labelledby="O3SignupTitle-{{ section.id }}">
+  <div class="o3-wrap">
+    <h2 class="o3-signup__title" id="O3SignupTitle-{{ section.id }}">
+      {{- section.settings.title_1 -}}
+      {%- if section.settings.title_2 != blank -%}<span>{{ section.settings.title_2 }}</span>{%- endif -%}
+    </h2>
+    <div class="o3-signup__body">
+      {%- if section.settings.text != blank -%}
+        <p class="o3-signup__text">{{ section.settings.text }}</p>
+      {%- endif -%}
+      {%- assign form_id = 'O3Signup-' | append: section.id -%}
+      {%- form 'customer', id: form_id, class: 'o3-signup__form' -%}
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        <label class="o3-sr" for="O3SignupEmail-{{ section.id }}">Correo electrónico</label>
+        <input
+          class="o3-input"
+          id="O3SignupEmail-{{ section.id }}"
+          type="email"
+          name="contact[email]"
+          autocomplete="email"
+          autocapitalize="none"
+          autocorrect="off"
+          enterkeyhint="send"
+          placeholder="tu@correo.com"
+          required
+          {% if form.errors %}aria-invalid="true" aria-describedby="O3SignupMsg-{{ section.id }}"{% endif %}
+        >
+        <button class="o3-btn o3-btn--solid" type="submit">
+          {{- section.settings.button }} <span class="o3-btn__arrow" aria-hidden="true">→</span>
+        </button>
+        {%- if form.errors -%}
+          <p class="o3-signup__msg o3-signup__msg--error o3-mono" id="O3SignupMsg-{{ section.id }}" role="alert">
+            {{- form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email -}}
+          </p>
+        {%- elsif form.posted_successfully? -%}
+          <p class="o3-signup__msg o3-mono" role="status">Dentro. Te escribiremos con cada drop.</p>
+        {%- endif -%}
+      {%- endform -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "O3 · Newsletter",
+  "tag": "div",
+  "class": "o3-section",
+  "settings": [
+    { "type": "text", "id": "title_1", "label": "Título línea 1", "default": "Entra en" },
+    { "type": "text", "id": "title_2", "label": "Título línea 2 (contorno)", "default": "la lista" },
+    { "type": "textarea", "id": "text", "label": "Texto", "default": "Nuevos drops y piezas que se agotan rápido, directos a tu correo. Sin spam." },
+    { "type": "text", "id": "button", "label": "Botón", "default": "Unirme" }
+  ],
+  "presets": [{ "name": "O3 · Newsletter" }]
+}
+{% endschema %}

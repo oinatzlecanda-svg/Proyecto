@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="theme-color" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="theme-color" content="{% if request.page_type == 'index' %}#0d0d0e{% endif %}">
     <link rel="canonical" href="{{ canonical_url }}">
 
     {%- if settings.favicon != blank -%}
@@ -279,6 +279,11 @@
     {% endstyle %}
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
+    {%- if request.page_type == 'index' -%}
+      {%- comment -%} OELNOR 3.0 home: one stylesheet and one preloaded display face (o3.js is loaded by the o3-hero section). {%- endcomment -%}
+      <link rel="preload" as="font" href="{{ 'o3-anton.woff2' | asset_url }}" type="font/woff2" crossorigin>
+      {{ 'o3.css' | asset_url | stylesheet_tag }}
+    {%- endif -%}
     <link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'">
 
     {%- if settings.cart_type == 'drawer' -%}

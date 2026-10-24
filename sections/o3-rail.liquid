@@ -1,0 +1,105 @@
+{%- comment -%}
+  OELNOR 3.0 — Product rail.
+  Hand-picked products (blocks, in order) with optional badge. Falls back to a
+  collection when no product blocks are set. Swipe track on mobile, 4-up grid on desktop.
+{%- endcomment -%}
+{%- liquid
+  assign picked = section.blocks | where: 'type', 'product'
+  assign has_picks = false
+  for block in picked
+    if block.settings.product != blank
+      assign has_picks = true
+      break
+    endif
+  endfor
+-%}
+
+<section
+  class="o3 o3-rail{% if section.settings.dark %} o3-rail--dark{% endif %}"
+  data-o3-rail
+  aria-labelledby="O3RailTitle-{{ section.id }}"
+>
+  <div class="o3-wrap">
+    <header class="o3-head">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="o3-head__eyebrow o3-mono o3-eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      <h2 class="o3-head__title" id="O3RailTitle-{{ section.id }}">{{ section.settings.title }}</h2>
+      {%- if section.settings.text != blank -%}
+        <p class="o3-head__text">{{ section.settings.text }}</p>
+      {%- endif -%}
+      {%- if section.settings.link_label != blank -%}
+        <a
+          class="o3-btn {% if section.settings.dark %}o3-btn--light{% else %}o3-btn--ink{% endif %} o3-head__link"
+          href="{{ section.settings.link | default: routes.all_products_collection_url }}"
+        >
+          {{- section.settings.link_label }} <span class="o3-btn__arrow" aria-hidden="true">→</span>
+        </a>
+      {%- endif -%}
+    </header>
+
+    <ul class="o3-rail__track" data-o3-track role="list">
+      {%- if has_picks -%}
+        {%- assign position = 0 -%}
+        {%- for block in picked -%}
+          {%- if block.settings.product == blank -%}{%- continue -%}{%- endif -%}
+          {%- assign position = position | plus: 1 -%}
+          {%- render 'o3-product-card',
+            product: block.settings.product,
+            position: position,
+            show_rank: section.settings.show_rank,
+            badge: block.settings.badge,
+            block: block
+          -%}
+        {%- endfor -%}
+      {%- elsif section.settings.collection != blank -%}
+        {%- for product in section.settings.collection.products limit: section.settings.limit -%}
+          {%- render 'o3-product-card',
+            product: product,
+            position: forloop.index,
+            show_rank: section.settings.show_rank
+          -%}
+        {%- endfor -%}
+      {%- else -%}
+        {%- for i in (1..4) -%}
+          <li class="o3-pcard">
+            <div class="o3-pcard__media">{{ 'product-apparel-1' | placeholder_svg_tag }}</div>
+            <div class="o3-pcard__info"><h3 class="o3-pcard__title">Producto</h3></div>
+          </li>
+        {%- endfor -%}
+      {%- endif -%}
+    </ul>
+    <div class="o3-rail__progress" aria-hidden="true"><span data-o3-progress></span></div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "O3 · Carril de productos",
+  "tag": "div",
+  "class": "o3-section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Antetítulo", "default": "Lo más buscado" },
+    { "type": "text", "id": "title", "label": "Título", "default": "Lo que todos miran" },
+    { "type": "textarea", "id": "text", "label": "Texto" },
+    { "type": "text", "id": "link_label", "label": "Texto del enlace", "default": "Ver todo" },
+    { "type": "url", "id": "link", "label": "Enlace" },
+    { "type": "checkbox", "id": "show_rank", "label": "Mostrar número de ranking", "default": true },
+    { "type": "checkbox", "id": "dark", "label": "Fondo oscuro", "default": false },
+    { "type": "header", "content": "Si no eliges productos" },
+    { "type": "collection", "id": "collection", "label": "Colección de respaldo" },
+    { "type": "range", "id": "limit", "label": "Número de productos", "min": 4, "max": 12, "step": 4, "default": 8 }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Producto",
+      "settings": [
+        { "type": "product", "id": "product", "label": "Producto" },
+        { "type": "text", "id": "badge", "label": "Etiqueta (opcional, solo si es verdad)", "info": "Ej.: Top ventas, Más deseado" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "O3 · Carril de productos" }]
+}
+{% endschema %}

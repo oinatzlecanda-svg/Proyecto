@@ -1,413 +1,406 @@
 {
   "sections": {
-    "hero": {
-      "type": "image-banner",
+    "o3-hero": {
+      "type": "o3-hero",
+      "settings": {
+        "meta_1": "Oelnor® / ES",
+        "meta_2": "Drop otoño—26",
+        "meta_live": "Novedades cada semana",
+        "line_1": "No vistas",
+        "line_2": "como el",
+        "line_3": "resto.",
+        "seo_text": "Oelnor: moda y accesorios streetwear para mujer y hombre",
+        "lede": "Moda y accesorios para quien no quiere llevar lo mismo que el resto.",
+        "product_1": "black-jeans-shiny-star",
+        "product_2": "bolso-siena",
+        "product_3": "botas-beige-ante-sintetico",
+        "ring_text": "Oelnor — No copies",
+        "hint": "Arrastra las piezas ↔",
+        "cta_1_label": "Ver el drop",
+        "cta_1_link": "shopify://collections/todos-los-productos-oelnor",
+        "cta_2_label": "Mujer",
+        "cta_2_link": "shopify://collections/mujer",
+        "cta_3_label": "Hombre",
+        "cta_3_link": "shopify://collections/hombre",
+        "wordmark": "Oelnor"
+      }
+    },
+    "o3-cinta": {
+      "type": "o3-marquee",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "m1": {
+          "type": "item",
           "settings": {
-            "heading": "No lo estabas buscando. Ahora lo quieres.",
-            "heading_size": "hxl"
+            "text": "Envío gratis"
           }
         },
-        "text": {
-          "type": "text",
+        "m2": {
+          "type": "item",
           "settings": {
-            "text": "Moda, accesorios y objetos diferentes para el día a día.",
-            "text_style": "body"
+            "text": "30 días para devolver"
           }
         },
-        "buttons": {
-          "type": "buttons",
+        "m3": {
+          "type": "item",
           "settings": {
-            "button_label_1": "Descubrir novedades",
-            "button_link_1": "shopify://collections/novedades",
-            "button_style_secondary_1": false,
-            "button_label_2": "Ver Oelnor",
-            "button_link_2": "shopify://collections/all",
-            "button_style_secondary_2": true
+            "text": "Pago seguro"
+          }
+        },
+        "m4": {
+          "type": "item",
+          "settings": {
+            "text": "Novedades cada semana"
           }
         }
       },
-      "block_order": ["heading", "text", "buttons"],
+      "block_order": [
+        "m1",
+        "m2",
+        "m3",
+        "m4"
+      ],
       "settings": {
-        "image_overlay_opacity": 20,
-        "image_height": "large",
-        "desktop_content_position": "middle-center",
-        "show_text_box": true,
-        "image_behavior": "none",
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": true
+        "style": "cobalt",
+        "under": "split",
+        "reverse": false,
+        "speed": 36
       }
     },
-    "quick-nav": {
-      "type": "collection-list",
+    "o3-buscado": {
+      "type": "o3-rail",
       "blocks": {
-        "col-1": { "type": "featured_collection", "settings": { "collection": "" } },
-        "col-2": { "type": "featured_collection", "settings": { "collection": "" } },
-        "col-3": { "type": "featured_collection", "settings": { "collection": "" } },
-        "col-4": { "type": "featured_collection", "settings": { "collection": "" } },
-        "col-5": { "type": "featured_collection", "settings": { "collection": "" } }
-      },
-      "block_order": ["col-1", "col-2", "col-3", "col-4", "col-5"],
-      "settings": {
-        "title": "Navega por categoría",
-        "heading_size": "h2",
-        "image_ratio": "square",
-        "columns_desktop": 5,
-        "color_scheme": "scheme-1",
-        "show_view_all": false,
-        "columns_mobile": "2",
-        "swipe_on_mobile": true,
-        "padding_top": 28,
-        "padding_bottom": 28
-      }
-    },
-    "acaba-de-llegar": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "Acaba de llegar",
-        "heading_size": "h1",
-        "description": "Lo último en entrar a Oelnor. Se actualiza solo, sin que tengamos que tocar nada.",
-        "show_description": true,
-        "description_style": "body",
-        "collection": "novedades",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "color_scheme": "scheme-1",
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "outline",
-        "enable_desktop_slider": false,
-        "swipe_on_mobile": true,
-        "image_ratio": "portrait",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": true,
-        "quick_add": "standard",
-        "columns_mobile": "2",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "catalogo": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "Todo Oelnor",
-        "heading_size": "h1",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "all",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "color_scheme": "scheme-2",
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "portrait",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": true,
-        "quick_add": "standard",
-        "columns_mobile": "2",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "producto-protagonista": {
-      "type": "featured-product",
-      "settings": {
-        "product": "",
-        "media_position": "left",
-        "media_size": "large",
-        "color_scheme": "scheme-1",
-        "secondary_background": true,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "descubre-por-uso": {
-      "type": "discover-by-use",
-      "blocks": {
-        "b1": { "type": "card", "settings": { "title": "Para salir" } },
-        "b2": { "type": "card", "settings": { "title": "Para llevar" } },
-        "b3": { "type": "card", "settings": { "title": "Para organizar" } },
-        "b4": { "type": "card", "settings": { "title": "Para completar el look" } }
-      },
-      "block_order": ["b1", "b2", "b3", "b4"],
-      "settings": {
-        "heading": "Encuentra lo tuyo",
-        "heading_size": "h1",
-        "columns_desktop": "4",
-        "color_scheme": "scheme-1",
-        "padding_top": 48,
-        "padding_bottom": 48
-      }
-    },
-    "editorial": {
-      "type": "image-with-text",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": { "heading": "No metemos cosas por meter.", "heading_size": "h1" }
-        },
-        "text": {
-          "type": "text",
+        "p1": {
+          "type": "product",
           "settings": {
-            "text": "<p>Si algo entra en Oelnor tiene que tener una razón. Puede ser cómo se ve, cómo funciona o simplemente porque hace mejor algo cotidiano.</p>",
-            "text_style": "body"
+            "product": "black-jeans-shiny-star",
+            "badge": "Más deseado"
           }
         },
-        "button": {
-          "type": "button",
+        "p2": {
+          "type": "product",
           "settings": {
-            "button_label": "Descubrir Oelnor",
-            "button_link": "shopify://collections/all",
-            "button_style_secondary": false
+            "product": "botas-beige-ante-sintetico",
+            "badge": "Top ventas"
+          }
+        },
+        "p3": {
+          "type": "product",
+          "settings": {
+            "product": "bolso-siena",
+            "badge": "Top ventas"
+          }
+        },
+        "p4": {
+          "type": "product",
+          "settings": {
+            "product": "bomber-noa-efecto-ante",
+            "badge": ""
+          }
+        },
+        "p5": {
+          "type": "product",
+          "settings": {
+            "product": "chaqueta-corta-flecos-marron",
+            "badge": ""
+          }
+        },
+        "p6": {
+          "type": "product",
+          "settings": {
+            "product": "portalabial-espejo-corazon",
+            "badge": ""
+          }
+        },
+        "p7": {
+          "type": "product",
+          "settings": {
+            "product": "vintage-city-bag-black",
+            "badge": ""
+          }
+        },
+        "p8": {
+          "type": "product",
+          "settings": {
+            "product": "chaqueta-corta-flecos",
+            "badge": ""
           }
         }
       },
-      "block_order": ["heading", "text", "button"],
+      "block_order": [
+        "p1",
+        "p2",
+        "p3",
+        "p4",
+        "p5",
+        "p6",
+        "p7",
+        "p8"
+      ],
       "settings": {
-        "height": "large",
-        "desktop_image_width": "medium",
-        "layout": "image_first",
-        "image_behavior": "none",
-        "content_layout": "no-overlap",
-        "desktop_content_position": "middle",
-        "desktop_content_alignment": "left",
-        "mobile_content_alignment": "left",
-        "color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "eyebrow": "Lo más buscado · otoño 26",
+        "title": "Lo que todos miran",
+        "text": "Ordenado por lo que más se visita y se añade a la cesta en Oelnor.",
+        "link_label": "Ver todo",
+        "link": "shopify://collections/todos-los-productos-oelnor",
+        "show_rank": true,
+        "dark": false,
+        "limit": 8
       }
     },
-    "seleccion-oelnor": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "Selección Oelnor",
-        "heading_size": "h1",
-        "description": "Productos que representan especialmente bien la tienda, elegidos a mano.",
-        "show_description": true,
-        "description_style": "body",
-        "collection": "seleccion-oelnor",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "color_scheme": "scheme-5",
-        "full_width": false,
-        "show_view_all": false,
-        "view_all_style": "outline",
-        "enable_desktop_slider": true,
-        "swipe_on_mobile": true,
-        "image_ratio": "portrait",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": true,
-        "quick_add": "standard",
-        "columns_mobile": "2",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "producto-en-uso": {
-      "type": "multirow",
-      "blocks": {
-        "row-1": {
-          "type": "row",
-          "settings": {
-            "caption": "En la calle",
-            "heading": "Encaja en tu día a día",
-            "text": "<p>Fotografía el producto en uso real: calle, casa, trabajo, viaje. Nada de fondo blanco.</p>",
-            "button_label": "",
-            "button_link": ""
-          }
-        }
-      },
-      "block_order": ["row-1"],
-      "settings": {
-        "image_height": "large",
-        "desktop_image_width": "medium",
-        "image_layout": "alternate-left",
-        "heading_size": "h1",
-        "text_style": "body",
-        "button_style": "secondary",
-        "desktop_content_position": "middle",
-        "desktop_content_alignment": "left",
-        "mobile_content_alignment": "left",
-        "section_color_scheme": "scheme-1",
-        "row_color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "por-que-oelnor": {
-      "type": "multicolumn",
+    "o3-colecciones": {
+      "type": "o3-index",
       "blocks": {
         "c1": {
-          "type": "column",
+          "type": "collection",
           "settings": {
-            "title": "Elegido con intención",
-            "text": "<p>No añadimos cosas porque sí.</p>",
-            "link_label": "",
-            "link": ""
+            "collection": "mujer",
+            "title": "Mujer",
+            "product": "chaqueta-lena-cropped-cinturon"
           }
         },
         "c2": {
-          "type": "column",
+          "type": "collection",
           "settings": {
-            "title": "Útil",
-            "text": "<p>Cada producto debe tener algún motivo para existir.</p>",
-            "link_label": "",
-            "link": ""
+            "collection": "hombre",
+            "title": "Hombre",
+            "product": "bomber-milo"
           }
         },
         "c3": {
-          "type": "column",
+          "type": "collection",
           "settings": {
-            "title": "Diferente",
-            "text": "<p>Buscamos cosas que no veas en todas partes.</p>",
-            "link_label": "",
-            "link": ""
+            "collection": "chaquetas-mujer",
+            "title": "Chaquetas",
+            "product": "bomber-noa-efecto-ante"
           }
         },
         "c4": {
-          "type": "column",
+          "type": "collection",
           "settings": {
-            "title": "Fácil",
-            "text": "<p>Comprar no debería ser complicado.</p>",
-            "link_label": "",
-            "link": ""
+            "collection": "bolsos",
+            "title": "Bolsos",
+            "product": "bolso-siena"
+          }
+        },
+        "c5": {
+          "type": "collection",
+          "settings": {
+            "collection": "accesorios",
+            "title": "Accesorios",
+            "product": "portalabial-espejo-corazon"
+          }
+        },
+        "c6": {
+          "type": "collection",
+          "settings": {
+            "collection": "la-seleccion-oelnor",
+            "title": "La selección",
+            "product": "black-jeans-shiny-star"
           }
         }
       },
-      "block_order": ["c1", "c2", "c3", "c4"],
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4",
+        "c5",
+        "c6"
+      ],
       "settings": {
-        "title": "Por qué Oelnor",
-        "heading_size": "h1",
-        "image_width": "third",
-        "image_ratio": "square",
-        "column_alignment": "center",
-        "background_style": "none",
-        "color_scheme": "scheme-1",
-        "columns_desktop": 4,
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 48,
-        "padding_bottom": 48
+        "eyebrow": "Colecciones",
+        "title": "Elige tu código",
+        "link_label": "Todo Oelnor",
+        "link": "shopify://collections/todos-los-productos-oelnor"
       }
     },
-    "product-discovery": {
-      "type": "product-discovery",
+    "o3-foco": {
+      "type": "o3-spotlight",
+      "settings": {
+        "product": "medias-termicas-efecto-transparente-200-g",
+        "eyebrow": "El más vendido",
+        "title": "",
+        "text": "",
+        "sticker_ring": "Best seller",
+        "sticker_center": "Nº1"
+      }
+    },
+    "o3-manifiesto": {
+      "type": "o3-manifesto",
       "blocks": {
-        "o1": { "type": "option", "settings": { "label": "Algo útil" } },
-        "o2": { "type": "option", "settings": { "label": "Algo diferente" } },
-        "o3": { "type": "option", "settings": { "label": "Un accesorio" } },
-        "o4": { "type": "option", "settings": { "label": "Algo para llevar" } },
-        "o5": { "type": "option", "settings": { "label": "Solo estoy mirando" } }
-      },
-      "block_order": ["o1", "o2", "o3", "o4", "o5"],
-      "settings": {
-        "heading": "¿Qué buscas hoy?",
-        "heading_size": "h2",
-        "color_scheme": "scheme-2",
-        "padding_top": 48,
-        "padding_bottom": 48
-      }
-    },
-    "contenido-social": {
-      "type": "social-ugc",
-      "blocks": {
-        "p1": { "type": "post", "settings": { "platform": "instagram" } },
-        "p2": { "type": "post", "settings": { "platform": "tiktok" } },
-        "p3": { "type": "post", "settings": { "platform": "instagram" } },
-        "p4": { "type": "post", "settings": { "platform": "tiktok" } },
-        "p5": { "type": "post", "settings": { "platform": "instagram" } }
-      },
-      "block_order": ["p1", "p2", "p3", "p4", "p5"],
-      "settings": {
-        "heading": "Visto en Oelnor",
-        "heading_size": "h1",
-        "link_label": "Síguenos",
-        "link": "",
-        "color_scheme": "scheme-1",
-        "padding_top": 48,
-        "padding_bottom": 48
-      }
-    },
-    "opiniones": {
-      "type": "reviews-carousel",
-      "blocks": {},
-      "block_order": [],
-      "settings": {
-        "heading": "Lo que dicen de Oelnor",
-        "color_scheme": "scheme-1",
-        "padding_top": 48,
-        "padding_bottom": 48
-      }
-    },
-    "beneficios": {
-      "type": "trust-bar",
-      "blocks": {
-        "t1": { "type": "item", "settings": { "icon": "shield", "label": "Pago seguro" } },
-        "t2": { "type": "item", "settings": { "icon": "truck", "label": "Seguimiento del pedido" } },
-        "t3": { "type": "item", "settings": { "icon": "chat", "label": "Atención al cliente" } },
-        "t4": { "type": "item", "settings": { "icon": "return", "label": "Devoluciones" } }
-      },
-      "block_order": ["t1", "t2", "t3", "t4"],
-      "settings": {
-        "color_scheme": "scheme-2",
-        "padding_top": 24,
-        "padding_bottom": 24
-      }
-    },
-    "newsletter": {
-      "type": "newsletter",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": { "heading": "Lo nuevo llega primero aquí.", "heading_size": "h1" }
-        },
-        "paragraph": {
-          "type": "paragraph",
+        "t1": {
+          "type": "truth",
           "settings": {
-            "text": "Nuevos productos, lanzamientos y alguna sorpresa."
+            "title": "Envío gratis",
+            "detail": ""
           }
         },
-        "email_form": { "type": "email_form" }
+        "t2": {
+          "type": "truth",
+          "settings": {
+            "title": "30 días para devolver",
+            "detail": ""
+          }
+        },
+        "t3": {
+          "type": "truth",
+          "settings": {
+            "title": "Pago seguro",
+            "detail": ""
+          }
+        }
       },
-      "block_order": ["heading", "paragraph", "email_form"],
+      "block_order": [
+        "t1",
+        "t2",
+        "t3"
+      ],
       "settings": {
-        "color_scheme": "scheme-4",
-        "full_width": true,
-        "padding_top": 52,
-        "padding_bottom": 52
+        "eyebrow": "Manifiesto",
+        "text": "No hacemos uniformes. Elegimos piezas para quien prefiere *destacar* antes que encajar."
+      }
+    },
+    "o3-calle": {
+      "type": "o3-rail",
+      "blocks": {
+        "p1": {
+          "type": "product",
+          "settings": {
+            "product": "black-hanbok-denim-pants",
+            "badge": ""
+          }
+        },
+        "p2": {
+          "type": "product",
+          "settings": {
+            "product": "jersey-riven-efecto-desgastado",
+            "badge": ""
+          }
+        },
+        "p3": {
+          "type": "product",
+          "settings": {
+            "product": "jeans-kairo-telarania",
+            "badge": ""
+          }
+        },
+        "p4": {
+          "type": "product",
+          "settings": {
+            "product": "bomber-milo",
+            "badge": ""
+          }
+        },
+        "p5": {
+          "type": "product",
+          "settings": {
+            "product": "jeans-axel-baggy-desgastados",
+            "badge": ""
+          }
+        },
+        "p6": {
+          "type": "product",
+          "settings": {
+            "product": "pantalon-raze-acampanado-deconstruido",
+            "badge": ""
+          }
+        },
+        "p7": {
+          "type": "product",
+          "settings": {
+            "product": "sudadera-relaxed-algodon",
+            "badge": ""
+          }
+        },
+        "p8": {
+          "type": "product",
+          "settings": {
+            "product": "camiseta-retro-oversize",
+            "badge": ""
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "p3",
+        "p4",
+        "p5",
+        "p6",
+        "p7",
+        "p8"
+      ],
+      "settings": {
+        "eyebrow": "Código calle · unisex",
+        "title": "Hecho para la calle",
+        "text": "Denim balloon, punto desgastado y bombers. El lado más street de Oelnor.",
+        "link_label": "Ver todo",
+        "link": "shopify://collections/todos-los-productos-oelnor",
+        "show_rank": false,
+        "dark": true,
+        "limit": 8
+      }
+    },
+    "o3-cinta-2": {
+      "type": "o3-marquee",
+      "blocks": {
+        "m1": {
+          "type": "item",
+          "settings": {
+            "text": "No copies"
+          }
+        },
+        "m2": {
+          "type": "item",
+          "settings": {
+            "text": "No uniformes"
+          }
+        },
+        "m3": {
+          "type": "item",
+          "settings": {
+            "text": "Viste distinto"
+          }
+        },
+        "m4": {
+          "type": "item",
+          "settings": {
+            "text": "Oelnor"
+          }
+        }
+      },
+      "block_order": [
+        "m1",
+        "m2",
+        "m3",
+        "m4"
+      ],
+      "settings": {
+        "style": "bone",
+        "under": "ink",
+        "reverse": true,
+        "speed": 40
+      }
+    },
+    "o3-lista": {
+      "type": "o3-signup",
+      "settings": {
+        "title_1": "Entra en",
+        "title_2": "la lista",
+        "text": "Nuevos drops y piezas que se agotan rápido, directos a tu correo. Sin spam.",
+        "button": "Unirme"
       }
     }
   },
   "order": [
-    "hero",
-    "quick-nav",
-    "acaba-de-llegar",
-    "catalogo",
-    "producto-protagonista",
-    "descubre-por-uso",
-    "editorial",
-    "seleccion-oelnor",
-    "producto-en-uso",
-    "por-que-oelnor",
-    "product-discovery",
-    "contenido-social",
-    "opiniones",
-    "beneficios",
-    "newsletter"
+    "o3-hero",
+    "o3-cinta",
+    "o3-buscado",
+    "o3-colecciones",
+    "o3-foco",
+    "o3-manifiesto",
+    "o3-calle",
+    "o3-cinta-2",
+    "o3-lista"
   ]
 }

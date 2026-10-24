@@ -1,0 +1,168 @@
+{%- comment -%}
+  OELNOR 3.0 — Hero.
+  Brutalist headline + a 3D stage of three real products that tilts with the
+  pointer on desktop and can be dragged on touch. Styles: o3.css, behaviour: o3.js.
+{%- endcomment -%}
+{%- liquid
+  assign ring_text = section.settings.ring_text | default: 'Oelnor'
+-%}
+
+<section
+  class="o3 o3-hero"
+  data-o3-hero
+  aria-labelledby="O3HeroTitle-{{ section.id }}"
+>
+  <div class="o3-hero__grid" aria-hidden="true"></div>
+  <div class="o3-hero__glow" aria-hidden="true"></div>
+
+  <div class="o3-wrap o3-hero__inner">
+    <div class="o3-hero__meta o3-mono">
+      {%- if section.settings.meta_1 != blank -%}<span>{{ section.settings.meta_1 }}</span>{%- endif -%}
+      {%- if section.settings.meta_2 != blank -%}<span>{{ section.settings.meta_2 }}</span>{%- endif -%}
+      {%- if section.settings.meta_live != blank -%}
+        <span class="o3-live"><i aria-hidden="true"></i>{{ section.settings.meta_live }}</span>
+      {%- endif -%}
+    </div>
+
+    <h1 class="o3-hero__title" id="O3HeroTitle-{{ section.id }}">
+      <span class="o3-line"><span>{{ section.settings.line_1 }}</span></span>
+      <span class="o3-line"><span>{{ section.settings.line_2 }}</span></span>
+      <span class="o3-line"><span class="o3-mark">{{ section.settings.line_3 }}</span></span>
+      {%- if section.settings.seo_text != blank -%}
+        <span class="o3-sr">{{ section.settings.seo_text }}</span>
+      {%- endif -%}
+    </h1>
+
+    <div class="o3-stage" data-o3-stage>
+      <div class="o3-stage__tilt" data-o3-tilt>
+        <div class="o3-stage__sway">
+          <div class="o3-ring" aria-hidden="true">
+            <svg viewBox="0 0 400 400">
+              <defs>
+                <path id="O3Ring-{{ section.id }}" d="M200,20 a180,180 0 1,1 0,360 a180,180 0 1,1 0,-360"></path>
+              </defs>
+              <circle cx="200" cy="200" r="196"></circle>
+              <text textLength="1120" lengthAdjust="spacing">
+                <textPath href="#O3Ring-{{ section.id }}">
+                  {{- ring_text }} × {{ ring_text }} × {{ ring_text }} ×
+                </textPath>
+              </text>
+            </svg>
+          </div>
+
+          {%- for i in (1..3) -%}
+            {%- liquid
+              assign key = 'product_' | append: i
+              assign p = section.settings[key]
+              assign alt_text = p.title | escape
+              assign priority = 'auto'
+              if i == 1
+                assign priority = 'high'
+              endif
+            -%}
+            <a
+              class="o3-card3d o3-card3d--{{ i }}"
+              href="{% if p != blank %}{{ p.url }}{% else %}{{ routes.all_products_collection_url }}{% endif %}"
+              {% if p != blank %}
+                aria-label="{{ p.title | escape }}, {{ p.price | money_without_trailing_zeros | strip_html | escape }}"
+              {% endif %}
+              draggable="false"
+            >
+              <span class="o3-card3d__face">
+                {%- if p != blank and p.featured_media -%}
+                  {{
+                    p.featured_media
+                    | image_url: width: 900
+                    | image_tag:
+                      loading: 'eager',
+                      fetchpriority: priority,
+                      widths: '300, 450, 600, 750, 900',
+                      sizes: '(min-width: 1100px) 340px, (min-width: 750px) 36vw, 50vw',
+                      alt: alt_text,
+                      draggable: 'false'
+                  }}
+                {%- else -%}
+                  {{ 'product-apparel-1' | placeholder_svg_tag }}
+                {%- endif -%}
+                <span class="o3-card3d__tag o3-mono" aria-hidden="true">
+                  <b>{{ i | prepend: '0' }}</b>
+                  {%- if p != blank -%}
+                    <span>{{ p.price | money }}</span>
+                  {%- endif -%}
+                </span>
+              </span>
+            </a>
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+
+    <div class="o3-hero__copy">
+      {%- if section.settings.lede != blank -%}
+        <p class="o3-hero__lede">{{ section.settings.lede }}</p>
+      {%- endif -%}
+      <div class="o3-hero__ctas">
+        {%- if section.settings.cta_1_label != blank -%}
+          <a class="o3-btn o3-btn--solid" href="{{ section.settings.cta_1_link | default: routes.all_products_collection_url }}">
+            {{- section.settings.cta_1_label }} <span class="o3-btn__arrow" aria-hidden="true">→</span>
+          </a>
+        {%- endif -%}
+        {%- if section.settings.cta_2_label != blank -%}
+          <a class="o3-btn o3-btn--ghost" href="{{ section.settings.cta_2_link }}">{{ section.settings.cta_2_label }}</a>
+        {%- endif -%}
+        {%- if section.settings.cta_3_label != blank -%}
+          <a class="o3-btn o3-btn--ghost" href="{{ section.settings.cta_3_link }}">{{ section.settings.cta_3_label }}</a>
+        {%- endif -%}
+      </div>
+      {%- if section.settings.hint != blank -%}
+        <p class="o3-hero__hint o3-mono" aria-hidden="true">{{ section.settings.hint }}</p>
+      {%- endif -%}
+    </div>
+  </div>
+
+  {%- if section.settings.wordmark != blank -%}
+    <div class="o3-hero__word" aria-hidden="true">{{ section.settings.wordmark }}</div>
+  {%- endif -%}
+</section>
+
+<script src="{{ 'o3.js' | asset_url }}" defer="defer"></script>
+
+{% schema %}
+{
+  "name": "O3 · Hero",
+  "tag": "div",
+  "class": "o3-section",
+  "settings": [
+    { "type": "header", "content": "Barra superior" },
+    { "type": "text", "id": "meta_1", "label": "Texto 1", "default": "Oelnor® / ES" },
+    { "type": "text", "id": "meta_2", "label": "Texto 2", "default": "Drop otoño—26" },
+    { "type": "text", "id": "meta_live", "label": "Texto con punto en vivo", "default": "Novedades cada semana" },
+    { "type": "header", "content": "Titular" },
+    { "type": "text", "id": "line_1", "label": "Línea 1", "default": "No vistas" },
+    { "type": "text", "id": "line_2", "label": "Línea 2", "default": "como el" },
+    { "type": "text", "id": "line_3", "label": "Línea 3 (resaltada)", "default": "resto." },
+    {
+      "type": "text",
+      "id": "seo_text",
+      "label": "Texto SEO del H1 (oculto, lo leen buscadores y lectores de pantalla)",
+      "default": "Oelnor: moda y accesorios streetwear para mujer y hombre"
+    },
+    { "type": "textarea", "id": "lede", "label": "Entradilla", "default": "Moda y accesorios para quien no quiere llevar lo mismo que el resto." },
+    { "type": "header", "content": "Escenario 3D" },
+    { "type": "product", "id": "product_1", "label": "Producto central" },
+    { "type": "product", "id": "product_2", "label": "Producto izquierda" },
+    { "type": "product", "id": "product_3", "label": "Producto derecha" },
+    { "type": "text", "id": "ring_text", "label": "Texto del anillo", "default": "Oelnor — No copies" },
+    { "type": "text", "id": "hint", "label": "Pista de interacción", "default": "Arrastra las piezas ↔" },
+    { "type": "header", "content": "Botones" },
+    { "type": "text", "id": "cta_1_label", "label": "Botón principal", "default": "Ver el drop" },
+    { "type": "url", "id": "cta_1_link", "label": "Enlace principal" },
+    { "type": "text", "id": "cta_2_label", "label": "Botón 2", "default": "Mujer" },
+    { "type": "url", "id": "cta_2_link", "label": "Enlace 2" },
+    { "type": "text", "id": "cta_3_label", "label": "Botón 3", "default": "Hombre" },
+    { "type": "url", "id": "cta_3_link", "label": "Enlace 3" },
+    { "type": "text", "id": "wordmark", "label": "Logotipo gigante inferior", "default": "Oelnor" }
+  ],
+  "presets": [{ "name": "O3 · Hero" }]
+}
+{% endschema %}
