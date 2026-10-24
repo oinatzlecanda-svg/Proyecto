@@ -1,0 +1,124 @@
+{%- comment -%}
+  Picks product recommendations that make sense for the current product and
+  prints two comma-separated handle lists: "complete|similar".
+  - Gender: products only come from the same gender collection as the
+    current product (women's pages never show men's products and vice versa).
+  - Category: a product's category is its first collection that is not in
+    `exclude` (e.g. chaquetas-mujer, calzado-mujer, bolsos).
+  - complete: other categories, one product per category first.
+  - similar: same category first, then the rest of the gender, never
+    repeating a "complete" pick.
+  Order inside each list follows `source` (best selling).
+
+  Accepts:
+  - product: {Object}
+  - source: {String} handle of the collection to pick from
+  - women / men: {String} gender collection handles
+  - exclude: {String} comma-separated collection handles that are not categories
+  - limit: {Number}
+  Usage: {% capture picks %}{% render 'o3-picks', ... %}{% endcapture %}
+{%- endcomment -%}
+{%- liquid
+  assign pool = collections[source]
+  assign ex = exclude | remove: ' ' | prepend: ',' | append: ','
+
+  assign gender = ''
+  for c in product.collections
+    if c.handle == women or c.handle == men
+      assign gender = c.handle
+      break
+    endif
+  endfor
+
+  assign my_cat = ''
+  for c in product.collections
+    assign key = ',' | append: c.handle | append: ','
+    unless ex contains key
+      assign my_cat = c.handle
+      break
+    endunless
+  endfor
+  if my_cat == ''
+    assign my_cat = 'type:' | append: product.type
+  endif
+
+  assign complete = ','
+  assign used_cats = ','
+  assign same = ''
+  assign other = ''
+
+  for p in pool.products
+    if p.id == product.id or p.available == false
+      continue
+    endif
+
+    if gender != ''
+      assign in_gender = false
+      for c in p.collections
+        if c.handle == gender
+          assign in_gender = true
+          break
+        endif
+      endfor
+      unless in_gender
+        continue
+      endunless
+    endif
+
+    assign p_cat = ''
+    for c in p.collections
+      assign key = ',' | append: c.handle | append: ','
+      unless ex contains key
+        assign p_cat = c.handle
+        break
+      endunless
+    endfor
+    if p_cat == ''
+      assign p_cat = 'type:' | append: p.type
+    endif
+
+    if p_cat == my_cat
+      assign same = same | append: p.handle | append: ','
+    else
+      assign other = other | append: p.handle | append: ','
+      assign cat_key = ',' | append: p_cat | append: ','
+      unless used_cats contains cat_key
+        assign complete = complete | append: p.handle | append: ','
+        assign used_cats = used_cats | append: p_cat | append: ','
+      endunless
+    endif
+  endfor
+
+  # Lists keep a leading comma so `contains ',handle,'` never matches part of
+  # another handle; drop it before splitting. Then top up "complete" with more
+  # products from other categories when there are fewer categories than `limit`.
+  assign complete_list = complete | remove_first: ',' | split: ','
+  if complete_list.size < limit
+    assign others = other | split: ','
+    for h in others
+      if complete_list.size >= limit
+        break
+      endif
+      assign hk = ',' | append: h | append: ','
+      unless complete contains hk
+        assign complete = complete | append: h | append: ','
+        assign complete_list = complete | remove_first: ',' | split: ','
+      endunless
+    endfor
+  endif
+
+  assign similar = ','
+  assign candidates = same | append: other | split: ','
+  assign similar_count = 0
+  for h in candidates
+    if similar_count >= limit
+      break
+    endif
+    assign hk = ',' | append: h | append: ','
+    unless complete contains hk or similar contains hk
+      assign similar = similar | append: h | append: ','
+      assign similar_count = similar_count | plus: 1
+    endunless
+  endfor
+-%}
+{{- complete_list | slice: 0, limit | join: ',' -}}|{{- similar | remove_first: ',' -}}

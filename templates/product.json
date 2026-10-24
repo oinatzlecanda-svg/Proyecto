@@ -42,9 +42,13 @@
       }
     },
     "o3-look": {
-      "type": "o3-product-recs",
+      "type": "o3-product-picks",
       "settings": {
-        "intent": "complementary",
+        "source": "todos-los-productos-oelnor",
+        "women": "mujer",
+        "men": "hombre",
+        "exclude": "mujer,hombre,todos-los-productos-oelnor,destacados-oelnor,la-seleccion-oelnor,accesorios,prendas-de-arriba-hombre",
+        "mode": "complete",
         "eyebrow": "Completa el look",
         "title": "Combínalo con",
         "limit": 6,
@@ -142,11 +146,15 @@
       }
     },
     "o3-relacionados": {
-      "type": "o3-product-recs",
+      "type": "o3-product-picks",
       "settings": {
-        "intent": "related",
+        "source": "todos-los-productos-oelnor",
+        "women": "mujer",
+        "men": "hombre",
+        "exclude": "mujer,hombre,todos-los-productos-oelnor,destacados-oelnor,la-seleccion-oelnor,accesorios,prendas-de-arriba-hombre",
+        "mode": "similar",
         "eyebrow": "Te puede gustar",
-        "title": "Más del drop",
+        "title": "Más de [genero]",
         "limit": 8,
         "dark": true
       }
