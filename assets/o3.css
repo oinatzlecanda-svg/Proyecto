@@ -763,25 +763,22 @@
    ========================================================================== */
 .o3-manifesto { background: var(--o3-bone); color: var(--o3-ink); padding-block: 84px 0; }
 .o3-manifesto__text {
-  font-family: var(--o3-sans);
-  font-weight: 800;
-  font-stretch: 125%;
-  font-size: clamp(30px, 8.4vw, 92px);
-  line-height: 1.02;
+  font-family: var(--o3-display);
+  font-weight: 400;
+  font-size: clamp(48px, 14vw, 156px);
+  line-height: 0.92;
   text-transform: uppercase;
   text-wrap: balance;
+  overflow-wrap: break-word;
 }
-.o3-manifesto__text .o3-w { display: inline; }
-.o3-manifesto__text em { font-style: normal; color: var(--o3-accent-ink); }
-@supports (animation-timeline: view()) {
-  @media (prefers-reduced-motion: no-preference) {
-    .o3-manifesto__text .o3-w {
-      animation: o3-word linear both;
-      animation-timeline: view();
-      animation-range: cover calc(18% + var(--w) * 1.6%) cover calc(26% + var(--w) * 1.6%);
-    }
-    @keyframes o3-word { from { opacity: 0.16; } to { opacity: 1; } }
-  }
+/* inline-block keeps the orange block to the line box instead of Anton's tall content area */
+.o3-manifesto__text em {
+  display: inline-block;
+  font-style: normal;
+  line-height: 0.92;
+  padding: 0.06em 0.08em 0;
+  background: var(--o3-accent);
+  color: var(--o3-on-accent);
 }
 .o3-truths {
   display: grid;
