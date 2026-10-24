@@ -2,6 +2,6 @@
   OELNOR 3.0 assets, rendered from snippets/meta-tags.liquid so every page gets
   them in <head> without touching layout/theme.liquid.
 {%- endcomment -%}
-<link rel="preload" as="font" href="{{ 'o3-anton.woff2' | asset_url }}" type="font/woff2" crossorigin>
+{{ 'o3-anton.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: true }}
 {{ 'o3.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'o3.js' | asset_url }}" defer="defer"></script>

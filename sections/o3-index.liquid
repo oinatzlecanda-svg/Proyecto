@@ -57,9 +57,9 @@
         endif
       -%}
       {%- if img != blank -%}
-        {{ img | image_url: width: 480 | image_tag: loading: 'lazy', alt: '' }}
+        {{ img | image_url: width: 480 | image_tag: loading: 'lazy', alt: '', data-o3-float-item: '' }}
       {%- else -%}
-        <img alt="" src="data:," hidden>
+        <span data-o3-float-item hidden></span>
       {%- endif -%}
     {%- endfor -%}
   </div>

@@ -27,7 +27,7 @@ autoalojadas y recortadas al alfabeto español (`o3-anton.woff2`,
 | `o3-rail` | Carril de productos elegidos a mano (bloques, en orden) con ranking y etiqueta opcional. Deslizable en móvil con barra de progreso, rejilla de 4 en escritorio. Si no eliges productos usa una colección. |
 | `o3-index` | Índice de colecciones con tipografía gigante; en escritorio una imagen sigue al cursor. |
 | `o3-spotlight` | Producto foco sobre naranja con selector de variante y "Añadir a la cesta" real (abre el carrito lateral). |
-| `o3-manifesto` | Frase que se ilumina palabra a palabra al hacer scroll. Marca palabras con `*asteriscos*` para pintarlas de naranja. |
+| `o3-manifesto` | Frase grande y sólida que entra con un deslizamiento suave. Marca palabras con `*asteriscos*` para ponerlas sobre un bloque naranja. |
 | `o3-signup` | Newsletter (formulario de clientes de Shopify, etiqueta `newsletter`). |
 
 | `o3-collection` | Página de colección: cabecera oscura con accesos a otras colecciones, barra fija con **Filtrar** (cajón inferior en móvil, lateral en escritorio) y **Ordenar**, rejilla 2/3/4 columnas y paginación. Filtros de Search & Discovery por GET: funciona sin JavaScript. |

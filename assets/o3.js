@@ -121,7 +121,7 @@
   function index(section) {
     const float = section.querySelector('[data-o3-float]');
     if (!float || !finePointer) return;
-    const imgs = float.querySelectorAll('img');
+    const imgs = float.querySelectorAll('[data-o3-float-item]');
     let x = 0, y = 0, cx = 0, cy = 0, raf = 0, on = false;
     const step = () => {
       cx += (x - cx) * 0.18;
