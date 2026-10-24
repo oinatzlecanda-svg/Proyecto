@@ -1,0 +1,51 @@
+{% comment %}
+  OELNOR 3.0 top for Shopify policy pages (/policies/*). Shopify renders the
+  policy itself through content_for_layout right after this; o3.css styles it
+  and o3.js builds a table of contents from its h2 headings.
+  Rendered from layout/theme.liquid when request.page_type == 'policy'.
+{% endcomment %}
+
+{%- liquid
+  assign current_policy = null
+  for policy in shop.policies
+    if request.path contains policy.url or policy.url contains request.path
+      assign current_policy = policy
+    endif
+  endfor
+-%}
+
+<section class="o3 o3-phero o3-top o3-polhero" aria-labelledby="O3PolicyTitle">
+  <div class="o3-hero__grid" aria-hidden="true"></div>
+  <div class="o3-wrap">
+    <nav class="o3-crumbs o3-mono" aria-label="Ruta">
+      <a href="{{ routes.root_url }}">Inicio</a>
+      <span aria-hidden="true">/</span>
+      <span>Información legal</span>
+      {%- if current_policy -%}
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">{{ current_policy.title | escape }}</span>
+      {%- endif -%}
+    </nav>
+    <p class="o3-phero__eyebrow o3-mono o3-eyebrow">Información legal</p>
+    <h1 class="o3-phero__title" id="O3PolicyTitle" style="font-size: clamp(48px, 13vw, 140px);">
+      <span class="o3-line"><span>{{ current_policy.title | default: 'Políticas' | escape }}</span></span>
+    </h1>
+    {%- if shop.policies.size > 1 -%}
+      <nav aria-label="Otras políticas">
+        <ul class="o3-chips" role="list">
+          {%- for policy in shop.policies -%}
+            <li>
+              <a
+                class="o3-chip"
+                href="{{ policy.url }}"
+                {% if current_policy and policy.url == current_policy.url %}aria-current="page"{% endif %}
+              >
+                {{- policy.title | escape -}}
+              </a>
+            </li>
+          {%- endfor -%}
+        </ul>
+      </nav>
+    {%- endif -%}
+  </div>
+</section>

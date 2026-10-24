@@ -186,6 +186,63 @@
     });
   }
 
+  /* ---------- Collection: filter drawer (native <dialog>) + sort ---------- */
+  function collection(section) {
+    const form = section.querySelector('[data-o3-filters]');
+    const drawer = section.querySelector('[data-o3-drawer]');
+    section.querySelectorAll('[data-o3-open-drawer]').forEach((b) =>
+      b.addEventListener('click', () => drawer && drawer.showModal())
+    );
+    section.querySelectorAll('[data-o3-close-drawer]').forEach((b) => b.addEventListener('click', () => drawer.close()));
+    // tap on the backdrop closes it
+    drawer?.addEventListener('click', (e) => { if (e.target === drawer) drawer.close(); });
+    section.querySelector('[data-o3-sort]')?.addEventListener('change', () => form?.requestSubmit());
+    // drop empty price inputs so URLs stay clean
+    form?.addEventListener('formdata', (e) => {
+      for (const [k, v] of [...e.formData.entries()]) if (v === '') e.formData.delete(k);
+    });
+  }
+
+  /* ---------- Policies: table of contents from the policy's h2s ---------- */
+  function policies() {
+    if (!document.querySelector('.o3-polhero')) return;
+    const container = document.querySelector('.shopify-policy__container');
+    const body = container?.querySelector('.shopify-policy__body');
+    if (!body || container.dataset.o3) return;
+    container.dataset.o3 = '';
+    container.classList.add('o3-policy');
+    const heads = [...body.querySelectorAll('h2')];
+    if (heads.length < 3) return;
+    const slug = (t) => t.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/^\d+\.\s*/, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    const nav = document.createElement('nav');
+    nav.className = 'o3-toc';
+    nav.setAttribute('aria-label', 'En esta página');
+    nav.innerHTML = '<p>En esta página</p><ol></ol>';
+    const ol = nav.querySelector('ol');
+    const used = new Set();
+    heads.forEach((h, i) => {
+      let id = h.id || slug(h.textContent) || `apartado-${i + 1}`;
+      while (used.has(id)) id += `-${i + 1}`;
+      used.add(id);
+      h.id = id;
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = `#${id}`;
+      a.textContent = h.textContent.trim().replace(/^\d+\.\s*/, '');
+      li.append(a);
+      ol.append(li);
+    });
+    container.prepend(nav);
+    const links = [...ol.querySelectorAll('a')];
+    const spy = new IntersectionObserver(
+      (entries) => entries.forEach((en) => {
+        if (en.isIntersecting) links.forEach((l) => l.classList.toggle('is-active', l.hash === `#${en.target.id}`));
+      }),
+      { rootMargin: '-20% 0px -70% 0px' }
+    );
+    heads.forEach((h) => spy.observe(h));
+  }
+
   const init = (scope = document) => {
     watchReveals(scope);
     scope.querySelectorAll('[data-o3-hero]').forEach((s) => tilt(s.querySelector('[data-o3-stage]'), s.querySelector('[data-o3-tilt]')));
@@ -195,9 +252,13 @@
     });
     scope.querySelectorAll('[data-o3-rail]').forEach(rail);
     scope.querySelectorAll('[data-o3-index]').forEach(index);
+    scope.querySelectorAll('[data-o3-collection]').forEach(collection);
+    scope.querySelectorAll('[data-o3-label]').forEach((s) => tilt(s, s.querySelector('[data-o3-label-card]'), { maxX: 8, maxY: 12 }));
   };
 
+  // deferred script in <head>: the DOM is parsed by the time this runs
   init();
+  policies();
   // Theme editor: re-init a section when it is re-rendered
   document.addEventListener('shopify:section:load', (e) => init(e.target));
 })();

@@ -279,11 +279,6 @@
     {% endstyle %}
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
-    {%- if request.page_type == 'index' -%}
-      {%- comment -%} OELNOR 3.0 home: one stylesheet and one preloaded display face (o3.js is loaded by the o3-hero section). {%- endcomment -%}
-      <link rel="preload" as="font" href="{{ 'o3-anton.woff2' | asset_url }}" type="font/woff2" crossorigin>
-      {{ 'o3.css' | asset_url | stylesheet_tag }}
-    {%- endif -%}
     <link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'">
 
     {%- if settings.cart_type == 'drawer' -%}
@@ -344,7 +339,22 @@
       tabindex="-1"
       data-template="{{ template.name }}"
     >
-      {{ content_for_layout }}
+      {%- liquid
+        assign parcelpanel_page = false
+        if request.path contains '/apps/parcelpanel'
+          assign parcelpanel_page = true
+        endif
+      -%}
+      {%- if request.page_type == 'policy' -%}
+        {%- render 'oelnor-policy-shell' -%}
+      {%- endif -%}
+      {%- if parcelpanel_page -%}
+        {%- render 'oelnor-parcelpanel-shell', position: 'top' -%}
+        {{ content_for_layout }}
+        {%- render 'oelnor-parcelpanel-shell', position: 'bottom' -%}
+      {%- else -%}
+        {{ content_for_layout }}
+      {%- endif -%}
     </main>
 
     {% sections 'footer-group' %}

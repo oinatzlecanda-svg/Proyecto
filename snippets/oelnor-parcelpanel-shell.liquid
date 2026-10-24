@@ -1,0 +1,54 @@
+{% comment %}
+  OELNOR 3.0 frame around the ParcelPanel tracking page (/apps/parcelpanel),
+  whose content the app renders. Rendered from layout/theme.liquid before and
+  after content_for_layout on that path.
+
+  Accepts:
+  - position: {String} 'top' | 'bottom'
+{% endcomment %}
+
+{%- if position == 'top' -%}
+  <section class="o3 o3-phero o3-top" aria-labelledby="O3PPTitle">
+    <div class="o3-hero__grid" aria-hidden="true"></div>
+    <div class="o3-wrap">
+      <nav class="o3-crumbs o3-mono" aria-label="Ruta">
+        <a href="{{ routes.root_url }}">Inicio</a>
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">Seguimiento</span>
+      </nav>
+      <p class="o3-phero__eyebrow o3-mono o3-eyebrow">Seguimiento</p>
+      <h1 class="o3-phero__title" id="O3PPTitle">
+        <span class="o3-line"><span>Localiza</span></span>
+        <span class="o3-line"><span class="o3-mark">tu pedido.</span></span>
+      </h1>
+      <ul class="o3-chips" role="list" aria-label="Qué necesitas">
+        <li><span class="o3-chip">01 · Nº de pedido + email de compra</span></li>
+        <li><span class="o3-chip">02 · O tu número de seguimiento</span></li>
+      </ul>
+    </div>
+  </section>
+{%- else -%}
+  <section class="o3">
+    <div class="o3-light" style="padding-block: 48px;">
+      <div class="o3-wrap">
+        <div class="o3-times">
+          <div><span class="o3-mono o3-mono-mute">Preparación</span><strong>1 a 3 días hábiles</strong></div>
+          <div><span class="o3-mono o3-mono-mute">Transporte · Europa</span><strong>7 a 14 días hábiles</strong></div>
+          <a href="{{ shop.shipping_policy.url | default: '/policies/shipping-policy' }}">Política de envíos <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="o3-help">
+      <div class="o3-wrap o3-help__grid">
+        <h2 class="o3-h2">¿Algo no cuadra?</h2>
+        <div>
+          <p>Si no aparece información o necesitas ayuda con tu pedido, escríbenos y lo revisamos contigo.</p>
+          <div class="o3-track__actions">
+            <a class="o3-btn o3-btn--ink" href="/pages/contact">Contactar <span class="o3-btn__arrow" aria-hidden="true">→</span></a>
+            <a class="o3-btn o3-btn--outline" href="mailto:{{ shop.email }}">{{ shop.email }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{%- endif -%}

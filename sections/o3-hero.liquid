@@ -8,7 +8,7 @@
 -%}
 
 <section
-  class="o3 o3-hero"
+  class="o3 o3-hero o3-top"
   data-o3-hero
   aria-labelledby="O3HeroTitle-{{ section.id }}"
 >
@@ -124,8 +124,6 @@
     <div class="o3-hero__word" aria-hidden="true">{{ section.settings.wordmark }}</div>
   {%- endif -%}
 </section>
-
-<script src="{{ 'o3.js' | asset_url }}" defer="defer"></script>
 
 {% schema %}
 {

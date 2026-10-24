@@ -1,0 +1,208 @@
+{%- comment -%}
+  OELNOR 3.0 — Contact page. Shopify contact form (topic, name, email,
+  order number, message), quick links that answer the usual questions before
+  anyone writes, and an FAQ built from blocks.
+{%- endcomment -%}
+{%- liquid
+  assign email = section.settings.email | default: shop.email
+  assign topics = section.settings.topics | split: ','
+  assign links = section.blocks | where: 'type', 'link'
+  assign faqs = section.blocks | where: 'type', 'faq'
+  assign form_id = 'O3ContactForm-' | append: section.id
+-%}
+
+<section class="o3 o3-contact-page" aria-labelledby="O3ContactTitle-{{ section.id }}">
+  <div class="o3-phero o3-top">
+    <div class="o3-hero__grid" aria-hidden="true"></div>
+    <div class="o3-wrap">
+      <nav class="o3-crumbs o3-mono" aria-label="Ruta">
+        <a href="{{ routes.root_url }}">Inicio</a>
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">{{ page.title | default: 'Contacto' | escape }}</span>
+      </nav>
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="o3-phero__eyebrow o3-mono o3-eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      <h1 class="o3-phero__title" id="O3ContactTitle-{{ section.id }}">
+        <span class="o3-line"><span>{{ section.settings.heading_1 }}</span></span>
+        {%- if section.settings.heading_2 != blank -%}
+          <span class="o3-line"><span class="o3-mark">{{ section.settings.heading_2 }}</span></span>
+        {%- endif -%}
+      </h1>
+      {%- if section.settings.text != blank -%}
+        <p class="o3-phero__text">{{ section.settings.text }}</p>
+      {%- endif -%}
+      {%- if email != blank -%}
+        <a class="o3-contact__email" href="mailto:{{ email }}">{{ email }} <span aria-hidden="true">↗</span></a>
+      {%- endif -%}
+      {%- if section.settings.response_note != blank -%}
+        <p class="o3-phero__meta o3-mono"><span>{{ section.settings.response_note }}</span></p>
+      {%- endif -%}
+    </div>
+  </div>
+
+  <div class="o3-light o3-contact">
+    <div class="o3-wrap o3-contact__grid">
+      {%- if links.size > 0 -%}
+        <div class="o3-contact__quick">
+          <p class="o3-mono o3-eyebrow o3-mono-mute" style="margin-bottom: 14px;">{{ section.settings.quick_eyebrow }}</p>
+          <ul class="o3-quick" role="list">
+            {%- for block in links -%}
+              <li {{ block.shopify_attributes }}>
+                <a href="{{ block.settings.url }}">
+                  <strong>{{ block.settings.title }}</strong>
+                  {%- if block.settings.text != blank -%}<span>{{ block.settings.text }}</span>{%- endif -%}
+                  <i aria-hidden="true">↗</i>
+                </a>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      {%- endif -%}
+
+      <div class="o3-contact__main">
+        <h2 class="o3-h2">{{ section.settings.form_heading }}</h2>
+        {%- form 'contact', id: form_id, class: 'o3-form' -%}
+          {%- if form.posted_successfully? -%}
+            <div class="o3-note o3-note--ok" role="status" tabindex="-1" autofocus>
+              <h3>{{ section.settings.success_title }}</h3>
+              <p>{{ section.settings.success_text }}</p>
+            </div>
+          {%- else -%}
+            {%- if form.errors -%}
+              <div class="o3-note" role="alert">
+                <p><strong>Revisa el formulario:</strong></p>
+                {%- for field in form.errors -%}
+                  <p>{{ form.errors.translated_fields[field] | capitalize }} {{ form.errors.messages[field] }}</p>
+                {%- endfor -%}
+              </div>
+            {%- endif -%}
+
+            {%- if topics.size > 0 -%}
+              <fieldset class="o3-topics">
+                <legend class="o3-mono">¿Sobre qué es?</legend>
+                {%- for topic in topics -%}
+                  {%- assign t = topic | strip -%}
+                  <label class="o3-check">
+                    <input type="radio" name="contact[Asunto]" value="{{ t | escape }}" {% if forloop.first %}checked{% endif %}>
+                    <span>{{ t }}</span>
+                  </label>
+                {%- endfor -%}
+              </fieldset>
+            {%- endif -%}
+
+            <div class="o3-form__row">
+              <label>
+                <span class="o3-mono">Nombre</span>
+                <input type="text" name="contact[name]" autocomplete="name" value="{{ form.name | default: customer.name }}" required>
+              </label>
+              <label>
+                <span class="o3-mono">Email</span>
+                <input
+                  type="email"
+                  name="contact[email]"
+                  autocomplete="email"
+                  autocapitalize="none"
+                  autocorrect="off"
+                  spellcheck="false"
+                  value="{{ form.email | default: customer.email }}"
+                  required
+                >
+              </label>
+            </div>
+            <label>
+              <span class="o3-mono">Nº de pedido (si lo tienes)</span>
+              <input type="text" name="contact[Pedido]" inputmode="numeric" autocomplete="off" placeholder="#1001">
+            </label>
+            <label>
+              <span class="o3-mono">Mensaje</span>
+              <textarea name="contact[body]" rows="6" required placeholder="Cuéntanos qué necesitas">{{ form.body }}</textarea>
+            </label>
+            <button type="submit" class="o3-btn o3-btn--solid">
+              {{- section.settings.button_label }} <span class="o3-btn__arrow" aria-hidden="true">→</span>
+            </button>
+          {%- endif -%}
+        {%- endform -%}
+      </div>
+
+      {%- if faqs.size > 0 -%}
+        <div class="o3-faq">
+          <p class="o3-mono o3-eyebrow o3-mono-mute">{{ section.settings.faq_eyebrow }}</p>
+          <h2 class="o3-h2" style="margin-top: 12px;">{{ section.settings.faq_heading }}</h2>
+          <div class="o3-faq__list">
+            {%- for block in faqs -%}
+              <details {{ block.shopify_attributes }}>
+                <summary>{{ block.settings.question }} <i aria-hidden="true"></i></summary>
+                <div class="o3-faq__a">{{ block.settings.answer }}</div>
+              </details>
+            {%- endfor -%}
+          </div>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{%- if faqs.size > 0 -%}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {%- for block in faqs -%}
+          {
+            "@type": "Question",
+            "name": {{ block.settings.question | json }},
+            "acceptedAnswer": { "@type": "Answer", "text": {{ block.settings.answer | strip_html | json }} }
+          }{% unless forloop.last %},{% endunless %}
+        {%- endfor -%}
+      ]
+    }
+  </script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "O3 · Contacto",
+  "tag": "div",
+  "class": "o3-section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Antetítulo", "default": "Contacto" },
+    { "type": "text", "id": "heading_1", "label": "Titular línea 1", "default": "Hablemos." },
+    { "type": "text", "id": "heading_2", "label": "Titular línea 2 (resaltada)", "default": "Sin rodeos." },
+    { "type": "textarea", "id": "text", "label": "Texto" },
+    { "type": "text", "id": "email", "label": "Email visible (vacío = el de la tienda)" },
+    { "type": "text", "id": "response_note", "label": "Nota de respuesta" },
+    { "type": "text", "id": "quick_eyebrow", "label": "Antetítulo de accesos", "default": "Antes de escribir" },
+    { "type": "text", "id": "form_heading", "label": "Titular del formulario", "default": "Escríbenos" },
+    { "type": "text", "id": "topics", "label": "Temas (separados por comas)", "default": "Mi pedido, Tallas, Devoluciones, Otra consulta" },
+    { "type": "text", "id": "button_label", "label": "Botón", "default": "Enviar mensaje" },
+    { "type": "text", "id": "success_title", "label": "Título de éxito", "default": "Recibido" },
+    { "type": "text", "id": "success_text", "label": "Texto de éxito", "default": "Gracias por escribirnos. Te responderemos lo antes posible." },
+    { "type": "text", "id": "faq_eyebrow", "label": "Antetítulo de preguntas", "default": "Respuestas rápidas" },
+    { "type": "text", "id": "faq_heading", "label": "Titular de preguntas", "default": "Lo que más nos preguntáis" }
+  ],
+  "blocks": [
+    {
+      "type": "link",
+      "name": "Acceso rápido",
+      "limit": 4,
+      "settings": [
+        { "type": "text", "id": "title", "label": "Título", "default": "Localizar mi pedido" },
+        { "type": "text", "id": "text", "label": "Texto" },
+        { "type": "url", "id": "url", "label": "Enlace" }
+      ]
+    },
+    {
+      "type": "faq",
+      "name": "Pregunta",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Pregunta", "default": "Pregunta" },
+        { "type": "richtext", "id": "answer", "label": "Respuesta", "default": "<p>Respuesta</p>" }
+      ]
+    }
+  ],
+  "enabled_on": { "templates": ["page"] },
+  "presets": [{ "name": "O3 · Contacto" }]
+}
+{% endschema %}

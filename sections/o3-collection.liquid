@@ -1,0 +1,288 @@
+{%- comment -%}
+  OELNOR 3.0 — Collection page.
+  Dark page top (title, description, sibling collections), sticky bar with
+  filter drawer + sort, product grid and pagination. Filtering and sorting are
+  Shopify storefront filters submitted as a plain GET form, so it works
+  without JavaScript; o3.js only opens the drawer and submits on sort change.
+{%- endcomment -%}
+{%- liquid
+  assign per_page = section.settings.per_page
+  assign sort_by = collection.sort_by | default: collection.default_sort_by
+  assign active_count = 0
+  for filter in collection.filters
+    if filter.type == 'price_range'
+      if filter.min_value.value != blank or filter.max_value.value != blank
+        assign active_count = active_count | plus: 1
+      endif
+    else
+      assign active_count = active_count | plus: filter.active_values.size
+    endif
+  endfor
+  assign show_filters = false
+  if section.settings.enable_filtering and collection.filters.size > 0
+    assign show_filters = true
+  endif
+-%}
+
+<section class="o3 o3-col" data-o3-collection aria-labelledby="O3ColTitle-{{ section.id }}">
+  <div class="o3-phero o3-top">
+    <div class="o3-hero__grid" aria-hidden="true"></div>
+    <div class="o3-wrap">
+      <nav class="o3-crumbs o3-mono" aria-label="Ruta">
+        <a href="{{ routes.root_url }}">Inicio</a>
+        <span aria-hidden="true">/</span>
+        <a href="{{ routes.collections_url }}">Colecciones</a>
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">{{ collection.title | escape }}</span>
+      </nav>
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="o3-phero__eyebrow o3-mono o3-eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      <h1 class="o3-phero__title" id="O3ColTitle-{{ section.id }}">
+        <span class="o3-line"><span>{{ collection.title | escape }}</span></span>
+      </h1>
+      {%- if section.settings.show_description and collection.description != blank -%}
+        <div class="o3-phero__text">{{ collection.description }}</div>
+      {%- endif -%}
+      <p class="o3-phero__meta o3-mono">
+        <span><b>{{ collection.all_products_count }}</b> piezas</span>
+        {%- if section.settings.meta_note != blank -%}<span>{{ section.settings.meta_note }}</span>{%- endif -%}
+      </p>
+      {%- if section.settings.collections != blank -%}
+        <nav aria-label="Otras colecciones">
+          <ul class="o3-chips" role="list">
+            {%- for c in section.settings.collections -%}
+              <li>
+                <a class="o3-chip" href="{{ c.url }}" {% if c.id == collection.id %}aria-current="page"{% endif %}>
+                  {{- c.title | escape -}}
+                </a>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </nav>
+      {%- endif -%}
+    </div>
+  </div>
+
+  {%- paginate collection.products by per_page -%}
+    <form class="o3-col__form" action="{{ collection.url }}" method="get" data-o3-filters>
+      <div class="o3-col__bar">
+        <div class="o3-wrap o3-col__bar-inner">
+          <p class="o3-col__count o3-mono" role="status">
+            {{- collection.products_count }}
+            {% if collection.products_count == 1 %}producto{% else %}productos{% endif -%}
+          </p>
+          {%- if show_filters -%}
+            <button
+              type="button"
+              class="o3-btn o3-btn--ink o3-col__filter-btn"
+              data-o3-open-drawer
+              aria-haspopup="dialog"
+              aria-controls="O3Drawer-{{ section.id }}"
+            >
+              Filtrar
+              {%- if active_count > 0 %} <b>{{ active_count }}</b>{% endif -%}
+            </button>
+          {%- endif -%}
+          {%- if section.settings.enable_sorting -%}
+            <label class="o3-sort">
+              <span class="o3-sr">Ordenar por</span>
+              <select name="sort_by" data-o3-sort>
+                {%- for option in collection.sort_options -%}
+                  <option value="{{ option.value | escape }}" {% if option.value == sort_by %}selected{% endif %}>
+                    {{- option.name | escape -}}
+                  </option>
+                {%- endfor -%}
+              </select>
+            </label>
+            <noscript><button class="o3-btn o3-btn--ink o3-col__filter-btn" type="submit">Ordenar</button></noscript>
+          {%- endif -%}
+        </div>
+      </div>
+
+      {%- if show_filters -%}
+        <dialog class="o3-drawer" id="O3Drawer-{{ section.id }}" data-o3-drawer aria-labelledby="O3DrawerTitle-{{ section.id }}">
+          <div class="o3-drawer__head">
+            <h2 id="O3DrawerTitle-{{ section.id }}">Filtrar</h2>
+            <button type="button" class="o3-btn o3-btn--ink o3-drawer__close" data-o3-close-drawer aria-label="Cerrar filtros">✕</button>
+          </div>
+          <div class="o3-drawer__body">
+            {%- for filter in collection.filters -%}
+              {%- case filter.type -%}
+                {%- when 'price_range' -%}
+                  {%- liquid
+                    assign price_open = false
+                    if filter.min_value.value != blank or filter.max_value.value != blank
+                      assign price_open = true
+                    endif
+                    assign range_max = filter.range_max | divided_by: 100.0 | ceil
+                  -%}
+                  <details class="o3-facet" {% if price_open or forloop.first %}open{% endif %}>
+                    <summary>{{ filter.label | escape }} <i aria-hidden="true">+</i></summary>
+                    <div class="o3-price">
+                      <label>
+                        <span class="o3-mono">Desde (€)</span>
+                        <input
+                          type="number"
+                          name="{{ filter.min_value.param_name }}"
+                          {% if filter.min_value.value != blank %}value="{{ filter.min_value.value | divided_by: 100 }}"{% endif %}
+                          placeholder="0"
+                          min="0"
+                          max="{{ range_max }}"
+                          inputmode="numeric"
+                        >
+                      </label>
+                      <label>
+                        <span class="o3-mono">Hasta (€)</span>
+                        <input
+                          type="number"
+                          name="{{ filter.max_value.param_name }}"
+                          {% if filter.max_value.value != blank %}value="{{ filter.max_value.value | divided_by: 100 }}"{% endif %}
+                          placeholder="{{ range_max }}"
+                          min="0"
+                          max="{{ range_max }}"
+                          inputmode="numeric"
+                        >
+                      </label>
+                    </div>
+                  </details>
+                {%- else -%}
+                  <details class="o3-facet" {% if filter.active_values.size > 0 or forloop.first %}open{% endif %}>
+                    <summary>
+                      {{ filter.label | escape }}
+                      {%- if filter.active_values.size > 0 %} ({{ filter.active_values.size }}){% endif %}
+                      <i aria-hidden="true">+</i>
+                    </summary>
+                    <div class="o3-facet__list">
+                      {%- for value in filter.values -%}
+                        <label class="o3-check">
+                          <input
+                            type="checkbox"
+                            name="{{ value.param_name }}"
+                            value="{{ value.value | escape }}"
+                            {% if value.active %}checked{% endif %}
+                            {% if value.count == 0 and value.active == false %}disabled{% endif %}
+                          >
+                          <span>{{ value.label | escape }} <small>{{ value.count }}</small></span>
+                        </label>
+                      {%- endfor -%}
+                    </div>
+                  </details>
+              {%- endcase -%}
+            {%- endfor -%}
+          </div>
+          <div class="o3-drawer__foot">
+            <a class="o3-btn o3-btn--outline" href="{{ collection.url }}?sort_by={{ sort_by }}">Borrar</a>
+            <button type="submit" class="o3-btn o3-btn--solid">Ver resultados</button>
+          </div>
+        </dialog>
+      {%- endif -%}
+    </form>
+
+    <div class="o3-light o3-col__body">
+      <div class="o3-wrap">
+        {%- if active_count > 0 -%}
+          <ul class="o3-active" role="list" aria-label="Filtros activos">
+            {%- for filter in collection.filters -%}
+              {%- if filter.type == 'price_range' -%}
+                {%- if filter.min_value.value != blank or filter.max_value.value != blank -%}
+                  <li>
+                    <a class="o3-chip" href="{{ filter.url_to_remove }}">
+                      {{- filter.min_value.value | default: 0 | money_without_trailing_zeros }} – {{ filter.max_value.value | default: filter.range_max | money_without_trailing_zeros }}
+                      <span aria-hidden="true">✕</span><span class="o3-sr"> Quitar filtro</span>
+                    </a>
+                  </li>
+                {%- endif -%}
+              {%- else -%}
+                {%- for value in filter.active_values -%}
+                  <li>
+                    <a class="o3-chip" href="{{ value.url_to_remove }}">
+                      {{- value.label | escape }} <span aria-hidden="true">✕</span><span class="o3-sr"> Quitar filtro</span>
+                    </a>
+                  </li>
+                {%- endfor -%}
+              {%- endif -%}
+            {%- endfor -%}
+            <li><a class="o3-chip o3-chip--clear" href="{{ collection.url }}?sort_by={{ sort_by }}">Borrar todo</a></li>
+          </ul>
+        {%- endif -%}
+
+        {%- if collection.products.size > 0 -%}
+          <ul class="o3-grid" role="list">
+            {%- for product in collection.products -%}
+              {%- liquid
+                assign eager = false
+                if forloop.index <= 2
+                  assign eager = true
+                endif
+              -%}
+              {%- render 'o3-product-card',
+                product: product,
+                position: forloop.index,
+                show_rank: false,
+                img_sizes: '(min-width: 1100px) 25vw, (min-width: 750px) 33vw, 50vw',
+                eager: eager,
+                no_reveal: true
+              -%}
+            {%- endfor -%}
+          </ul>
+        {%- else -%}
+          <div class="o3-empty">
+            <h2>Nada por aquí</h2>
+            <p>No hay productos con estos filtros. Prueba a quitar alguno.</p>
+            <a class="o3-btn o3-btn--ink" href="{{ collection.url }}">Ver toda la colección</a>
+          </div>
+        {%- endif -%}
+
+        {%- if paginate.pages > 1 -%}
+          <nav class="o3-pag" aria-label="Paginación">
+            {%- if paginate.previous -%}
+              <a href="{{ paginate.previous.url }}" aria-label="Página anterior">←</a>
+            {%- endif -%}
+            {%- for part in paginate.parts -%}
+              {%- if part.is_link -%}
+                <a href="{{ part.url }}">{{ part.title }}</a>
+              {%- elsif part.title == paginate.current_page -%}
+                <span aria-current="page">{{ part.title }}</span>
+              {%- else -%}
+                <span class="o3-pag__gap">{{ part.title }}</span>
+              {%- endif -%}
+            {%- endfor -%}
+            {%- if paginate.next -%}
+              <a href="{{ paginate.next.url }}" aria-label="Página siguiente">→</a>
+            {%- endif -%}
+          </nav>
+        {%- endif -%}
+      </div>
+    </div>
+  {%- endpaginate -%}
+</section>
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Inicio", "item": {{ shop.url | append: routes.root_url | json }} },
+      { "@type": "ListItem", "position": 2, "name": {{ collection.title | json }}, "item": {{ shop.url | append: collection.url | json }} }
+    ]
+  }
+</script>
+
+{% schema %}
+{
+  "name": "O3 · Colección",
+  "tag": "div",
+  "class": "o3-section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Antetítulo", "default": "Colección" },
+    { "type": "checkbox", "id": "show_description", "label": "Mostrar descripción", "default": true },
+    { "type": "text", "id": "meta_note", "label": "Nota junto al contador", "default": "Envío gratis · 30 días para devolver" },
+    { "type": "collection_list", "id": "collections", "label": "Accesos a otras colecciones", "limit": 10 },
+    { "type": "range", "id": "per_page", "label": "Productos por página", "min": 8, "max": 48, "step": 4, "default": 24 },
+    { "type": "checkbox", "id": "enable_filtering", "label": "Filtros", "default": true, "info": "Configúralos en la app Search & Discovery." },
+    { "type": "checkbox", "id": "enable_sorting", "label": "Ordenar", "default": true }
+  ],
+  "enabled_on": { "templates": ["collection"] }
+}
+{% endschema %}

@@ -30,6 +30,16 @@ autoalojadas y recortadas al alfabeto español (`o3-anton.woff2`,
 | `o3-manifesto` | Frase que se ilumina palabra a palabra al hacer scroll. Marca palabras con `*asteriscos*` para pintarlas de naranja. |
 | `o3-signup` | Newsletter (formulario de clientes de Shopify, etiqueta `newsletter`). |
 
+| `o3-collection` | Página de colección: cabecera oscura con accesos a otras colecciones, barra fija con **Filtrar** (cajón inferior en móvil, lateral en escritorio) y **Ordenar**, rejilla 2/3/4 columnas y paginación. Filtros de Search & Discovery por GET: funciona sin JavaScript. |
+| `o3-contact` | Contacto: accesos rápidos (seguimiento, envíos, devoluciones), formulario con tema, nº de pedido y mensaje, y preguntas frecuentes (con datos estructurados FAQPage). |
+| `o3-tracking` | "Localiza tu envío": botón al localizador de ParcelPanel (`/apps/parcelpanel`), etiqueta de envío animada, pasos reales del envío y ayuda. |
+
+Además, `snippets/oelnor-policy-shell.liquid` (cabecera de las políticas, con índice
+automático de apartados) y `snippets/oelnor-parcelpanel-shell.liquid` (marco de la
+página de ParcelPanel) se pintan desde `layout/theme.liquid`. Los estilos y el JS se
+cargan en todas las páginas desde `snippets/o3-head.liquid`, que se incluye en
+`snippets/meta-tags.liquid`.
+
 Todas respetan `prefers-reduced-motion`, sólo animan `transform`/`opacity`/`clip-path`
 y bloquean los efectos *hover* a dispositivos con ratón.
 
