@@ -26,8 +26,8 @@ autoalojadas y recortadas al alfabeto español (`o3-anton.woff2`,
 | `o3-marquee` | Cinta inclinada con texto en movimiento (CSS puro). |
 | `o3-rail` | Carril de productos elegidos a mano (bloques, en orden) con ranking y etiqueta opcional. Deslizable en móvil con barra de progreso, rejilla de 4 en escritorio. Si no eliges productos usa una colección. |
 | `o3-index` | Índice de colecciones con tipografía gigante; en escritorio una imagen sigue al cursor. |
-| `o3-spotlight` | Producto foco sobre cobalto con selector de variante y "Añadir a la cesta" real (abre el carrito lateral). |
-| `o3-manifesto` | Frase que se ilumina palabra a palabra al hacer scroll. Marca palabras con `*asteriscos*` para pintarlas de cobalto. |
+| `o3-spotlight` | Producto foco sobre naranja con selector de variante y "Añadir a la cesta" real (abre el carrito lateral). |
+| `o3-manifesto` | Frase que se ilumina palabra a palabra al hacer scroll. Marca palabras con `*asteriscos*` para pintarlas de naranja. |
 | `o3-signup` | Newsletter (formulario de clientes de Shopify, etiqueta `newsletter`). |
 
 Todas respetan `prefers-reduced-motion`, sólo animan `transform`/`opacity`/`clip-path`

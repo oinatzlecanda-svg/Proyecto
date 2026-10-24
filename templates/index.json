@@ -13,7 +13,7 @@
         "lede": "Moda y accesorios para quien no quiere llevar lo mismo que el resto.",
         "product_1": "black-jeans-shiny-star",
         "product_2": "bolso-siena",
-        "product_3": "botas-beige-ante-sintetico",
+        "product_3": "bomber-noa-efecto-ante",
         "ring_text": "Oelnor — No copies",
         "hint": "Arrastra las piezas ↔",
         "cta_1_label": "Ver el drop",
@@ -217,12 +217,12 @@
     "o3-foco": {
       "type": "o3-spotlight",
       "settings": {
-        "product": "medias-termicas-efecto-transparente-200-g",
-        "eyebrow": "El más vendido",
+        "product": "botas-beige-ante-sintetico",
+        "eyebrow": "Top ventas · otoño 26",
         "title": "",
         "text": "",
-        "sticker_ring": "Best seller",
-        "sticker_center": "Nº1"
+        "sticker_ring": "Top ventas",
+        "sticker_center": "Top"
       }
     },
     "o3-manifiesto": {

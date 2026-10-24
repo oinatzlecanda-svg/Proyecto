@@ -9,7 +9,7 @@
 
 <div
   class="o3 o3-marquee{% if section.settings.style == 'bone' %} o3-marquee--bone{% endif %}{% if section.settings.reverse %} o3-marquee--reverse{% endif %}"
-  style="--o3-speed: {{ section.settings.speed }}s; background: {% case section.settings.under %}{% when 'bone' %}#ece8df{% when 'split' %}linear-gradient(#0d0d0e 50%, #ece8df 50%){% else %}#0d0d0e{% endcase %};"
+  style="--o3-speed: {{ section.settings.speed }}s; background: {% case section.settings.under %}{% when 'bone' %}#f1e8da{% when 'split' %}linear-gradient(#2a1a12 50%, #f1e8da 50%){% else %}#2a1a12{% endcase %};"
 >
   <div class="o3-marquee__band">
     {%- if section.blocks.size > 0 -%}
@@ -36,8 +36,8 @@
       "id": "style",
       "label": "Color de la cinta",
       "options": [
-        { "value": "cobalt", "label": "Cobalto" },
-        { "value": "bone", "label": "Hueso" }
+        { "value": "cobalt", "label": "Naranja" },
+        { "value": "bone", "label": "Crema" }
       ],
       "default": "cobalt"
     },
@@ -46,9 +46,9 @@
       "id": "under",
       "label": "Fondo detrás",
       "options": [
-        { "value": "ink", "label": "Carbón" },
-        { "value": "bone", "label": "Hueso" },
-        { "value": "split", "label": "Carbón arriba / hueso abajo" }
+        { "value": "ink", "label": "Chocolate" },
+        { "value": "bone", "label": "Crema" },
+        { "value": "split", "label": "Chocolate arriba / crema abajo" }
       ],
       "default": "ink"
     },

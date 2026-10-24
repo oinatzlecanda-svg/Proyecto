@@ -1,14 +1,14 @@
 {%- comment -%}
   OELNOR 3.0 — Manifesto. Words light up as the block crosses the viewport
   (CSS scroll-driven animation where supported; fully legible elsewhere).
-  Wrap a word in *asterisks* to paint it cobalt.
+  Wrap a word in *asterisks* to paint it orange.
 {%- endcomment -%}
 {%- assign words = section.settings.text | split: ' ' -%}
 
 <section class="o3 o3-manifesto" aria-labelledby="O3ManifestoTitle-{{ section.id }}">
   <div class="o3-wrap">
     {%- if section.settings.eyebrow != blank -%}
-      <p class="o3-mono o3-eyebrow" style="margin-bottom: 22px; color: #5d5a54;">{{ section.settings.eyebrow }}</p>
+      <p class="o3-mono o3-eyebrow" style="margin-bottom: 22px; color: #6b5444;">{{ section.settings.eyebrow }}</p>
     {%- endif -%}
     <h2 class="o3-manifesto__text" id="O3ManifestoTitle-{{ section.id }}">
       {%- for word in words -%}
@@ -46,7 +46,7 @@
     {
       "type": "textarea",
       "id": "text",
-      "label": "Texto (marca palabras con *asteriscos*)",
+      "label": "Texto (marca palabras con *asteriscos* para pintarlas de naranja)",
       "default": "No hacemos uniformes. Elegimos piezas para quien prefiere *destacar* antes que encajar."
     }
   ],
