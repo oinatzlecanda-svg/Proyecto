@@ -12,6 +12,31 @@ se configuran desde el Admin de Shopify — no pueden vivir en el código. Esta
 guía indica exactamente qué crear para que el tema funcione tal y como está
 diseñado.
 
+## 0. OELNOR 3.0 — nueva home (oct. 2026)
+
+La home se ha rehecho con secciones propias `o3-*` (brutalista / streetwear /
+neo-futurista, pensada primero para móvil). Son autónomas: solo dependen de
+`assets/o3.css`, `assets/o3.js` (sin librerías, ~3 KB comprimido) y dos fuentes
+autoalojadas y recortadas al alfabeto español (`o3-anton.woff2`,
+`o3-archivo.woff2`, 63 KB en total).
+
+| Sección | Qué hace |
+|---|---|
+| `o3-hero` | Titular gigante + escenario 3D en CSS con 3 productos reales. Se inclina con el ratón en escritorio y se arrastra con el dedo en móvil (física de muelle, rebote en los bordes). Carga `o3.js`. |
+| `o3-marquee` | Cinta inclinada con texto en movimiento (CSS puro). |
+| `o3-rail` | Carril de productos elegidos a mano (bloques, en orden) con ranking y etiqueta opcional. Deslizable en móvil con barra de progreso, rejilla de 4 en escritorio. Si no eliges productos usa una colección. |
+| `o3-index` | Índice de colecciones con tipografía gigante; en escritorio una imagen sigue al cursor. |
+| `o3-spotlight` | Producto foco sobre cobalto con selector de variante y "Añadir a la cesta" real (abre el carrito lateral). |
+| `o3-manifesto` | Frase que se ilumina palabra a palabra al hacer scroll. Marca palabras con `*asteriscos*` para pintarlas de cobalto. |
+| `o3-signup` | Newsletter (formulario de clientes de Shopify, etiqueta `newsletter`). |
+
+Todas respetan `prefers-reduced-motion`, sólo animan `transform`/`opacity`/`clip-path`
+y bloquean los efectos *hover* a dispositivos con ratón.
+
+Las etiquetas de los carriles ("Top ventas", "Más deseado") se escriben a mano
+en cada bloque: ponlas solo cuando sean ciertas. Las de octubre 2026 salen de
+las analíticas de la tienda (ventas de 90 días y añadidos a la cesta de 30 días).
+
 ## 1. Instalar el tema
 
 ```
