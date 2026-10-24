@@ -289,6 +289,13 @@
           {%- if section.settings.show_dynamic_checkout -%}
             {{ form | payment_button }}
           {%- endif -%}
+          {%- if section.settings.show_payments and shop.enabled_payment_types.size > 0 -%}
+            <ul class="o3-pay" role="list" aria-label="Métodos de pago aceptados">
+              {%- for type in shop.enabled_payment_types -%}
+                <li>{{ type | payment_type_svg_tag }}</li>
+              {%- endfor -%}
+            </ul>
+          {%- endif -%}
           <p class="o3-buy__status o3-mono" data-o3-status role="status" aria-live="polite"></p>
         {%- endform -%}
 
@@ -317,14 +324,6 @@
             {%- endif -%}
           {%- endfor -%}
         </ul>
-
-        {%- if section.settings.show_payments and shop.enabled_payment_types.size > 0 -%}
-          <ul class="o3-pay" role="list" aria-label="Métodos de pago aceptados">
-            {%- for type in shop.enabled_payment_types -%}
-              <li>{{ type | payment_type_svg_tag }}</li>
-            {%- endfor -%}
-          </ul>
-        {%- endif -%}
 
         {%- if tip != blank -%}
           <div class="o3-tip">

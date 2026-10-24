@@ -1601,7 +1601,7 @@ body:has(.o3-polhero) .shopify-policy__body strong { color: #2a1a12; }
 .o3-trust strong { font-size: 13px; font-weight: 800; font-stretch: 115%; text-transform: uppercase; }
 .o3-trust span { font-size: 13px; color: var(--o3-mute-light); }
 .o3-trust a { text-decoration: underline; text-underline-offset: 3px; }
-.o3-pay { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.o3-pay { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; align-items: center; padding-top: 2px; }
 .o3-pay svg { width: 38px; height: 24px; }
 .o3-tip { padding: 16px; border: var(--o3-rule) solid var(--o3-ink); background: var(--o3-bone-2); }
 .o3-tip p + p { margin-top: 6px; font-size: 15px; }
