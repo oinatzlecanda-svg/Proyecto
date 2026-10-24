@@ -1,0 +1,162 @@
+{
+  "sections": {
+    "main": {
+      "type": "o3-product",
+      "settings": {
+        "strip_perk": "Envío gratis · 30 días para devolver",
+        "price_note": "Envío gratis",
+        "atc_label": "Añadir a la cesta",
+        "show_dynamic_checkout": true,
+        "selection_handle": "la-seleccion-oelnor",
+        "new_days": 21,
+        "bundle_option": "Pack",
+        "bundle_heading": "Elige tu pack",
+        "bundle_popular": 2,
+        "bundle_popular_label": "Más elegido",
+        "bundle_best_label": "Mejor precio",
+        "size_help_link": "/pages/contact",
+        "ship_title": "Envío gratis con seguimiento",
+        "min_days": 8,
+        "max_days": 17,
+        "trust_title_1": "Envío gratis",
+        "trust_text_1": "Con seguimiento",
+        "trust_link_1": "/pages/localizar-pedido",
+        "trust_title_2": "30 días",
+        "trust_text_2": "Para devolver",
+        "trust_link_2": "/policies/refund-policy",
+        "trust_title_3": "Pago seguro",
+        "trust_text_3": "Datos cifrados",
+        "trust_link_3": "",
+        "trust_title_4": "Te ayudamos",
+        "trust_text_4": "Escríbenos",
+        "trust_link_4": "/pages/contact",
+        "show_payments": true,
+        "tip_label": "Cómo llevarlo",
+        "open_description": false,
+        "acc_title_1": "Envíos",
+        "acc_content_1": "<p>Preparamos tu pedido en 1–3 días hábiles y el transporte tarda 7–14 días hábiles. Recibirás un número de seguimiento por email.</p><p><a href=\"/policies/shipping-policy\" title=\"Política de envíos\">Ver política de envíos</a></p>",
+        "acc_title_2": "Devoluciones",
+        "acc_content_2": "<p>Tienes 30 días desde que recibes tu pedido para devolverlo.</p><p><a href=\"/policies/refund-policy\" title=\"Política de devoluciones\">Ver política de devoluciones</a></p>",
+        "acc_title_3": "Pago seguro",
+        "acc_content_3": "<p>El pago se procesa de forma cifrada a través de Shopify con los métodos que ves arriba. Oelnor no guarda los datos de tu tarjeta.</p>"
+      }
+    },
+    "o3-look": {
+      "type": "o3-product-recs",
+      "settings": {
+        "intent": "complementary",
+        "eyebrow": "Completa el look",
+        "title": "Combínalo con",
+        "limit": 6,
+        "dark": false
+      }
+    },
+    "o3-opiniones": {
+      "type": "o3-product-reviews",
+      "settings": {
+        "eyebrow": "Opiniones",
+        "heading": "Lo que dice quien ya lo lleva",
+        "loox_widget": true,
+        "empty_title": "Todavía no hay opiniones de esta pieza",
+        "empty_text": "Cuando recibas tu pedido podrás contarnos qué te parece. Tu opinión ayuda a otras personas a elegir."
+      }
+    },
+    "o3-promesa": {
+      "type": "o3-product-promise",
+      "blocks": {
+        "p1": {
+          "type": "promise",
+          "settings": {
+            "title": "Envío gratis",
+            "text": "Con número de seguimiento en cada pedido.",
+            "link": "shopify://pages/localizar-pedido"
+          }
+        },
+        "p2": {
+          "type": "promise",
+          "settings": {
+            "title": "30 días",
+            "text": "Para devolver desde que lo recibes.",
+            "link": "/policies/refund-policy"
+          }
+        },
+        "p3": {
+          "type": "promise",
+          "settings": {
+            "title": "Pago seguro",
+            "text": "Pagos cifrados con los principales métodos.",
+            "link": ""
+          }
+        },
+        "p4": {
+          "type": "promise",
+          "settings": {
+            "title": "Te ayudamos",
+            "text": "Escríbenos y te respondemos lo antes posible.",
+            "link": "shopify://pages/contact"
+          }
+        },
+        "f1": {
+          "type": "faq",
+          "settings": {
+            "question": "¿Cuándo llega mi pedido?",
+            "answer": "<p>Lo preparamos en 1–3 días hábiles y el transporte tarda 7–14 días hábiles. Arriba ves la fecha estimada para tu pedido de hoy.</p>"
+          }
+        },
+        "f2": {
+          "type": "faq",
+          "settings": {
+            "question": "¿Cómo sé dónde está mi pedido?",
+            "answer": "<p>Te enviamos un número de seguimiento por email. También puedes consultarlo en <a href=\"/pages/localizar-pedido\" title=\"Localizar pedido\">Localizar pedido</a>.</p>"
+          }
+        },
+        "f3": {
+          "type": "faq",
+          "settings": {
+            "question": "¿Puedo devolverlo si no me convence?",
+            "answer": "<p>Sí, tienes 30 días desde que lo recibes. Consulta los pasos en la <a href=\"/policies/refund-policy\" title=\"Política de devoluciones\">política de devoluciones</a>.</p>"
+          }
+        },
+        "f4": {
+          "type": "faq",
+          "settings": {
+            "question": "¿Qué talla elijo?",
+            "answer": "<p>Si dudas entre dos tallas, <a href=\"/pages/contact\" title=\"Contacto\">escríbenos</a> antes de comprar y te ayudamos a elegir.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "p3",
+        "p4",
+        "f1",
+        "f2",
+        "f3",
+        "f4"
+      ],
+      "settings": {
+        "eyebrow": "Nuestra promesa",
+        "heading": "Compra sin miedo",
+        "text": "Si algo no es como esperabas, lo solucionamos. Sin letra pequeña."
+      }
+    },
+    "o3-relacionados": {
+      "type": "o3-product-recs",
+      "settings": {
+        "intent": "related",
+        "eyebrow": "Te puede gustar",
+        "title": "Más del drop",
+        "limit": 8,
+        "dark": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "o3-look",
+    "o3-opiniones",
+    "o3-promesa",
+    "o3-relacionados"
+  ]
+}

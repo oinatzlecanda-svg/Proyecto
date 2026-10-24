@@ -34,6 +34,11 @@ autoalojadas y recortadas al alfabeto español (`o3-anton.woff2`,
 | `o3-contact` | Contacto: accesos rápidos (seguimiento, envíos, devoluciones), formulario con tema, nº de pedido y mensaje, y preguntas frecuentes (con datos estructurados FAQPage). |
 | `o3-tracking` | "Localiza tu envío": botón al localizador de ParcelPanel (`/apps/parcelpanel`), etiqueta de envío animada, pasos reales del envío y ayuda. |
 
+| `o3-product` | Ficha de producto: galería deslizable a pantalla completa en móvil (contador, zoom a pantalla completa) y rejilla editorial en escritorio; caja de compra fija con opiniones reales de Loox, precio con ahorro real, muestras de color con la foto de cada variante, tallas con disponibilidad en vivo, packs con precio por unidad (opción "Pack"), cantidad, "Añadir a la cesta" sin recargar (abre el carrito lateral), pago rápido, fechas de entrega en días hábiles, confianza, consejo "Cómo llevarlo" (metacampo `custom.oelnor_style_tip`) y detalles. En móvil aparece una barra de compra fija al pasar el botón. Datos estructurados Product (ofertas, envío gratis, devolución de 30 días, valoraciones) y BreadcrumbList. Guía de tallas opcional: metacampo `custom.size_guide` o página elegida en la sección. |
+| `o3-product-recs` | "Completa el look" (complementarios de Search & Discovery) y "Más del drop" (relacionados). Se cargan al acercarse y se ocultan si Shopify no tiene sugerencias. |
+| `o3-product-reviews` | Opiniones de Loox con resumen real y estado vacío honesto. |
+| `o3-product-promise` | Garantías de compra y preguntas frecuentes antes de comprar. |
+
 Además, `snippets/oelnor-policy-shell.liquid` (cabecera de las políticas, con índice
 automático de apartados) y `snippets/oelnor-parcelpanel-shell.liquid` (marco de la
 página de ParcelPanel) se pintan desde `layout/theme.liquid`. Los estilos y el JS se

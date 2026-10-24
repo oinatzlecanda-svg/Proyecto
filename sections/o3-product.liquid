@@ -1,0 +1,535 @@
+{%- comment -%}
+  OELNOR 3.0 — Product page.
+  Swipe gallery (phones) / editorial grid (desktop) + sticky buy box:
+  real reviews (Loox), price with real savings, visual colour swatches,
+  size pills with live availability, pack cards (option named in settings),
+  quantity, add to cart into the cart drawer, express checkout, delivery
+  dates, trust and details. A sticky bar takes over on phones once the
+  main button scrolls away. Behaviour lives in o3.js.
+{%- endcomment -%}
+{%- liquid
+  assign current = product.selected_or_first_available_variant
+  assign form_id = 'O3ProductForm-' | append: section.id
+  assign on_sale = false
+  if current.compare_at_price > current.price
+    assign on_sale = true
+    assign save_pct = current.compare_at_price | minus: current.price | times: 100 | divided_by: current.compare_at_price
+  endif
+
+  assign r_avg = product.metafields.loox.avg_rating.value
+  assign r_num = product.metafields.loox.num_reviews.value
+  if r_num == blank and product.metafields.reviews.rating_count.value != blank
+    assign r_num = product.metafields.reviews.rating_count.value
+    assign r_avg = product.metafields.reviews.rating.value.rating
+  endif
+  assign r_num = r_num | default: 0
+  assign r_pct = r_avg | default: 0 | times: 20
+
+  assign in_selection = false
+  for c in product.collections
+    if c.handle == section.settings.selection_handle
+      assign in_selection = true
+    endif
+  endfor
+  assign is_new = false
+  assign published_s = product.published_at | date: '%s'
+  assign now_s = 'now' | date: '%s'
+  assign age_days = now_s | minus: published_s | divided_by: 86400
+  if age_days < section.settings.new_days
+    assign is_new = true
+  endif
+
+  assign tip = product.metafields.custom.oelnor_style_tip.value
+  assign size_guide = product.metafields.custom.size_guide.value | default: section.settings.size_guide_page.content
+  assign media_count = product.media.size
+  assign first_media = current.featured_media | default: product.featured_media
+-%}
+
+<section class="o3 o3-product" data-o3-product data-section="{{ section.id }}">
+  <div class="o3-pstrip o3-top">
+    <div class="o3-wrap">
+      <nav class="o3-crumbs o3-mono" aria-label="Ruta">
+        <a href="{{ routes.root_url }}">Inicio</a>
+        {%- if collection -%}
+          <span aria-hidden="true">/</span>
+          <a href="{{ collection.url }}">{{ collection.title | escape }}</a>
+        {%- endif -%}
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">{{ product.title | escape }}</span>
+      </nav>
+      {%- if section.settings.strip_perk != blank -%}
+        <p class="o3-pstrip__perk o3-mono">{{ section.settings.strip_perk }}</p>
+      {%- endif -%}
+    </div>
+  </div>
+
+  <div class="o3-pdp">
+    <div class="o3-wrap o3-pdp__grid">
+      {%- comment -%} Gallery is full-bleed on phones: o3.css drops the wrap padding there and pads the buy box instead {%- endcomment -%}
+      <div class="o3-gal" data-o3-gallery>
+        <div class="o3-gal__track" data-o3-gal-track>
+          {%- for media in product.media -%}
+            {%- liquid
+              assign eager = false
+              if forloop.first
+                assign eager = true
+              endif
+              assign m_alt = media.alt | default: product.title | escape
+            -%}
+            <button
+              type="button"
+              class="o3-gal__item"
+              data-o3-gal-item
+              data-media-id="{{ media.id }}"
+              aria-label="Ampliar imagen {{ forloop.index }} de {{ media_count }}"
+            >
+              {%- case media.media_type -%}
+                {%- when 'video' -%}
+                  {{ media | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false, image_size: '1100x' }}
+                {%- else -%}
+                  {%- if eager -%}
+                    {{
+                      media.preview_image
+                      | image_url: width: 1400
+                      | image_tag: loading: 'eager', fetchpriority: 'high', widths: '480, 720, 960, 1200, 1400', sizes: '(min-width: 990px) 58vw, 100vw', alt: m_alt
+                    }}
+                  {%- else -%}
+                    {{
+                      media.preview_image
+                      | image_url: width: 1100
+                      | image_tag: loading: 'lazy', widths: '480, 720, 960, 1100', sizes: '(min-width: 990px) 29vw, 100vw', alt: m_alt
+                    }}
+                  {%- endif -%}
+              {%- endcase -%}
+            </button>
+          {%- else -%}
+            <div class="o3-gal__item">{{ 'product-apparel-1' | placeholder_svg_tag }}</div>
+          {%- endfor -%}
+        </div>
+        {%- if in_selection or is_new or on_sale -%}
+          <div class="o3-gal__badges o3-mono" aria-hidden="true">
+            {%- if on_sale -%}<span class="o3-badge o3-badge--hot" data-o3-save-badge>-{{ save_pct }}%</span>{%- endif -%}
+            {%- if is_new -%}<span class="o3-badge">Nuevo</span>{%- endif -%}
+            {%- if in_selection -%}<span class="o3-badge">La selección</span>{%- endif -%}
+          </div>
+        {%- endif -%}
+        {%- if media_count > 1 -%}
+          <div class="o3-gal__hud o3-mono" aria-hidden="true">
+            <span class="o3-gal__count"><span data-o3-gal-index>1</span>/{{ media_count }}</span>
+            <span class="o3-gal__bar"><span data-o3-gal-bar style="transform: scaleX({{ 1.0 | divided_by: media_count }});"></span></span>
+            <span class="o3-gal__zoom">Toca para ampliar</span>
+          </div>
+        {%- endif -%}
+      </div>
+
+      <div class="o3-buy">
+        <div>
+          <h1 class="o3-buy__title">{{ product.title | escape }}</h1>
+        </div>
+
+        {%- if r_num > 0 -%}
+          <a class="o3-buy__rating" href="#opiniones">
+            <span class="o3-stars" style="--r: {{ r_pct }}%" aria-hidden="true"></span>
+            <span><b>{{ r_avg | round: 1 | replace: '.', ',' }}</b> · {{ r_num }} {% if r_num == 1 %}opinión{% else %}opiniones{% endif %}</span>
+            <span class="o3-sr">Valoración media {{ r_avg | round: 1 }} de 5</span>
+          </a>
+        {%- endif -%}
+
+        <div class="o3-buy__price" data-o3-price>
+          <span class="o3-buy__now" data-o3-now>{{ current.price | money }}</span>
+          <s class="o3-buy__was" data-o3-was {% unless on_sale %}hidden{% endunless %}>
+            <span class="o3-sr">Antes</span><span data-o3-was-val>{% if on_sale %}{{ current.compare_at_price | money }}{% endif %}</span>
+          </s>
+          <span class="o3-buy__save o3-mono" data-o3-save {% unless on_sale %}hidden{% endunless %}>
+            {%- if on_sale -%}Ahorras {{ current.compare_at_price | minus: current.price | money }}{%- endif -%}
+          </span>
+          <span class="o3-buy__tax o3-mono">
+            {%- if shop.taxes_included %}IVA incluido · {% endif -%}
+            {{ section.settings.price_note }}
+          </span>
+        </div>
+
+        {%- form 'product', product, id: form_id, class: 'o3-buy__form', novalidate: 'novalidate', data-o3-form: '' -%}
+          <input type="hidden" name="id" value="{{ current.id }}" data-o3-variant-id>
+
+          {%- unless product.has_only_default_variant -%}
+            {%- for option in product.options_with_values -%}
+              {%- liquid
+                assign oname = option.name | downcase
+                assign is_color = false
+                if oname contains 'color' or oname contains 'colour'
+                  assign is_color = true
+                endif
+                assign is_bundle = false
+                if option.name == section.settings.bundle_option
+                  assign is_bundle = true
+                endif
+                assign is_size = false
+                if oname contains 'talla' or oname contains 'size' or oname contains 'tamaño'
+                  assign is_size = true
+                endif
+                assign group = 'O3Opt-' | append: section.id | append: '-' | append: option.position
+              -%}
+              {%- if option.values.size == 1 -%}
+                <div class="o3-opt__static" data-o3-option data-index="{{ forloop.index0 }}">
+                  <span class="o3-mono o3-mono-mute">{{ option.name | escape }}</span>
+                  <b>{{ option.values.first | escape }}</b>
+                  <input type="radio" name="{{ group }}" value="{{ option.values.first | escape }}" checked hidden>
+                </div>
+              {%- else -%}
+                <fieldset class="o3-opt" data-o3-option data-index="{{ forloop.index0 }}">
+                  <legend>
+                    <span class="o3-mono o3-mono-mute">{% if is_bundle %}{{ section.settings.bundle_heading }}{% else %}{{ option.name | escape }}{% endif %}</span>
+                    <b data-o3-option-value>{{ option.selected_value | escape }}</b>
+                    {%- if is_size -%}
+                      {%- if size_guide != blank -%}
+                        <button type="button" class="o3-opt__help" data-o3-open-dialog="O3Size-{{ section.id }}">Guía de tallas</button>
+                      {%- elsif section.settings.size_help_link != blank -%}
+                        <a class="o3-opt__help" href="{{ section.settings.size_help_link }}">¿Dudas con tu talla?</a>
+                      {%- endif -%}
+                    {%- endif -%}
+                  </legend>
+
+                  {%- if is_bundle -%}
+                    {%- liquid
+                      assign option_key = 'option' | append: option.position
+                      assign base_variant = product.variants | where: option_key, option.values.first | first
+                      assign base_price = base_variant.price
+                      assign popular_index = section.settings.bundle_popular | minus: 1
+                      assign last_index = option.values.size | minus: 1
+                    -%}
+                    <div class="o3-bundles" role="radiogroup">
+                      {%- for value in option.values -%}
+                        {%- liquid
+                          assign v = product.variants | where: option_key, value | first
+                          assign units = value | split: ' ' | first | plus: 0
+                          if units < 1
+                            assign units = 1
+                          endif
+                          assign compare_total = base_price | times: units
+                          assign saving = compare_total | minus: v.price
+                          assign per_unit = v.price | divided_by: units
+                        -%}
+                        <label class="o3-opt__v" {% unless value.available %}data-unavailable{% endunless %}>
+                          <input type="radio" name="{{ group }}" value="{{ value | escape }}" {% if value.selected %}checked{% endif %}>
+                          <span class="o3-bundle">
+                            {%- if forloop.index0 == popular_index and section.settings.bundle_popular_label != blank -%}
+                              <span class="o3-bundle__flag o3-mono">{{ section.settings.bundle_popular_label }}</span>
+                            {%- elsif forloop.index0 == last_index and saving > 0 and section.settings.bundle_best_label != blank -%}
+                              <span class="o3-bundle__flag o3-bundle__flag--ghost o3-mono">{{ section.settings.bundle_best_label }}</span>
+                            {%- endif -%}
+                            <span class="o3-bundle__radio" aria-hidden="true"></span>
+                            <span>
+                              <span class="o3-bundle__name">{{ value | escape }}</span>
+                              <span class="o3-bundle__meta">
+                                {%- if units > 1 -%}{{ per_unit | money }} / unidad{%- else -%}Precio por unidad{%- endif -%}
+                                {%- if saving > 0 %} · <span class="o3-bundle__save">Ahorras {{ saving | money }}</span>{% endif -%}
+                              </span>
+                            </span>
+                            <span class="o3-bundle__price">
+                              <b>{{ v.price | money }}</b>
+                              {%- if saving > 0 -%}<s>{{ compare_total | money }}</s>{%- endif -%}
+                            </span>
+                          </span>
+                        </label>
+                      {%- endfor -%}
+                    </div>
+                  {%- else -%}
+                    <div class="o3-opt__list">
+                      {%- for value in option.values -%}
+                        <label class="o3-opt__v" {% unless value.available %}data-unavailable{% endunless %}>
+                          <input type="radio" name="{{ group }}" value="{{ value | escape }}" {% if value.selected %}checked{% endif %}>
+                          {%- if is_color -%}
+                            {%- assign sw_media = value.variant.featured_media | default: product.featured_media -%}
+                            <span class="o3-sw">
+                              <span class="o3-sw__img">
+                                {%- if sw_media -%}
+                                  {{ sw_media.preview_image | image_url: width: 160 | image_tag: loading: 'lazy', alt: '', width: 64, height: 80 }}
+                                {%- endif -%}
+                              </span>
+                              <span class="o3-sw__name">{{ value | escape }}</span>
+                            </span>
+                          {%- else -%}
+                            <span class="o3-pill">{{ value | escape }}</span>
+                          {%- endif -%}
+                        </label>
+                      {%- endfor -%}
+                    </div>
+                  {%- endif -%}
+                </fieldset>
+              {%- endif -%}
+            {%- endfor -%}
+          {%- endunless -%}
+
+          <p class="o3-stock o3-mono" data-o3-stock hidden><i aria-hidden="true"></i><span></span></p>
+
+          <div class="o3-buy__row">
+            <div class="o3-qty">
+              <button type="button" data-o3-qty="-1" aria-label="Quitar una unidad">−</button>
+              <input type="number" name="quantity" value="1" min="1" max="99" inputmode="numeric" aria-label="Cantidad">
+              <button type="button" data-o3-qty="1" aria-label="Añadir una unidad">+</button>
+            </div>
+            <button
+              type="submit"
+              name="add"
+              class="o3-atc"
+              data-o3-atc
+              data-label-add="{{ section.settings.atc_label | escape }}"
+              data-label-sold="Agotado"
+              data-label-none="No disponible"
+              data-label-done="Añadido ✓"
+              {% unless current.available %}disabled{% endunless %}
+            >
+              <span class="o3-atc__label" data-o3-atc-label>
+                {%- if current.available -%}{{ section.settings.atc_label }}{%- else -%}Agotado{%- endif -%}
+              </span>
+              <span class="o3-atc__price" data-o3-atc-price>{{ current.price | money }}</span>
+            </button>
+          </div>
+          {%- if section.settings.show_dynamic_checkout -%}
+            {{ form | payment_button }}
+          {%- endif -%}
+          <p class="o3-buy__status o3-mono" data-o3-status role="status" aria-live="polite"></p>
+        {%- endform -%}
+
+        <div class="o3-ship" data-o3-delivery data-min="{{ section.settings.min_days }}" data-max="{{ section.settings.max_days }}">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 9h16v13H3zM19 13h6l4 5v4h-10z"/><circle cx="9" cy="24" r="2.5"/><circle cx="24" cy="24" r="2.5"/></svg>
+          <strong>{{ section.settings.ship_title }}</strong>
+          <span data-o3-delivery-text>Entrega estimada en {{ section.settings.min_days }}–{{ section.settings.max_days }} días hábiles</span>
+        </div>
+
+        <ul class="o3-trust" role="list">
+          {%- for i in (1..4) -%}
+            {%- liquid
+              assign t_key = 'trust_title_' | append: i
+              assign x_key = 'trust_text_' | append: i
+              assign l_key = 'trust_link_' | append: i
+            -%}
+            {%- if section.settings[t_key] != blank -%}
+              <li>
+                <strong>{{ section.settings[t_key] }}</strong>
+                {%- if section.settings[l_key] != blank -%}
+                  <span><a href="{{ section.settings[l_key] }}">{{ section.settings[x_key] }}</a></span>
+                {%- else -%}
+                  <span>{{ section.settings[x_key] }}</span>
+                {%- endif -%}
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+
+        {%- if section.settings.show_payments and shop.enabled_payment_types.size > 0 -%}
+          <ul class="o3-pay" role="list" aria-label="Métodos de pago aceptados">
+            {%- for type in shop.enabled_payment_types -%}
+              <li>{{ type | payment_type_svg_tag }}</li>
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+
+        {%- if tip != blank -%}
+          <div class="o3-tip">
+            <p class="o3-mono o3-mono-mute" style="margin: 0;">{{ section.settings.tip_label }}</p>
+            <p>{{ tip | escape | newline_to_br }}</p>
+          </div>
+        {%- endif -%}
+
+        <div class="o3-acc">
+          {%- if product.description != blank -%}
+            <details {% if section.settings.open_description %}open{% endif %}>
+              <summary>Descripción <i aria-hidden="true"></i></summary>
+              <div class="o3-acc__body">{{ product.description }}</div>
+            </details>
+          {%- endif -%}
+          {%- for i in (1..3) -%}
+            {%- liquid
+              assign a_t = 'acc_title_' | append: i
+              assign a_c = 'acc_content_' | append: i
+            -%}
+            {%- if section.settings[a_t] != blank and section.settings[a_c] != blank -%}
+              <details>
+                <summary>{{ section.settings[a_t] }} <i aria-hidden="true"></i></summary>
+                <div class="o3-acc__body">{{ section.settings[a_c] }}</div>
+              </details>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {%- comment -%} Sticky buy bar for phones {%- endcomment -%}
+  <div class="o3-sticky" data-o3-sticky aria-hidden="true">
+    <div class="o3-sticky__img">
+      {%- if first_media -%}
+        {{ first_media.preview_image | image_url: width: 120 | image_tag: loading: 'lazy', alt: '', width: 48, height: 60, data-o3-sticky-img: '' }}
+      {%- endif -%}
+    </div>
+    <div class="o3-sticky__txt">
+      <strong>{{ product.title | escape }}</strong>
+      <span data-o3-sticky-meta>{% unless product.has_only_default_variant %}{{ current.title | escape }} · {% endunless %}{{ current.price | money }}</span>
+    </div>
+    <button type="button" class="o3-atc" data-o3-sticky-btn tabindex="-1" {% unless current.available %}disabled{% endunless %}>
+      {%- if current.available -%}Añadir{%- else -%}Agotado{%- endif -%}
+    </button>
+  </div>
+
+  {%- comment -%} Zoom viewer {%- endcomment -%}
+  <dialog class="o3-zoom" data-o3-zoom aria-label="Imágenes de {{ product.title | escape }}">
+    <button type="button" class="o3-btn o3-btn--ink o3-zoom__close" data-o3-close-dialog aria-label="Cerrar">✕</button>
+    <div class="o3-zoom__list">
+      {%- for media in product.media -%}
+        {%- if media.media_type == 'image' -%}
+          {%- assign z_alt = media.alt | default: product.title | escape -%}
+          {{ media | image_url: width: 1800 | image_tag: loading: 'lazy', widths: '900, 1400, 1800', sizes: '100vw', alt: z_alt, data-media-id: media.id }}
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </dialog>
+
+  {%- if size_guide != blank -%}
+    <dialog class="o3-drawer" id="O3Size-{{ section.id }}" aria-labelledby="O3SizeTitle-{{ section.id }}">
+      <div class="o3-drawer__head">
+        <h2 id="O3SizeTitle-{{ section.id }}">Guía de tallas</h2>
+        <button type="button" class="o3-btn o3-btn--ink o3-drawer__close" data-o3-close-dialog aria-label="Cerrar">✕</button>
+      </div>
+      <div class="o3-drawer__body o3-acc__body" style="padding-top: 18px;">{{ size_guide }}</div>
+    </dialog>
+  {%- endif -%}
+
+  <script type="application/json" data-o3-variants>
+    [
+      {%- for v in product.variants -%}
+        {
+          "id": {{ v.id }},
+          "title": {{ v.title | json }},
+          "options": {{ v.options | json }},
+          "available": {{ v.available | json }},
+          "price": {{ v.price | money | strip_html | json }},
+          "was": {% if v.compare_at_price > v.price %}{{ v.compare_at_price | money | strip_html | json }}{% else %}null{% endif %},
+          "save": {% if v.compare_at_price > v.price %}{{ v.compare_at_price | minus: v.price | money | strip_html | json }}{% else %}null{% endif %},
+          "pct": {% if v.compare_at_price > v.price %}{{ v.compare_at_price | minus: v.price | times: 100 | divided_by: v.compare_at_price }}{% else %}0{% endif %},
+          "media": {{ v.featured_media.id | json }},
+          "img": {% if v.featured_media %}{{ v.featured_media.preview_image | image_url: width: 120 | json }}{% else %}null{% endif %},
+          "stock": {% if v.inventory_management == 'shopify' and v.inventory_policy == 'deny' %}{{ v.inventory_quantity }}{% else %}null{% endif %}
+        }{% unless forloop.last %},{% endunless %}
+      {%- endfor -%}
+    ]
+  </script>
+</section>
+
+{%- comment -%} Structured data for search engines {%- endcomment -%}
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": {{ product.title | json }},
+    "url": {{ request.origin | append: product.url | json }},
+    {%- if product.featured_media -%}
+      "image": [{{ product.featured_media | image_url: width: 1400 | prepend: 'https:' | json }}],
+    {%- endif -%}
+    "description": {{ product.description | strip_html | truncatewords: 60 | json }},
+    {%- if current.sku != blank -%}"sku": {{ current.sku | json }},{%- endif -%}
+    "brand": { "@type": "Brand", "name": {{ product.vendor | default: shop.name | json }} },
+    {%- if r_num > 0 -%}
+      "aggregateRating": { "@type": "AggregateRating", "ratingValue": {{ r_avg | json }}, "reviewCount": {{ r_num | json }} },
+    {%- endif -%}
+    "offers": [
+      {%- for v in product.variants -%}
+        {
+          "@type": "Offer",
+          "name": {{ v.title | json }},
+          {%- if v.sku != blank -%}"sku": {{ v.sku | json }},{%- endif -%}
+          "availability": "http://schema.org/{% if v.available %}InStock{% else %}OutOfStock{% endif %}",
+          "price": {{ v.price | divided_by: 100.0 | json }},
+          "priceCurrency": {{ cart.currency.iso_code | json }},
+          "url": {{ request.origin | append: v.url | json }},
+          "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": { "@type": "MonetaryAmount", "value": 0, "currency": {{ cart.currency.iso_code | json }} },
+            "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "ES" },
+            "deliveryTime": {
+              "@type": "ShippingDeliveryTime",
+              "handlingTime": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 3, "unitCode": "DAY" },
+              "transitTime": { "@type": "QuantitativeValue", "minValue": 7, "maxValue": 14, "unitCode": "DAY" }
+            }
+          },
+          "hasMerchantReturnPolicy": {
+            "@type": "MerchantReturnPolicy",
+            "applicableCountry": "ES",
+            "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+            "merchantReturnDays": 30
+          }
+        }{% unless forloop.last %},{% endunless %}
+      {%- endfor -%}
+    ]
+  }
+</script>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Inicio", "item": {{ request.origin | append: routes.root_url | json }} },
+      {%- if collection -%}
+        { "@type": "ListItem", "position": 2, "name": {{ collection.title | json }}, "item": {{ request.origin | append: collection.url | json }} },
+        { "@type": "ListItem", "position": 3, "name": {{ product.title | json }}, "item": {{ request.origin | append: product.url | json }} }
+      {%- else -%}
+        { "@type": "ListItem", "position": 2, "name": {{ product.title | json }}, "item": {{ request.origin | append: product.url | json }} }
+      {%- endif -%}
+    ]
+  }
+</script>
+
+{% schema %}
+{
+  "name": "O3 · Producto",
+  "tag": "div",
+  "class": "o3-section",
+  "settings": [
+    { "type": "text", "id": "strip_perk", "label": "Texto de la franja superior", "default": "Envío gratis · 30 días para devolver" },
+    { "type": "text", "id": "price_note", "label": "Nota bajo el precio", "default": "Envío gratis" },
+    { "type": "text", "id": "atc_label", "label": "Botón de compra", "default": "Añadir a la cesta" },
+    { "type": "checkbox", "id": "show_dynamic_checkout", "label": "Botón de pago rápido (Shop Pay, Apple Pay…)", "default": true },
+    { "type": "header", "content": "Etiquetas" },
+    { "type": "text", "id": "selection_handle", "label": "Colección que muestra «La selección»", "default": "la-seleccion-oelnor" },
+    { "type": "range", "id": "new_days", "label": "Días con etiqueta «Nuevo»", "min": 0, "max": 60, "step": 1, "default": 21 },
+    { "type": "header", "content": "Packs" },
+    { "type": "text", "id": "bundle_option", "label": "Nombre de la opción de packs", "default": "Pack", "info": "Esa opción se muestra como tarjetas con el ahorro real por unidad." },
+    { "type": "text", "id": "bundle_heading", "label": "Título de los packs", "default": "Elige tu pack" },
+    { "type": "range", "id": "bundle_popular", "label": "Posición del pack «Más elegido»", "min": 1, "max": 5, "step": 1, "default": 2 },
+    { "type": "text", "id": "bundle_popular_label", "label": "Etiqueta del más elegido", "default": "Más elegido" },
+    { "type": "text", "id": "bundle_best_label", "label": "Etiqueta del mejor precio", "default": "Mejor precio" },
+    { "type": "header", "content": "Tallas" },
+    { "type": "page", "id": "size_guide_page", "label": "Página con la guía de tallas", "info": "Un producto puede tener la suya en el metacampo custom.size_guide." },
+    { "type": "url", "id": "size_help_link", "label": "Enlace de ayuda con tallas (si no hay guía)" },
+    { "type": "header", "content": "Entrega" },
+    { "type": "text", "id": "ship_title", "label": "Título", "default": "Envío gratis con seguimiento" },
+    { "type": "range", "id": "min_days", "label": "Días hábiles mínimos", "min": 1, "max": 30, "step": 1, "default": 8 },
+    { "type": "range", "id": "max_days", "label": "Días hábiles máximos", "min": 1, "max": 40, "step": 1, "default": 17 },
+    { "type": "header", "content": "Confianza" },
+    { "type": "text", "id": "trust_title_1", "label": "Título 1", "default": "Envío gratis" },
+    { "type": "text", "id": "trust_text_1", "label": "Texto 1", "default": "Con seguimiento" },
+    { "type": "url", "id": "trust_link_1", "label": "Enlace 1" },
+    { "type": "text", "id": "trust_title_2", "label": "Título 2", "default": "30 días" },
+    { "type": "text", "id": "trust_text_2", "label": "Texto 2", "default": "Para devolver" },
+    { "type": "url", "id": "trust_link_2", "label": "Enlace 2" },
+    { "type": "text", "id": "trust_title_3", "label": "Título 3", "default": "Pago seguro" },
+    { "type": "text", "id": "trust_text_3", "label": "Texto 3", "default": "Datos cifrados" },
+    { "type": "url", "id": "trust_link_3", "label": "Enlace 3" },
+    { "type": "text", "id": "trust_title_4", "label": "Título 4", "default": "Te ayudamos" },
+    { "type": "text", "id": "trust_text_4", "label": "Texto 4", "default": "Escríbenos" },
+    { "type": "url", "id": "trust_link_4", "label": "Enlace 4" },
+    { "type": "checkbox", "id": "show_payments", "label": "Iconos de pago", "default": true },
+    { "type": "header", "content": "Detalles" },
+    { "type": "text", "id": "tip_label", "label": "Título del consejo (metacampo custom.oelnor_style_tip)", "default": "Cómo llevarlo" },
+    { "type": "checkbox", "id": "open_description", "label": "Descripción abierta", "default": true },
+    { "type": "text", "id": "acc_title_1", "label": "Pestaña 1", "default": "Envíos" },
+    { "type": "richtext", "id": "acc_content_1", "label": "Contenido 1" },
+    { "type": "text", "id": "acc_title_2", "label": "Pestaña 2", "default": "Devoluciones" },
+    { "type": "richtext", "id": "acc_content_2", "label": "Contenido 2" },
+    { "type": "text", "id": "acc_title_3", "label": "Pestaña 3", "default": "Pago seguro" },
+    { "type": "richtext", "id": "acc_content_3", "label": "Contenido 3" }
+  ],
+  "enabled_on": { "templates": ["product"] }
+}
+{% endschema %}

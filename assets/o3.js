@@ -145,6 +145,242 @@
     });
   }
 
+  /* ---------- Add to cart into Dawn's cart drawer (plain POST without it) ---------- */
+  async function addToCart(form) {
+    const drawer = document.querySelector('cart-drawer');
+    const body = new FormData(form);
+    if (drawer && typeof drawer.getSectionsToRender === 'function') {
+      body.append('sections', drawer.getSectionsToRender().map((s) => s.id).join(','));
+      body.append('sections_url', location.pathname);
+    }
+    const res = await fetch(`${(window.routes && window.routes.cart_add_url) || '/cart/add'}.js`, {
+      method: 'POST',
+      headers: { Accept: 'application/javascript', 'X-Requested-With': 'XMLHttpRequest' },
+      body,
+    });
+    const data = await res.json();
+    if (!res.ok || data.status) throw new Error(data.description || data.message || 'No se ha podido añadir');
+    if (drawer && typeof drawer.renderContents === 'function') {
+      drawer.classList.remove('is-empty');
+      drawer.renderContents(data);
+      return true;
+    }
+    location.href = (window.routes && window.routes.cart_url) || '/cart';
+    return false;
+  }
+
+  /* ---------- Generic dialogs: [data-o3-open-dialog="id"] / [data-o3-close-dialog] ---------- */
+  document.addEventListener('click', (e) => {
+    const opener = e.target.closest('[data-o3-open-dialog]');
+    if (opener) document.getElementById(opener.dataset.o3OpenDialog)?.showModal();
+    const closer = e.target.closest('[data-o3-close-dialog]');
+    if (closer) closer.closest('dialog')?.close();
+    if (e.target.matches('dialog.o3-drawer')) e.target.close();
+  });
+
+  /* ---------- Delivery estimate in real business days ---------- */
+  function delivery(el) {
+    const min = +el.dataset.min;
+    const max = +el.dataset.max;
+    const text = el.querySelector('[data-o3-delivery-text]');
+    if (!text || !min || !max) return;
+    const addBusinessDays = (days) => {
+      const d = new Date();
+      let left = days;
+      while (left > 0) {
+        d.setDate(d.getDate() + 1);
+        const wd = d.getDay();
+        if (wd !== 0 && wd !== 6) left--;
+      }
+      return d;
+    };
+    const fmt = new Intl.DateTimeFormat('es-ES', { weekday: 'short', day: 'numeric', month: 'short' });
+    const day = (d) => fmt.formatToParts(d).filter((p) => p.type !== 'literal').map((p) => p.value).join(' ');
+    text.innerHTML = `Recíbelo entre el <b>${day(addBusinessDays(min))}</b> y el <b>${day(addBusinessDays(max))}</b>`;
+  }
+
+  /* ---------- Product page ---------- */
+  function product(section) {
+    const form = section.querySelector('[data-o3-form]');
+    const json = section.querySelector('[data-o3-variants]');
+    if (!form || !json) return;
+    const variants = JSON.parse(json.textContent);
+    const idInput = form.querySelector('[data-o3-variant-id]');
+    const options = [...section.querySelectorAll('[data-o3-option]')];
+    const atc = section.querySelector('[data-o3-atc]');
+    const atcLabel = section.querySelector('[data-o3-atc-label]');
+    const atcPrice = section.querySelector('[data-o3-atc-price]');
+    const status = section.querySelector('[data-o3-status]');
+    const stock = section.querySelector('[data-o3-stock]');
+    const now = section.querySelector('[data-o3-now]');
+    const was = section.querySelector('[data-o3-was]');
+    const save = section.querySelector('[data-o3-save]');
+    const saveBadge = section.querySelector('[data-o3-save-badge]');
+    const track = section.querySelector('[data-o3-gal-track]');
+    const sticky = section.querySelector('[data-o3-sticky]');
+    const stickyBtn = section.querySelector('[data-o3-sticky-btn]');
+    const stickyMeta = section.querySelector('[data-o3-sticky-meta]');
+    const stickyImg = section.querySelector('[data-o3-sticky-img]');
+    const single = variants.length === 1 && !options.length;
+
+    const selected = () =>
+      options.map((o) => (o.querySelector('input:checked') || o.querySelector('input'))?.value);
+    const find = (opts) => variants.find((v) => v.options.every((val, i) => val === opts[i]));
+
+    const markAvailability = (opts) => {
+      options.forEach((group, i) => {
+        group.querySelectorAll('.o3-opt__v').forEach((label) => {
+          const value = label.querySelector('input').value;
+          const test = opts.slice();
+          test[i] = value;
+          const v = find(test);
+          label.toggleAttribute('data-unavailable', !v || !v.available);
+        });
+        const out = group.querySelector('[data-o3-option-value]');
+        if (out) out.textContent = opts[i];
+      });
+    };
+
+    const setButton = (v) => {
+      const ok = v && v.available;
+      atc.disabled = !ok;
+      atcLabel.textContent = !v ? atc.dataset.labelNone : ok ? atc.dataset.labelAdd : atc.dataset.labelSold;
+      if (stickyBtn) {
+        stickyBtn.disabled = !ok;
+        stickyBtn.textContent = ok ? 'Añadir' : !v ? 'No disponible' : 'Agotado';
+      }
+    };
+
+    const showMedia = (id) => {
+      if (!id || !track) return;
+      const item = track.querySelector(`[data-media-id="${id}"]`);
+      if (!item || item === track.firstElementChild) return;
+      track.prepend(item);
+      track.scrollTo({ left: 0, behavior: 'instant' });
+      updateHud();
+    };
+
+    const update = () => {
+      const opts = selected();
+      const v = find(opts);
+      markAvailability(opts);
+      setButton(v);
+      if (!v) return;
+      idInput.value = v.id;
+      now.textContent = v.price;
+      atcPrice.textContent = v.price;
+      if (was) { was.hidden = !v.was; was.querySelector('[data-o3-was-val]').textContent = v.was || ''; }
+      if (save) { save.hidden = !v.save; save.textContent = v.save ? `Ahorras ${v.save}` : ''; }
+      if (saveBadge) { saveBadge.hidden = !v.pct; saveBadge.textContent = `-${v.pct}%`; }
+      if (stock) {
+        const low = v.stock !== null && v.stock > 0 && v.stock <= 5;
+        stock.hidden = !low;
+        if (low) stock.querySelector('span').textContent = v.stock === 1 ? 'Queda la última unidad' : `Quedan ${v.stock} unidades`;
+      }
+      if (stickyMeta) stickyMeta.textContent = single ? v.price : `${v.title} · ${v.price}`;
+      if (stickyImg && v.img) stickyImg.src = v.img;
+      showMedia(v.media);
+      const url = new URL(location.href);
+      url.searchParams.set('variant', v.id);
+      history.replaceState(history.state, '', url);
+      if (status) status.textContent = '';
+    };
+
+    options.forEach((o) => o.addEventListener('change', update));
+
+    // Quantity stepper
+    const qty = form.querySelector('input[name="quantity"]');
+    form.querySelectorAll('[data-o3-qty]').forEach((b) =>
+      b.addEventListener('click', () => {
+        qty.value = Math.min(99, Math.max(1, (+qty.value || 1) + +b.dataset.o3Qty));
+      })
+    );
+
+    // Add to cart
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (atc.disabled) return;
+      atc.setAttribute('aria-busy', 'true');
+      try {
+        await addToCart(form);
+        atc.setAttribute('data-done', '');
+        atcLabel.textContent = atc.dataset.labelDone;
+        setTimeout(() => { atc.removeAttribute('data-done'); atcLabel.textContent = atc.dataset.labelAdd; }, 1800);
+      } catch (err) {
+        if (status) status.textContent = err.message;
+      } finally {
+        atc.removeAttribute('aria-busy');
+      }
+    });
+
+    // Gallery: counter + progress on the swipe track
+    const items = () => [...track.querySelectorAll('[data-o3-gal-item]')];
+    const idx = section.querySelector('[data-o3-gal-index]');
+    const bar = section.querySelector('[data-o3-gal-bar]');
+    let queued = false;
+    function updateHud() {
+      queued = false;
+      if (!idx || !track) return;
+      const n = items().length || 1;
+      const i = Math.min(n - 1, Math.round(track.scrollLeft / Math.max(1, track.clientWidth)));
+      idx.textContent = i + 1;
+      bar.style.transform = `translateX(${i * 100}%) scaleX(1)`;
+      bar.style.width = `${100 / n}%`;
+    }
+    track?.addEventListener('scroll', () => { if (!queued) { queued = true; requestAnimationFrame(updateHud); } }, { passive: true });
+    if (bar) { bar.style.transformOrigin = '0 50%'; updateHud(); }
+
+    // Zoom viewer
+    const zoom = section.querySelector('[data-o3-zoom]');
+    track?.addEventListener('click', (e) => {
+      const item = e.target.closest('[data-o3-gal-item]');
+      if (!item || !zoom) return;
+      zoom.showModal();
+      zoom.querySelector(`img[data-media-id="${item.dataset.mediaId}"]`)?.scrollIntoView({ block: 'start' });
+    });
+
+    // Sticky bar on phones once the main button has scrolled away
+    if (sticky && stickyBtn) {
+      new IntersectionObserver(([en]) => {
+        const past = !en.isIntersecting && en.boundingClientRect.top < 0;
+        sticky.toggleAttribute('data-on', past);
+        sticky.setAttribute('aria-hidden', String(!past));
+        stickyBtn.tabIndex = past ? 0 : -1;
+      }).observe(atc);
+      stickyBtn.addEventListener('click', () => {
+        if (options.length && !selected().every(Boolean)) {
+          atc.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
+          return;
+        }
+        form.requestSubmit();
+      });
+    }
+
+    // Initial state (respects ?variant= already rendered by Liquid)
+    if (options.length) markAvailability(selected());
+  }
+
+  /* ---------- Recommendations: fetch once the section is near ---------- */
+  function recs(section) {
+    const url = section.dataset.url;
+    if (!url || section.dataset.loaded) return;
+    const io = new IntersectionObserver(async ([en]) => {
+      if (!en.isIntersecting) return;
+      io.disconnect();
+      section.dataset.loaded = '';
+      try {
+        const html = await (await fetch(url)).text();
+        const doc = new DOMParser().parseFromString(html, 'text/html');
+        const fresh = doc.querySelector('[data-o3-recs]');
+        if (!fresh || fresh.hasAttribute('data-empty')) return;
+        section.innerHTML = fresh.innerHTML;
+        section.removeAttribute('data-empty');
+        init(section);
+      } catch (_) { /* keep hidden */ }
+    }, { rootMargin: '400px 0px' });
+    io.observe(section);
+  }
+
   /* ---------- Spotlight: add to cart without leaving the page ---------- */
   function spotlight(section) {
     const form = section.querySelector('[data-o3-form]');
@@ -154,29 +390,9 @@
     const label = button.innerHTML;
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const drawer = document.querySelector('cart-drawer');
-      const body = new FormData(form);
-      if (drawer && typeof drawer.getSectionsToRender === 'function') {
-        body.append('sections', drawer.getSectionsToRender().map((s) => s.id).join(','));
-        body.append('sections_url', location.pathname);
-      }
       button.setAttribute('aria-busy', 'true');
       try {
-        const res = await fetch(`${(window.routes && window.routes.cart_add_url) || '/cart/add'}.js`, {
-          method: 'POST',
-          headers: { Accept: 'application/javascript', 'X-Requested-With': 'XMLHttpRequest' },
-          body,
-        });
-        const data = await res.json();
-        if (!res.ok || data.status) throw new Error(data.description || data.message || 'Error');
-        if (drawer && typeof drawer.renderContents === 'function') {
-          drawer.classList.remove('is-empty');
-          drawer.renderContents(data);
-        } else {
-          location.href = (window.routes && window.routes.cart_url) || '/cart';
-          return;
-        }
-        if (status) status.textContent = button.dataset.added || 'Añadido';
+        if (await addToCart(form) && status) status.textContent = button.dataset.added || 'Añadido';
       } catch (err) {
         if (status) status.textContent = err.message;
       } finally {
@@ -253,6 +469,9 @@
     scope.querySelectorAll('[data-o3-rail]').forEach(rail);
     scope.querySelectorAll('[data-o3-index]').forEach(index);
     scope.querySelectorAll('[data-o3-collection]').forEach(collection);
+    scope.querySelectorAll('[data-o3-product]').forEach(product);
+    scope.querySelectorAll('[data-o3-recs][data-url]').forEach(recs);
+    scope.querySelectorAll('[data-o3-delivery]').forEach(delivery);
     scope.querySelectorAll('[data-o3-label]').forEach((s) => tilt(s, s.querySelector('[data-o3-label-card]'), { maxX: 8, maxY: 12 }));
   };
 
