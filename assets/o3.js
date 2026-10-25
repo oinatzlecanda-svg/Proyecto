@@ -381,6 +381,117 @@
     io.observe(section);
   }
 
+  /* ---------- Offer popup: show once, subscribe, reveal the code ---------- */
+  function popup(dlg) {
+    if (dlg.dataset.ready) return;
+    dlg.dataset.ready = '';
+    const key = dlg.dataset.key;
+    const store = {
+      get: (k) => { try { return localStorage.getItem(k); } catch (_) { return null; } },
+      set: (k, v) => { try { localStorage.setItem(k, v); } catch (_) {} },
+    };
+    const form = dlg.querySelector('[data-o3-pop-form]');
+    const done = dlg.querySelector('[data-o3-pop-done]');
+    const error = dlg.querySelector('[data-o3-pop-error]');
+    const decline = dlg.querySelector('.o3-pop__no');
+
+    const reveal = () => {
+      form.hidden = true;
+      done.hidden = false;
+      if (decline) decline.hidden = true;
+      store.set(`${key}:joined`, '1');
+    };
+    const open = () => {
+      if (dlg.open) return;
+      dlg.showModal();
+      dlg.querySelector('input[type="email"]')?.focus({ preventScroll: true });
+    };
+    const close = () => {
+      if (store.get(`${key}:joined`) !== '1') store.set(`${key}:closed`, String(Date.now()));
+      dlg.close();
+    };
+
+    dlg.querySelectorAll('[data-o3-pop-close]').forEach((b) => b.addEventListener('click', close));
+    dlg.addEventListener('cancel', (e) => { e.preventDefault(); close(); });
+
+    // Coming back from a non-JS submit (or a captcha) with the form posted: show the code
+    if (dlg.querySelector('[data-o3-pop-posted]')) { reveal(); open(); return; }
+
+    // Theme editor: open while the section is selected
+    if (window.Shopify && window.Shopify.designMode) {
+      document.addEventListener('shopify:section:select', (e) => { if (e.target.contains(dlg)) open(); });
+      document.addEventListener('shopify:section:deselect', (e) => { if (e.target.contains(dlg)) dlg.close(); });
+      return;
+    }
+
+    const joined = store.get(`${key}:joined`) === '1';
+    const closedAt = +store.get(`${key}:closed`) || 0;
+    const quietMs = (+dlg.dataset.hideDays || 14) * 864e5;
+    if (joined || Date.now() - closedAt < quietMs) return;
+
+    // First of: delay, 35% scroll, or the pointer leaving through the top (desktop)
+    let armed = true;
+    const trigger = () => {
+      if (!armed || document.querySelector('dialog[open]')) return;
+      armed = false;
+      open();
+      cleanup();
+    };
+    const timer = setTimeout(trigger, (+dlg.dataset.delay || 8) * 1000);
+    const onScroll = () => {
+      const max = document.documentElement.scrollHeight - innerHeight;
+      if (max > 0 && scrollY / max > 0.35) trigger();
+    };
+    const onLeave = (e) => { if (e.clientY <= 0 && !e.relatedTarget) trigger(); };
+    addEventListener('scroll', onScroll, { passive: true });
+    if (finePointer) document.addEventListener('mouseout', onLeave);
+    const cleanup = () => {
+      clearTimeout(timer);
+      removeEventListener('scroll', onScroll);
+      document.removeEventListener('mouseout', onLeave);
+    };
+
+    // Subscribe without leaving the page; fall back to a normal post on captcha
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = form.querySelector('input[type="email"]');
+      if (!email.checkValidity()) {
+        error.hidden = false;
+        error.textContent = 'Escribe un email válido.';
+        email.focus();
+        return;
+      }
+      const btn = form.querySelector('[type="submit"]');
+      btn.setAttribute('aria-busy', 'true');
+      error.hidden = true;
+      try {
+        const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'text/html' } });
+        // Shopify may ask for a captcha: let the browser go through it, the
+        // page comes back with the form posted and the code shown.
+        if (res.url.includes('/challenge')) { form.submit(); return; }
+        // Success, or the email already belongs to a customer: either way the
+        // code is theirs to try; Shopify checks eligibility at checkout.
+        reveal();
+      } catch (_) {
+        form.submit();
+      } finally {
+        btn.removeAttribute('aria-busy');
+      }
+    });
+
+    dlg.querySelector('[data-o3-pop-copy]')?.addEventListener('click', async (e) => {
+      const b = e.currentTarget;
+      const code = dlg.querySelector('[data-o3-pop-code]').textContent.trim();
+      try { await navigator.clipboard.writeText(code); b.textContent = b.dataset.copied; }
+      catch (_) {
+        const r = document.createRange();
+        r.selectNodeContents(dlg.querySelector('[data-o3-pop-code]'));
+        getSelection().removeAllRanges();
+        getSelection().addRange(r);
+      }
+    });
+  }
+
   /* ---------- Spotlight: add to cart without leaving the page ---------- */
   function spotlight(section) {
     const form = section.querySelector('[data-o3-form]');
@@ -470,6 +581,7 @@
     scope.querySelectorAll('[data-o3-index]').forEach(index);
     scope.querySelectorAll('[data-o3-collection]').forEach(collection);
     scope.querySelectorAll('[data-o3-product]').forEach(product);
+    scope.querySelectorAll('[data-o3-popup]').forEach(popup);
     scope.querySelectorAll('[data-o3-recs][data-url]').forEach(recs);
     scope.querySelectorAll('[data-o3-delivery]').forEach(delivery);
     scope.querySelectorAll('[data-o3-label]').forEach((s) => tilt(s, s.querySelector('[data-o3-label-card]'), { maxX: 8, maxY: 12 }));

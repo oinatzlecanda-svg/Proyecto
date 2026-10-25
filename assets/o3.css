@@ -120,6 +120,7 @@
 .o3-btn:active { transform: scale(0.97); }
 .o3 .o3-btn--solid { background: var(--o3-accent); border-color: var(--o3-accent); color: var(--o3-on-accent); }
 .o3 .o3-btn--light { background: var(--o3-bone); border-color: var(--o3-bone); color: var(--o3-ink); }
+.o3 .o3-btn--ghost { background: transparent; color: inherit; }
 .o3 .o3-btn--outline { background: transparent; border-color: var(--o3-ink); color: var(--o3-ink); }
 .o3 .o3-btn--ink { background: var(--o3-ink); border-color: var(--o3-ink); color: var(--o3-bone); }
 .o3-btn__arrow { display: inline-block; transition: transform 200ms var(--o3-ease-out); }
@@ -1686,6 +1687,153 @@ body:has(.o3-polhero) .shopify-policy__body strong { color: #2a1a12; }
 .o3-recs[data-empty] { display: none; }
 
 /* ==========================================================================
+   OFFER POPUP — full screen, chocolate, giant figure, clip-path reveal
+   ========================================================================== */
+html:has(.o3-pop[open]) { overflow: hidden; }
+.o3-pop {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: var(--o3-ink);
+  color: var(--o3-bone);
+  overflow-x: clip;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  clip-path: inset(0 0 0 0);
+  transition: clip-path 640ms var(--o3-ease-in-out), overlay 640ms allow-discrete, display 640ms allow-discrete;
+}
+.o3-pop:not([open]) { display: none; clip-path: inset(0 0 100% 0); transition-duration: 260ms; }
+@starting-style { .o3-pop[open] { clip-path: inset(100% 0 0 0); } }
+.o3-pop::backdrop { background: transparent; }
+.o3-pop__grid {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    linear-gradient(to right, rgba(241, 232, 218, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(241, 232, 218, 0.07) 1px, transparent 1px);
+  background-size: 44px 44px;
+  pointer-events: none;
+}
+.o3-pop::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 55%;
+  width: 140vmax;
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  background: radial-gradient(closest-side, rgba(255, 90, 31, 0.35), transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+.o3-pop__band {
+  position: relative;
+  z-index: 2;
+  background: var(--o3-accent);
+  color: var(--o3-on-accent);
+  border-bottom: var(--o3-rule) solid var(--o3-ink);
+  overflow: hidden;
+  padding-top: env(safe-area-inset-top, 0px);
+}
+.o3-pop__band .o3-marquee__item { font-size: 22px; padding: 10px 11px; }
+.o3-pop__close {
+  position: absolute;
+  z-index: 3;
+  top: calc(56px + env(safe-area-inset-top, 0px));
+  right: max(12px, env(safe-area-inset-right, 0px));
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 0 14px;
+  border: var(--o3-rule) solid var(--o3-bone);
+  background: var(--o3-ink);
+  color: var(--o3-bone);
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: transform 140ms var(--o3-ease-out), background-color 200ms ease, color 200ms ease;
+}
+.o3-pop__close:active { transform: scale(0.96); }
+@media (hover: hover) and (pointer: fine) { .o3-pop__close:hover { background: var(--o3-bone); color: var(--o3-ink); } }
+.o3-pop__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  align-content: center;
+  gap: 14px;
+  min-height: calc(100% - 48px);
+  padding-block: 84px calc(32px + env(safe-area-inset-bottom, 0px));
+}
+.o3-pop__eyebrow { color: var(--o3-mute); }
+.o3-pop__big {
+  font-family: var(--o3-display);
+  font-weight: 400;
+  font-size: clamp(120px, 41vw, 520px);
+  line-height: 0.8;
+  letter-spacing: -0.01em;
+  color: var(--o3-accent);
+  margin-left: -0.04em;
+}
+.o3-pop__big .o3-line > span { animation-delay: 260ms; animation-duration: 1000ms; }
+.o3-pop__title {
+  font-family: var(--o3-display);
+  font-size: clamp(34px, 9.5vw, 76px);
+  line-height: 0.95;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+/* inline-block keeps the orange block to the text box, also when it wraps */
+.o3-pop__title .o3-mark { display: inline-block; line-height: 0.95; padding: 0.08em 0.12em 0.02em; margin: 0; }
+.o3-pop__step { display: grid; gap: 14px; max-width: 640px; margin-top: 10px; }
+.o3-pop__text { font-size: 17px; max-width: 46ch; color: rgba(241, 232, 218, 0.9); }
+.o3-pop__row { display: grid; gap: 8px; }
+.o3-pop__input { min-height: 58px; }
+.o3-pop__cta { min-height: 58px; }
+.o3-pop__error { color: #ffb08f; }
+.o3-pop__fine { color: var(--o3-mute); font-size: 10px; line-height: 1.5; text-transform: none; letter-spacing: 0.02em; max-width: 60ch; }
+.o3-pop__code {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 16px;
+  padding: 16px 18px;
+  border: 2px dashed var(--o3-accent);
+}
+.o3-pop__code span { color: var(--o3-mute); }
+.o3-pop__code strong { font-family: var(--o3-display); font-weight: 400; font-size: clamp(30px, 9vw, 60px); line-height: 1; letter-spacing: 0.04em; color: var(--o3-bone); overflow-wrap: anywhere; user-select: all; -webkit-user-select: all; }
+.o3-pop__no {
+  justify-self: start;
+  margin-top: 6px;
+  padding: 10px 0;
+  border: 0;
+  background: none;
+  color: var(--o3-mute);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+@media (min-width: 750px) {
+  .o3-pop__row { grid-template-columns: minmax(0, 1fr) auto; }
+  .o3-pop__band .o3-marquee__item { font-size: 26px; }
+}
+@media (min-width: 1100px) {
+  .o3-pop__inner { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); column-gap: 48px; align-items: end; }
+  .o3-pop__eyebrow, .o3-pop__big { grid-column: 1 / -1; }
+  .o3-pop__big { font-size: min(30vw, 480px); }
+  .o3-pop__title { grid-column: 1; align-self: start; }
+  .o3-pop__step { grid-column: 2; grid-row: 3 / span 2; margin-top: 0; }
+  .o3-pop__no { grid-column: 2; }
+}
+
+/* ==========================================================================
    Header on every OELNOR 3.0 page: chocolate, to blend into the dark page tops
    ========================================================================== */
 body:has(.o3-hero) { background: #2a1a12; }
@@ -1749,5 +1897,8 @@ body:has(.o3-top) .header__icon .svg-wrapper { color: #f1e8da; }
   .o3-route__mover { transform: translateX(66%); }
   .o3-route__fill { transform: scaleX(0.66); }
   .o3-drawer, .o3-drawer::backdrop, .o3-zoom, .o3-sticky { transition-duration: 0ms; }
+  .o3-pop { transition: opacity 200ms ease, overlay 200ms allow-discrete, display 200ms allow-discrete; clip-path: none; }
+  .o3-pop:not([open]) { opacity: 0; clip-path: none; }
+  @starting-style { .o3-pop[open] { opacity: 0; clip-path: none; } }
   .o3-stock i { animation: none; }
 }

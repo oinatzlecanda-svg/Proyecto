@@ -1,0 +1,145 @@
+{%- comment -%}
+  OELNOR 3.0 — Full-screen offer popup (welcome discount).
+  Step 1 asks for the email (Shopify customer form: the person is created as
+  an email subscriber, which is what the discount's customer segment needs).
+  Step 2 reveals the code with copy + "apply and shop" (/discount/CODE).
+  Shown once: after a delay, 35% scroll or exit intent (desktop), whichever
+  comes first. Not shown again for N days after closing, never after
+  subscribing, never to logged-in customers who already ordered, never on
+  the cart page. Behaviour lives in o3.js.
+{%- endcomment -%}
+{%- liquid
+  assign show = section.settings.enabled
+  if template.name == 'cart' or template.name == 'password'
+    assign show = false
+  endif
+  if customer and customer.orders_count > 0
+    assign show = false
+  endif
+  assign code = section.settings.code | strip | upcase
+  assign form_id = 'O3PopupForm-' | append: section.id
+  assign apply_url = '/discount/' | append: code | append: '?redirect=' | append: section.settings.shop_url
+-%}
+
+{%- if show and code != blank -%}
+  <dialog
+    class="o3 o3-pop"
+    data-o3-popup
+    data-delay="{{ section.settings.delay }}"
+    data-hide-days="{{ section.settings.hide_days }}"
+    data-key="o3-pop-{{ code | handleize }}"
+    aria-labelledby="O3PopTitle-{{ section.id }}"
+  >
+    <div class="o3-pop__band" aria-hidden="true">
+      <div class="o3-marquee__track" style="--o3-speed: 30s;">
+        {%- capture band -%}
+          {%- for i in (1..4) -%}
+            <span class="o3-marquee__item">{{ section.settings.band_text }}</span>
+          {%- endfor -%}
+        {%- endcapture -%}
+        <div class="o3-marquee__group">{{ band }}</div>
+        <div class="o3-marquee__group">{{ band }}</div>
+      </div>
+    </div>
+
+    <button type="button" class="o3-pop__close o3-mono" data-o3-pop-close>
+      Cerrar <span aria-hidden="true">✕</span>
+    </button>
+
+    <div class="o3-pop__grid" aria-hidden="true"></div>
+
+    <div class="o3-pop__inner o3-wrap">
+      <p class="o3-pop__eyebrow o3-mono o3-eyebrow">{{ section.settings.eyebrow }}</p>
+
+      <h2 class="o3-pop__big" id="O3PopTitle-{{ section.id }}">
+        <span class="o3-line"><span>{{ section.settings.big }}</span></span>
+        <span class="o3-sr">{{ section.settings.title }}</span>
+      </h2>
+      <p class="o3-pop__title" aria-hidden="true">
+        <span class="o3-mark">{{ section.settings.title }}</span>
+      </p>
+
+      {%- form 'customer', id: form_id, class: 'o3-pop__step', data-o3-pop-form: '', novalidate: 'novalidate' -%}
+        {%- if form.posted_successfully? -%}<span hidden data-o3-pop-posted></span>{%- endif -%}
+        <input type="hidden" name="contact[tags]" value="newsletter,popup-{{ code | handleize }}">
+        <input type="hidden" name="contact[accepts_marketing]" value="true">
+        <p class="o3-pop__text">{{ section.settings.text }}</p>
+        <div class="o3-pop__row">
+          <label class="o3-sr" for="O3PopEmail-{{ section.id }}">Correo electrónico</label>
+          <input
+            class="o3-input o3-pop__input"
+            id="O3PopEmail-{{ section.id }}"
+            type="email"
+            name="contact[email]"
+            autocomplete="email"
+            autocapitalize="none"
+            autocorrect="off"
+            spellcheck="false"
+            enterkeyhint="send"
+            placeholder="tu@correo.com"
+            required
+          >
+          <button class="o3-btn o3-btn--solid o3-pop__cta" type="submit">
+            {{- section.settings.button }} <span class="o3-btn__arrow" aria-hidden="true">→</span>
+          </button>
+        </div>
+        <p class="o3-pop__error o3-mono" data-o3-pop-error role="alert" hidden></p>
+        <p class="o3-pop__fine o3-mono">{{ section.settings.fine_print }}</p>
+      {%- endform -%}
+
+      <div class="o3-pop__step o3-pop__done" data-o3-pop-done hidden>
+        <p class="o3-pop__text">{{ section.settings.success_text }}</p>
+        <div class="o3-pop__code">
+          <span class="o3-mono">Tu código</span>
+          <strong data-o3-pop-code>{{ code }}</strong>
+        </div>
+        <div class="o3-pop__row">
+          <button type="button" class="o3-btn o3-btn--ghost" data-o3-pop-copy data-copied="Copiado ✓">Copiar código</button>
+          <a class="o3-btn o3-btn--solid o3-pop__cta" href="{{ apply_url }}">
+            {{- section.settings.apply_label }} <span class="o3-btn__arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+        <p class="o3-pop__fine o3-mono">{{ section.settings.fine_print_done }}</p>
+      </div>
+
+      <button type="button" class="o3-pop__no o3-mono" data-o3-pop-close>{{ section.settings.decline }}</button>
+    </div>
+  </dialog>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "O3 · Popup oferta",
+  "tag": "div",
+  "class": "o3-section",
+  "settings": [
+    { "type": "checkbox", "id": "enabled", "label": "Activar popup", "default": true },
+    {
+      "type": "text",
+      "id": "code",
+      "label": "Código de descuento",
+      "default": "BIENVENIDA10",
+      "info": "Debe existir en Descuentos. BIENVENIDA10 solo vale para clientes sin pedidos y suscritos al email: el popup los suscribe antes de enseñar el código."
+    },
+    { "type": "text", "id": "eyebrow", "label": "Antetítulo", "default": "Bienvenida Oelnor" },
+    { "type": "text", "id": "big", "label": "Cifra gigante", "default": "-10%" },
+    { "type": "text", "id": "title", "label": "Titular", "default": "En tu primera compra" },
+    { "type": "textarea", "id": "text", "label": "Texto", "default": "Únete a la lista y desbloquea tu código al momento. Además, te avisamos antes que a nadie de cada drop." },
+    { "type": "text", "id": "button", "label": "Botón", "default": "Quiero mi 10%" },
+    {
+      "type": "text",
+      "id": "fine_print",
+      "label": "Letra pequeña",
+      "default": "Válido en tu primera compra con este email. No acumulable con otras ofertas. Puedes darte de baja cuando quieras."
+    },
+    { "type": "text", "id": "success_text", "label": "Texto tras suscribirse", "default": "Dentro. Este es tu 10% para el primer pedido:" },
+    { "type": "text", "id": "apply_label", "label": "Botón aplicar", "default": "Aplicar y comprar" },
+    { "type": "url", "id": "shop_url", "label": "A dónde lleva «Aplicar y comprar»", "default": "/collections/all" },
+    { "type": "text", "id": "fine_print_done", "label": "Letra pequeña tras suscribirse", "default": "Usa en el pago el mismo email con el que te has suscrito." },
+    { "type": "text", "id": "decline", "label": "Texto para rechazar", "default": "Ahora no" },
+    { "type": "text", "id": "band_text", "label": "Texto de la cinta superior", "default": "Bienvenida × 10% × Primera compra ×" },
+    { "type": "range", "id": "delay", "label": "Segundos antes de aparecer", "min": 2, "max": 60, "step": 1, "default": 8 },
+    { "type": "range", "id": "hide_days", "label": "Días sin volver a mostrarlo tras cerrarlo", "min": 1, "max": 60, "step": 1, "default": 14 }
+  ]
+}
+{% endschema %}
