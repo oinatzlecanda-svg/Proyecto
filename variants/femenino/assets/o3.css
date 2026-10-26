@@ -1898,6 +1898,44 @@ body:has(.o3-top) .header__icon .svg-wrapper { color: #f7f0ea; }
 .o3-rail[id] { scroll-margin-top: 80px; }
 
 /* ==========================================================================
+   ABOUT TEASER — "Sobre Oelnor" on the home. Nude band, photo + serif headline.
+   The photo opens bottom-up like a curtain the first time it scrolls into view
+   while the image inside settles from 1.12 → 1; the text follows with the usual
+   reveal stagger. Seen once per visit, so it can afford a slower, softer curve.
+   ========================================================================== */
+.o3-about { background: var(--o3-bone-2); color: var(--o3-ink); padding-block: 64px; }
+.o3-about__grid { display: grid; gap: 28px; align-items: center; }
+.o3-about__media { display: block; aspect-ratio: 4 / 5; overflow: hidden; background: var(--o3-bone); }
+.o3-about__media img,
+.o3-about__media svg { width: 100%; height: 100%; object-fit: cover; }
+.o3-about__media img { transition: transform 1400ms var(--o3-ease-out); }
+
+.o3-js .o3 .o3-about__media[data-o3-reveal]:not([data-in]) { opacity: 1; transform: none; clip-path: inset(100% 0 0 0); }
+.o3-js .o3 .o3-about__media[data-o3-reveal]:not([data-in]) img { transform: scale(1.12); }
+.o3 .o3-about__media[data-o3-reveal] { clip-path: inset(0 0 0 0); transition: clip-path 1100ms var(--o3-ease-in-out); }
+
+.o3-about__body { display: grid; gap: 18px; justify-items: start; max-width: 520px; }
+.o3-about__title {
+  font-family: 'O3 Cormorant', 'Cormorant Garamond', Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(44px, 11vw, 88px);
+  line-height: 0.95;
+  text-transform: none;
+}
+.o3-about__title em { font-style: italic; color: var(--o3-accent-ink); }
+.o3-about__text { font-size: 17px; line-height: 1.55; color: rgba(58, 45, 41, 0.88); }
+.o3-about__values { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--o3-mute-light); }
+.o3-about__btn { margin-top: 6px; }
+
+@media (hover: hover) and (pointer: fine) {
+  .o3-about__media[data-in]:hover img { transform: scale(1.03); transition-duration: 700ms; }
+}
+@media (min-width: 750px) {
+  .o3-about { padding-block: 104px; }
+  .o3-about__grid { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(40px, 7vw, 120px); }
+}
+
+/* ==========================================================================
    EDITORIAL HERO — one campaign photo, serif headline, Mujer first.
    Motion (once per visit, so it can afford to be slow and soft):
    photo settles 1.06 → 1, headline lines rise out of a clip, the rest fades up
@@ -2050,6 +2088,10 @@ body:has(.o3-top) .header__icon .svg-wrapper { color: #f7f0ea; }
   .o3-pop:not([open]) { opacity: 0; clip-path: none; }
   @starting-style { .o3-pop[open] { opacity: 0; clip-path: none; } }
   .o3-stock i { animation: none; }
+  .o3 .o3-about__media[data-o3-reveal],
+  .o3-js .o3 .o3-about__media[data-o3-reveal]:not([data-in]) { clip-path: none; }
+  .o3-js .o3 .o3-about__media[data-o3-reveal]:not([data-in]) { opacity: 0; }
+  .o3-about__media img { transform: none !important; }
   .o3-ehero__media img,
   .o3-ehero__line > span { animation: none; }
   .o3-ehero__meta, .o3-ehero__lede, .o3-ehero__ctas, .o3-ehero__look { animation-name: o3-efade-flat; animation-duration: 300ms; }

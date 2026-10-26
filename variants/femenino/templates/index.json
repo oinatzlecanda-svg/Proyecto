@@ -391,6 +391,19 @@
         "image": "shopify://shop_images/oelnor-hero-editorial-desktop-2k.png",
         "image_mobile": "shopify://shop_images/oelnor-hero-editorial-mobile-2k.png"
       }
+    },
+    "o3-sobre": {
+      "type": "o3-about",
+      "settings": {
+        "image": "shopify://shop_images/oelnor-mujer-jersey-editorial.png",
+        "eyebrow": "Sobre Oelnor",
+        "title_1": "Una idea",
+        "title_2": "sencilla.",
+        "text": "Vestir bien también puede ser una forma de expresarte. Elegimos una a una piezas con personalidad, para el día a día y sin demasiadas reglas.",
+        "values": "Diseño · Funcionalidad · Personalidad",
+        "button_label": "Conoce Oelnor",
+        "link": "shopify://pages/sobre-oelnor"
+      }
     }
   },
   "order": [
@@ -400,6 +413,7 @@
     "o3-colecciones",
     "o3-foco",
     "o3-manifiesto",
+    "o3-sobre",
     "o3-calle",
     "o3-cinta-2",
     "o3-lista"

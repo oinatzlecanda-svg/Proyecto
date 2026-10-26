@@ -1,0 +1,61 @@
+{%- comment -%}
+  OELNOR 3.0 · Femenino — "Sobre Oelnor" teaser for the home.
+  An editorial photo that opens like a curtain when it scrolls into view, a
+  serif headline and one button to the about page. Styles: o3.css (ABOUT TEASER).
+{%- endcomment -%}
+{%- liquid
+  assign img = section.settings.image
+  assign link = section.settings.link | default: '/pages/sobre-oelnor'
+-%}
+
+<section class="o3 o3-about" aria-labelledby="O3AboutTitle-{{ section.id }}">
+  <div class="o3-wrap o3-about__grid">
+    <a class="o3-about__media" href="{{ link }}" tabindex="-1" aria-hidden="true" data-o3-reveal>
+      {%- if img != blank -%}
+        {{ img | image_url: width: 1200 | image_tag: loading: 'lazy', widths: '480, 720, 960, 1200', sizes: '(min-width: 750px) 42vw, 100vw', alt: '' }}
+      {%- else -%}
+        {{ 'lifestyle-2' | placeholder_svg_tag }}
+      {%- endif -%}
+    </a>
+
+    <div class="o3-about__body">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="o3-mono o3-eyebrow" data-o3-reveal>{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      <h2 class="o3-about__title" id="O3AboutTitle-{{ section.id }}" data-o3-reveal style="--i: 1">
+        {{- section.settings.title_1 }}
+        {%- if section.settings.title_2 != blank %} <em>{{ section.settings.title_2 }}</em>{%- endif -%}
+      </h2>
+      {%- if section.settings.text != blank -%}
+        <p class="o3-about__text" data-o3-reveal style="--i: 2">{{ section.settings.text }}</p>
+      {%- endif -%}
+      {%- if section.settings.values != blank -%}
+        <p class="o3-about__values o3-mono" data-o3-reveal style="--i: 3">{{ section.settings.values }}</p>
+      {%- endif -%}
+      {%- if section.settings.button_label != blank -%}
+        <a class="o3-btn o3-btn--ink o3-about__btn" href="{{ link }}" data-o3-reveal style="--i: 4">
+          {{- section.settings.button_label }} <span class="o3-btn__arrow" aria-hidden="true">→</span>
+        </a>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "O3 · Sobre Oelnor",
+  "tag": "div",
+  "class": "o3-section",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Foto", "info": "Vertical, 4:5." },
+    { "type": "text", "id": "eyebrow", "label": "Antetítulo", "default": "Sobre Oelnor" },
+    { "type": "text", "id": "title_1", "label": "Título", "default": "Una idea" },
+    { "type": "text", "id": "title_2", "label": "Título · final en cursiva", "default": "sencilla." },
+    { "type": "textarea", "id": "text", "label": "Texto", "default": "Vestir bien también puede ser una forma de expresarte. Elegimos una a una piezas con personalidad, para el día a día y sin demasiadas reglas." },
+    { "type": "text", "id": "values", "label": "Valores (línea pequeña)", "default": "Diseño · Funcionalidad · Personalidad" },
+    { "type": "text", "id": "button_label", "label": "Botón", "default": "Conoce Oelnor" },
+    { "type": "url", "id": "link", "label": "Enlace", "info": "Por defecto, la página Sobre Oelnor." }
+  ],
+  "presets": [{ "name": "O3 · Sobre Oelnor" }]
+}
+{% endschema %}

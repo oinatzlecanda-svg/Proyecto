@@ -13,7 +13,8 @@ from that theme; everything else is copied as is (Shopify `themeDuplicate`).
 | `snippets/o3-head.liquid` | Preloads the serif on the home page. |
 | `sections/o3-rail.liquid` | Optional `anchor` setting so a hero button can jump to the rail. |
 | `templates/page.autumn.json` | "Colección Otoño" landing rebuilt with the same o3 sections as the home: editorial hero (her in front, him behind), marquee, selection rail, spotlight, manifesto, "Sigue descubriendo" (ella y él), signup. |
-| `templates/index.json` | Hero swapped for `o3-ehero`; "Lo más deseado" rail now women's pieces; the street rail is "Para él" and links to Hombre. |
+| `sections/o3-about.liquid` | "Sobre Oelnor" teaser for the home: photo with a curtain reveal, serif headline, button to /pages/sobre-oelnor. |
+| `templates/index.json` | "Sobre Oelnor" block after the manifesto. Hero swapped for `o3-ehero`; "Lo más deseado" rail now women's pieces; the street rail is "Para él" and links to Hombre. |
 
 Motion follows Emil Kowalski's rules: once-per-visit, transform/opacity only, custom
 ease-out, short stagger, `scale(0.97)` on press, hover gated by `(hover: hover)`, and
