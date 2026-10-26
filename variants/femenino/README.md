@@ -11,6 +11,8 @@ from that theme; everything else is copied as is (Shopify `themeDuplicate`).
 | `sections/o3-ehero.liquid` | New hero: full-bleed campaign photo (desktop + mobile crop), serif headline, "Comprar mujer" + "Hombre" buttons, "En la foto" product chips. |
 | `sections/o3-marquee.liquid`, `o3-manifesto.liquid`, `o3-product-reviews.liquid`, `o3-tracking.liquid` | Inline colours moved to the new palette. |
 | `snippets/o3-head.liquid` | Preloads the serif on the home page. |
+| `sections/o3-rail.liquid` | Optional `anchor` setting so a hero button can jump to the rail. |
+| `templates/page.autumn.json` | "Colección Otoño" landing rebuilt with the same o3 sections as the home: editorial hero (her in front, him behind), marquee, selection rail, spotlight, manifesto, "Sigue descubriendo" (ella y él), signup. |
 | `templates/index.json` | Hero swapped for `o3-ehero`; "Lo más deseado" rail now women's pieces; the street rail is "Para él" and links to Hombre. |
 
 Motion follows Emil Kowalski's rules: once-per-visit, transform/opacity only, custom

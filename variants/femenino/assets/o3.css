@@ -1894,6 +1894,9 @@ body:has(.o3-top) .header__menu-item span {
 body:has(.o3-top) .header__icon,
 body:has(.o3-top) .header__icon .svg-wrapper { color: #f7f0ea; }
 
+/* Rails reached through an #anchor stop below the sticky header. */
+.o3-rail[id] { scroll-margin-top: 80px; }
+
 /* ==========================================================================
    EDITORIAL HERO — one campaign photo, serif headline, Mujer first.
    Motion (once per visit, so it can afford to be slow and soft):

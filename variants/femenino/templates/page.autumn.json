@@ -1,0 +1,317 @@
+{
+  "sections": {
+    "hero": {
+      "type": "o3-ehero",
+      "settings": {
+        "image": "shopify://shop_images/oelnor-otono-editorial-desktop-2k.png",
+        "image_mobile": "shopify://shop_images/oelnor-otono-editorial-mobile-2k.png",
+        "image_alt": "Mujer con chaqueta de flecos marrón y botas de ante en un paseo de hojas de otoño; detrás, un hombre con jersey negro y vaqueros baggy",
+        "meta_1": "Oelnor® / ES",
+        "meta_2": "Edición otoño—26",
+        "line_1": "Selección",
+        "line_2": "de otoño.",
+        "seo_text": "Colección de otoño Oelnor: chaquetas, botas y punto para mujer y hombre",
+        "lede": "Capas, texturas y tonos cálidos. Piezas con carácter para vestir la temporada a tu manera.",
+        "cta_1_label": "Ver la selección",
+        "cta_1_link": "/pages/coleccion-otono#seleccion",
+        "cta_2_label": "Mujer",
+        "cta_2_link": "shopify://collections/mujer",
+        "cta_3_label": "Hombre",
+        "cta_3_link": "shopify://collections/hombre",
+        "look_label": "En la foto",
+        "look": [
+          "chaqueta-corta-flecos-marron",
+          "botas-beige-ante-sintetico",
+          "jersey-riven-efecto-desgastado",
+          "jeans-axel-baggy-desgastados"
+        ]
+      }
+    },
+    "cinta": {
+      "type": "o3-marquee",
+      "blocks": {
+        "m0": {
+          "type": "item",
+          "settings": {
+            "text": "Otoño '26"
+          }
+        },
+        "m1": {
+          "type": "item",
+          "settings": {
+            "text": "Capas"
+          }
+        },
+        "m2": {
+          "type": "item",
+          "settings": {
+            "text": "Texturas"
+          }
+        },
+        "m3": {
+          "type": "item",
+          "settings": {
+            "text": "Tonos cálidos"
+          }
+        },
+        "m4": {
+          "type": "item",
+          "settings": {
+            "text": "A tu manera"
+          }
+        }
+      },
+      "block_order": [
+        "m0",
+        "m1",
+        "m2",
+        "m3",
+        "m4"
+      ],
+      "settings": {
+        "style": "cobalt",
+        "under": "split",
+        "reverse": false,
+        "speed": 36
+      }
+    },
+    "seleccion": {
+      "type": "o3-rail",
+      "blocks": {
+        "p1": {
+          "type": "product",
+          "settings": {
+            "product": "chaqueta-lena-cropped-cinturon",
+            "badge": "Nuevo"
+          }
+        },
+        "p2": {
+          "type": "product",
+          "settings": {
+            "product": "botas-beige-ante-sintetico",
+            "badge": "Top ventas"
+          }
+        },
+        "p3": {
+          "type": "product",
+          "settings": {
+            "product": "chaqueta-corta-flecos",
+            "badge": ""
+          }
+        },
+        "p4": {
+          "type": "product",
+          "settings": {
+            "product": "bomber-noa-efecto-ante",
+            "badge": ""
+          }
+        },
+        "p5": {
+          "type": "product",
+          "settings": {
+            "product": "chaqueta-impermeable-oversize",
+            "badge": ""
+          }
+        },
+        "p6": {
+          "type": "product",
+          "settings": {
+            "product": "chaqueta-corta-flecos-marron",
+            "badge": ""
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "p3",
+        "p4",
+        "p5",
+        "p6"
+      ],
+      "settings": {
+        "eyebrow": "Edición otoño · 01",
+        "title": "Piezas que marcan el look",
+        "text": "Nuestros favoritos para empezar la temporada.",
+        "link_label": "Ver mujer",
+        "link": "shopify://collections/mujer",
+        "show_rank": false,
+        "dark": false,
+        "anchor": "seleccion",
+        "limit": 8
+      }
+    },
+    "foco": {
+      "type": "o3-spotlight",
+      "settings": {
+        "product": "chaqueta-impermeable-oversize",
+        "eyebrow": "La pieza de la temporada",
+        "title": "",
+        "text": "",
+        "sticker_ring": "Otoño 26",
+        "sticker_center": "26"
+      }
+    },
+    "manifiesto": {
+      "type": "o3-manifesto",
+      "blocks": {
+        "t1": {
+          "type": "truth",
+          "settings": {
+            "title": "Envío gratis",
+            "detail": ""
+          }
+        },
+        "t2": {
+          "type": "truth",
+          "settings": {
+            "title": "30 días para devolver",
+            "detail": ""
+          }
+        },
+        "t3": {
+          "type": "truth",
+          "settings": {
+            "title": "Pago seguro",
+            "detail": ""
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3"
+      ],
+      "settings": {
+        "eyebrow": "Edición otoño / Oelnor",
+        "text": "Cambia la temporada. *No tu estilo.* Diferentes piezas, una sola forma de llevarlas: la tuya."
+      }
+    },
+    "sigue": {
+      "type": "o3-rail",
+      "blocks": {
+        "p1": {
+          "type": "product",
+          "settings": {
+            "product": "chaqueta-elia-cuello-alto",
+            "badge": ""
+          }
+        },
+        "p2": {
+          "type": "product",
+          "settings": {
+            "product": "parka-elara-acolchada",
+            "badge": ""
+          }
+        },
+        "p3": {
+          "type": "product",
+          "settings": {
+            "product": "cardigan-naya-punto-rayas",
+            "badge": ""
+          }
+        },
+        "p4": {
+          "type": "product",
+          "settings": {
+            "product": "jersey-riven-efecto-desgastado",
+            "badge": ""
+          }
+        },
+        "p5": {
+          "type": "product",
+          "settings": {
+            "product": "jeans-axel-baggy-desgastados",
+            "badge": ""
+          }
+        },
+        "p6": {
+          "type": "product",
+          "settings": {
+            "product": "pantalon-ciro-pana-baggy",
+            "badge": ""
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "p3",
+        "p4",
+        "p5",
+        "p6"
+      ],
+      "settings": {
+        "eyebrow": "Edición otoño · 02 · ella y él",
+        "title": "Sigue descubriendo",
+        "text": "Punto, pana y abrigo para los días fríos, también para él.",
+        "link_label": "Ver hombre",
+        "link": "shopify://collections/hombre",
+        "show_rank": false,
+        "dark": true,
+        "anchor": "sigue",
+        "limit": 8
+      }
+    },
+    "cinta-2": {
+      "type": "o3-marquee",
+      "blocks": {
+        "m0": {
+          "type": "item",
+          "settings": {
+            "text": "Capas"
+          }
+        },
+        "m1": {
+          "type": "item",
+          "settings": {
+            "text": "Texturas"
+          }
+        },
+        "m2": {
+          "type": "item",
+          "settings": {
+            "text": "Tonos cálidos"
+          }
+        },
+        "m3": {
+          "type": "item",
+          "settings": {
+            "text": "Oelnor"
+          }
+        }
+      },
+      "block_order": [
+        "m0",
+        "m1",
+        "m2",
+        "m3"
+      ],
+      "settings": {
+        "style": "bone",
+        "under": "ink",
+        "reverse": true,
+        "speed": 40
+      }
+    },
+    "lista": {
+      "type": "o3-signup",
+      "settings": {
+        "title_1": "Entra en",
+        "title_2": "la lista",
+        "text": "Nuevos drops y piezas que se agotan rápido, directos a tu correo. Sin spam.",
+        "button": "Unirme"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "cinta",
+    "seleccion",
+    "foco",
+    "manifiesto",
+    "sigue",
+    "cinta-2",
+    "lista"
+  ]
+}
