@@ -1,0 +1,338 @@
+{
+  "sections": {
+    "hero": {
+      "type": "o3-ehero",
+      "settings": {
+        "image": "shopify://shop_images/oelnor-sobre-editorial-desktop-2k.png",
+        "image_mobile": "shopify://shop_images/oelnor-sobre-editorial-mobile-2k.png",
+        "image_alt": "Mujer eligiendo una chaqueta cropped beige en un perchero de un taller luminoso, con un bolso marrón y botas de ante a su lado",
+        "meta_1": "Oelnor® / ES",
+        "meta_2": "Sobre Oelnor",
+        "line_1": "Una idea",
+        "line_2": "sencilla.",
+        "seo_text": "Sobre Oelnor: quiénes somos y cómo elegimos cada pieza",
+        "lede": "Oelnor nace de una idea sencilla: vestir bien también puede ser una forma de expresarte.",
+        "cta_1_label": "Comprar mujer",
+        "cta_1_link": "shopify://collections/mujer",
+        "cta_2_label": "Hombre",
+        "cta_2_link": "shopify://collections/hombre",
+        "cta_3_label": "Ver todo",
+        "cta_3_link": "shopify://collections/todos-los-productos-oelnor",
+        "look_label": "En la foto",
+        "look": [
+          "chaqueta-lena-cropped-cinturon",
+          "bolso-siena",
+          "botas-beige-ante-sintetico"
+        ]
+      }
+    },
+    "cinta": {
+      "type": "o3-marquee",
+      "blocks": {
+        "m0": {
+          "type": "item",
+          "settings": {
+            "text": "Envío gratis"
+          }
+        },
+        "m1": {
+          "type": "item",
+          "settings": {
+            "text": "30 días para devolver"
+          }
+        },
+        "m2": {
+          "type": "item",
+          "settings": {
+            "text": "Pago seguro"
+          }
+        },
+        "m3": {
+          "type": "item",
+          "settings": {
+            "text": "Elegido a mano"
+          }
+        }
+      },
+      "block_order": [
+        "m0",
+        "m1",
+        "m2",
+        "m3"
+      ],
+      "settings": {
+        "style": "cobalt",
+        "under": "split",
+        "reverse": false,
+        "speed": 36
+      }
+    },
+    "historia": {
+      "type": "o3-chapters",
+      "blocks": {
+        "c1": {
+          "type": "chapter",
+          "settings": {
+            "kicker": "Lo que nos gusta",
+            "title_1": "Piezas con",
+            "title_2": "algo especial.",
+            "text": "Nos gustan las prendas y los accesorios que tienen algo especial, ya sea por su diseño, por un detalle diferente o simplemente porque consiguen hacer tuyo un look.",
+            "image": "shopify://shop_images/oelnor-mujer-jersey-editorial.png"
+          }
+        },
+        "c2": {
+          "type": "chapter",
+          "settings": {
+            "kicker": "Nuestra selección",
+            "title_1": "Elegidas",
+            "title_2": "una a una.",
+            "text": "Cada producto pasa por un proceso cuidadoso de selección. Buscamos diseños atemporales y materiales que se adaptan a diferentes estilos y ocasiones, desde el trabajo hasta el fin de semana.",
+            "product": "jersey-dalia-asimetrico"
+          }
+        },
+        "c3": {
+          "type": "chapter",
+          "settings": {
+            "kicker": "Cómo vestimos",
+            "title_1": "Sin demasiadas",
+            "title_2": "reglas.",
+            "text": "No buscamos seguir todas las tendencias. Creemos en probar, combinar y sentirte cómodo con lo que llevas, eligiendo aquello que realmente representa tu estilo.",
+            "product": "bomber-milo"
+          }
+        },
+        "c4": {
+          "type": "chapter",
+          "settings": {
+            "kicker": "Nuestro compromiso",
+            "title_1": "Siempre",
+            "title_2": "cerca de ti.",
+            "text": "Tu satisfacción es nuestra prioridad. Enviamos con cuidado, respondemos rápido y gestionamos las devoluciones sin complicaciones. Si tienes cualquier duda, estamos aquí para ayudarte.",
+            "button_label": "Escríbenos",
+            "button_link": "shopify://pages/contact"
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4"
+      ],
+      "settings": {
+        "label": "Nuestra historia"
+      }
+    },
+    "palabras": {
+      "type": "o3-marquee",
+      "blocks": {
+        "m0": {
+          "type": "item",
+          "settings": {
+            "text": "Diseño"
+          }
+        },
+        "m1": {
+          "type": "item",
+          "settings": {
+            "text": "Funcionalidad"
+          }
+        },
+        "m2": {
+          "type": "item",
+          "settings": {
+            "text": "Personalidad"
+          }
+        },
+        "m3": {
+          "type": "item",
+          "settings": {
+            "text": "Tu estilo, tus reglas"
+          }
+        }
+      },
+      "block_order": [
+        "m0",
+        "m1",
+        "m2",
+        "m3"
+      ],
+      "settings": {
+        "style": "cobalt",
+        "under": "bone",
+        "reverse": true,
+        "speed": 40
+      }
+    },
+    "valores": {
+      "type": "o3-manifesto",
+      "blocks": {
+        "t1": {
+          "type": "truth",
+          "settings": {
+            "title": "Diseño",
+            "detail": "Prendas con un detalle que las hace diferentes."
+          }
+        },
+        "t2": {
+          "type": "truth",
+          "settings": {
+            "title": "Funcionalidad",
+            "detail": "Piezas cómodas y versátiles, del trabajo al fin de semana."
+          }
+        },
+        "t3": {
+          "type": "truth",
+          "settings": {
+            "title": "Personalidad",
+            "detail": "Elige lo que te representa y hazlo tuyo."
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3"
+      ],
+      "settings": {
+        "eyebrow": "Eso es Oelnor",
+        "text": "Diseño, funcionalidad y personalidad en piezas pensadas para *acompañarte.*"
+      }
+    },
+    "piezas": {
+      "type": "o3-rail",
+      "blocks": {
+        "p1": {
+          "type": "product",
+          "settings": {
+            "product": "chaqueta-corta-flecos",
+            "badge": ""
+          }
+        },
+        "p2": {
+          "type": "product",
+          "settings": {
+            "product": "vintage-city-bag-black",
+            "badge": ""
+          }
+        },
+        "p3": {
+          "type": "product",
+          "settings": {
+            "product": "jersey-riven-efecto-desgastado",
+            "badge": ""
+          }
+        },
+        "p4": {
+          "type": "product",
+          "settings": {
+            "product": "lace-ballerina-flat-black",
+            "badge": ""
+          }
+        },
+        "p5": {
+          "type": "product",
+          "settings": {
+            "product": "parka-elara-acolchada",
+            "badge": ""
+          }
+        },
+        "p6": {
+          "type": "product",
+          "settings": {
+            "product": "black-jeans-shiny-star",
+            "badge": ""
+          }
+        },
+        "p7": {
+          "type": "product",
+          "settings": {
+            "product": "cardigan-naya-punto-rayas",
+            "badge": ""
+          }
+        },
+        "p8": {
+          "type": "product",
+          "settings": {
+            "product": "bomber-noa-efecto-ante",
+            "badge": ""
+          }
+        },
+        "p9": {
+          "type": "product",
+          "settings": {
+            "product": "jeans-kairo-telarania",
+            "badge": ""
+          }
+        },
+        "p10": {
+          "type": "product",
+          "settings": {
+            "product": "chaqueta-lena-cropped-cinturon",
+            "badge": ""
+          }
+        },
+        "p11": {
+          "type": "product",
+          "settings": {
+            "product": "musthave-suede-bag-coffee",
+            "badge": ""
+          }
+        },
+        "p12": {
+          "type": "product",
+          "settings": {
+            "product": "botas-beige-ante-sintetico",
+            "badge": ""
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "p3",
+        "p4",
+        "p5",
+        "p6",
+        "p7",
+        "p8",
+        "p9",
+        "p10",
+        "p11",
+        "p12"
+      ],
+      "settings": {
+        "eyebrow": "Mujer y hombre",
+        "title": "Piezas Oelnor",
+        "text": "Moda moderna y versátil, accesible para el día a día y pensada para sentirse tuya.",
+        "link_label": "Ver todo",
+        "link": "shopify://collections/todos-los-productos-oelnor",
+        "show_rank": false,
+        "dark": true,
+        "anchor": "",
+        "limit": 12
+      }
+    },
+    "cierre": {
+      "type": "o3-about",
+      "settings": {
+        "product": "chaqueta-corta-flecos",
+        "eyebrow": "Tu turno",
+        "title_1": "Encuentra",
+        "title_2": "lo tuyo.",
+        "text": "Mujer, hombre y accesorios elegidos uno a uno, con envío gratis.",
+        "values": "Envío gratis · 30 días para devolver · Pago seguro",
+        "button_label": "Ver toda la colección",
+        "link": "shopify://collections/todos-los-productos-oelnor"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "cinta",
+    "historia",
+    "palabras",
+    "valores",
+    "piezas",
+    "cierre"
+  ]
+}

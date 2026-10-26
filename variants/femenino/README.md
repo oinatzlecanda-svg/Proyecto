@@ -14,6 +14,8 @@ from that theme; everything else is copied as is (Shopify `themeDuplicate`).
 | `sections/o3-rail.liquid` | Optional `anchor` setting so a hero button can jump to the rail. |
 | `templates/page.autumn.json` | "Colección Otoño" landing rebuilt with the same o3 sections as the home: editorial hero (her in front, him behind), marquee, selection rail, spotlight, manifesto, "Sigue descubriendo" (ella y él), signup. |
 | `sections/o3-about.liquid` | "Sobre Oelnor" teaser for the home: photo with a curtain reveal, serif headline, button to /pages/sobre-oelnor. |
+| `sections/o3-chapters.liquid` | About-page story: one photo + text per chapter, alternating sides, curtain reveal. `o3-about` also takes a product photo now. |
+| `templates/page.about.json` | "Sobre Oelnor" page rebuilt with the home's sections: editorial hero, marquees, chapters, manifesto with the three values, "Piezas Oelnor" rail, closing call to action. |
 | `templates/index.json` | "Sobre Oelnor" block after the manifesto. Hero swapped for `o3-ehero`; "Lo más deseado" rail now women's pieces; the street rail is "Para él" and links to Hombre. |
 
 Motion follows Emil Kowalski's rules: once-per-visit, transform/opacity only, custom

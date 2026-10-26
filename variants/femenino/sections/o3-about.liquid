@@ -1,10 +1,14 @@
 {%- comment -%}
-  OELNOR 3.0 · Femenino — "Sobre Oelnor" teaser for the home.
+  OELNOR 3.0 · Femenino — "Sobre Oelnor" teaser for the home (also the closing call to action of the about page).
   An editorial photo that opens like a curtain when it scrolls into view, a
   serif headline and one button to the about page. Styles: o3.css (ABOUT TEASER).
 {%- endcomment -%}
 {%- liquid
   assign img = section.settings.image
+  assign p = section.settings.product
+  if img == blank and p != blank
+    assign img = p.media[1].preview_image | default: p.featured_media.preview_image
+  endif
   assign link = section.settings.link | default: '/pages/sobre-oelnor'
 -%}
 
@@ -48,6 +52,7 @@
   "class": "o3-section",
   "settings": [
     { "type": "image_picker", "id": "image", "label": "Foto", "info": "Vertical, 4:5." },
+    { "type": "product", "id": "product", "label": "O foto de este producto", "info": "Se usa la foto con modelo." },
     { "type": "text", "id": "eyebrow", "label": "Antetítulo", "default": "Sobre Oelnor" },
     { "type": "text", "id": "title_1", "label": "Título", "default": "Una idea" },
     { "type": "text", "id": "title_2", "label": "Título · final en cursiva", "default": "sencilla." },

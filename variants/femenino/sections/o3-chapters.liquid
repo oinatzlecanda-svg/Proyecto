@@ -1,0 +1,91 @@
+{%- comment -%}
+  OELNOR 3.0 · Femenino — Chapters (about page).
+  One row per block: a photo and a short text, alternating sides on desktop.
+  Each photo opens like a curtain the first time it scrolls into view (same
+  treatment as the home's "Sobre Oelnor" block). Styles: o3.css (CHAPTERS).
+{%- endcomment -%}
+<section class="o3 o3-chapters" aria-label="{{ section.settings.label | escape }}">
+  <div class="o3-wrap">
+    {%- for block in section.blocks -%}
+      {%- liquid
+        assign img = block.settings.image
+        assign p = block.settings.product
+        if img == blank and p != blank
+          assign img = p.media[1].preview_image | default: p.featured_media.preview_image
+        endif
+        assign link = block.settings.button_link | default: p.url
+        assign mods = ''
+        assign odd = forloop.index0 | modulo: 2
+        if odd == 1
+          assign mods = ' o3-chapter--flip'
+        endif
+        if img == blank
+          assign mods = mods | append: ' o3-chapter--text'
+        endif
+      -%}
+      <article class="o3-about__grid o3-chapter{{ mods }}" {{ block.shopify_attributes }}>
+        {%- if img != blank -%}
+          {%- if link != blank -%}
+            <a class="o3-about__media" href="{{ link }}" tabindex="-1" aria-hidden="true" data-o3-reveal>
+              {{ img | image_url: width: 1200 | image_tag: loading: 'lazy', widths: '480, 720, 960, 1200', sizes: '(min-width: 750px) 42vw, 100vw', alt: '' }}
+            </a>
+          {%- else -%}
+            <div class="o3-about__media" data-o3-reveal>
+              {{ img | image_url: width: 1200 | image_tag: loading: 'lazy', widths: '480, 720, 960, 1200', sizes: '(min-width: 750px) 42vw, 100vw', alt: '' }}
+            </div>
+          {%- endif -%}
+        {%- endif -%}
+
+        <div class="o3-about__body">
+          {%- if block.settings.kicker != blank -%}
+            <p class="o3-mono o3-eyebrow" data-o3-reveal>
+              <span class="o3-chapter__n" aria-hidden="true">{{ forloop.index | prepend: '0' }}</span>
+              {{- block.settings.kicker -}}
+            </p>
+          {%- endif -%}
+          <h2 class="o3-about__title o3-chapter__title" data-o3-reveal style="--i: 1">
+            {{- block.settings.title_1 }}
+            {%- if block.settings.title_2 != blank %} <em>{{ block.settings.title_2 }}</em>{%- endif -%}
+          </h2>
+          {%- if block.settings.text != blank -%}
+            <p class="o3-about__text" data-o3-reveal style="--i: 2">{{ block.settings.text }}</p>
+          {%- endif -%}
+          {%- if block.settings.button_label != blank and link != blank -%}
+            <a class="o3-btn o3-btn--ink o3-about__btn" href="{{ link }}" data-o3-reveal style="--i: 3">
+              {{- block.settings.button_label }} <span class="o3-btn__arrow" aria-hidden="true">→</span>
+            </a>
+          {%- endif -%}
+        </div>
+      </article>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "O3 · Capítulos",
+  "tag": "div",
+  "class": "o3-section",
+  "settings": [
+    { "type": "text", "id": "label", "label": "Nombre de la sección (para lectores de pantalla)", "default": "Nuestra historia" }
+  ],
+  "blocks": [
+    {
+      "type": "chapter",
+      "name": "Capítulo",
+      "limit": 6,
+      "settings": [
+        { "type": "text", "id": "kicker", "label": "Antetítulo" },
+        { "type": "text", "id": "title_1", "label": "Título", "default": "Piezas con" },
+        { "type": "text", "id": "title_2", "label": "Título · final en cursiva", "default": "algo especial." },
+        { "type": "textarea", "id": "text", "label": "Texto" },
+        { "type": "image_picker", "id": "image", "label": "Foto (vertical, 4:5)" },
+        { "type": "product", "id": "product", "label": "O foto de este producto", "info": "Se usa la foto con modelo." },
+        { "type": "text", "id": "button_label", "label": "Botón (opcional)" },
+        { "type": "url", "id": "button_link", "label": "Enlace del botón" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "O3 · Capítulos", "blocks": [{ "type": "chapter" }, { "type": "chapter" }] }]
+}
+{% endschema %}

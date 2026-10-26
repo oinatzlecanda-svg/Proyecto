@@ -1936,6 +1936,27 @@ body:has(.o3-top) .header__icon .svg-wrapper { color: #f7f0ea; }
 }
 
 /* ==========================================================================
+   CHAPTERS — about page story. Ivory band, one photo + text per row, alternating
+   sides on desktop. Reuses the ABOUT TEASER pieces (curtain reveal included).
+   ========================================================================== */
+.o3-chapters { background: var(--o3-bone); color: var(--o3-ink); padding-block: 64px; }
+.o3-chapter + .o3-chapter { margin-top: 72px; }
+.o3-chapter__n { font-variant-numeric: tabular-nums; color: var(--o3-accent-ink); margin-right: 4px; }
+.o3-chapter__title { font-size: clamp(40px, 10vw, 76px); }
+.o3-chapter--text { justify-items: center; text-align: center; }
+.o3-chapter--text .o3-about__body { justify-items: center; max-width: 640px; margin-inline: auto; }
+.o3-chapter--text .o3-eyebrow::before { display: none; }
+
+@media (min-width: 750px) {
+  .o3-chapters { padding-block: 112px; }
+  .o3-chapter + .o3-chapter { margin-top: 128px; }
+  .o3-chapter--flip { grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); }
+  .o3-chapter--flip .o3-about__media { order: 2; }
+  .o3-chapter--flip .o3-about__body { justify-self: end; }
+  .o3-chapter--text { grid-template-columns: 1fr; }
+}
+
+/* ==========================================================================
    EDITORIAL HERO — one campaign photo, serif headline, Mujer first.
    Motion (once per visit, so it can afford to be slow and soft):
    photo settles 1.06 → 1, headline lines rise out of a clip, the rest fades up
