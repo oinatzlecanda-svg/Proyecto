@@ -11,7 +11,7 @@
       {%- if section.settings.eyebrow != blank -%}
         <p class="o3-head__eyebrow o3-mono">{{ section.settings.eyebrow }}</p>
       {%- endif -%}
-      <h2 class="o3-head__title" id="O3LooksTitle-{{ section.id }}">{{ section.settings.title }}</h2>
+      <h2 class="o3-head__title" id="O3LooksTitle-{{ section.id }}">{% render 'o3-em', text: section.settings.title %}</h2>
       {%- if section.settings.text != blank -%}
         <p class="o3-head__text">{{ section.settings.text }}</p>
       {%- endif -%}
@@ -34,7 +34,7 @@
               {{ 'lifestyle-2' | placeholder_svg_tag }}
             {%- endif -%}
           </div>
-          <h3 class="o3-look__title">{{ block.settings.title }}</h3>
+          <h3 class="o3-look__title"><span class="o3-look__n" aria-hidden="true">{{ forloop.index | prepend: '0' }}</span>{{ block.settings.title }}</h3>
           {%- if block.settings.text != blank -%}
             <p class="o3-look__text">{{ block.settings.text }}</p>
           {%- endif -%}
@@ -68,7 +68,7 @@
   "class": "o3-section",
   "settings": [
     { "type": "text", "id": "eyebrow", "label": "Antetítulo", "default": "Ideas para combinar" },
-    { "type": "text", "id": "title", "label": "Título", "default": "Looks de otoño" },
+    { "type": "text", "id": "title", "label": "Título", "info": "Pon entre *asteriscos* las palabras en cursiva.", "default": "Looks de otoño" },
     { "type": "textarea", "id": "text", "label": "Texto", "default": "Elegidas para combinar con lo que ya tienes." }
   ],
   "blocks": [

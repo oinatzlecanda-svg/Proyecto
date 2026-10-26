@@ -8,7 +8,7 @@
         "alt": "Cárdigan Alma negro, look de otoño",
         "focus": "50% 30%",
         "eyebrow": "Otoño",
-        "title": "Piezas para tu día a día, con algo distinto",
+        "title": "Piezas para tu día a día, *con algo distinto*",
         "text": "",
         "button_label": "Ver novedades",
         "button_link": "/collections/mujer?sort_by=created-descending"
@@ -18,7 +18,7 @@
       "type": "o3-products",
       "settings": {
         "eyebrow": "Recién llegado",
-        "title": "Novedades de mujer",
+        "title": "Novedades *de mujer*",
         "text": "",
         "collection": "mujer",
         "newest": true,
@@ -32,7 +32,7 @@
       "settings": {
         "product": "bolso-siena",
         "eyebrow": "Bolso de hombro",
-        "title": "",
+        "title": "Bolso *Siena*",
         "text": "Limpio, curvo y fácil de llevar: el bolso que acompaña todo lo que ya tienes.",
         "button_label": "Ver el bolso"
       }
@@ -87,7 +87,7 @@
       ],
       "settings": {
         "eyebrow": "Ideas para combinar",
-        "title": "Looks de otoño",
+        "title": "Looks *de otoño*",
         "text": "Elegidas para combinar con lo que ya tienes."
       }
     },
@@ -135,7 +135,7 @@
       ],
       "settings": {
         "eyebrow": "Explora",
-        "title": "Categorías"
+        "title": "Encuentra *lo tuyo*"
       }
     },
     "hombre": {
@@ -146,7 +146,7 @@
         "size": "small",
         "background": "sand",
         "eyebrow": "Hombre",
-        "title": "También para él",
+        "title": "También *para él*",
         "text": "<p>Una selección corta de básicos con carácter: punto, denim y chaquetas.</p>",
         "link_label": "Ver hombre",
         "link": "shopify://collections/hombre"
@@ -159,7 +159,7 @@
         "size": "large",
         "background": "paper",
         "eyebrow": "Sobre Oelnor",
-        "title": "Pocas piezas, bien escogidas",
+        "title": "Pocas piezas, *bien escogidas*",
         "text": "<p>En Oelnor elegimos cada prenda y cada accesorio uno a uno. Buscamos piezas fáciles de combinar con lo que ya tienes, con un detalle que las haga distintas y a un precio razonable.</p><p>Preferimos pocas cosas bien escogidas a un catálogo infinito. Y si algo no te convence, lo solucionamos contigo.</p>",
         "link_label": "Conócenos",
         "link": "shopify://pages/sobre-oelnor"

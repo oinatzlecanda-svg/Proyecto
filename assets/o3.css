@@ -48,8 +48,10 @@ html:root {
   --o3-mute: #6f655b;        /* captions (5:1 on cream) */
   --o3-line: rgba(31, 28, 25, 0.14);
   --o3-line-2: rgba(31, 28, 25, 0.32);
-  --o3-accent: #b08a63;      /* camel, decorative only */
-  --o3-accent-ink: #85613d;  /* camel for text (5.3:1 on cream) */
+  --o3-accent: #b0703f;      /* caramel, decorative only */
+  --o3-accent-ink: #8f5530;  /* caramel for text (5.3:1 on cream) */
+  --o3-night: #1f1c19;       /* soft black band */
+  --o3-caramel: #d9b48f;     /* warm band (soft black text 8.8:1) */
   --o3-photo: #e6dfd3;       /* image placeholder */
 
   /* names kept from the first version so every section maps onto the new palette */
@@ -63,6 +65,7 @@ html:root {
   --o3-sans: 'O3 Archivo', 'Archivo', 'Helvetica Neue', Arial, sans-serif;
 
   --o3-ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --o3-ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
   --o3-gutter: max(20px, env(safe-area-inset-left, 0px));
   --o3-gutter-r: max(20px, env(safe-area-inset-right, 0px));
   --o3-space: 72px;
@@ -124,11 +127,31 @@ html:root {
   white-space: nowrap; border: 0;
 }
 .o3-eyebrow { color: var(--o3-mute); }
+.o3-head__eyebrow,
+.o3-cover__eyebrow,
+.o3-feat__body > .o3-eyebrow,
+.o3-story__body > .o3-eyebrow { display: inline-flex; align-items: center; gap: 12px; }
+.o3-head__eyebrow::before,
+.o3-cover__eyebrow::before,
+.o3-feat__body > .o3-eyebrow::before,
+.o3-story__body > .o3-eyebrow::before {
+  content: '';
+  width: 28px;
+  height: 1px;
+  background: var(--o3-accent);
+  transform-origin: 0 50%;
+  transition: transform 900ms var(--o3-ease-out) 200ms;
+}
+.o3-story--text .o3-story__body > .o3-eyebrow::before { display: none; }
+.o3 :is(h1, h2, h3) em { font-style: italic; color: var(--o3-accent-ink); }
 .o3-line { display: block; }
 .o3-mark { font-style: italic; }
 
 /* ---------- Buttons ---------- */
 .o3-btn {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -146,9 +169,18 @@ html:root {
   touch-action: manipulation;
   user-select: none;
   -webkit-user-select: none;
-  transition: transform 140ms var(--o3-ease-out), background-color 220ms ease, color 220ms ease, border-color 220ms ease;
+  transition: transform 160ms var(--o3-ease-out), color 260ms ease, border-color 260ms ease;
 }
-.o3-btn:active { transform: scale(0.98); }
+.o3-btn::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  background: #8f5530;
+  transform: translateY(101%);
+  transition: transform 300ms var(--o3-ease-out);
+}
+.o3-btn:active { transform: scale(0.97); }
 .o3 .o3-btn--solid,
 .o3 .o3-btn--ink { background: var(--o3-text); border-color: var(--o3-text); color: var(--o3-paper); }
 .o3 .o3-btn--light,
@@ -156,14 +188,14 @@ html:root {
 .o3 .o3-btn--outline { background: transparent; border-color: currentColor; color: inherit; }
 .o3-btn__arrow { display: none; }
 @media (hover: hover) and (pointer: fine) {
-  .o3 .o3-btn--solid:hover,
-  .o3 .o3-btn--ink:hover { background: #3a342e; border-color: #3a342e; }
-  .o3 .o3-btn--light:hover,
-  .o3 .o3-btn--ghost:hover,
-  .o3 .o3-btn--outline:hover { background: var(--o3-text); border-color: var(--o3-text); color: var(--o3-paper); }
+  .o3-btn:hover::before { transform: translateY(0); }
+  .o3 .o3-btn:hover,
+  .o3.o3-cover .o3-btn:hover,
+  .o3.o3-feat .o3-btn:hover { border-color: #8f5530; color: #fbf9f5; }
 }
-/* Text link with a thin underline */
+/* Text link: a caramel line that fills on hover */
 .o3-link {
+  position: relative;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -172,20 +204,35 @@ html:root {
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 6px;
-  text-decoration-color: var(--o3-line-2);
-  transition: text-decoration-color 200ms ease;
 }
-@media (hover: hover) and (pointer: fine) { .o3-link:hover { text-decoration-color: currentColor; } }
+.o3-link::before,
+.o3-link::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; }
+.o3-link::before { background: var(--o3-line-2); }
+.o3-link::after { background: var(--o3-accent); transform: scaleX(0.3); transform-origin: 0 50%; transition: transform 420ms var(--o3-ease-out); }
+@media (hover: hover) and (pointer: fine) { .o3-link:hover::after { transform: scaleX(1); } }
 
-/* ---------- Quiet reveal: a short fade, only when JS runs ---------- */
-.o3-js .o3 [data-o3-reveal]:not([data-in]) { opacity: 0; transform: translateY(10px); }
+/* ---------- Reveals, only when JS runs (content is visible without it) ---------- */
+.o3-js .o3 [data-o3-reveal]:not([data-in]) { opacity: 0; transform: translateY(16px); }
 .o3 [data-o3-reveal] {
-  transition: opacity 700ms var(--o3-ease-out), transform 700ms var(--o3-ease-out);
+  transition: opacity 800ms var(--o3-ease-out), transform 800ms var(--o3-ease-out);
   transition-delay: calc(var(--i, 0) * 70ms);
 }
+/* Section heads: eyebrow line grows, then eyebrow, title and text rise one after another */
+.o3-head > * { transition: opacity 800ms var(--o3-ease-out), transform 800ms var(--o3-ease-out); }
+.o3-head > :nth-child(2) { transition-delay: 80ms; }
+.o3-head > :nth-child(3) { transition-delay: 160ms; }
+.o3-head > :nth-child(4) { transition-delay: 240ms; }
+.o3-js .o3-head:not([data-in]) > * { opacity: 0; transform: translateY(18px); }
+.o3-js .o3-head:not([data-in]) .o3-head__eyebrow::before { transform: scaleX(0); }
+/* Photos: a curtain opens from the bottom while the picture settles from a slight zoom */
+.o3 :is(.o3-pcard__media, .o3-cat__media, .o3-look__media, .o3-feat__media, .o3-story__media) {
+  clip-path: inset(0 0 0 0);
+  transition: clip-path 1100ms var(--o3-ease-in-out);
+  transition-delay: calc(var(--i, 0) * 90ms);
+}
+.o3 :is(.o3-cat__media, .o3-look__media, .o3-story__media) img { transition: transform 1300ms var(--o3-ease-out); }
+.o3-js .o3 :is(.o3-pcard__media, .o3-cat__media, .o3-look__media, .o3-feat__media, .o3-story__media):not([data-in]) { clip-path: inset(100% 0 0 0); }
+.o3-js .o3 :is(.o3-pcard__media, .o3-cat__media, .o3-look__media, .o3-feat__media, .o3-story__media):not([data-in]) img { transform: scale(1.12); }
 
 /* ---------- Section heads ---------- */
 .o3-head {
@@ -221,7 +268,26 @@ html:root {
   color: var(--o3-paper);
 }
 .o3-cover__media { position: absolute; inset: 0; }
-.o3-cover__media img { width: 100%; height: 100%; object-fit: cover; object-position: var(--o3-focus, 50% 30%); }
+.o3-cover__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--o3-focus, 50% 30%);
+  animation: o3-settle 1800ms var(--o3-ease-out) both;
+}
+.o3-cover__body > * { animation: o3-rise 1000ms var(--o3-ease-out) both; }
+.o3-cover__body > :nth-child(1) { animation-delay: 250ms; }
+.o3-cover__body > :nth-child(2) { animation-delay: 350ms; }
+.o3-cover__body > :nth-child(3) { animation-delay: 470ms; }
+.o3-cover__body > :nth-child(4) { animation-delay: 590ms; }
+.o3-cover__eyebrow::before { background: #e8c29b; }
+.o3 .o3-cover__title em { color: #e8c29b; }
+@keyframes o3-settle { from { transform: scale(1.08); } to { transform: scale(1); } }
+@keyframes o3-rise { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
+@supports (animation-timeline: view()) {
+  .o3-cover__media { animation: o3-drift linear both; animation-timeline: view(); animation-range: exit; }
+  @keyframes o3-drift { to { transform: translateY(18%); } }
+}
 .o3-cover__media::after {
   content: '';
   position: absolute;
@@ -296,8 +362,8 @@ html:root {
   overflow: hidden;
   background: var(--o3-photo);
 }
-.o3-pcard__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.o3-pcard__alt { opacity: 0; transition: opacity 500ms ease; }
+.o3-pcard__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 1100ms var(--o3-ease-out), opacity 500ms ease; }
+.o3-pcard__alt { opacity: 0; }
 .o3-pcard__rank { display: none; }
 .o3-pcard__badge {
   position: absolute;
@@ -322,6 +388,7 @@ html:root {
 .o3-pcard__type, .o3-pcard__go { display: none; }
 @media (hover: hover) and (pointer: fine) {
   .o3-pcard__link:hover .o3-pcard__alt { opacity: 1; }
+  .o3-pcard__link:hover .o3-pcard__media img { transform: scale(1.04); }
   .o3-pcard__link:hover .o3-pcard__title { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
 }
 
@@ -339,16 +406,31 @@ html:root {
 /* ==========================================================================
    HOME — featured product (Bolso Siena)
    ========================================================================== */
-.o3-feat { padding-block: var(--o3-space); background: var(--o3-paper); }
+.o3-feat { padding-block: var(--o3-space); background: var(--o3-night); color: var(--o3-bg); --o3-photo: #2b2723; }
+.o3-feat .o3-eyebrow,
+.o3-feat__colors legend { color: #b8aea3; }
+.o3-feat__body > .o3-eyebrow::before { background: #e8c29b; }
+.o3-feat .o3-feat__title em { color: #e8c29b; }
+.o3.o3-feat .o3-btn--solid { background: var(--o3-bg); border-color: var(--o3-bg); color: var(--o3-text); }
 .o3-feat__grid { display: grid; gap: 28px; }
 .o3-feat__media { position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: var(--o3-photo); }
-.o3-feat__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 450ms ease; }
+.o3-feat__media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  filter: blur(8px);
+  transform: scale(1.03);
+  transition: opacity 520ms ease, filter 520ms ease, transform 1100ms var(--o3-ease-out);
+}
 .o3-feat__media:not([data-picked]) img:first-child,
-.o3-feat__media img[data-on] { opacity: 1; }
+.o3-feat__media img[data-on] { opacity: 1; filter: blur(0); transform: scale(1); }
 .o3-feat__body { display: grid; gap: 16px; align-content: center; justify-items: start; }
 .o3-feat__title { font-family: var(--o3-serif); font-weight: 400; font-size: clamp(38px, 9.5vw, 64px); line-height: 1.02; }
-.o3-feat__text { max-width: 40ch; color: var(--o3-text-2); font-size: 17px; }
-.o3-feat__price { font-size: 15px; color: var(--o3-text-2); }
+.o3-feat__text { max-width: 40ch; color: #d9d1c7; font-size: 17px; }
+.o3-feat__price { font-size: 15px; color: #d9d1c7; }
 .o3-feat__colors { display: grid; gap: 10px; margin-top: 4px; }
 .o3-feat__colors legend { padding: 0; margin-bottom: 10px; color: var(--o3-mute); }
 .o3-feat__colors fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
@@ -368,9 +450,10 @@ html:root {
   transition: border-color 200ms ease, transform 140ms var(--o3-ease-out);
 }
 .o3-dot:active { transform: scale(0.94); }
-.o3-dot span { width: 32px; height: 32px; border-radius: 50%; background: var(--c, #ccc); box-shadow: inset 0 0 0 1px rgba(31, 28, 25, 0.16); }
-.o3-dot[aria-pressed='true'] { border-color: var(--o3-text); }
-.o3-feat__color-name { min-height: 1.4em; color: var(--o3-text-2); font-size: 14px; }
+.o3-dot span { width: 32px; height: 32px; border-radius: 50%; background: var(--c, #ccc); box-shadow: inset 0 0 0 1px rgba(244, 240, 233, 0.22); transition: transform 300ms var(--o3-ease-out); }
+.o3-dot[aria-pressed='true'] { border-color: var(--o3-bg); }
+.o3-dot[aria-pressed='true'] span { transform: scale(0.82); }
+.o3-feat__color-name { min-height: 1.4em; color: #d9d1c7; font-size: 14px; }
 @media (min-width: 900px) {
   .o3-feat__grid { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 72px; align-items: center; }
 }
@@ -398,6 +481,7 @@ html:root {
 .o3-look__media { aspect-ratio: 4 / 5; overflow: hidden; background: var(--o3-photo); }
 .o3-look__media img { width: 100%; height: 100%; object-fit: cover; }
 .o3-look__title { font-family: var(--o3-serif); font-weight: 400; font-size: 28px; line-height: 1.1; }
+.o3-look__n { margin-right: 12px; font-style: italic; color: var(--o3-accent-ink); }
 .o3-look__text { color: var(--o3-text-2); font-size: 15px; }
 .o3-look__items { border-top: 1px solid var(--o3-line); }
 .o3-look__items a {
@@ -427,9 +511,14 @@ html:root {
 .o3-cat a { display: grid; gap: 12px; touch-action: manipulation; }
 .o3-cat__media { aspect-ratio: 3 / 4; overflow: hidden; background: var(--o3-photo); }
 .o3-cat__media img { width: 100%; height: 100%; object-fit: cover; transition: transform 900ms var(--o3-ease-out); }
-.o3-cat__name { font-family: var(--o3-serif); font-weight: 400; font-size: 24px; line-height: 1.1; }
+.o3-cat__name { display: inline-flex; align-items: baseline; gap: 10px; font-family: var(--o3-serif); font-weight: 400; font-size: 24px; line-height: 1.1; }
+.o3-cat__go { font-family: var(--o3-sans); font-size: 16px; color: var(--o3-accent-ink); transition: transform 300ms var(--o3-ease-out), opacity 300ms ease; }
+@media (hover: hover) and (pointer: fine) {
+  .o3-cat__go { opacity: 0; transform: translateX(-8px); }
+  .o3-cat a:hover .o3-cat__go { opacity: 1; transform: translateX(0); }
+}
 @media (min-width: 990px) { .o3-cats__list { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; } .o3-cat__name { font-size: 28px; } }
-@media (hover: hover) and (pointer: fine) { .o3-cat a:hover .o3-cat__media img { transform: scale(1.03); } }
+@media (hover: hover) and (pointer: fine) { .o3-cat a:hover .o3-cat__media img { transform: scale(1.05); } }
 
 /* ==========================================================================
    HOME — image + text (Hombre, Sobre Oelnor)
@@ -456,12 +545,14 @@ html:root {
 /* ==========================================================================
    NEWSLETTER
    ========================================================================== */
-.o3-signup { padding-block: var(--o3-space); background: var(--o3-sand); }
+.o3-signup { padding-block: var(--o3-space); background: var(--o3-caramel); }
+.o3-signup .o3-signup__title span { color: var(--o3-text); }
 .o3-signup .o3-wrap { max-width: 760px; text-align: center; }
 .o3-signup__title { font-family: var(--o3-serif); font-weight: 400; font-size: clamp(34px, 8.5vw, 52px); line-height: 1.05; }
 .o3-signup__title span { font-style: italic; }
 .o3-signup__body { display: grid; gap: 22px; margin-top: 16px; }
-.o3-signup__text { max-width: 46ch; margin-inline: auto; color: var(--o3-text-2); }
+.o3-signup__text { max-width: 46ch; margin-inline: auto; color: #2f2620; }
+.o3-signup .o3-input { border-color: rgba(31, 28, 25, 0.35); }
 .o3-signup__form { display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; text-align: left; }
 .o3-input {
   width: 100%;
@@ -944,6 +1035,11 @@ body:has(.o3-polhero) .shopify-policy__body strong { color: #1f1c19; font-weight
 
 /* Buy box */
 .o3-buy { padding-top: 24px; display: grid; gap: 22px; }
+.o3-buy > * { animation: o3-rise 800ms var(--o3-ease-out) both; }
+.o3-buy > :nth-child(2) { animation-delay: 60ms; }
+.o3-buy > :nth-child(3) { animation-delay: 120ms; }
+.o3-buy > :nth-child(4) { animation-delay: 180ms; }
+.o3-buy > :nth-child(n + 5) { animation-delay: 240ms; }
 @media (min-width: 990px) { .o3-buy { position: sticky; top: 24px; padding-top: 0; } }
 .o3-buy__title {
   font-family: var(--o3-serif);
@@ -1052,6 +1148,8 @@ body:has(.o3-polhero) .shopify-policy__body strong { color: #1f1c19; font-weight
 .o3-qty input::-webkit-outer-spin-button, .o3-qty input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
 .o3-atc {
   position: relative;
+  isolation: isolate;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1073,7 +1171,7 @@ body:has(.o3-polhero) .shopify-policy__body strong { color: #1f1c19; font-weight
   -webkit-user-select: none;
   transition: transform 140ms var(--o3-ease-out), background-color 220ms ease, color 220ms ease;
 }
-.o3-atc:active { transform: scale(0.99); }
+.o3-atc:active { transform: scale(0.98); }
 .o3-atc[disabled] { background: transparent; border-color: var(--o3-line-2); color: var(--o3-mute); cursor: not-allowed; }
 .o3-atc[aria-busy='true'] { pointer-events: none; }
 .o3-atc[aria-busy='true'] .o3-atc__label::after {
@@ -1089,10 +1187,23 @@ body:has(.o3-polhero) .shopify-policy__body strong { color: #1f1c19; font-weight
   animation: o3-spin 700ms linear infinite;
 }
 @keyframes o3-spin { to { transform: rotate(360deg); } }
-.o3-atc[data-done] { background: #3a342e; }
+.o3-atc[data-done] { border-color: #8f5530; }
 .o3-atc__label { white-space: nowrap; }
 .o3-atc__price { display: none; }
-@media (hover: hover) and (pointer: fine) { .o3-atc:not([disabled]):hover { background: #3a342e; border-color: #3a342e; } }
+.o3-atc::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  background: #8f5530;
+  transform: translateY(101%);
+  transition: transform 300ms var(--o3-ease-out);
+}
+.o3-atc[data-done]::before { transform: translateY(0); }
+@media (hover: hover) and (pointer: fine) {
+  .o3-atc:not([disabled]):hover::before { transform: translateY(0); }
+  .o3-atc:not([disabled]):hover { border-color: #8f5530; }
+}
 .o3-buy__care { color: var(--o3-text-2); font-size: 13.5px; text-align: center; }
 .o3-buy__form .shopify-payment-button__button { min-height: 52px; border-radius: 0; }
 .o3-buy__form .shopify-payment-button__button--unbranded {
@@ -1370,11 +1481,19 @@ body { background: #f4f0e9; }
    Reduced motion: keep fades, drop movement
    ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
-  .o3 [data-o3-reveal] { transition: opacity 300ms ease; }
-  .o3-js .o3 [data-o3-reveal]:not([data-in]) { transform: none; }
-  .o3-cat__media img, .o3-feat__media img { transition: none; }
+  .o3 [data-o3-reveal], .o3-head > * { transition: opacity 300ms ease; }
+  .o3-js .o3 [data-o3-reveal]:not([data-in]),
+  .o3-js .o3-head:not([data-in]) > * { transform: none; }
+  .o3 :is(.o3-pcard__media, .o3-cat__media, .o3-look__media, .o3-feat__media, .o3-story__media) { transition: opacity 400ms ease; clip-path: none !important; }
+  .o3-js .o3 :is(.o3-pcard__media, .o3-cat__media, .o3-look__media, .o3-feat__media, .o3-story__media):not([data-in]) { opacity: 0; }
+  .o3 :is(.o3-pcard__media, .o3-cat__media, .o3-look__media, .o3-feat__media, .o3-story__media) img { transform: none !important; }
+  .o3-cover__media, .o3-cover__media img { animation: none; }
+  .o3-cover__body > *, .o3-buy > * { animation: o3-fade 400ms ease both; }
+  .o3-feat__media img { filter: none; transition: opacity 300ms ease; }
+  .o3-btn::before, .o3-atc::before, .o3-link::after { transition-duration: 0ms; }
   .o3-drawer, .o3-drawer::backdrop, .o3-zoom, .o3-sticky { transition-duration: 0ms; }
   .o3-pop { transition: opacity 200ms ease, overlay 200ms allow-discrete, display 200ms allow-discrete; transform: none; }
   .o3-pop:not([open]) { opacity: 0; transform: none; }
   @starting-style { .o3-pop[open] { opacity: 0; transform: none; } }
+  @keyframes o3-fade { from { opacity: 0; } to { opacity: 1; } }
 }

@@ -33,7 +33,7 @@
     {%- if section.settings.eyebrow != blank -%}
       <p class="o3-cover__eyebrow o3-mono">{{ section.settings.eyebrow }}</p>
     {%- endif -%}
-    <h1 class="o3-cover__title" id="O3CoverTitle-{{ section.id }}">{{ section.settings.title }}</h1>
+    <h1 class="o3-cover__title" id="O3CoverTitle-{{ section.id }}">{% render 'o3-em', text: section.settings.title %}</h1>
     {%- if section.settings.text != blank -%}
       <p class="o3-cover__text">{{ section.settings.text }}</p>
     {%- endif -%}
@@ -69,7 +69,7 @@
       ]
     },
     { "type": "text", "id": "eyebrow", "label": "Antetítulo", "default": "Otoño" },
-    { "type": "text", "id": "title", "label": "Titular", "default": "Piezas para tu día a día, con algo distinto" },
+    { "type": "text", "id": "title", "label": "Titular", "info": "Pon entre *asteriscos* las palabras en cursiva.", "default": "Piezas para tu día a día, con algo distinto" },
     { "type": "textarea", "id": "text", "label": "Texto (opcional)" },
     { "type": "text", "id": "button_label", "label": "Botón", "default": "Ver novedades" },
     { "type": "url", "id": "button_link", "label": "Enlace del botón" }

@@ -29,7 +29,7 @@
       {%- if section.settings.eyebrow != blank -%}
         <p class="o3-mono o3-eyebrow">{{ section.settings.eyebrow }}</p>
       {%- endif -%}
-      <h2 class="o3-story__title" id="O3StoryTitle-{{ section.id }}">{{ section.settings.title }}</h2>
+      <h2 class="o3-story__title" id="O3StoryTitle-{{ section.id }}">{% render 'o3-em', text: section.settings.title %}</h2>
       {%- if section.settings.text != blank -%}
         <div class="o3-story__text">{{ section.settings.text }}</div>
       {%- endif -%}
@@ -71,7 +71,7 @@
       ]
     },
     { "type": "text", "id": "eyebrow", "label": "Antetítulo" },
-    { "type": "text", "id": "title", "label": "Título", "default": "Sobre Oelnor" },
+    { "type": "text", "id": "title", "label": "Título", "info": "Pon entre *asteriscos* las palabras en cursiva.", "default": "Sobre Oelnor" },
     { "type": "richtext", "id": "text", "label": "Texto" },
     { "type": "text", "id": "link_label", "label": "Texto del enlace" },
     { "type": "url", "id": "link", "label": "Enlace" }

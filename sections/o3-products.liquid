@@ -17,7 +17,7 @@
       {%- if section.settings.eyebrow != blank -%}
         <p class="o3-head__eyebrow o3-mono">{{ section.settings.eyebrow }}</p>
       {%- endif -%}
-      <h2 class="o3-head__title" id="O3NewTitle-{{ section.id }}">{{ section.settings.title }}</h2>
+      <h2 class="o3-head__title" id="O3NewTitle-{{ section.id }}">{% render 'o3-em', text: section.settings.title %}</h2>
       {%- if section.settings.text != blank -%}
         <p class="o3-head__text">{{ section.settings.text }}</p>
       {%- endif -%}
@@ -68,7 +68,7 @@
   "class": "o3-section",
   "settings": [
     { "type": "text", "id": "eyebrow", "label": "Antetítulo", "default": "Recién llegado" },
-    { "type": "text", "id": "title", "label": "Título", "default": "Novedades de mujer" },
+    { "type": "text", "id": "title", "label": "Título", "info": "Pon entre *asteriscos* las palabras en cursiva.", "default": "Novedades de mujer" },
     { "type": "textarea", "id": "text", "label": "Texto" },
     { "type": "collection", "id": "collection", "label": "Colección" },
     { "type": "checkbox", "id": "newest", "label": "Ordenar por más recientes", "default": true },

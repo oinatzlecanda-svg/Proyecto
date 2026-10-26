@@ -1,0 +1,11 @@
+{%- comment -%}
+  Prints a heading with the words between *asterisks* in italics, e.g.
+  "Looks *de otoño*" → Looks <em>de otoño</em>.
+  Accepts:
+  - text: {String}
+{%- endcomment -%}
+{%- assign o3_parts = text | escape | split: '*' -%}
+{%- for o3_part in o3_parts -%}
+  {%- assign o3_odd = forloop.index0 | modulo: 2 -%}
+  {%- if o3_odd == 1 -%}<em>{{ o3_part }}</em>{%- else -%}{{ o3_part }}{%- endif -%}
+{%- endfor -%}

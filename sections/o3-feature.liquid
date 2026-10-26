@@ -40,7 +40,7 @@
       {%- if section.settings.eyebrow != blank -%}
         <p class="o3-mono o3-eyebrow">{{ section.settings.eyebrow }}</p>
       {%- endif -%}
-      <h2 class="o3-feat__title" id="O3FeatTitle-{{ section.id }}">{{ section.settings.title | default: p.title }}</h2>
+      <h2 class="o3-feat__title" id="O3FeatTitle-{{ section.id }}">{% render 'o3-em', text: section.settings.title | default: p.title %}</h2>
       {%- if section.settings.text != blank -%}
         <p class="o3-feat__text">{{ section.settings.text }}</p>
       {%- endif -%}
@@ -117,7 +117,7 @@
   "settings": [
     { "type": "product", "id": "product", "label": "Producto" },
     { "type": "text", "id": "eyebrow", "label": "Antetítulo", "default": "La pieza de la temporada" },
-    { "type": "text", "id": "title", "label": "Título (vacío = nombre del producto)" },
+    { "type": "text", "id": "title", "label": "Título (vacío = nombre del producto)", "info": "Pon entre *asteriscos* las palabras en cursiva." },
     { "type": "textarea", "id": "text", "label": "Una frase sobre él", "default": "Limpio, curvo y fácil de llevar: el bolso que acompaña todo lo que ya tienes." },
     { "type": "text", "id": "button_label", "label": "Botón", "default": "Ver el bolso" }
   ],

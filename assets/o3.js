@@ -18,7 +18,9 @@
     },
     { rootMargin: '0px 0px -8% 0px' }
   );
-  const watchReveals = (scope) => scope.querySelectorAll('[data-o3-reveal]:not([data-in])').forEach((el) => revealIO.observe(el));
+  // Text blocks, section heads and photos (the photo curtains live in o3.css)
+  const REVEAL = '[data-o3-reveal], .o3-head, .o3-pcard__media, .o3-cat__media, .o3-look__media, .o3-feat__media, .o3-story__media';
+  const watchReveals = (scope) => scope.querySelectorAll(REVEAL).forEach((el) => { if (!el.hasAttribute('data-in')) revealIO.observe(el); });
 
   /* ---------- Rail progress bar (mobile scroll track) ---------- */
   function rail(section) {
