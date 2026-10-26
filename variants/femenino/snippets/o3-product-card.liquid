@@ -1,0 +1,78 @@
+{%- comment -%}
+  OELNOR 3.0 product card.
+  Accepts:
+  - product: {Object}
+  - position: {Number} 1-based position in the rail
+  - show_rank: {Boolean} print the position as a ranking number
+  - badge: {String} optional label (e.g. "Top ventas")
+  - block: {Object} optional, for theme editor attributes
+  - img_sizes: {String} optional sizes attribute (defaults to the rail layout)
+  - eager: {Boolean} load the image eagerly (first row of a grid)
+  - no_reveal: {Boolean} skip the scroll-in reveal (cards that can be above the fold)
+{%- endcomment -%}
+{%- liquid
+  assign media = product.featured_media
+  assign alt_media = product.media[1]
+  assign alt_text = product.title | escape
+  assign sizes = img_sizes | default: '(min-width: 1100px) 25vw, (min-width: 750px) 40vw, 74vw'
+  assign loading = 'lazy'
+  if eager
+    assign loading = 'eager'
+  endif
+  assign stagger = position | minus: 1 | modulo: 4
+  assign on_sale = false
+  if product.compare_at_price > product.price
+    assign on_sale = true
+  endif
+-%}
+<li class="o3-pcard" {% unless no_reveal %}data-o3-reveal{% endunless %} style="--i: {{ stagger }}" {% if block %}{{ block.shopify_attributes }}{% endif %}>
+  <a class="o3-pcard__link" href="{{ product.url }}">
+    <div class="o3-pcard__media">
+      {%- if media -%}
+        {{
+          media
+          | image_url: width: 900
+          | image_tag: loading: loading, widths: '300, 450, 600, 750, 900', sizes: sizes, alt: alt_text
+        }}
+        {%- if alt_media and alt_media.media_type == 'image' -%}
+          {%- comment -%}
+            The second photo only shows on hover. Touch screens get a 1px
+            placeholder from the <source>, so they never download it.
+          {%- endcomment -%}
+          <picture class="o3-pcard__alt-wrap">
+            <source media="(hover: none), (pointer: coarse)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+            {{
+              alt_media
+              | image_url: width: 900
+              | image_tag: loading: 'lazy', class: 'o3-pcard__alt', widths: '300, 450, 600, 750, 900', sizes: sizes, alt: ''
+            }}
+          </picture>
+        {%- endif -%}
+      {%- else -%}
+        {{ 'product-apparel-2' | placeholder_svg_tag }}
+      {%- endif -%}
+      {%- if show_rank -%}
+        <span class="o3-pcard__rank o3-mono">{% if position < 10 %}0{% endif %}{{ position }}</span>
+      {%- endif -%}
+      {%- if badge != blank -%}
+        <span class="o3-pcard__badge o3-mono">{{ badge }}</span>
+      {%- elsif on_sale -%}
+        <span class="o3-pcard__badge o3-mono">Oferta</span>
+      {%- endif -%}
+    </div>
+    <div class="o3-pcard__info">
+      <h3 class="o3-pcard__title">{{ product.title }}</h3>
+      <p class="o3-pcard__price o3-mono">
+        {%- if on_sale -%}
+          <s><span class="o3-sr">Antes</span>{{ product.compare_at_price | money }}</s>
+        {%- endif -%}
+        {%- if product.price_varies -%}Desde {% endif -%}
+        {{- product.price | money -}}
+      </p>
+      {%- if product.type != blank -%}
+        <p class="o3-pcard__type o3-mono">{{ product.type }}</p>
+      {%- endif -%}
+      <span class="o3-pcard__go" aria-hidden="true">↗</span>
+    </div>
+  </a>
+</li>

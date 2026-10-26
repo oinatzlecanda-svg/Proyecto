@@ -461,6 +461,9 @@
   animation: o3-marquee var(--o3-speed, 32s) linear infinite;
 }
 .o3-marquee--reverse .o3-marquee__track { animation-direction: reverse; }
+/* o3.js marks loops that are off screen: no point spending frames on them. */
+.o3-marquee[data-o3-off] .o3-marquee__track,
+.o3-sticker[data-o3-off] svg { animation-play-state: paused; }
 .o3-marquee__group { display: flex; flex-shrink: 0; }
 .o3-marquee__item {
   display: inline-flex;
@@ -2055,10 +2058,9 @@ body:has(.o3-top) .header__icon .svg-wrapper { color: #f7f0ea; }
   column-gap: 10px;
   align-items: center;
   padding: 6px 14px 6px 6px;
-  background: rgba(247, 240, 234, 0.12);
+  /* Solid tint on phones: a backdrop blur over the settling photo repaints every frame. */
+  background: rgba(58, 45, 41, 0.42);
   border: 1px solid rgba(247, 240, 234, 0.28);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
   transition: background-color 200ms ease, border-color 200ms ease, transform 140ms var(--o3-ease-out);
 }
 .o3-ehero__look a:active { transform: scale(0.97); }
@@ -2070,6 +2072,7 @@ body:has(.o3-top) .header__icon .svg-wrapper { color: #f7f0ea; }
 @media (hover: hover) and (pointer: fine) {
   .o3-ehero__more:hover { text-decoration-color: currentColor; }
   .o3-ehero__look a:hover { background: rgba(247, 240, 234, 0.22); border-color: rgba(247, 240, 234, 0.5); }
+  .o3-ehero__look a { background: rgba(247, 240, 234, 0.12); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
 }
 
 @media (min-width: 750px) {
@@ -2085,6 +2088,22 @@ body:has(.o3-top) .header__icon .svg-wrapper { color: #f7f0ea; }
   .o3-ehero__lede { font-size: 18px; }
   .o3-ehero__look ul { overflow: visible; margin-right: 0; padding-right: 0; flex-wrap: wrap; }
   .o3-ehero__pname { max-width: 220px; }
+}
+
+/* ==========================================================================
+   RENDERING — sections below the first screen are laid out and painted only
+   when they come near it (content-visibility). The intrinsic size keeps the
+   scrollbar stable; 'auto' remembers the real height once rendered.
+   Left out: rails (o3.js measures the track), the collection index (its
+   preview follows the cursor in fixed position) and the spotlight (its tilted
+   card overflows the band); paint containment would clip or re-anchor them.
+   ========================================================================== */
+.o3-manifesto,
+.o3-about,
+.o3-chapters,
+.o3-signup {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
 }
 
 /* ==========================================================================

@@ -21,3 +21,31 @@ from that theme; everything else is copied as is (Shopify `themeDuplicate`).
 Motion follows Emil Kowalski's rules: once-per-visit, transform/opacity only, custom
 ease-out, short stagger, `scale(0.97)` on press, hover gated by `(hover: hover)`, and
 `prefers-reduced-motion` keeps fades only.
+
+## Performance (mobile first)
+
+The theme files on Shopify are **built** from the sources here:
+
+```
+cd variants/femenino
+node tools/build.mjs <dir with node_modules/csso + terser> <full theme copy>
+```
+
+`dist/assets/` is what gets uploaded (`o3.css`, `o3-pages.css`, `o3-product.css`,
+`o3.js`, `base.css`, `global.js`). Edit `assets/o3.css` / `assets/o3.js` /
+`vendor/*`, never the `dist` files.
+
+| Change | Why |
+| --- | --- |
+| `o3.css` split by page (`tools/split_css.py`) and minified | The home downloads 8 KB of CSS (gzip) instead of 17 KB; product, collection and page styles only load where used (`snippets/o3-head.liquid`). |
+| `o3.js`, Dawn `base.css` and `global.js` minified | Less to download and parse on every page. |
+| `layout/theme.liquid`: Dawn fonts (Assistant ×4, Jost) no longer loaded or preloaded | Dawn's parts use Archivo, already loaded for the o3 sections. Two high-priority font downloads gone from every page. |
+| `layout/theme.liquid`: older Oelnor layer (`oelnor-motion/theme/sections.css`, `oelnor-motion.js`) only on pages that still use Dawn or oelnor-* sections | ~60 KB of render-blocking CSS and 15 KB of JS removed from the home, landings, product, collection and policy pages. |
+| Cart drawer CSS loads without blocking the first paint | The drawer is closed on load. |
+| Fonts: only Archivo + the first-screen display face are preloaded | Fewer requests competing with the hero photo (LCP). |
+| Hero photo: mobile candidates 540–1080 px | Enough for phone screens without sending 1200 px+ files. |
+| Product cards: the hover photo is never downloaded on touch screens | Halves the image weight of every rail and collection grid on phones. |
+| Marquees and spinning stickers pause off screen; rail sizes measured once; popup scroll check throttled to one per frame | Less main-thread and GPU work while scrolling on phones. |
+| Hero "En la foto" chips: no backdrop blur on phones | A blur over the animating photo repaints every frame. |
+| `content-visibility: auto` on the manifesto, about, chapters and signup bands | The browser skips laying out and painting them until they come near the screen. |
+| GemPages app embed disabled in this theme | No page uses a GemPages template; its script loaded on every page. Re-enable it in *Theme settings → App embeds* if a GemPages page is published. |

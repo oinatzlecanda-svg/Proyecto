@@ -22,14 +22,14 @@
       <picture>
         <source
           media="(max-width: 749px)"
-          srcset="{{ img_m | image_url: width: 600 }} 600w, {{ img_m | image_url: width: 900 }} 900w, {{ img_m | image_url: width: 1200 }} 1200w"
+          srcset="{{ img_m | image_url: width: 540 }} 540w, {{ img_m | image_url: width: 720 }} 720w, {{ img_m | image_url: width: 900 }} 900w, {{ img_m | image_url: width: 1080 }} 1080w"
           sizes="100vw"
         >
         {{
           img
-          | image_url: width: 2400
+          | image_url: width: 2200
           | image_tag:
-            widths: '1000, 1400, 1800, 2400',
+            widths: '1000, 1400, 1800, 2200',
             sizes: '100vw',
             loading: 'eager',
             fetchpriority: 'high',

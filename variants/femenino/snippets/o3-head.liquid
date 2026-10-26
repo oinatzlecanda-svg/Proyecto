@@ -1,11 +1,51 @@
 {%- comment -%}
   OELNOR 3.0 assets, rendered from snippets/meta-tags.liquid so every page gets
-  them in <head> without touching layout/theme.liquid.
+  them in <head> without touching the section files.
+
+  CSS is split by page so a phone only downloads what the page renders:
+  - o3.css          every page (palette, header, home and landing sections, popup)
+  - o3-pages.css    collection, contact, tracking, policies, ParcelPanel, product
+  - o3-product.css  product pages
+  Fonts: only the faces the first screen needs are preloaded, so they don't
+  compete with the hero photo. Archivo is the body text everywhere; the serif
+  is preloaded on pages that open with the editorial hero, Anton elsewhere.
 {%- endcomment -%}
-{{ 'o3-anton.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: true }}
-{%- if template.name == 'index' -%}
+{%- liquid
+  assign o3_pages_css = false
+  assign o3_product_css = false
+  assign o3_editorial_top = false
+
+  case request.page_type
+    when 'index'
+      assign o3_editorial_top = true
+    when 'product'
+      assign o3_pages_css = true
+      assign o3_product_css = true
+    when 'collection', 'policy'
+      assign o3_pages_css = true
+    when 'page'
+      case template.suffix
+        when 'about', 'autumn'
+          assign o3_editorial_top = true
+        when 'contact', 'tracking'
+          assign o3_pages_css = true
+      endcase
+  endcase
+  if settings.oelnor_pp_path != blank and request.path contains settings.oelnor_pp_path
+    assign o3_pages_css = true
+  endif
+-%}
+{{ 'o3-archivo.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: true }}
+{%- if o3_editorial_top -%}
   {{ 'o3-cormorant-normal.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: true }}
-  {{ 'o3-cormorant-italic.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: true }}
+{%- else -%}
+  {{ 'o3-anton.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: true }}
 {%- endif -%}
 {{ 'o3.css' | asset_url | stylesheet_tag }}
+{%- if o3_pages_css -%}
+  {{ 'o3-pages.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
+{%- if o3_product_css -%}
+  {{ 'o3-product.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
 <script src="{{ 'o3.js' | asset_url }}" defer="defer"></script>
