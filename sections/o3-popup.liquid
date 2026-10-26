@@ -61,7 +61,7 @@
 
       {%- form 'customer', id: form_id, class: 'o3-pop__step', data-o3-pop-form: '', novalidate: 'novalidate' -%}
         {%- if form.posted_successfully? -%}<span hidden data-o3-pop-posted></span>{%- endif -%}
-        <input type="hidden" name="contact[tags]" value="newsletter,popup-{{ code | handleize }}">
+        <input type="hidden" name="contact[tags]" value="newsletter,oelnor-popup,{{ code | handleize }}">
         <input type="hidden" name="contact[accepts_marketing]" value="true">
         <p class="o3-pop__text">{{ section.settings.text }}</p>
         <div class="o3-pop__row">
