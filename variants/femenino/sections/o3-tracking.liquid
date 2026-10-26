@@ -1,0 +1,150 @@
+{%- comment -%}
+  OELNOR 3.0 — "Localiza tu envío" page. Sends people to the ParcelPanel
+  tracker (/apps/parcelpanel), explains the real delivery timeline (blocks)
+  and offers help. The shipping label on the right is decorative and tilts
+  like the home hero.
+{%- endcomment -%}
+{%- assign tracker_url = section.settings.tracker_url | default: '/apps/parcelpanel' -%}
+
+<section class="o3 o3-track" aria-labelledby="O3TrackTitle-{{ section.id }}">
+  <div class="o3-phero o3-top">
+    <div class="o3-hero__grid" aria-hidden="true"></div>
+    <div class="o3-wrap o3-track__grid">
+      <div>
+        <nav class="o3-crumbs o3-mono" aria-label="Ruta">
+          <a href="{{ routes.root_url }}">Inicio</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">{{ page.title | default: 'Localiza tu envío' | escape }}</span>
+        </nav>
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="o3-phero__eyebrow o3-mono o3-eyebrow">{{ section.settings.eyebrow }}</p>
+        {%- endif -%}
+        <h1 class="o3-phero__title" id="O3TrackTitle-{{ section.id }}">
+          <span class="o3-line"><span>{{ section.settings.heading_1 }}</span></span>
+          {%- if section.settings.heading_2 != blank -%}
+            <span class="o3-line"><span class="o3-mark">{{ section.settings.heading_2 }}</span></span>
+          {%- endif -%}
+        </h1>
+        {%- if section.settings.text != blank -%}
+          <p class="o3-phero__text">{{ section.settings.text }}</p>
+        {%- endif -%}
+        <div class="o3-track__actions">
+          <a class="o3-btn o3-btn--solid" href="{{ tracker_url }}">
+            {{- section.settings.button_label }} <span class="o3-btn__arrow" aria-hidden="true">→</span>
+          </a>
+          {%- if customer -%}
+            <a class="o3-btn o3-btn--ghost" href="{{ routes.account_url }}">Ver mis pedidos</a>
+          {%- endif -%}
+        </div>
+        {%- if section.settings.helper != blank -%}
+          <p class="o3-track__helper o3-mono">{{ section.settings.helper }}</p>
+        {%- endif -%}
+      </div>
+
+      <div class="o3-label-wrap" data-o3-label aria-hidden="true">
+        <div class="o3-label" data-o3-label-card>
+          <div class="o3-label__top o3-mono">
+            <span class="o3-label__brand">Oelnor</span>
+            <span>Envío<br>gratis</span>
+          </div>
+          <p class="o3-mono" style="margin-top: 14px; color: #6f5b53;">Estado</p>
+          <p class="o3-label__status">En camino</p>
+          <div class="o3-route">
+            <span class="o3-route__line"><span class="o3-route__fill"></span></span>
+            <span class="o3-route__mover">
+              <span class="o3-route__dot">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 10 16 4l11 6v12l-11 6-11-6z"/><path d="M5 10l11 6 11-6M16 16v12"/></svg>
+              </span>
+            </span>
+          </div>
+          <ol class="o3-label__steps o3-mono" role="list">
+            {%- for block in section.blocks limit: 4 -%}
+              <li>{{ block.settings.title }}</li>
+            {%- endfor -%}
+          </ol>
+          <div class="o3-barcode"></div>
+          <div class="o3-label__foot o3-mono"><span>{{ shop.name | upcase }}</span><span>ES · EU</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {%- if section.blocks.size > 0 -%}
+    <div class="o3-light" style="padding-block: 64px;">
+      <div class="o3-wrap">
+        <p class="o3-mono o3-eyebrow o3-mono-mute">{{ section.settings.steps_eyebrow }}</p>
+        <h2 class="o3-h2" style="margin-top: 12px;">{{ section.settings.steps_heading }}</h2>
+        <ol class="o3-steps" role="list">
+          {%- for block in section.blocks -%}
+            <li data-o3-reveal style="--i: {{ forloop.index0 }}" {{ block.shopify_attributes }}>
+              <span class="o3-steps__n" aria-hidden="true">{{ forloop.index | prepend: '0' }}</span>
+              <h3>{{ block.settings.title }}</h3>
+              {%- if block.settings.time != blank -%}
+                <p class="o3-steps__time o3-mono">{{ block.settings.time }}</p>
+              {%- endif -%}
+              {%- if block.settings.text != blank -%}
+                <p>{{ block.settings.text }}</p>
+              {%- endif -%}
+            </li>
+          {%- endfor -%}
+        </ol>
+        {%- if section.settings.footnote != blank -%}
+          <p class="o3-foot-note">{{ section.settings.footnote }}</p>
+        {%- endif -%}
+      </div>
+    </div>
+  {%- endif -%}
+
+  <div class="o3-help">
+    <div class="o3-wrap o3-help__grid">
+      <h2 class="o3-h2">{{ section.settings.help_heading }}</h2>
+      <div>
+        <p>{{ section.settings.help_text }}</p>
+        <div class="o3-track__actions">
+          <a class="o3-btn o3-btn--ink" href="{{ section.settings.help_link | default: '/pages/contact' }}">
+            {{- section.settings.help_button }} <span class="o3-btn__arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="o3-btn o3-btn--outline" href="{{ shop.shipping_policy.url | default: '/policies/shipping-policy' }}">Política de envíos</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "O3 · Localizar envío",
+  "tag": "div",
+  "class": "o3-section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Antetítulo", "default": "Seguimiento" },
+    { "type": "text", "id": "heading_1", "label": "Titular línea 1", "default": "¿Dónde está" },
+    { "type": "text", "id": "heading_2", "label": "Titular línea 2 (resaltada)", "default": "tu pedido?" },
+    { "type": "textarea", "id": "text", "label": "Texto" },
+    { "type": "text", "id": "button_label", "label": "Botón", "default": "Localizar mi pedido" },
+    { "type": "url", "id": "tracker_url", "label": "Enlace del localizador", "info": "Por defecto, ParcelPanel (/apps/parcelpanel)." },
+    { "type": "text", "id": "helper", "label": "Ayuda bajo el botón" },
+    { "type": "text", "id": "steps_eyebrow", "label": "Antetítulo de pasos", "default": "El viaje de tu pedido" },
+    { "type": "text", "id": "steps_heading", "label": "Titular de pasos", "default": "Así llega a tu casa" },
+    { "type": "textarea", "id": "footnote", "label": "Nota bajo los pasos" },
+    { "type": "text", "id": "help_heading", "label": "Titular de ayuda", "default": "¿Algo no cuadra?" },
+    { "type": "textarea", "id": "help_text", "label": "Texto de ayuda" },
+    { "type": "text", "id": "help_button", "label": "Botón de ayuda", "default": "Contactar" },
+    { "type": "url", "id": "help_link", "label": "Enlace de ayuda" }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Paso",
+      "limit": 4,
+      "settings": [
+        { "type": "text", "id": "title", "label": "Título", "default": "Paso" },
+        { "type": "text", "id": "time", "label": "Plazo (opcional)" },
+        { "type": "textarea", "id": "text", "label": "Texto" }
+      ]
+    }
+  ],
+  "enabled_on": { "templates": ["page"] },
+  "presets": [{ "name": "O3 · Localizar envío" }]
+}
+{% endschema %}

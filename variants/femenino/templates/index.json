@@ -1,0 +1,407 @@
+{
+  "sections": {
+    "o3-cinta": {
+      "type": "o3-marquee",
+      "blocks": {
+        "m1": {
+          "type": "item",
+          "settings": {
+            "text": "Envío gratis"
+          }
+        },
+        "m2": {
+          "type": "item",
+          "settings": {
+            "text": "30 días para devolver"
+          }
+        },
+        "m3": {
+          "type": "item",
+          "settings": {
+            "text": "Pago seguro"
+          }
+        },
+        "m4": {
+          "type": "item",
+          "settings": {
+            "text": "Novedades cada semana"
+          }
+        }
+      },
+      "block_order": [
+        "m1",
+        "m2",
+        "m3",
+        "m4"
+      ],
+      "settings": {
+        "style": "cobalt",
+        "under": "split",
+        "reverse": false,
+        "speed": 36
+      }
+    },
+    "o3-buscado": {
+      "type": "o3-rail",
+      "blocks": {
+        "p1": {
+          "type": "product",
+          "settings": {
+            "product": "chaqueta-lena-cropped-cinturon",
+            "badge": "Nuevo"
+          }
+        },
+        "p2": {
+          "type": "product",
+          "settings": {
+            "product": "botas-beige-ante-sintetico",
+            "badge": "Top ventas"
+          }
+        },
+        "p3": {
+          "type": "product",
+          "settings": {
+            "product": "bolso-siena",
+            "badge": "Top ventas"
+          }
+        },
+        "p4": {
+          "type": "product",
+          "settings": {
+            "product": "bomber-noa-efecto-ante",
+            "badge": ""
+          }
+        },
+        "p5": {
+          "type": "product",
+          "settings": {
+            "product": "cardigan-naya-punto-rayas",
+            "badge": ""
+          }
+        },
+        "p6": {
+          "type": "product",
+          "settings": {
+            "product": "jersey-dalia-asimetrico",
+            "badge": ""
+          }
+        },
+        "p7": {
+          "type": "product",
+          "settings": {
+            "product": "vintage-city-bag-black",
+            "badge": ""
+          }
+        },
+        "p8": {
+          "type": "product",
+          "settings": {
+            "product": "chaqueta-corta-flecos-marron",
+            "badge": ""
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "p3",
+        "p4",
+        "p5",
+        "p6",
+        "p7",
+        "p8"
+      ],
+      "settings": {
+        "eyebrow": "Mujer · otoño 26",
+        "title": "Lo más deseado",
+        "text": "Lo que más se mira y se añade a la cesta en la colección de mujer.",
+        "link_label": "Ver mujer",
+        "link": "shopify://collections/mujer",
+        "show_rank": true,
+        "dark": false,
+        "limit": 8
+      }
+    },
+    "o3-colecciones": {
+      "type": "o3-index",
+      "blocks": {
+        "c1": {
+          "type": "collection",
+          "settings": {
+            "collection": "mujer",
+            "title": "Mujer",
+            "product": "chaqueta-lena-cropped-cinturon"
+          }
+        },
+        "c2": {
+          "type": "collection",
+          "settings": {
+            "collection": "hombre",
+            "title": "Hombre",
+            "product": "bomber-milo"
+          }
+        },
+        "c3": {
+          "type": "collection",
+          "settings": {
+            "collection": "chaquetas-mujer",
+            "title": "Chaquetas",
+            "product": "bomber-noa-efecto-ante"
+          }
+        },
+        "c4": {
+          "type": "collection",
+          "settings": {
+            "collection": "bolsos",
+            "title": "Bolsos",
+            "product": "bolso-siena"
+          }
+        },
+        "c5": {
+          "type": "collection",
+          "settings": {
+            "collection": "accesorios",
+            "title": "Accesorios",
+            "product": "portalabial-espejo-corazon"
+          }
+        },
+        "c6": {
+          "type": "collection",
+          "settings": {
+            "collection": "la-seleccion-oelnor",
+            "title": "Jerséis",
+            "product": "black-jeans-shiny-star"
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4",
+        "c5",
+        "c6"
+      ],
+      "settings": {
+        "eyebrow": "Colecciones",
+        "title": "Elige tu código",
+        "link_label": "Todo Oelnor",
+        "link": "shopify://collections/todos-los-productos-oelnor"
+      }
+    },
+    "o3-foco": {
+      "type": "o3-spotlight",
+      "settings": {
+        "product": "botas-beige-ante-sintetico",
+        "eyebrow": "Top ventas · otoño 26",
+        "title": "",
+        "text": "",
+        "sticker_ring": "Top ventas",
+        "sticker_center": "Top"
+      }
+    },
+    "o3-manifiesto": {
+      "type": "o3-manifesto",
+      "blocks": {
+        "t1": {
+          "type": "truth",
+          "settings": {
+            "title": "Envío gratis",
+            "detail": ""
+          }
+        },
+        "t2": {
+          "type": "truth",
+          "settings": {
+            "title": "30 días para devolver",
+            "detail": ""
+          }
+        },
+        "t3": {
+          "type": "truth",
+          "settings": {
+            "title": "Pago seguro",
+            "detail": ""
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3"
+      ],
+      "settings": {
+        "eyebrow": "Manifiesto",
+        "text": "No hacemos uniformes. Elegimos piezas para quien prefiere *destacar* antes que encajar."
+      }
+    },
+    "o3-calle": {
+      "type": "o3-rail",
+      "blocks": {
+        "p1": {
+          "type": "product",
+          "settings": {
+            "product": "black-hanbok-denim-pants",
+            "badge": ""
+          }
+        },
+        "p2": {
+          "type": "product",
+          "settings": {
+            "product": "jersey-riven-efecto-desgastado",
+            "badge": ""
+          }
+        },
+        "p3": {
+          "type": "product",
+          "settings": {
+            "product": "jeans-kairo-telarania",
+            "badge": ""
+          }
+        },
+        "p4": {
+          "type": "product",
+          "settings": {
+            "product": "bomber-milo",
+            "badge": ""
+          }
+        },
+        "p5": {
+          "type": "product",
+          "settings": {
+            "product": "jeans-axel-baggy-desgastados",
+            "badge": ""
+          }
+        },
+        "p6": {
+          "type": "product",
+          "settings": {
+            "product": "pantalon-raze-acampanado-deconstruido",
+            "badge": ""
+          }
+        },
+        "p7": {
+          "type": "product",
+          "settings": {
+            "product": "sudadera-relaxed-algodon",
+            "badge": ""
+          }
+        },
+        "p8": {
+          "type": "product",
+          "settings": {
+            "product": "camiseta-retro-oversize",
+            "badge": ""
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "p3",
+        "p4",
+        "p5",
+        "p6",
+        "p7",
+        "p8"
+      ],
+      "settings": {
+        "eyebrow": "Hombre · código calle",
+        "title": "Para él",
+        "text": "Denim balloon, punto desgastado y bombers. El lado más street de Oelnor, también para él.",
+        "link_label": "Ver hombre",
+        "link": "shopify://collections/hombre",
+        "show_rank": false,
+        "dark": true,
+        "limit": 8
+      }
+    },
+    "o3-cinta-2": {
+      "type": "o3-marquee",
+      "blocks": {
+        "m1": {
+          "type": "item",
+          "settings": {
+            "text": "No copies"
+          }
+        },
+        "m2": {
+          "type": "item",
+          "settings": {
+            "text": "No uniformes"
+          }
+        },
+        "m3": {
+          "type": "item",
+          "settings": {
+            "text": "Viste distinto"
+          }
+        },
+        "m4": {
+          "type": "item",
+          "settings": {
+            "text": "Oelnor"
+          }
+        }
+      },
+      "block_order": [
+        "m1",
+        "m2",
+        "m3",
+        "m4"
+      ],
+      "settings": {
+        "style": "bone",
+        "under": "ink",
+        "reverse": true,
+        "speed": 40
+      }
+    },
+    "o3-lista": {
+      "type": "o3-signup",
+      "settings": {
+        "title_1": "Entra en",
+        "title_2": "la lista",
+        "text": "Nuevos drops y piezas que se agotan rápido, directos a tu correo. Sin spam.",
+        "button": "Unirme"
+      }
+    },
+    "o3-ehero": {
+      "type": "o3-ehero",
+      "settings": {
+        "meta_1": "Oelnor® / ES",
+        "meta_2": "Otoño—26",
+        "line_1": "Vístete de",
+        "line_2": "calma.",
+        "seo_text": "Oelnor: moda y accesorios para mujer y hombre",
+        "lede": "Prendas suaves, tonos que combinan y piezas pensadas para quedarse en tu armario.",
+        "cta_1_label": "Comprar mujer",
+        "cta_1_link": "shopify://collections/mujer",
+        "cta_2_label": "Hombre",
+        "cta_2_link": "shopify://collections/hombre",
+        "cta_3_label": "Ver todo",
+        "cta_3_link": "shopify://collections/todos-los-productos-oelnor",
+        "look_label": "En la foto",
+        "look": [
+          "chaqueta-lena-cropped-cinturon",
+          "bolso-siena",
+          "botas-beige-ante-sintetico"
+        ],
+        "image_alt": "Mujer con chaqueta cropped beige, bolso marrón y botas de ante en un patio al atardecer",
+        "image": "shopify://shop_images/oelnor-hero-editorial-desktop-2k.png",
+        "image_mobile": "shopify://shop_images/oelnor-hero-editorial-mobile-2k.png"
+      }
+    }
+  },
+  "order": [
+    "o3-ehero",
+    "o3-cinta",
+    "o3-buscado",
+    "o3-colecciones",
+    "o3-foco",
+    "o3-manifiesto",
+    "o3-calle",
+    "o3-cinta-2",
+    "o3-lista"
+  ]
+}

@@ -1,0 +1,18 @@
+# OELNOR 3.0 · Femenino
+
+Variant of the published theme (*OELNOR 3.0 · Popup -10%*, commit `53a6417`) with a
+feminine, neutral palette and an editorial hero. Only the files in this folder differ
+from that theme; everything else is copied as is (Shopify `themeDuplicate`).
+
+| File | Change |
+| --- | --- |
+| `assets/o3.css` | Palette: mocha `#3a2d29`, ivory `#f7f0ea`, nude `#ecdcd2`, dusty rose `#d9b3a6` (accent), rose ink `#8c5248`. Adds the editorial hero styles and the Cormorant serif. |
+| `assets/o3-cormorant-*.woff2` | Serif for the hero headline. |
+| `sections/o3-ehero.liquid` | New hero: full-bleed campaign photo (desktop + mobile crop), serif headline, "Comprar mujer" + "Hombre" buttons, "En la foto" product chips. |
+| `sections/o3-marquee.liquid`, `o3-manifesto.liquid`, `o3-product-reviews.liquid`, `o3-tracking.liquid` | Inline colours moved to the new palette. |
+| `snippets/o3-head.liquid` | Preloads the serif on the home page. |
+| `templates/index.json` | Hero swapped for `o3-ehero`; "Lo más deseado" rail now women's pieces; the street rail is "Para él" and links to Hombre. |
+
+Motion follows Emil Kowalski's rules: once-per-visit, transform/opacity only, custom
+ease-out, short stagger, `scale(0.97)` on press, hover gated by `(hover: hover)`, and
+`prefers-reduced-motion` keeps fades only.

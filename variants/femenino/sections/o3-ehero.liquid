@@ -1,0 +1,135 @@
+{%- comment -%}
+  OELNOR 3.0 · Femenino — Editorial hero.
+  One full-bleed campaign photo (a separate crop for mobile), a serif headline,
+  Mujer as the main action and Hombre right next to it, plus a "shop the look"
+  row that links to the pieces in the photo. Styles: o3.css (EDITORIAL HERO).
+  Motion is CSS only: the photo settles, the lines rise, the rest fades in.
+{%- endcomment -%}
+{%- liquid
+  assign img = section.settings.image
+  assign img_m = section.settings.image_mobile | default: img
+  assign look = section.settings.look
+  assign img_pos = 'center'
+  if img != blank
+    assign img_pos = img.presentation.focal_point | default: 'center'
+  endif
+  assign img_style = 'object-position: ' | append: img_pos
+-%}
+
+<section class="o3 o3-ehero o3-top" aria-labelledby="O3EHeroTitle-{{ section.id }}">
+  <div class="o3-ehero__media">
+    {%- if img != blank -%}
+      <picture>
+        <source
+          media="(max-width: 749px)"
+          srcset="{{ img_m | image_url: width: 600 }} 600w, {{ img_m | image_url: width: 900 }} 900w, {{ img_m | image_url: width: 1200 }} 1200w"
+          sizes="100vw"
+        >
+        {{
+          img
+          | image_url: width: 2400
+          | image_tag:
+            widths: '1000, 1400, 1800, 2400',
+            sizes: '100vw',
+            loading: 'eager',
+            fetchpriority: 'high',
+            alt: section.settings.image_alt,
+            style: img_style
+        }}
+      </picture>
+    {%- else -%}
+      {{ 'lifestyle-1' | placeholder_svg_tag: 'o3-ehero__ph' }}
+    {%- endif -%}
+  </div>
+  <div class="o3-ehero__scrim" aria-hidden="true"></div>
+
+  <div class="o3-wrap o3-ehero__inner">
+    {%- if section.settings.meta_1 != blank or section.settings.meta_2 != blank -%}
+      <p class="o3-ehero__meta o3-mono">
+        {%- if section.settings.meta_1 != blank -%}<span>{{ section.settings.meta_1 }}</span>{%- endif -%}
+        {%- if section.settings.meta_2 != blank -%}<span>{{ section.settings.meta_2 }}</span>{%- endif -%}
+      </p>
+    {%- endif -%}
+
+    <h1 class="o3-ehero__title" id="O3EHeroTitle-{{ section.id }}">
+      <span class="o3-ehero__line"><span>{{ section.settings.line_1 }}</span></span>
+      {%- if section.settings.line_2 != blank -%}
+        <span class="o3-ehero__line o3-ehero__line--em"><span>{{ section.settings.line_2 }}</span></span>
+      {%- endif -%}
+      {%- if section.settings.seo_text != blank -%}
+        <span class="o3-sr">{{ section.settings.seo_text }}</span>
+      {%- endif -%}
+    </h1>
+
+    {%- if section.settings.lede != blank -%}
+      <p class="o3-ehero__lede">{{ section.settings.lede }}</p>
+    {%- endif -%}
+
+    <div class="o3-ehero__ctas">
+      {%- if section.settings.cta_1_label != blank -%}
+        <a class="o3-btn o3-btn--light" href="{{ section.settings.cta_1_link | default: routes.collections_url }}">
+          {{- section.settings.cta_1_label }} <span class="o3-btn__arrow" aria-hidden="true">→</span>
+        </a>
+      {%- endif -%}
+      {%- if section.settings.cta_2_label != blank -%}
+        <a class="o3-btn o3-btn--ghost" href="{{ section.settings.cta_2_link | default: routes.collections_url }}">
+          {{- section.settings.cta_2_label -}}
+        </a>
+      {%- endif -%}
+      {%- if section.settings.cta_3_label != blank -%}
+        <a class="o3-ehero__more" href="{{ section.settings.cta_3_link | default: routes.all_products_collection_url }}">
+          {{- section.settings.cta_3_label -}}
+        </a>
+      {%- endif -%}
+    </div>
+
+    {%- if look != blank -%}
+      <div class="o3-ehero__look">
+        <p class="o3-mono">{{ section.settings.look_label }}</p>
+        <ul role="list">
+          {%- for p in look -%}
+            <li style="--i: {{ forloop.index0 }}">
+              <a href="{{ p.url }}">
+                <span class="o3-ehero__thumb">
+                  {%- if p.featured_media -%}
+                    {{ p.featured_media.preview_image | image_url: width: 120 | image_tag: loading: 'lazy', alt: '', width: 44, height: 55 }}
+                  {%- endif -%}
+                </span>
+                <span class="o3-ehero__pname">{{ p.title | escape }}</span>
+                <span class="o3-ehero__pprice">{{ p.price | money }}</span>
+              </a>
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "O3 · Hero editorial",
+  "tag": "div",
+  "class": "o3-section",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Foto (escritorio)", "info": "Horizontal, 16:9. Deja aire a la izquierda para el texto." },
+    { "type": "image_picker", "id": "image_mobile", "label": "Foto (móvil)", "info": "Vertical, 4:5. Si la dejas vacía se usa la de escritorio." },
+    { "type": "text", "id": "image_alt", "label": "Descripción de la foto", "default": "Mujer con chaqueta cropped beige, bolso marrón y botas de ante en un patio al atardecer" },
+    { "type": "text", "id": "meta_1", "label": "Línea pequeña 1", "default": "Oelnor® / ES" },
+    { "type": "text", "id": "meta_2", "label": "Línea pequeña 2", "default": "Otoño—26" },
+    { "type": "text", "id": "line_1", "label": "Título · línea 1", "default": "Vístete de" },
+    { "type": "text", "id": "line_2", "label": "Título · línea 2 (cursiva)", "default": "calma." },
+    { "type": "text", "id": "seo_text", "label": "Texto para buscadores (oculto)", "default": "Oelnor: moda y accesorios para mujer y hombre" },
+    { "type": "textarea", "id": "lede", "label": "Frase", "default": "Prendas suaves, tonos que combinan y piezas pensadas para quedarse en tu armario." },
+    { "type": "text", "id": "cta_1_label", "label": "Botón principal", "default": "Comprar mujer" },
+    { "type": "url", "id": "cta_1_link", "label": "Enlace principal" },
+    { "type": "text", "id": "cta_2_label", "label": "Botón secundario", "default": "Hombre" },
+    { "type": "url", "id": "cta_2_link", "label": "Enlace secundario" },
+    { "type": "text", "id": "cta_3_label", "label": "Enlace de texto", "default": "Ver todo" },
+    { "type": "url", "id": "cta_3_link", "label": "Enlace de texto · destino" },
+    { "type": "text", "id": "look_label", "label": "Título del look", "default": "En la foto" },
+    { "type": "product_list", "id": "look", "label": "Prendas de la foto", "limit": 3 }
+  ],
+  "presets": [{ "name": "O3 · Hero editorial" }]
+}
+{% endschema %}

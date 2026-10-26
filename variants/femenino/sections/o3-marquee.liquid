@@ -1,0 +1,76 @@
+{%- comment -%}
+  OELNOR 3.0 — Tilted marquee band. Pure CSS, linear, runs off the main thread.
+{%- endcomment -%}
+{%- capture items -%}
+  {%- for block in section.blocks -%}
+    <span class="o3-marquee__item" {{ block.shopify_attributes }}>{{ block.settings.text }}</span>
+  {%- endfor -%}
+{%- endcapture -%}
+
+<div
+  class="o3 o3-marquee{% if section.settings.style == 'bone' %} o3-marquee--bone{% endif %}{% if section.settings.reverse %} o3-marquee--reverse{% endif %}"
+  style="--o3-speed: {{ section.settings.speed }}s; background: {% case section.settings.under %}{% when 'bone' %}#f7f0ea{% when 'split' %}linear-gradient(#3a2d29 50%, #f7f0ea 50%){% else %}#3a2d29{% endcase %};"
+>
+  <div class="o3-marquee__band">
+    {%- if section.blocks.size > 0 -%}
+      <p class="o3-sr">
+        {%- for block in section.blocks -%}{{ block.settings.text }}{% unless forloop.last %} · {% endunless %}{%- endfor -%}
+      </p>
+      <div class="o3-marquee__track" aria-hidden="true">
+        {%- for copy in (1..2) -%}
+          <div class="o3-marquee__group">{{ items }}{{ items }}</div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "O3 · Cinta",
+  "tag": "div",
+  "class": "o3-section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "style",
+      "label": "Color de la cinta",
+      "options": [
+        { "value": "cobalt", "label": "Rosa empolvado" },
+        { "value": "bone", "label": "Marfil" }
+      ],
+      "default": "cobalt"
+    },
+    {
+      "type": "select",
+      "id": "under",
+      "label": "Fondo detrás",
+      "options": [
+        { "value": "ink", "label": "Moca" },
+        { "value": "bone", "label": "Marfil" },
+        { "value": "split", "label": "Moca arriba / marfil abajo" }
+      ],
+      "default": "ink"
+    },
+    { "type": "checkbox", "id": "reverse", "label": "Dirección inversa", "default": false },
+    { "type": "range", "id": "speed", "label": "Duración de una vuelta", "min": 16, "max": 80, "step": 4, "unit": "s", "default": 36 }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Texto",
+      "settings": [{ "type": "text", "id": "text", "label": "Texto", "default": "Envío gratis" }]
+    }
+  ],
+  "presets": [
+    {
+      "name": "O3 · Cinta",
+      "blocks": [
+        { "type": "item", "settings": { "text": "Envío gratis" } },
+        { "type": "item", "settings": { "text": "30 días para devolver" } },
+        { "type": "item", "settings": { "text": "Pago seguro" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

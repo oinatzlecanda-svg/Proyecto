@@ -1,0 +1,65 @@
+{%- comment -%}
+  OELNOR 3.0 — Manifesto. Big solid statement that slides in once.
+  Wrap a word in *asterisks* to put it on an orange block.
+{%- endcomment -%}
+{%- assign words = section.settings.text | split: ' ' -%}
+
+<section class="o3 o3-manifesto" aria-labelledby="O3ManifestoTitle-{{ section.id }}">
+  <div class="o3-wrap">
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="o3-mono o3-eyebrow" style="margin-bottom: 22px; color: #6f5b53;">{{ section.settings.eyebrow }}</p>
+    {%- endif -%}
+    <h2 class="o3-manifesto__text" data-o3-reveal id="O3ManifestoTitle-{{ section.id }}">
+      {%- for word in words -%}
+        {%- if word contains '*' -%}
+          <span class="o3-w" style="--w: {{ forloop.index0 }}"><em>{{ word | remove: '*' }}</em></span>
+        {%- else -%}
+          <span class="o3-w" style="--w: {{ forloop.index0 }}">{{ word }}</span>
+        {%- endif -%}
+        {%- unless forloop.last %} {% endunless -%}
+      {%- endfor -%}
+    </h2>
+
+    {%- if section.blocks.size > 0 -%}
+      <ul class="o3-truths" role="list">
+        {%- for block in section.blocks -%}
+          <li data-o3-reveal style="--i: {{ forloop.index0 }}" {{ block.shopify_attributes }}>
+            <span>{{ block.settings.title }}</span>
+            {%- if block.settings.detail != blank -%}
+              <span class="o3-mono">{{ block.settings.detail }}</span>
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "O3 · Manifiesto",
+  "tag": "div",
+  "class": "o3-section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Antetítulo", "default": "Manifiesto" },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Texto (marca palabras con *asteriscos* para pintarlas de rosa)",
+      "default": "No hacemos uniformes. Elegimos piezas para quien prefiere *destacar* antes que encajar."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "truth",
+      "name": "Garantía",
+      "limit": 3,
+      "settings": [
+        { "type": "text", "id": "title", "label": "Título", "default": "Envío gratis" },
+        { "type": "text", "id": "detail", "label": "Detalle" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "O3 · Manifiesto" }]
+}
+{% endschema %}
