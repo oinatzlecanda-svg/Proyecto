@@ -20,7 +20,7 @@
         {%- if section.settings.eyebrow != blank -%}
           <p class="o3-head__eyebrow o3-mono o3-eyebrow">{{ section.settings.eyebrow }}</p>
         {%- endif -%}
-        <h2 class="o3-head__title" id="O3RecsTitle-{{ section.id }}" style="font-size: clamp(44px, 12vw, 112px);">{{ section.settings.title }}</h2>
+        <h2 class="o3-head__title" id="O3RecsTitle-{{ section.id }}">{{ section.settings.title }}</h2>
       </header>
       <ul class="o3-rail__track" data-o3-track role="list">
         {%- for p in recommendations.products -%}

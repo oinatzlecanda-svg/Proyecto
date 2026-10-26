@@ -1,0 +1,126 @@
+{%- comment -%}
+  OELNOR — One featured product (Bolso Siena): a big photo, its colours
+  (each one shows that colour's photo) and a sentence about it. The button
+  goes to the product page, with the chosen colour.
+{%- endcomment -%}
+{%- liquid
+  assign p = section.settings.product
+  assign color_option = nil
+  for option in p.options_with_values
+    assign oname = option.name | downcase
+    if oname contains 'color' or oname contains 'colour'
+      assign color_option = option
+      break
+    endif
+  endfor
+-%}
+
+<section class="o3 o3-feat" data-o3-feat aria-labelledby="O3FeatTitle-{{ section.id }}">
+  <div class="o3-wrap o3-feat__grid">
+    <a class="o3-feat__media" href="{{ p.url | default: '#' }}" tabindex="-1" aria-hidden="true" data-o3-feat-link>
+      {%- if p != blank -%}
+        {%- if color_option -%}
+          {%- for value in color_option.values -%}
+            {%- assign v_media = value.variant.featured_media | default: p.featured_media -%}
+            {{
+              v_media.preview_image
+              | image_url: width: 1400
+              | image_tag: loading: 'lazy', widths: '600, 900, 1200, 1400', sizes: '(min-width: 900px) 52vw, 100vw', alt: ''
+            }}
+          {%- endfor -%}
+        {%- else -%}
+          {{ p.featured_media.preview_image | image_url: width: 1400 | image_tag: loading: 'lazy', widths: '600, 900, 1200, 1400', sizes: '(min-width: 900px) 52vw, 100vw', alt: '' }}
+        {%- endif -%}
+      {%- else -%}
+        {{ 'product-apparel-2' | placeholder_svg_tag }}
+      {%- endif -%}
+    </a>
+
+    <div class="o3-feat__body" data-o3-reveal>
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="o3-mono o3-eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      <h2 class="o3-feat__title" id="O3FeatTitle-{{ section.id }}">{{ section.settings.title | default: p.title }}</h2>
+      {%- if section.settings.text != blank -%}
+        <p class="o3-feat__text">{{ section.settings.text }}</p>
+      {%- endif -%}
+      {%- if p != blank -%}
+        <p class="o3-feat__price">{% if p.price_varies %}Desde {% endif %}{{ p.price | money }}</p>
+      {%- endif -%}
+
+      {%- if color_option and color_option.values.size > 1 -%}
+        <div class="o3-feat__colors">
+          <fieldset>
+            <legend class="o3-mono">{{ color_option.values.size }} colores</legend>
+            <div class="o3-feat__dots">
+              {%- for value in color_option.values -%}
+                {%- liquid
+                  assign key = value | downcase
+                  assign c = '#c9bfb2'
+                  if key contains 'negro'
+                    assign c = '#1f1c19'
+                  elsif key contains 'blanco roto' or key contains 'crema' or key contains 'beige'
+                    assign c = '#eee6d6'
+                  elsif key contains 'blanco'
+                    assign c = '#fbfaf7'
+                  elsif key contains 'rosa'
+                    assign c = '#e9c9c6'
+                  elsif key contains 'café' or key contains 'chocolate' or key contains 'marrón oscuro'
+                    assign c = '#5e4130'
+                  elsif key contains 'marrón' or key contains 'camel'
+                    assign c = '#8a6243'
+                  elsif key contains 'gris'
+                    assign c = '#9c9893'
+                  elsif key contains 'azul'
+                    assign c = '#a9bcd0'
+                  elsif key contains 'verde'
+                    assign c = '#7d8a6a'
+                  elsif key contains 'rojo' or key contains 'burdeos' or key contains 'burgundi'
+                    assign c = '#7a2a2a'
+                  elsif key contains 'lila'
+                    assign c = '#c7b6d6'
+                  elsif key contains 'caqui'
+                    assign c = '#8b8461'
+                  endif
+                  assign v_url = p.url
+                  if value.variant
+                    assign v_url = value.variant.url
+                  endif
+                -%}
+                <button
+                  type="button"
+                  class="o3-dot"
+                  style="--c: {{ c }};"
+                  aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}"
+                  aria-label="{{ value | escape }}"
+                  data-o3-feat-dot="{{ forloop.index0 }}"
+                  data-name="{{ value | escape }}"
+                  data-url="{{ v_url }}"
+                ><span></span></button>
+              {%- endfor -%}
+            </div>
+          </fieldset>
+          <p class="o3-feat__color-name" data-o3-feat-name aria-live="polite">{{ color_option.values.first | escape }}</p>
+        </div>
+      {%- endif -%}
+
+      <a class="o3-btn o3-btn--solid" href="{{ p.url | default: '#' }}" data-o3-feat-link>{{ section.settings.button_label }}</a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "O3 · Producto destacado",
+  "tag": "div",
+  "class": "o3-section",
+  "settings": [
+    { "type": "product", "id": "product", "label": "Producto" },
+    { "type": "text", "id": "eyebrow", "label": "Antetítulo", "default": "La pieza de la temporada" },
+    { "type": "text", "id": "title", "label": "Título (vacío = nombre del producto)" },
+    { "type": "textarea", "id": "text", "label": "Una frase sobre él", "default": "Limpio, curvo y fácil de llevar: el bolso que acompaña todo lo que ya tienes." },
+    { "type": "text", "id": "button_label", "label": "Botón", "default": "Ver el bolso" }
+  ],
+  "presets": [{ "name": "O3 · Producto destacado" }]
+}
+{% endschema %}

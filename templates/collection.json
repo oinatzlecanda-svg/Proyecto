@@ -7,66 +7,19 @@
         "show_description": true,
         "meta_note": "Envío gratis · 30 días para devolver",
         "collections": [
-          "todos-los-productos-oelnor",
-          "mujer",
-          "hombre",
-          "chaquetas-mujer",
+          "ropa-mujer",
           "bolsos",
-          "accesorios",
-          "la-seleccion-oelnor",
+          "complementos",
           "calzado-mujer",
-          "pantalones-mujer",
-          "jerseis-mujer"
+          "hombre"
         ],
         "per_page": 24,
         "enable_filtering": true,
         "enable_sorting": true
       }
-    },
-    "o3-cinta": {
-      "type": "o3-marquee",
-      "blocks": {
-        "m1": {
-          "type": "item",
-          "settings": {
-            "text": "Envío gratis"
-          }
-        },
-        "m2": {
-          "type": "item",
-          "settings": {
-            "text": "30 días para devolver"
-          }
-        },
-        "m3": {
-          "type": "item",
-          "settings": {
-            "text": "Pago seguro"
-          }
-        },
-        "m4": {
-          "type": "item",
-          "settings": {
-            "text": "Novedades cada semana"
-          }
-        }
-      },
-      "block_order": [
-        "m1",
-        "m2",
-        "m3",
-        "m4"
-      ],
-      "settings": {
-        "style": "cobalt",
-        "under": "ink",
-        "reverse": false,
-        "speed": 36
-      }
     }
   },
   "order": [
-    "main",
-    "o3-cinta"
+    "main"
   ]
 }

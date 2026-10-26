@@ -1,0 +1,79 @@
+{%- comment -%}
+  OELNOR — Home cover. One big photo (full screen on phones), a short warm
+  headline and a single button. The photo is the uploaded image, or a photo
+  of the chosen product when none is uploaded.
+{%- endcomment -%}
+{%- liquid
+  assign img = section.settings.image
+  if img == blank and section.settings.product != blank
+    assign pos = section.settings.media_position | minus: 1
+    assign img = section.settings.product.media[pos].preview_image | default: section.settings.product.featured_media.preview_image
+  endif
+  assign img_mobile = section.settings.image_mobile | default: img
+-%}
+
+<section class="o3 o3-cover o3-top" aria-labelledby="O3CoverTitle-{{ section.id }}" style="--o3-focus: {{ section.settings.focus }};">
+  <div class="o3-cover__media">
+    {%- if img != blank -%}
+      <picture>
+        {%- if section.settings.image_mobile != blank -%}
+          <source media="(max-width: 749px)" srcset="{{ img_mobile | image_url: width: 750 }} 750w, {{ img_mobile | image_url: width: 1100 }} 1100w" sizes="100vw">
+        {%- endif -%}
+        {{
+          img
+          | image_url: width: 2000
+          | image_tag: loading: 'eager', fetchpriority: 'high', widths: '600, 900, 1200, 1600, 2000', sizes: '100vw', alt: section.settings.alt
+        }}
+      </picture>
+    {%- else -%}
+      {{ 'lifestyle-1' | placeholder_svg_tag }}
+    {%- endif -%}
+  </div>
+  <div class="o3-wrap o3-cover__body">
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="o3-cover__eyebrow o3-mono">{{ section.settings.eyebrow }}</p>
+    {%- endif -%}
+    <h1 class="o3-cover__title" id="O3CoverTitle-{{ section.id }}">{{ section.settings.title }}</h1>
+    {%- if section.settings.text != blank -%}
+      <p class="o3-cover__text">{{ section.settings.text }}</p>
+    {%- endif -%}
+    {%- if section.settings.button_label != blank -%}
+      <a class="o3-btn o3-btn--solid" href="{{ section.settings.button_link | default: routes.all_products_collection_url }}">
+        {{- section.settings.button_label -}}
+      </a>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "O3 · Portada",
+  "tag": "div",
+  "class": "o3-section",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Foto" },
+    { "type": "image_picker", "id": "image_mobile", "label": "Foto para móvil (opcional)", "info": "Vertical, 4:5 o 9:16." },
+    { "type": "product", "id": "product", "label": "Si no subes foto: foto de este producto" },
+    { "type": "range", "id": "media_position", "label": "Número de foto del producto", "min": 1, "max": 10, "step": 1, "default": 1 },
+    { "type": "text", "id": "alt", "label": "Descripción de la foto (accesibilidad)", "default": "Look de otoño de Oelnor" },
+    {
+      "type": "select",
+      "id": "focus",
+      "label": "Punto de interés de la foto",
+      "default": "50% 30%",
+      "options": [
+        { "value": "50% 15%", "label": "Arriba" },
+        { "value": "50% 30%", "label": "Centro alto" },
+        { "value": "50% 50%", "label": "Centro" },
+        { "value": "50% 75%", "label": "Abajo" }
+      ]
+    },
+    { "type": "text", "id": "eyebrow", "label": "Antetítulo", "default": "Otoño" },
+    { "type": "text", "id": "title", "label": "Titular", "default": "Piezas para tu día a día, con algo distinto" },
+    { "type": "textarea", "id": "text", "label": "Texto (opcional)" },
+    { "type": "text", "id": "button_label", "label": "Botón", "default": "Ver novedades" },
+    { "type": "url", "id": "button_link", "label": "Enlace del botón" }
+  ],
+  "presets": [{ "name": "O3 · Portada" }]
+}
+{% endschema %}

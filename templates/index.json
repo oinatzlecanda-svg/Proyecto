@@ -1,201 +1,129 @@
 {
   "sections": {
-    "o3-hero": {
-      "type": "o3-hero",
+    "portada": {
+      "type": "o3-cover",
       "settings": {
-        "meta_1": "Oelnor® / ES",
-        "meta_2": "Drop otoño—26",
-        "meta_live": "Novedades cada semana",
-        "line_1": "No vistas",
-        "line_2": "como el",
-        "line_3": "resto.",
-        "seo_text": "Oelnor: moda y accesorios streetwear para mujer y hombre",
-        "lede": "Moda y accesorios para quien no quiere llevar lo mismo que el resto.",
-        "product_1": "black-jeans-shiny-star",
-        "product_2": "bolso-siena",
-        "product_3": "bomber-noa-efecto-ante",
-        "ring_text": "Oelnor — No copies",
-        "hint": "Arrastra las piezas ↔",
-        "cta_1_label": "Ver el drop",
-        "cta_1_link": "shopify://collections/todos-los-productos-oelnor",
-        "cta_2_label": "Mujer",
-        "cta_2_link": "shopify://collections/mujer",
-        "cta_3_label": "Hombre",
-        "cta_3_link": "shopify://collections/hombre",
-        "wordmark": "Oelnor"
+        "product": "cardigan-alma",
+        "media_position": 2,
+        "alt": "Cárdigan Alma negro, look de otoño",
+        "focus": "50% 30%",
+        "eyebrow": "Otoño",
+        "title": "Piezas para tu día a día, con algo distinto",
+        "text": "",
+        "button_label": "Ver novedades",
+        "button_link": "/collections/mujer?sort_by=created-descending"
       }
     },
-    "o3-cinta": {
-      "type": "o3-marquee",
+    "novedades": {
+      "type": "o3-products",
+      "settings": {
+        "eyebrow": "Recién llegado",
+        "title": "Novedades de mujer",
+        "text": "",
+        "collection": "mujer",
+        "newest": true,
+        "limit": 6,
+        "link_label": "Ver todas las novedades",
+        "link": "/collections/mujer?sort_by=created-descending"
+      }
+    },
+    "siena": {
+      "type": "o3-feature",
+      "settings": {
+        "product": "bolso-siena",
+        "eyebrow": "Bolso de hombro",
+        "title": "",
+        "text": "Limpio, curvo y fácil de llevar: el bolso que acompaña todo lo que ya tienes.",
+        "button_label": "Ver el bolso"
+      }
+    },
+    "looks": {
+      "type": "o3-looks",
       "blocks": {
-        "m1": {
-          "type": "item",
+        "l1": {
+          "type": "look",
           "settings": {
-            "text": "Envío gratis"
+            "title": "Punto y ante",
+            "text": "Cómodo para todo el día, con un toque cálido.",
+            "products": [
+              "jersey-dalia-asimetrico",
+              "jeans-lucia-pierna-ancha",
+              "botas-beige-ante-sintetico",
+              "bolso-siena"
+            ]
           }
         },
-        "m2": {
-          "type": "item",
+        "l2": {
+          "type": "look",
           "settings": {
-            "text": "30 días para devolver"
+            "title": "Capas de entretiempo",
+            "text": "Para las mañanas frescas y las tardes templadas.",
+            "products": [
+              "chaqueta-lena-cropped-cinturon",
+              "camisa-vera-oversize",
+              "jeans-alba-wide-leg-negros",
+              "vintage-city-bag-black"
+            ]
           }
         },
-        "m3": {
-          "type": "item",
+        "l3": {
+          "type": "look",
           "settings": {
-            "text": "Pago seguro"
-          }
-        },
-        "m4": {
-          "type": "item",
-          "settings": {
-            "text": "Novedades cada semana"
+            "title": "Domingo tranquilo",
+            "text": "Rayas, volumen y unas bailarinas.",
+            "products": [
+              "cardigan-naya-punto-rayas",
+              "pantalon-bombacho-talla-unica",
+              "lace-ballerina-flat-black",
+              "bufanda-iris-cuadros-corazones"
+            ]
           }
         }
       },
       "block_order": [
-        "m1",
-        "m2",
-        "m3",
-        "m4"
+        "l1",
+        "l2",
+        "l3"
       ],
       "settings": {
-        "style": "cobalt",
-        "under": "split",
-        "reverse": false,
-        "speed": 36
+        "eyebrow": "Ideas para combinar",
+        "title": "Looks de otoño",
+        "text": "Elegidas para combinar con lo que ya tienes."
       }
     },
-    "o3-buscado": {
-      "type": "o3-rail",
-      "blocks": {
-        "p1": {
-          "type": "product",
-          "settings": {
-            "product": "black-jeans-shiny-star",
-            "badge": "Más deseado"
-          }
-        },
-        "p2": {
-          "type": "product",
-          "settings": {
-            "product": "botas-beige-ante-sintetico",
-            "badge": "Top ventas"
-          }
-        },
-        "p3": {
-          "type": "product",
-          "settings": {
-            "product": "bolso-siena",
-            "badge": "Top ventas"
-          }
-        },
-        "p4": {
-          "type": "product",
-          "settings": {
-            "product": "bomber-noa-efecto-ante",
-            "badge": ""
-          }
-        },
-        "p5": {
-          "type": "product",
-          "settings": {
-            "product": "chaqueta-corta-flecos-marron",
-            "badge": ""
-          }
-        },
-        "p6": {
-          "type": "product",
-          "settings": {
-            "product": "portalabial-espejo-corazon",
-            "badge": ""
-          }
-        },
-        "p7": {
-          "type": "product",
-          "settings": {
-            "product": "vintage-city-bag-black",
-            "badge": ""
-          }
-        },
-        "p8": {
-          "type": "product",
-          "settings": {
-            "product": "chaqueta-corta-flecos",
-            "badge": ""
-          }
-        }
-      },
-      "block_order": [
-        "p1",
-        "p2",
-        "p3",
-        "p4",
-        "p5",
-        "p6",
-        "p7",
-        "p8"
-      ],
-      "settings": {
-        "eyebrow": "Lo más buscado · otoño 26",
-        "title": "Lo que todos miran",
-        "text": "Ordenado por lo que más se visita y se añade a la cesta en Oelnor.",
-        "link_label": "Ver todo",
-        "link": "shopify://collections/todos-los-productos-oelnor",
-        "show_rank": true,
-        "dark": false,
-        "limit": 8
-      }
-    },
-    "o3-colecciones": {
-      "type": "o3-index",
+    "categorias": {
+      "type": "o3-cats",
       "blocks": {
         "c1": {
           "type": "collection",
           "settings": {
-            "collection": "mujer",
-            "title": "Mujer",
+            "collection": "ropa-mujer",
+            "title": "Ropa",
             "product": "chaqueta-lena-cropped-cinturon"
           }
         },
         "c2": {
           "type": "collection",
           "settings": {
-            "collection": "hombre",
-            "title": "Hombre",
-            "product": "bomber-milo"
+            "collection": "bolsos",
+            "title": "Bolsos",
+            "product": "bolso-mara-hobo"
           }
         },
         "c3": {
           "type": "collection",
           "settings": {
-            "collection": "chaquetas-mujer",
-            "title": "Chaquetas",
-            "product": "bomber-noa-efecto-ante"
+            "collection": "complementos",
+            "title": "Complementos",
+            "product": "bufanda-iris-cuadros-corazones"
           }
         },
         "c4": {
           "type": "collection",
           "settings": {
-            "collection": "bolsos",
-            "title": "Bolsos",
-            "product": "bolso-siena"
-          }
-        },
-        "c5": {
-          "type": "collection",
-          "settings": {
-            "collection": "accesorios",
-            "title": "Accesorios",
-            "product": "portalabial-espejo-corazon"
-          }
-        },
-        "c6": {
-          "type": "collection",
-          "settings": {
-            "collection": "la-seleccion-oelnor",
-            "title": "La selección",
-            "product": "black-jeans-shiny-star"
+            "collection": "calzado-mujer",
+            "title": "Calzado",
+            "product": "botas-altas-de-cuero"
           }
         }
       },
@@ -203,204 +131,60 @@
         "c1",
         "c2",
         "c3",
-        "c4",
-        "c5",
-        "c6"
+        "c4"
       ],
       "settings": {
-        "eyebrow": "Colecciones",
-        "title": "Elige tu código",
-        "link_label": "Todo Oelnor",
-        "link": "shopify://collections/todos-los-productos-oelnor"
+        "eyebrow": "Explora",
+        "title": "Categorías"
       }
     },
-    "o3-foco": {
-      "type": "o3-spotlight",
+    "hombre": {
+      "type": "o3-story",
       "settings": {
-        "product": "botas-beige-ante-sintetico",
-        "eyebrow": "Top ventas · otoño 26",
-        "title": "",
-        "text": "",
-        "sticker_ring": "Top ventas",
-        "sticker_center": "Top"
+        "product": "bomber-milo",
+        "image_right": false,
+        "size": "small",
+        "background": "sand",
+        "eyebrow": "Hombre",
+        "title": "También para él",
+        "text": "<p>Una selección corta de básicos con carácter: punto, denim y chaquetas.</p>",
+        "link_label": "Ver hombre",
+        "link": "shopify://collections/hombre"
       }
     },
-    "o3-manifiesto": {
-      "type": "o3-manifesto",
-      "blocks": {
-        "t1": {
-          "type": "truth",
-          "settings": {
-            "title": "Envío gratis",
-            "detail": ""
-          }
-        },
-        "t2": {
-          "type": "truth",
-          "settings": {
-            "title": "30 días para devolver",
-            "detail": ""
-          }
-        },
-        "t3": {
-          "type": "truth",
-          "settings": {
-            "title": "Pago seguro",
-            "detail": ""
-          }
-        }
-      },
-      "block_order": [
-        "t1",
-        "t2",
-        "t3"
-      ],
+    "sobre": {
+      "type": "o3-story",
       "settings": {
-        "eyebrow": "Manifiesto",
-        "text": "No hacemos uniformes. Elegimos piezas para quien prefiere *destacar* antes que encajar."
+        "image_right": false,
+        "size": "large",
+        "background": "paper",
+        "eyebrow": "Sobre Oelnor",
+        "title": "Pocas piezas, bien escogidas",
+        "text": "<p>En Oelnor elegimos cada prenda y cada accesorio uno a uno. Buscamos piezas fáciles de combinar con lo que ya tienes, con un detalle que las haga distintas y a un precio razonable.</p><p>Preferimos pocas cosas bien escogidas a un catálogo infinito. Y si algo no te convence, lo solucionamos contigo.</p>",
+        "link_label": "Conócenos",
+        "link": "shopify://pages/sobre-oelnor"
       }
     },
-    "o3-calle": {
-      "type": "o3-rail",
-      "blocks": {
-        "p1": {
-          "type": "product",
-          "settings": {
-            "product": "black-hanbok-denim-pants",
-            "badge": ""
-          }
-        },
-        "p2": {
-          "type": "product",
-          "settings": {
-            "product": "jersey-riven-efecto-desgastado",
-            "badge": ""
-          }
-        },
-        "p3": {
-          "type": "product",
-          "settings": {
-            "product": "jeans-kairo-telarania",
-            "badge": ""
-          }
-        },
-        "p4": {
-          "type": "product",
-          "settings": {
-            "product": "bomber-milo",
-            "badge": ""
-          }
-        },
-        "p5": {
-          "type": "product",
-          "settings": {
-            "product": "jeans-axel-baggy-desgastados",
-            "badge": ""
-          }
-        },
-        "p6": {
-          "type": "product",
-          "settings": {
-            "product": "pantalon-raze-acampanado-deconstruido",
-            "badge": ""
-          }
-        },
-        "p7": {
-          "type": "product",
-          "settings": {
-            "product": "sudadera-relaxed-algodon",
-            "badge": ""
-          }
-        },
-        "p8": {
-          "type": "product",
-          "settings": {
-            "product": "camiseta-retro-oversize",
-            "badge": ""
-          }
-        }
-      },
-      "block_order": [
-        "p1",
-        "p2",
-        "p3",
-        "p4",
-        "p5",
-        "p6",
-        "p7",
-        "p8"
-      ],
-      "settings": {
-        "eyebrow": "Código calle · unisex",
-        "title": "Hecho para la calle",
-        "text": "Denim balloon, punto desgastado y bombers. El lado más street de Oelnor.",
-        "link_label": "Ver todo",
-        "link": "shopify://collections/todos-los-productos-oelnor",
-        "show_rank": false,
-        "dark": true,
-        "limit": 8
-      }
-    },
-    "o3-cinta-2": {
-      "type": "o3-marquee",
-      "blocks": {
-        "m1": {
-          "type": "item",
-          "settings": {
-            "text": "No copies"
-          }
-        },
-        "m2": {
-          "type": "item",
-          "settings": {
-            "text": "No uniformes"
-          }
-        },
-        "m3": {
-          "type": "item",
-          "settings": {
-            "text": "Viste distinto"
-          }
-        },
-        "m4": {
-          "type": "item",
-          "settings": {
-            "text": "Oelnor"
-          }
-        }
-      },
-      "block_order": [
-        "m1",
-        "m2",
-        "m3",
-        "m4"
-      ],
-      "settings": {
-        "style": "bone",
-        "under": "ink",
-        "reverse": true,
-        "speed": 40
-      }
-    },
-    "o3-lista": {
+    "newsletter": {
       "type": "o3-signup",
       "settings": {
-        "title_1": "Entra en",
-        "title_2": "la lista",
-        "text": "Nuevos drops y piezas que se agotan rápido, directos a tu correo. Sin spam.",
-        "button": "Unirme"
+        "title_1": "Novedades,",
+        "title_2": "antes que nadie",
+        "text": "Únete y te contamos las novedades antes que nadie. Sin spam. Y un 10% de bienvenida en tu primer pedido.",
+        "button": "Unirme",
+        "success": "Gracias, ya estás dentro.",
+        "code": "BIENVENIDA10"
       }
     }
   },
   "order": [
-    "o3-hero",
-    "o3-cinta",
-    "o3-buscado",
-    "o3-colecciones",
-    "o3-foco",
-    "o3-manifiesto",
-    "o3-calle",
-    "o3-cinta-2",
-    "o3-lista"
+    "portada",
+    "novedades",
+    "siena",
+    "looks",
+    "categorias",
+    "hombre",
+    "sobre",
+    "newsletter"
   ]
 }

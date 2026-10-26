@@ -1,14 +1,12 @@
 {%- comment -%}
-  OELNOR 3.0 — "Localiza tu envío" page. Sends people to the ParcelPanel
-  tracker (/apps/parcelpanel), explains the real delivery timeline (blocks)
-  and offers help. The shipping label on the right is decorative and tilts
-  like the home hero.
+  OELNOR — Shipping and tracking page. Sends people to the ParcelPanel
+  tracker (/apps/parcelpanel), sums up the shipping facts, explains the real
+  delivery timeline (blocks) and offers help.
 {%- endcomment -%}
 {%- assign tracker_url = section.settings.tracker_url | default: '/apps/parcelpanel' -%}
 
 <section class="o3 o3-track" aria-labelledby="O3TrackTitle-{{ section.id }}">
   <div class="o3-phero o3-top">
-    <div class="o3-hero__grid" aria-hidden="true"></div>
     <div class="o3-wrap o3-track__grid">
       <div>
         <nav class="o3-crumbs o3-mono" aria-label="Ruta">
@@ -30,7 +28,7 @@
         {%- endif -%}
         <div class="o3-track__actions">
           <a class="o3-btn o3-btn--solid" href="{{ tracker_url }}">
-            {{- section.settings.button_label }} <span class="o3-btn__arrow" aria-hidden="true">→</span>
+            {{- section.settings.button_label -}}
           </a>
           {%- if customer -%}
             <a class="o3-btn o3-btn--ghost" href="{{ routes.account_url }}">Ver mis pedidos</a>
@@ -41,36 +39,27 @@
         {%- endif -%}
       </div>
 
-      <div class="o3-label-wrap" data-o3-label aria-hidden="true">
-        <div class="o3-label" data-o3-label-card>
-          <div class="o3-label__top o3-mono">
-            <span class="o3-label__brand">Oelnor</span>
-            <span>Envío<br>gratis</span>
-          </div>
-          <p class="o3-mono" style="margin-top: 14px; color: #6b5444;">Estado</p>
-          <p class="o3-label__status">En camino</p>
-          <div class="o3-route">
-            <span class="o3-route__line"><span class="o3-route__fill"></span></span>
-            <span class="o3-route__mover">
-              <span class="o3-route__dot">
-                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 10 16 4l11 6v12l-11 6-11-6z"/><path d="M5 10l11 6 11-6M16 16v12"/></svg>
-              </span>
-            </span>
-          </div>
-          <ol class="o3-label__steps o3-mono" role="list">
-            {%- for block in section.blocks limit: 4 -%}
-              <li>{{ block.settings.title }}</li>
-            {%- endfor -%}
-          </ol>
-          <div class="o3-barcode"></div>
-          <div class="o3-label__foot o3-mono"><span>{{ shop.name | upcase }}</span><span>ES · EU</span></div>
-        </div>
-      </div>
+      {%- if section.settings.fact_1_title != blank -%}
+        <ul class="o3-facts" role="list">
+          {%- for i in (1..4) -%}
+            {%- liquid
+              assign f_t = 'fact_' | append: i | append: '_title'
+              assign f_x = 'fact_' | append: i | append: '_text'
+            -%}
+            {%- if section.settings[f_t] != blank -%}
+              <li>
+                <strong>{{ section.settings[f_t] }}</strong>
+                <span>{{ section.settings[f_x] }}</span>
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
     </div>
   </div>
 
   {%- if section.blocks.size > 0 -%}
-    <div class="o3-light" style="padding-block: 64px;">
+    <div class="o3-light" style="padding-block: var(--o3-space);">
       <div class="o3-wrap">
         <p class="o3-mono o3-eyebrow o3-mono-mute">{{ section.settings.steps_eyebrow }}</p>
         <h2 class="o3-h2" style="margin-top: 12px;">{{ section.settings.steps_heading }}</h2>
@@ -102,7 +91,7 @@
         <p>{{ section.settings.help_text }}</p>
         <div class="o3-track__actions">
           <a class="o3-btn o3-btn--ink" href="{{ section.settings.help_link | default: '/pages/contact' }}">
-            {{- section.settings.help_button }} <span class="o3-btn__arrow" aria-hidden="true">→</span>
+            {{- section.settings.help_button -}}
           </a>
           <a class="o3-btn o3-btn--outline" href="{{ shop.shipping_policy.url | default: '/policies/shipping-policy' }}">Política de envíos</a>
         </div>
@@ -113,7 +102,7 @@
 
 {% schema %}
 {
-  "name": "O3 · Localizar envío",
+  "name": "O3 · Envíos y seguimiento",
   "tag": "div",
   "class": "o3-section",
   "settings": [
@@ -124,6 +113,15 @@
     { "type": "text", "id": "button_label", "label": "Botón", "default": "Localizar mi pedido" },
     { "type": "url", "id": "tracker_url", "label": "Enlace del localizador", "info": "Por defecto, ParcelPanel (/apps/parcelpanel)." },
     { "type": "text", "id": "helper", "label": "Ayuda bajo el botón" },
+    { "type": "header", "content": "Datos de envío" },
+    { "type": "text", "id": "fact_1_title", "label": "Dato 1", "default": "Envío gratis" },
+    { "type": "text", "id": "fact_1_text", "label": "Detalle 1", "default": "En todos los pedidos, con seguimiento." },
+    { "type": "text", "id": "fact_2_title", "label": "Dato 2", "default": "1–3 días laborables" },
+    { "type": "text", "id": "fact_2_text", "label": "Detalle 2", "default": "Lo que tardamos en preparar tu pedido." },
+    { "type": "text", "id": "fact_3_title", "label": "Dato 3", "default": "7–14 días laborables" },
+    { "type": "text", "id": "fact_3_text", "label": "Detalle 3", "default": "Plazo aproximado de entrega desde el envío. Puede alargarse en campañas o por el transportista." },
+    { "type": "text", "id": "fact_4_title", "label": "Dato 4", "default": "Seguimiento por email" },
+    { "type": "text", "id": "fact_4_text", "label": "Detalle 4", "default": "Te enviamos el número para seguir el pedido en cada momento." },
     { "type": "text", "id": "steps_eyebrow", "label": "Antetítulo de pasos", "default": "El viaje de tu pedido" },
     { "type": "text", "id": "steps_heading", "label": "Titular de pasos", "default": "Así llega a tu casa" },
     { "type": "textarea", "id": "footnote", "label": "Nota bajo los pasos" },

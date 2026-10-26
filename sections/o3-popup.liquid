@@ -1,12 +1,13 @@
 {%- comment -%}
-  OELNOR 3.0 — Full-screen offer popup (welcome discount).
+  OELNOR — Discreet welcome pop-up (welcome discount): a bottom sheet on
+  phones, a small centred card on desktop.
   Step 1 asks for the email (Shopify customer form: the person is created as
   an email subscriber, which is what the discount's customer segment needs).
   Step 2 reveals the code with copy + "apply and shop" (/discount/CODE).
-  Shown once: after a delay, 35% scroll or exit intent (desktop), whichever
-  comes first. Not shown again for N days after closing, never after
-  subscribing, never to logged-in customers who already ordered, never on
-  the cart page. Behaviour lives in o3.js.
+  Shown once, never on arrival: after a few seconds or once the visitor has
+  scrolled a third of the page, whichever comes first. Not shown again for
+  N days after closing, never after subscribing, never to logged-in
+  customers who already ordered, never on the cart page. Behaviour lives in o3.js.
 {%- endcomment -%}
 {%- liquid
   assign show = section.settings.enabled
@@ -30,34 +31,12 @@
     data-key="o3-pop-{{ code | handleize }}"
     aria-labelledby="O3PopTitle-{{ section.id }}"
   >
-    <div class="o3-pop__band" aria-hidden="true">
-      <div class="o3-marquee__track" style="--o3-speed: 30s;">
-        {%- capture band -%}
-          {%- for i in (1..4) -%}
-            <span class="o3-marquee__item">{{ section.settings.band_text }}</span>
-          {%- endfor -%}
-        {%- endcapture -%}
-        <div class="o3-marquee__group">{{ band }}</div>
-        <div class="o3-marquee__group">{{ band }}</div>
-      </div>
-    </div>
+    <button type="button" class="o3-pop__close" data-o3-pop-close aria-label="Cerrar">✕</button>
 
-    <button type="button" class="o3-pop__close o3-mono" data-o3-pop-close>
-      Cerrar <span aria-hidden="true">✕</span>
-    </button>
-
-    <div class="o3-pop__grid" aria-hidden="true"></div>
-
-    <div class="o3-pop__inner o3-wrap">
+    <div class="o3-pop__inner">
       <p class="o3-pop__eyebrow o3-mono o3-eyebrow">{{ section.settings.eyebrow }}</p>
 
-      <h2 class="o3-pop__big" id="O3PopTitle-{{ section.id }}">
-        <span class="o3-line"><span>{{ section.settings.big }}</span></span>
-        <span class="o3-sr">{{ section.settings.title }}</span>
-      </h2>
-      <p class="o3-pop__title" aria-hidden="true">
-        <span class="o3-mark">{{ section.settings.title }}</span>
-      </p>
+      <h2 class="o3-pop__big" id="O3PopTitle-{{ section.id }}">{{ section.settings.title }}</h2>
 
       {%- form 'customer', id: form_id, class: 'o3-pop__step', data-o3-pop-form: '', novalidate: 'novalidate' -%}
         {%- if form.posted_successfully? -%}<span hidden data-o3-pop-posted></span>{%- endif -%}
@@ -79,9 +58,7 @@
             placeholder="tu@correo.com"
             required
           >
-          <button class="o3-btn o3-btn--solid o3-pop__cta" type="submit">
-            {{- section.settings.button }} <span class="o3-btn__arrow" aria-hidden="true">→</span>
-          </button>
+          <button class="o3-btn o3-btn--solid o3-pop__cta" type="submit">{{ section.settings.button }}</button>
         </div>
         <p class="o3-pop__error o3-mono" data-o3-pop-error role="alert" hidden></p>
         <p class="o3-pop__fine o3-mono">{{ section.settings.fine_print }}</p>
@@ -95,9 +72,7 @@
         </div>
         <div class="o3-pop__row">
           <button type="button" class="o3-btn o3-btn--ghost" data-o3-pop-copy data-copied="Copiado ✓">Copiar código</button>
-          <a class="o3-btn o3-btn--solid o3-pop__cta" href="{{ apply_url }}">
-            {{- section.settings.apply_label }} <span class="o3-btn__arrow" aria-hidden="true">→</span>
-          </a>
+          <a class="o3-btn o3-btn--solid o3-pop__cta" href="{{ apply_url }}">{{ section.settings.apply_label }}</a>
         </div>
         <p class="o3-pop__fine o3-mono">{{ section.settings.fine_print_done }}</p>
       </div>
@@ -109,7 +84,7 @@
 
 {% schema %}
 {
-  "name": "O3 · Popup oferta",
+  "name": "O3 · Popup bienvenida",
   "tag": "div",
   "class": "o3-section",
   "settings": [
@@ -121,10 +96,9 @@
       "default": "BIENVENIDA10",
       "info": "Debe existir en Descuentos. BIENVENIDA10 solo vale para clientes sin pedidos y suscritos al email: el popup los suscribe antes de enseñar el código."
     },
-    { "type": "text", "id": "eyebrow", "label": "Antetítulo", "default": "Bienvenida Oelnor" },
-    { "type": "text", "id": "big", "label": "Cifra gigante", "default": "-10%" },
-    { "type": "text", "id": "title", "label": "Titular", "default": "En tu primera compra" },
-    { "type": "textarea", "id": "text", "label": "Texto", "default": "Únete a la lista y desbloquea tu código al momento. Además, te avisamos antes que a nadie de cada drop." },
+    { "type": "text", "id": "eyebrow", "label": "Antetítulo", "default": "Bienvenida" },
+    { "type": "text", "id": "title", "label": "Titular", "default": "Un 10% de bienvenida en tu primer pedido" },
+    { "type": "textarea", "id": "text", "label": "Texto", "default": "Únete y te contamos las novedades antes que nadie. Sin spam. Te enseñamos tu código al momento." },
     { "type": "text", "id": "button", "label": "Botón", "default": "Quiero mi 10%" },
     {
       "type": "text",
@@ -132,13 +106,12 @@
       "label": "Letra pequeña",
       "default": "Válido en tu primera compra con este email. No acumulable con otras ofertas. Puedes darte de baja cuando quieras."
     },
-    { "type": "text", "id": "success_text", "label": "Texto tras suscribirse", "default": "Dentro. Este es tu 10% para el primer pedido:" },
+    { "type": "text", "id": "success_text", "label": "Texto tras suscribirse", "default": "Gracias, ya estás dentro. Este es tu 10% para el primer pedido:" },
     { "type": "text", "id": "apply_label", "label": "Botón aplicar", "default": "Aplicar y comprar" },
     { "type": "url", "id": "shop_url", "label": "A dónde lleva «Aplicar y comprar»", "default": "/collections/all" },
     { "type": "text", "id": "fine_print_done", "label": "Letra pequeña tras suscribirse", "default": "Usa en el pago el mismo email con el que te has suscrito." },
     { "type": "text", "id": "decline", "label": "Texto para rechazar", "default": "Ahora no" },
-    { "type": "text", "id": "band_text", "label": "Texto de la cinta superior", "default": "Bienvenida × 10% × Primera compra ×" },
-    { "type": "range", "id": "delay", "label": "Segundos antes de aparecer", "min": 2, "max": 60, "step": 1, "default": 8 },
+    { "type": "range", "id": "delay", "label": "Segundos antes de aparecer", "min": 5, "max": 60, "step": 1, "default": 12 },
     { "type": "range", "id": "hide_days", "label": "Días sin volver a mostrarlo tras cerrarlo", "min": 1, "max": 60, "step": 1, "default": 14 }
   ]
 }

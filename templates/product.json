@@ -7,14 +7,12 @@
         "price_note": "Envío gratis",
         "atc_label": "Añadir a la cesta",
         "show_dynamic_checkout": true,
-        "selection_handle": "la-seleccion-oelnor",
         "new_days": 21,
         "bundle_option": "Pack",
         "bundle_heading": "Elige tu pack",
         "bundle_popular": 2,
-        "bundle_popular_label": "Más elegido",
+        "bundle_popular_label": "",
         "bundle_best_label": "Mejor precio",
-        "size_help_link": "/pages/contact",
         "ship_title": "Envío gratis con seguimiento",
         "min_days": 8,
         "max_days": 17,
@@ -32,13 +30,15 @@
         "trust_link_4": "/pages/contact",
         "show_payments": true,
         "tip_label": "Cómo llevarlo",
-        "open_description": true,
+        "open_description": false,
         "acc_title_1": "Envíos",
         "acc_content_1": "<p>Preparamos tu pedido en 1–3 días hábiles y el transporte tarda 7–14 días hábiles. Recibirás un número de seguimiento por email.</p><p><a href=\"/policies/shipping-policy\" title=\"Política de envíos\">Ver política de envíos</a></p>",
         "acc_title_2": "Devoluciones",
         "acc_content_2": "<p>Tienes 30 días desde que recibes tu pedido para devolverlo.</p><p><a href=\"/policies/refund-policy\" title=\"Política de devoluciones\">Ver política de devoluciones</a></p>",
         "acc_title_3": "Pago seguro",
-        "acc_content_3": "<p>El pago se procesa de forma cifrada a través de Shopify con los métodos que ves arriba. Oelnor no guarda los datos de tu tarjeta.</p>"
+        "acc_content_3": "<p>El pago se procesa de forma cifrada a través de Shopify con los métodos que ves arriba. Oelnor no guarda los datos de tu tarjeta.</p>",
+        "details_label": "Detalles y medidas",
+        "care_note": "Preparamos tu pedido con cuidado · Llega en 7–14 días laborables desde el envío"
       }
     },
     "o3-look": {
@@ -53,7 +53,8 @@
         "title": "Combínalo con",
         "limit": 6,
         "dark": false
-      }
+      },
+      "disabled": true
     },
     "o3-opiniones": {
       "type": "o3-product-reviews",
@@ -141,8 +142,8 @@
       ],
       "settings": {
         "eyebrow": "Nuestra promesa",
-        "heading": "Compra sin miedo",
-        "text": "Si algo no es como esperabas, lo solucionamos. Sin letra pequeña."
+        "heading": "Compra con tranquilidad",
+        "text": "Si algo no es como esperabas, lo solucionamos contigo."
       }
     },
     "o3-relacionados": {
@@ -153,8 +154,8 @@
         "men": "hombre",
         "exclude": "mujer,hombre,todos-los-productos-oelnor,destacados-oelnor,la-seleccion-oelnor,accesorios,prendas-de-arriba-hombre",
         "mode": "similar",
-        "eyebrow": "Te puede gustar",
-        "title": "Más de [genero]",
+        "eyebrow": "",
+        "title": "Te puede interesar también",
         "limit": 8,
         "dark": true
       }

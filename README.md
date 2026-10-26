@@ -12,13 +12,32 @@ se configuran desde el Admin de Shopify — no pueden vivir en el código. Esta
 guía indica exactamente qué crear para que el tema funcione tal y como está
 diseñado.
 
-## 0. OELNOR 3.0 — nueva home (oct. 2026)
+## 0. OELNOR editorial (oct. 2026)
 
-La home se ha rehecho con secciones propias `o3-*` (brutalista / streetwear /
-neo-futurista, pensada primero para móvil). Son autónomas: solo dependen de
-`assets/o3.css`, `assets/o3.js` (sin librerías, ~3 KB comprimido) y dos fuentes
-autoalojadas y recortadas al alfabeto español (`o3-anton.woff2`,
-`o3-archivo.woff2`, 63 KB en total).
+La tienda usa secciones propias `o3-*` con un estilo editorial, femenino y
+cercano: crema, blanco roto, negro suave y un acento camel; titulares en una
+serif fina y texto en una sans limpia; mucho aire y movimiento discreto (solo
+fundidos suaves). Pensadas primero para móvil. Son autónomas: solo dependen de
+`assets/o3.css`, `assets/o3.js` (sin librerías) y fuentes autoalojadas y
+recortadas al alfabeto español (`o3-cormorant-normal.woff2`,
+`o3-cormorant-italic.woff2`, `o3-archivo.woff2`).
+
+La home, en este orden: `o3-cover` (una sola foto grande), `o3-products`
+(novedades de mujer), `o3-feature` (Bolso Siena con sus colores), `o3-looks`,
+`o3-cats`, `o3-story` (Hombre, pequeño), `o3-story` (Sobre Oelnor) y
+`o3-signup`. Las secciones de la primera versión (`o3-hero`, `o3-marquee`,
+`o3-rail`, `o3-index`, `o3-spotlight`, `o3-manifesto`) siguen en el tema pero
+ya no se usan.
+
+| Sección nueva | Qué hace |
+|---|---|
+| `o3-cover` | Portada: una foto (subida o de un producto) a pantalla completa en móvil, antetítulo, titular corto y un único botón. |
+| `o3-products` | Rejilla de productos de una colección, los más recientes primero, fotos grandes y sin etiquetas. |
+| `o3-feature` | Un producto destacado: foto grande, sus colores (cada punto enseña la foto de ese color) y una frase. |
+| `o3-looks` | 2–3 looks: una foto y las prendas que lo forman, cada una con enlace a su ficha. Deslizable en móvil. |
+| `o3-cats` | Categorías con foto y nombre, sin contador de productos. |
+| `o3-story` | Imagen + texto (o solo texto). Tamaño grande o pequeño y tres fondos. |
+| `o3-popup` | Bienvenida discreta: hoja inferior en móvil, tarjeta pequeña en escritorio; aparece tras unos segundos o al bajar un tercio de la página, nunca al entrar. |
 
 | Sección | Qué hace |
 |---|---|
@@ -30,9 +49,9 @@ autoalojadas y recortadas al alfabeto español (`o3-anton.woff2`,
 | `o3-manifesto` | Frase grande y sólida que entra con un deslizamiento suave. Marca palabras con `*asteriscos*` para ponerlas sobre un bloque naranja. |
 | `o3-signup` | Newsletter (formulario de clientes de Shopify, etiqueta `newsletter`). |
 
-| `o3-collection` | Página de colección: cabecera oscura con accesos a otras colecciones, barra fija con **Filtrar** (cajón inferior en móvil, lateral en escritorio) y **Ordenar**, rejilla 2/3/4 columnas y paginación. Filtros de Search & Discovery por GET: funciona sin JavaScript. |
+| `o3-collection` | Página de colección: cabecera con accesos a otras colecciones, barra fija con **Filtrar** (cajón inferior en móvil, lateral en escritorio) y **Ordenar**, rejilla 2/3/4 columnas y paginación. Filtros de Search & Discovery por GET: funciona sin JavaScript. |
 | `o3-contact` | Contacto: accesos rápidos (seguimiento, envíos, devoluciones), formulario con tema, nº de pedido y mensaje, y preguntas frecuentes (con datos estructurados FAQPage). |
-| `o3-tracking` | "Localiza tu envío": botón al localizador de ParcelPanel (`/apps/parcelpanel`), etiqueta de envío animada, pasos reales del envío y ayuda. |
+| `o3-tracking` | "Envíos y seguimiento": botón al localizador de ParcelPanel (`/apps/parcelpanel`), datos clave del envío (gratis, preparación, plazo aproximado, seguimiento), pasos reales y ayuda. |
 
 | `o3-product` | Ficha de producto: galería deslizable a pantalla completa en móvil (contador, zoom a pantalla completa) y rejilla editorial en escritorio; caja de compra fija con opiniones reales de Loox, precio con ahorro real, muestras de color con la foto de cada variante, tallas con disponibilidad en vivo, packs con precio por unidad (opción "Pack"), cantidad, "Añadir a la cesta" sin recargar (abre el carrito lateral), pago rápido, fechas de entrega en días hábiles, confianza, consejo "Cómo llevarlo" (metacampo `custom.oelnor_style_tip`) y detalles. En móvil aparece una barra de compra fija al pasar el botón. Datos estructurados Product (ofertas, envío gratis, devolución de 30 días, valoraciones) y BreadcrumbList. Guía de tallas opcional: metacampo `custom.size_guide` o página elegida en la sección. |
 | `o3-product-picks` | Recomendaciones con sentido, calculadas en el servidor (`snippets/o3-picks.liquid`): solo del mismo género que el producto (colecciones `mujer` / `hombre`), primero lo más vendido. "Combínalo con" muestra otras categorías (una por categoría: si miras unos jeans, botas, bolso, chaqueta…); "Más de Mujer/Hombre" muestra primero la misma categoría y nunca repite lo de arriba. La categoría de un producto es su primera colección que no esté en la lista de exclusión de la sección. |
@@ -46,12 +65,12 @@ página de ParcelPanel) se pintan desde `layout/theme.liquid`. Los estilos y el 
 cargan en todas las páginas desde `snippets/o3-head.liquid`, que se incluye en
 `snippets/meta-tags.liquid`.
 
-Todas respetan `prefers-reduced-motion`, sólo animan `transform`/`opacity`/`clip-path`
-y bloquean los efectos *hover* a dispositivos con ratón.
+Todas respetan `prefers-reduced-motion`, solo animan `transform`/`opacity`
+y limitan los efectos *hover* a dispositivos con ratón.
 
-Las etiquetas de los carriles ("Top ventas", "Más deseado") se escriben a mano
-en cada bloque: ponlas solo cuando sean ciertas. Las de octubre 2026 salen de
-las analíticas de la tienda (ventas de 90 días y añadidos a la cesta de 30 días).
+Sin urgencias ni reclamos: no hay contadores de stock, ni etiquetas como
+"Top ventas" salvo que las escribas a mano porque son ciertas. Los precios
+tachados solo aparecen si el producto tiene un precio de comparación.
 
 ## 1. Instalar el tema
 

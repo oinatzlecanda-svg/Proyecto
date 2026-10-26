@@ -1,11 +1,12 @@
 {%- comment -%}
   OELNOR 3.0 — Product page.
   Swipe gallery (phones) / editorial grid (desktop) + sticky buy box:
-  real reviews (Loox), price with real savings, visual colour swatches,
-  size pills with live availability, pack cards (option named in settings),
-  quantity, add to cart into the cart drawer, express checkout, delivery
-  dates, trust and details. A sticky bar takes over on phones once the
-  main button scrolls away. Behaviour lives in o3.js.
+  real reviews (Loox), price with real savings, a short style line, visual
+  colour swatches, size pills with live availability and an always visible
+  size guide, pack cards (option named in settings), quantity, add to cart
+  into the cart drawer, express checkout, delivery dates, trust and the
+  details. A sticky bar takes over on phones once the main button scrolls
+  away. Behaviour lives in o3.js.
 {%- endcomment -%}
 {%- liquid
   assign current = product.selected_or_first_available_variant
@@ -25,12 +26,6 @@
   assign r_num = r_num | default: 0
   assign r_pct = r_avg | default: 0 | times: 20
 
-  assign in_selection = false
-  for c in product.collections
-    if c.handle == section.settings.selection_handle
-      assign in_selection = true
-    endif
-  endfor
   assign is_new = false
   assign published_s = product.published_at | date: '%s'
   assign now_s = 'now' | date: '%s'
@@ -40,7 +35,20 @@
   endif
 
   assign tip = product.metafields.custom.oelnor_style_tip.value
-  assign size_guide = product.metafields.custom.size_guide.value | default: section.settings.size_guide_page.content
+  assign size_guide = product.metafields.custom.size_guide.value | default: section.settings.size_guide_page.content | default: section.settings.size_guide_text
+
+  comment
+    Description: the first paragraph is the short style line under the price,
+    the rest (details, measurements, care) goes in the details tab.
+  endcomment
+  assign desc = product.description | strip
+  assign lead = ''
+  assign details = desc
+  assign desc_start = desc | slice: 0, 2
+  if desc_start == '<p' and desc contains '</p>'
+    assign lead = desc | split: '</p>' | first | append: '</p>'
+    assign details = desc | remove_first: lead | strip
+  endif
   assign media_count = product.media.size
   assign first_media = current.featured_media | default: product.featured_media
 -%}
@@ -106,18 +114,16 @@
             <div class="o3-gal__item">{{ 'product-apparel-1' | placeholder_svg_tag }}</div>
           {%- endfor -%}
         </div>
-        {%- if in_selection or is_new or on_sale -%}
+        {%- if is_new or on_sale -%}
           <div class="o3-gal__badges o3-mono" aria-hidden="true">
             {%- if on_sale -%}<span class="o3-badge o3-badge--hot" data-o3-save-badge>-{{ save_pct }}%</span>{%- endif -%}
             {%- if is_new -%}<span class="o3-badge">Nuevo</span>{%- endif -%}
-            {%- if in_selection -%}<span class="o3-badge">La selección</span>{%- endif -%}
           </div>
         {%- endif -%}
         {%- if media_count > 1 -%}
           <div class="o3-gal__hud o3-mono" aria-hidden="true">
             <span class="o3-gal__count"><span data-o3-gal-index>1</span>/{{ media_count }}</span>
             <span class="o3-gal__bar"><span data-o3-gal-bar style="transform: scaleX({{ 1.0 | divided_by: media_count }});"></span></span>
-            <span class="o3-gal__zoom">Toca para ampliar</span>
           </div>
         {%- endif -%}
       </div>
@@ -148,6 +154,10 @@
             {{ section.settings.price_note }}
           </span>
         </div>
+
+        {%- if lead != blank -%}
+          <div class="o3-buy__lead">{{ lead }}</div>
+        {%- endif -%}
 
         {%- form 'product', product, id: form_id, class: 'o3-buy__form', novalidate: 'novalidate', data-o3-form: '' -%}
           <input type="hidden" name="id" value="{{ current.id }}" data-o3-variant-id>
@@ -181,12 +191,8 @@
                   <legend>
                     <span class="o3-mono o3-mono-mute">{% if is_bundle %}{{ section.settings.bundle_heading }}{% else %}{{ option.name | escape }}{% endif %}</span>
                     <b data-o3-option-value>{{ option.selected_value | escape }}</b>
-                    {%- if is_size -%}
-                      {%- if size_guide != blank -%}
-                        <button type="button" class="o3-opt__help" data-o3-open-dialog="O3Size-{{ section.id }}">Guía de tallas</button>
-                      {%- elsif section.settings.size_help_link != blank -%}
-                        <a class="o3-opt__help" href="{{ section.settings.size_help_link }}">¿Dudas con tu talla?</a>
-                      {%- endif -%}
+                    {%- if is_size and size_guide != blank -%}
+                      <button type="button" class="o3-opt__help" data-o3-open-dialog="O3Size-{{ section.id }}">Guía de tallas</button>
                     {%- endif -%}
                   </legend>
 
@@ -261,8 +267,6 @@
             {%- endfor -%}
           {%- endunless -%}
 
-          <p class="o3-stock o3-mono" data-o3-stock hidden><i aria-hidden="true"></i><span></span></p>
-
           <div class="o3-buy__row">
             <div class="o3-qty">
               <button type="button" data-o3-qty="-1" aria-label="Quitar una unidad">−</button>
@@ -286,6 +290,9 @@
               <span class="o3-atc__price" data-o3-atc-price>{{ current.price | money }}</span>
             </button>
           </div>
+          {%- if section.settings.care_note != blank -%}
+            <p class="o3-buy__care">{{ section.settings.care_note }}</p>
+          {%- endif -%}
           {%- if section.settings.show_dynamic_checkout -%}
             {{ form | payment_button }}
           {%- endif -%}
@@ -333,10 +340,10 @@
         {%- endif -%}
 
         <div class="o3-acc">
-          {%- if product.description != blank -%}
+          {%- if details != blank -%}
             <details {% if section.settings.open_description %}open{% endif %}>
-              <summary>Descripción <i aria-hidden="true"></i></summary>
-              <div class="o3-acc__body">{{ product.description }}</div>
+              <summary>{{ section.settings.details_label }} <i aria-hidden="true"></i></summary>
+              <div class="o3-acc__body">{{ details }}</div>
             </details>
           {%- endif -%}
           {%- for i in (1..3) -%}
@@ -408,8 +415,7 @@
           "save": {% if v.compare_at_price > v.price %}{{ v.compare_at_price | minus: v.price | money | strip_html | json }}{% else %}null{% endif %},
           "pct": {% if v.compare_at_price > v.price %}{{ v.compare_at_price | minus: v.price | times: 100 | divided_by: v.compare_at_price }}{% else %}0{% endif %},
           "media": {{ v.featured_media.id | json }},
-          "img": {% if v.featured_media %}{{ v.featured_media.preview_image | image_url: width: 120 | json }}{% else %}null{% endif %},
-          "stock": {% if v.inventory_management == 'shopify' and v.inventory_policy == 'deny' %}{{ v.inventory_quantity }}{% else %}null{% endif %}
+          "img": {% if v.featured_media %}{{ v.featured_media.preview_image | image_url: width: 120 | json }}{% else %}null{% endif %}
         }{% unless forloop.last %},{% endunless %}
       {%- endfor -%}
     ]
@@ -488,19 +494,24 @@
     { "type": "text", "id": "strip_perk", "label": "Texto de la franja superior", "default": "Envío gratis · 30 días para devolver" },
     { "type": "text", "id": "price_note", "label": "Nota bajo el precio", "default": "Envío gratis" },
     { "type": "text", "id": "atc_label", "label": "Botón de compra", "default": "Añadir a la cesta" },
+    { "type": "text", "id": "care_note", "label": "Texto bajo el botón", "default": "Preparamos tu pedido con cuidado · Llega en 7–14 días laborables desde el envío" },
     { "type": "checkbox", "id": "show_dynamic_checkout", "label": "Botón de pago rápido (Shop Pay, Apple Pay…)", "default": true },
     { "type": "header", "content": "Etiquetas" },
-    { "type": "text", "id": "selection_handle", "label": "Colección que muestra «La selección»", "default": "la-seleccion-oelnor" },
     { "type": "range", "id": "new_days", "label": "Días con etiqueta «Nuevo»", "min": 0, "max": 60, "step": 1, "default": 21 },
     { "type": "header", "content": "Packs" },
     { "type": "text", "id": "bundle_option", "label": "Nombre de la opción de packs", "default": "Pack", "info": "Esa opción se muestra como tarjetas con el ahorro real por unidad." },
     { "type": "text", "id": "bundle_heading", "label": "Título de los packs", "default": "Elige tu pack" },
     { "type": "range", "id": "bundle_popular", "label": "Posición del pack «Más elegido»", "min": 1, "max": 5, "step": 1, "default": 2 },
-    { "type": "text", "id": "bundle_popular_label", "label": "Etiqueta del más elegido", "default": "Más elegido" },
+    { "type": "text", "id": "bundle_popular_label", "label": "Etiqueta del pack destacado (solo si es verdad)" },
     { "type": "text", "id": "bundle_best_label", "label": "Etiqueta del mejor precio", "default": "Mejor precio" },
     { "type": "header", "content": "Tallas" },
     { "type": "page", "id": "size_guide_page", "label": "Página con la guía de tallas", "info": "Un producto puede tener la suya en el metacampo custom.size_guide." },
-    { "type": "url", "id": "size_help_link", "label": "Enlace de ayuda con tallas (si no hay guía)" },
+    {
+      "type": "richtext",
+      "id": "size_guide_text",
+      "label": "Guía de tallas general (si no hay página ni metacampo)",
+      "default": "<p><strong>Cómo acertar con tu talla</strong></p><p>Coge una prenda o un calzado que te quede bien y compara sus medidas con las de «Talla y medidas» en los detalles de cada producto. Las medidas son de la prenda, tomadas en plano.</p><p>Si dudas entre dos tallas, escríbenos antes de comprar y te ayudamos a elegir.</p>"
+    },
     { "type": "header", "content": "Entrega" },
     { "type": "text", "id": "ship_title", "label": "Título", "default": "Envío gratis con seguimiento" },
     { "type": "range", "id": "min_days", "label": "Días hábiles mínimos", "min": 1, "max": 30, "step": 1, "default": 8 },
@@ -521,7 +532,8 @@
     { "type": "checkbox", "id": "show_payments", "label": "Iconos de pago", "default": true },
     { "type": "header", "content": "Detalles" },
     { "type": "text", "id": "tip_label", "label": "Título del consejo (metacampo custom.oelnor_style_tip)", "default": "Cómo llevarlo" },
-    { "type": "checkbox", "id": "open_description", "label": "Descripción abierta", "default": true },
+    { "type": "text", "id": "details_label", "label": "Pestaña con los detalles de la descripción", "default": "Detalles y medidas" },
+    { "type": "checkbox", "id": "open_description", "label": "Detalles abiertos", "default": false },
     { "type": "text", "id": "acc_title_1", "label": "Pestaña 1", "default": "Envíos" },
     { "type": "richtext", "id": "acc_content_1", "label": "Contenido 1" },
     { "type": "text", "id": "acc_title_2", "label": "Pestaña 2", "default": "Devoluciones" },

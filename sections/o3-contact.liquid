@@ -13,7 +13,6 @@
 
 <section class="o3 o3-contact-page" aria-labelledby="O3ContactTitle-{{ section.id }}">
   <div class="o3-phero o3-top">
-    <div class="o3-hero__grid" aria-hidden="true"></div>
     <div class="o3-wrap">
       <nav class="o3-crumbs o3-mono" aria-label="Ruta">
         <a href="{{ routes.root_url }}">Inicio</a>
@@ -33,7 +32,7 @@
         <p class="o3-phero__text">{{ section.settings.text }}</p>
       {%- endif -%}
       {%- if email != blank -%}
-        <a class="o3-contact__email" href="mailto:{{ email }}">{{ email }} <span aria-hidden="true">↗</span></a>
+        <a class="o3-contact__email" href="mailto:{{ email }}">{{ email }}</a>
       {%- endif -%}
       {%- if section.settings.response_note != blank -%}
         <p class="o3-phero__meta o3-mono"><span>{{ section.settings.response_note }}</span></p>

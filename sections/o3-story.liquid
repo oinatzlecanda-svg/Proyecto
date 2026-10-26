@@ -1,0 +1,81 @@
+{%- comment -%}
+  OELNOR — Image + text. Used for the small "Hombre" block and for
+  "Sobre Oelnor" (text only when no photo is set).
+{%- endcomment -%}
+{%- liquid
+  assign img = section.settings.image
+  if img == blank and section.settings.product != blank
+    assign img = section.settings.product.featured_media.preview_image
+  endif
+  assign mods = 'o3-story--' | append: section.settings.background
+  if section.settings.size == 'small'
+    assign mods = mods | append: ' o3-story--small'
+  endif
+  if img == blank
+    assign mods = mods | append: ' o3-story--text'
+  elsif section.settings.image_right
+    assign mods = mods | append: ' o3-story--right'
+  endif
+-%}
+
+<section class="o3 o3-story {{ mods }}" aria-labelledby="O3StoryTitle-{{ section.id }}">
+  <div class="o3-wrap{% if img != blank %} o3-story__grid{% endif %}">
+    {%- if img != blank -%}
+      <a class="o3-story__media" href="{{ section.settings.link | default: '#' }}" tabindex="-1" aria-hidden="true">
+        {{ img | image_url: width: 1100 | image_tag: loading: 'lazy', widths: '240, 480, 800, 1100', sizes: '(min-width: 750px) 46vw, 100vw', alt: '' }}
+      </a>
+    {%- endif -%}
+    <div class="o3-story__body" data-o3-reveal>
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="o3-mono o3-eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      <h2 class="o3-story__title" id="O3StoryTitle-{{ section.id }}">{{ section.settings.title }}</h2>
+      {%- if section.settings.text != blank -%}
+        <div class="o3-story__text">{{ section.settings.text }}</div>
+      {%- endif -%}
+      {%- if section.settings.link_label != blank and section.settings.link != blank -%}
+        <a class="o3-link" href="{{ section.settings.link }}">{{ section.settings.link_label }}</a>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "O3 · Imagen y texto",
+  "tag": "div",
+  "class": "o3-section",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Foto (opcional)" },
+    { "type": "product", "id": "product", "label": "O foto de este producto" },
+    { "type": "checkbox", "id": "image_right", "label": "Foto a la derecha en escritorio", "default": false },
+    {
+      "type": "select",
+      "id": "size",
+      "label": "Tamaño",
+      "default": "large",
+      "options": [
+        { "value": "large", "label": "Grande" },
+        { "value": "small", "label": "Pequeño" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "background",
+      "label": "Fondo",
+      "default": "cream",
+      "options": [
+        { "value": "cream", "label": "Crema" },
+        { "value": "paper", "label": "Blanco roto" },
+        { "value": "sand", "label": "Arena" }
+      ]
+    },
+    { "type": "text", "id": "eyebrow", "label": "Antetítulo" },
+    { "type": "text", "id": "title", "label": "Título", "default": "Sobre Oelnor" },
+    { "type": "richtext", "id": "text", "label": "Texto" },
+    { "type": "text", "id": "link_label", "label": "Texto del enlace" },
+    { "type": "url", "id": "link", "label": "Enlace" }
+  ],
+  "presets": [{ "name": "O3 · Imagen y texto" }]
+}
+{% endschema %}

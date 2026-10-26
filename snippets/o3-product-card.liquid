@@ -2,13 +2,13 @@
   OELNOR 3.0 product card.
   Accepts:
   - product: {Object}
-  - position: {Number} 1-based position in the rail
-  - show_rank: {Boolean} print the position as a ranking number
+  - position: {Number} 1-based position in the list (staggers the reveal)
   - badge: {String} optional label (e.g. "Top ventas")
   - block: {Object} optional, for theme editor attributes
   - img_sizes: {String} optional sizes attribute (defaults to the rail layout)
   - eager: {Boolean} load the image eagerly (first row of a grid)
   - no_reveal: {Boolean} skip the scroll-in reveal (cards that can be above the fold)
+  - plain: {Boolean} no labels at all (home grid)
 {%- endcomment -%}
 {%- liquid
   assign media = product.featured_media
@@ -44,28 +44,23 @@
       {%- else -%}
         {{ 'product-apparel-2' | placeholder_svg_tag }}
       {%- endif -%}
-      {%- if show_rank -%}
-        <span class="o3-pcard__rank o3-mono">{% if position < 10 %}0{% endif %}{{ position }}</span>
-      {%- endif -%}
-      {%- if badge != blank -%}
-        <span class="o3-pcard__badge o3-mono">{{ badge }}</span>
-      {%- elsif on_sale -%}
-        <span class="o3-pcard__badge o3-mono">Oferta</span>
-      {%- endif -%}
+      {%- unless plain -%}
+        {%- if badge != blank -%}
+          <span class="o3-pcard__badge o3-mono">{{ badge }}</span>
+        {%- elsif on_sale -%}
+          <span class="o3-pcard__badge o3-mono">Oferta</span>
+        {%- endif -%}
+      {%- endunless -%}
     </div>
     <div class="o3-pcard__info">
       <h3 class="o3-pcard__title">{{ product.title }}</h3>
-      <p class="o3-pcard__price o3-mono">
+      <p class="o3-pcard__price">
         {%- if on_sale -%}
           <s><span class="o3-sr">Antes</span>{{ product.compare_at_price | money }}</s>
         {%- endif -%}
         {%- if product.price_varies -%}Desde {% endif -%}
         {{- product.price | money -}}
       </p>
-      {%- if product.type != blank -%}
-        <p class="o3-pcard__type o3-mono">{{ product.type }}</p>
-      {%- endif -%}
-      <span class="o3-pcard__go" aria-hidden="true">↗</span>
     </div>
   </a>
 </li>

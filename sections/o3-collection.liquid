@@ -1,6 +1,6 @@
 {%- comment -%}
   OELNOR 3.0 — Collection page.
-  Dark page top (title, description, sibling collections), sticky bar with
+  Page top (title, description, sibling collections), sticky bar with
   filter drawer + sort, product grid and pagination. Filtering and sorting are
   Shopify storefront filters submitted as a plain GET form, so it works
   without JavaScript; o3.js only opens the drawer and submits on sort change.
@@ -26,7 +26,6 @@
 
 <section class="o3 o3-col" data-o3-collection aria-labelledby="O3ColTitle-{{ section.id }}">
   <div class="o3-phero o3-top">
-    <div class="o3-hero__grid" aria-hidden="true"></div>
     <div class="o3-wrap">
       <nav class="o3-crumbs o3-mono" aria-label="Ruta">
         <a href="{{ routes.root_url }}">Inicio</a>

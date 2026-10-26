@@ -1,12 +1,11 @@
-/* OELNOR 3.0 — home behaviour. No dependencies, ~4 KB. */
+/* OELNOR — theme behaviour for the o3 sections. No dependencies. */
 (() => {
-  if (window.__o3) return; // the hero includes this script; never boot twice
+  if (window.__o3) return; // never boot twice
   window.__o3 = true;
   const root = document.documentElement;
   root.classList.add('o3-js');
 
   const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const finePointer = matchMedia('(hover: hover) and (pointer: fine)').matches;
 
   /* ---------- Reveal once on enter ---------- */
   const revealIO = new IntersectionObserver(
@@ -20,83 +19,6 @@
     { rootMargin: '0px 0px -8% 0px' }
   );
   const watchReveals = (scope) => scope.querySelectorAll('[data-o3-reveal]:not([data-in])').forEach((el) => revealIO.observe(el));
-
-  /* ---------- Spring-ish tilt: pointer on desktop, drag on touch ---------- */
-  // Critically-damped follow: writes transform on the one element that moves, never a CSS variable on a parent.
-  function tilt(surface, target, { maxX = 10, maxY = 18, drag = true } = {}) {
-    if (!surface || !target || reduceMotion) return;
-    let rx = 0, ry = 0, vx = 0, vy = 0, tx = 0, ty = 0;
-    let raf = 0, visible = true, dragging = false, startX = 0, startY = 0, pointerId = null;
-
-    const step = () => {
-      // stiffness 0.08 / damping 0.78 ≈ spring with a touch of overshoot
-      vx = (vx + (tx - rx) * 0.08) * 0.78;
-      vy = (vy + (ty - ry) * 0.08) * 0.78;
-      rx += vx;
-      ry += vy;
-      target.style.transform = `rotateX(${rx.toFixed(2)}deg) rotateY(${ry.toFixed(2)}deg)`;
-      const settled = Math.abs(tx - rx) < 0.01 && Math.abs(ty - ry) < 0.01 && Math.abs(vx) < 0.01 && Math.abs(vy) < 0.01;
-      raf = settled || !visible ? 0 : requestAnimationFrame(step);
-    };
-    const kick = () => { if (!raf && visible) raf = requestAnimationFrame(step); };
-
-    // Rubber-band past the edge: the further you pull, the less it moves.
-    const band = (v, max) => {
-      const a = Math.abs(v);
-      return a <= max ? v : Math.sign(v) * (max + (a - max) * 0.18);
-    };
-
-    if (finePointer) {
-      surface.addEventListener('pointermove', (e) => {
-        if (dragging) return;
-        const r = surface.getBoundingClientRect();
-        const px = (e.clientX - r.left) / r.width - 0.5;
-        const py = (e.clientY - r.top) / r.height - 0.5;
-        ty = px * maxY * 2;
-        tx = -py * maxX * 2;
-        kick();
-      });
-      surface.addEventListener('pointerleave', () => { if (!dragging) { tx = 0; ty = 0; kick(); } });
-    }
-
-    if (drag) {
-      surface.addEventListener('pointerdown', (e) => {
-        if (pointerId !== null || e.button > 0) return; // ignore a second finger
-        pointerId = e.pointerId;
-        dragging = true;
-        startX = e.clientX;
-        startY = e.clientY;
-      });
-      surface.addEventListener('pointermove', (e) => {
-        if (!dragging || e.pointerId !== pointerId) return;
-        const dx = e.clientX - startX;
-        const dy = e.clientY - startY;
-        if (Math.abs(dx) > 6 && Math.abs(dx) > Math.abs(dy) && !surface.hasPointerCapture(e.pointerId)) {
-          surface.setPointerCapture(e.pointerId);
-        }
-        ty = band(dx * 0.22, maxY * 2.2);
-        tx = band(-dy * 0.08, maxX);
-        kick();
-      });
-      const release = (e) => {
-        if (e.pointerId !== pointerId) return;
-        // a short horizontal drag on a link should still behave like a tap
-        if (Math.abs(e.clientX - startX) > 6) surface.addEventListener('click', (ev) => ev.preventDefault(), { capture: true, once: true });
-        dragging = false;
-        pointerId = null;
-        tx = 0;
-        ty = 0;
-        kick();
-      };
-      surface.addEventListener('pointerup', release);
-      surface.addEventListener('pointercancel', release);
-    }
-
-    new IntersectionObserver(([entry]) => {
-      visible = entry.isIntersecting;
-      if (visible) kick();
-    }).observe(surface);
-  }
 
   /* ---------- Rail progress bar (mobile scroll track) ---------- */
   function rail(section) {
@@ -115,34 +37,6 @@
     track.addEventListener('scroll', () => { if (!queued) { queued = true; requestAnimationFrame(paint); } }, { passive: true });
     addEventListener('resize', paint, { passive: true });
     paint();
-  }
-
-  /* ---------- Collection index: floating preview follows the cursor ---------- */
-  function index(section) {
-    const float = section.querySelector('[data-o3-float]');
-    if (!float || !finePointer) return;
-    const imgs = float.querySelectorAll('[data-o3-float-item]');
-    let x = 0, y = 0, cx = 0, cy = 0, raf = 0, on = false;
-    const step = () => {
-      cx += (x - cx) * 0.18;
-      cy += (y - cy) * 0.18;
-      float.style.transform = `translate(${cx.toFixed(1)}px, ${cy.toFixed(1)}px) rotate(${((x - cx) * 0.04).toFixed(2)}deg)`;
-      raf = on || Math.abs(x - cx) > 0.5 ? requestAnimationFrame(step) : 0;
-    };
-    section.querySelectorAll('[data-o3-row]').forEach((row, i) => {
-      row.addEventListener('pointerenter', (e) => {
-        if (!on) { cx = x = e.clientX + 24; cy = y = e.clientY - 150; }
-        on = true;
-        float.setAttribute('data-on', '');
-        imgs.forEach((img, j) => img.toggleAttribute('data-on', j === i));
-        if (!raf) raf = requestAnimationFrame(step);
-      });
-      row.addEventListener('pointermove', (e) => { x = e.clientX + 24; y = e.clientY - 150; });
-    });
-    section.querySelector('[data-o3-list]')?.addEventListener('pointerleave', () => {
-      on = false;
-      float.removeAttribute('data-on');
-    });
   }
 
   /* ---------- Add to cart into Dawn's cart drawer (plain POST without it) ---------- */
@@ -211,7 +105,6 @@
     const atcLabel = section.querySelector('[data-o3-atc-label]');
     const atcPrice = section.querySelector('[data-o3-atc-price]');
     const status = section.querySelector('[data-o3-status]');
-    const stock = section.querySelector('[data-o3-stock]');
     const now = section.querySelector('[data-o3-now]');
     const was = section.querySelector('[data-o3-was]');
     const save = section.querySelector('[data-o3-save]');
@@ -272,11 +165,6 @@
       if (was) { was.hidden = !v.was; was.querySelector('[data-o3-was-val]').textContent = v.was || ''; }
       if (save) { save.hidden = !v.save; save.textContent = v.save ? `Ahorras ${v.save}` : ''; }
       if (saveBadge) { saveBadge.hidden = !v.pct; saveBadge.textContent = `-${v.pct}%`; }
-      if (stock) {
-        const low = v.stock !== null && v.stock > 0 && v.stock <= 5;
-        stock.hidden = !low;
-        if (low) stock.querySelector('span').textContent = v.stock === 1 ? 'Queda la última unidad' : `Quedan ${v.stock} unidades`;
-      }
       if (stickyMeta) stickyMeta.textContent = single ? v.price : `${v.title} · ${v.price}`;
       if (stickyImg && v.img) stickyImg.src = v.img;
       showMedia(v.media);
@@ -429,7 +317,7 @@
     const quietMs = (+dlg.dataset.hideDays || 14) * 864e5;
     if (joined || Date.now() - closedAt < quietMs) return;
 
-    // First of: delay, 35% scroll, or the pointer leaving through the top (desktop)
+    // First of: a few seconds or a third of the page scrolled — never on arrival
     let armed = true;
     const trigger = () => {
       if (!armed || document.querySelector('dialog[open]')) return;
@@ -437,18 +325,15 @@
       open();
       cleanup();
     };
-    const timer = setTimeout(trigger, (+dlg.dataset.delay || 8) * 1000);
+    const timer = setTimeout(trigger, (+dlg.dataset.delay || 12) * 1000);
     const onScroll = () => {
       const max = document.documentElement.scrollHeight - innerHeight;
-      if (max > 0 && scrollY / max > 0.35) trigger();
+      if (max > 0 && scrollY / max > 0.33) trigger();
     };
-    const onLeave = (e) => { if (e.clientY <= 0 && !e.relatedTarget) trigger(); };
     addEventListener('scroll', onScroll, { passive: true });
-    if (finePointer) document.addEventListener('mouseout', onLeave);
     const cleanup = () => {
       clearTimeout(timer);
       removeEventListener('scroll', onScroll);
-      document.removeEventListener('mouseout', onLeave);
     };
 
     // Subscribe without leaving the page; fall back to a normal post on captcha
@@ -492,25 +377,25 @@
     });
   }
 
-  /* ---------- Spotlight: add to cart without leaving the page ---------- */
-  function spotlight(section) {
-    const form = section.querySelector('[data-o3-form]');
-    if (!form || !window.fetch) return;
-    const button = form.querySelector('[type="submit"]');
-    const status = section.querySelector('[data-o3-status]');
-    const label = button.innerHTML;
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      button.setAttribute('aria-busy', 'true');
-      try {
-        if (await addToCart(form) && status) status.textContent = button.dataset.added || 'Añadido';
-      } catch (err) {
-        if (status) status.textContent = err.message;
-      } finally {
-        button.removeAttribute('aria-busy');
-        button.innerHTML = label;
-      }
-    });
+  /* ---------- Featured product: a colour dot shows that colour's photo ---------- */
+  function feature(section) {
+    const media = section.querySelector('.o3-feat__media');
+    const imgs = media ? [...media.querySelectorAll('img')] : [];
+    const name = section.querySelector('[data-o3-feat-name]');
+    const links = section.querySelectorAll('[data-o3-feat-link]');
+    const dots = [...section.querySelectorAll('[data-o3-feat-dot]')];
+    dots.forEach((dot) =>
+      dot.addEventListener('click', () => {
+        const i = +dot.dataset.o3FeatDot;
+        dots.forEach((d) => d.setAttribute('aria-pressed', String(d === dot)));
+        if (imgs[i]) {
+          media.setAttribute('data-picked', '');
+          imgs.forEach((img, j) => img.toggleAttribute('data-on', j === i));
+        }
+        if (name) name.textContent = dot.dataset.name;
+        links.forEach((a) => (a.href = dot.dataset.url));
+      })
+    );
   }
 
   /* ---------- Collection: filter drawer (native <dialog>) + sort ---------- */
@@ -572,19 +457,13 @@
 
   const init = (scope = document) => {
     watchReveals(scope);
-    scope.querySelectorAll('[data-o3-hero]').forEach((s) => tilt(s.querySelector('[data-o3-stage]'), s.querySelector('[data-o3-tilt]')));
-    scope.querySelectorAll('[data-o3-spot]').forEach((s) => {
-      tilt(s.querySelector('[data-o3-spot-visual]'), s.querySelector('[data-o3-spot-card]'), { maxX: 8, maxY: 14 });
-      spotlight(s);
-    });
     scope.querySelectorAll('[data-o3-rail]').forEach(rail);
-    scope.querySelectorAll('[data-o3-index]').forEach(index);
+    scope.querySelectorAll('[data-o3-feat]').forEach(feature);
     scope.querySelectorAll('[data-o3-collection]').forEach(collection);
     scope.querySelectorAll('[data-o3-product]').forEach(product);
     scope.querySelectorAll('[data-o3-popup]').forEach(popup);
     scope.querySelectorAll('[data-o3-recs][data-url]').forEach(recs);
     scope.querySelectorAll('[data-o3-delivery]').forEach(delivery);
-    scope.querySelectorAll('[data-o3-label]').forEach((s) => tilt(s, s.querySelector('[data-o3-label-card]'), { maxX: 8, maxY: 12 }));
   };
 
   // deferred script in <head>: the DOM is parsed by the time this runs

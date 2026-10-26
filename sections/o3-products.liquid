@@ -1,0 +1,81 @@
+{%- comment -%}
+  OELNOR — Product grid for the home ("Novedades de mujer"). Newest first
+  from a collection, big photos, no labels.
+{%- endcomment -%}
+{%- liquid
+  assign c = section.settings.collection
+  assign list = c.products
+  if section.settings.newest and c != blank
+    assign list = c.products | sort: 'created_at' | reverse
+  endif
+  assign shown = 0
+-%}
+
+<section class="o3 o3-new" aria-labelledby="O3NewTitle-{{ section.id }}">
+  <div class="o3-wrap">
+    <header class="o3-head">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="o3-head__eyebrow o3-mono">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      <h2 class="o3-head__title" id="O3NewTitle-{{ section.id }}">{{ section.settings.title }}</h2>
+      {%- if section.settings.text != blank -%}
+        <p class="o3-head__text">{{ section.settings.text }}</p>
+      {%- endif -%}
+    </header>
+
+    <ul class="o3-grid" role="list">
+      {%- if c != blank -%}
+        {%- for p in list -%}
+          {%- if shown >= section.settings.limit -%}{%- break -%}{%- endif -%}
+          {%- unless p.available -%}{%- continue -%}{%- endunless -%}
+          {%- assign shown = shown | plus: 1 -%}
+          {%- liquid
+            assign eager = false
+            if shown <= 2
+              assign eager = true
+            endif
+          -%}
+          {%- render 'o3-product-card',
+            product: p,
+            position: shown,
+            plain: true,
+            eager: eager,
+            img_sizes: '(min-width: 750px) 31vw, 48vw'
+          -%}
+        {%- endfor -%}
+      {%- else -%}
+        {%- for i in (1..6) -%}
+          <li class="o3-pcard">
+            <div class="o3-pcard__media">{{ 'product-apparel-1' | placeholder_svg_tag }}</div>
+            <div class="o3-pcard__info"><h3 class="o3-pcard__title">Producto</h3></div>
+          </li>
+        {%- endfor -%}
+      {%- endif -%}
+    </ul>
+
+    {%- if section.settings.link_label != blank -%}
+      <div class="o3-new__more">
+        <a class="o3-btn o3-btn--ghost" href="{{ section.settings.link | default: c.url }}">{{ section.settings.link_label }}</a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "O3 · Rejilla de productos",
+  "tag": "div",
+  "class": "o3-section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Antetítulo", "default": "Recién llegado" },
+    { "type": "text", "id": "title", "label": "Título", "default": "Novedades de mujer" },
+    { "type": "textarea", "id": "text", "label": "Texto" },
+    { "type": "collection", "id": "collection", "label": "Colección" },
+    { "type": "checkbox", "id": "newest", "label": "Ordenar por más recientes", "default": true },
+    { "type": "range", "id": "limit", "label": "Número de productos", "min": 2, "max": 12, "step": 1, "default": 6 },
+    { "type": "text", "id": "link_label", "label": "Texto del enlace", "default": "Ver todas las novedades" },
+    { "type": "url", "id": "link", "label": "Enlace" }
+  ],
+  "presets": [{ "name": "O3 · Rejilla de productos" }]
+}
+{% endschema %}

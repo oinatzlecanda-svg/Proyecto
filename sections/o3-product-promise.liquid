@@ -13,16 +13,16 @@
     {%- endif -%}
     <h2 class="o3-h2" id="O3PromiseTitle-{{ section.id }}" style="margin-top: 12px;">{{ section.settings.heading }}</h2>
     {%- if section.settings.text != blank -%}
-      <p style="margin-top: 14px; max-width: 52ch; font-size: 17px;">{{ section.settings.text }}</p>
+      <p class="o3-psec__text">{{ section.settings.text }}</p>
     {%- endif -%}
     {%- if promises.size > 0 -%}
       <ul class="o3-promise" role="list">
         {%- for block in promises -%}
           <li {{ block.shopify_attributes }}>
             {%- if block.settings.link != blank -%}
-              <a href="{{ block.settings.link }}" style="display: grid; gap: 6px;">
+              <a href="{{ block.settings.link }}">
                 <strong>{{ block.settings.title }}</strong>
-                <span>{{ block.settings.text }} ↗</span>
+                <span>{{ block.settings.text }}</span>
               </a>
             {%- else -%}
               <strong>{{ block.settings.title }}</strong>

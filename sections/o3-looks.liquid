@@ -1,0 +1,89 @@
+{%- comment -%}
+  OELNOR — Looks: 2–3 outfits, each a photo plus the pieces that make it,
+  every piece linking to its product page. The photo is the uploaded one or
+  the first piece's photo.
+{%- endcomment -%}
+{%- assign looks = section.blocks | where: 'type', 'look' -%}
+
+<section class="o3 o3-looks" aria-labelledby="O3LooksTitle-{{ section.id }}">
+  <div class="o3-wrap">
+    <header class="o3-head">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="o3-head__eyebrow o3-mono">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      <h2 class="o3-head__title" id="O3LooksTitle-{{ section.id }}">{{ section.settings.title }}</h2>
+      {%- if section.settings.text != blank -%}
+        <p class="o3-head__text">{{ section.settings.text }}</p>
+      {%- endif -%}
+    </header>
+
+    <ul class="o3-looks__list" role="list" data-count="{{ looks.size }}">
+      {%- for block in looks -%}
+        {%- liquid
+          assign pieces = block.settings.products
+          assign img = block.settings.image
+          if img == blank and pieces != blank
+            assign img = pieces.first.featured_media.preview_image
+          endif
+        -%}
+        <li class="o3-look" data-o3-reveal style="--i: {{ forloop.index0 }}" {{ block.shopify_attributes }}>
+          <div class="o3-look__media">
+            {%- if img != blank -%}
+              {{ img | image_url: width: 1000 | image_tag: loading: 'lazy', widths: '480, 720, 1000', sizes: '(min-width: 1100px) 31vw, (min-width: 750px) 46vw, 100vw', alt: block.settings.title }}
+            {%- else -%}
+              {{ 'lifestyle-2' | placeholder_svg_tag }}
+            {%- endif -%}
+          </div>
+          <h3 class="o3-look__title">{{ block.settings.title }}</h3>
+          {%- if block.settings.text != blank -%}
+            <p class="o3-look__text">{{ block.settings.text }}</p>
+          {%- endif -%}
+          {%- if pieces != blank -%}
+            <ul class="o3-look__items" role="list" aria-label="Prendas de {{ block.settings.title | escape }}">
+              {%- for p in pieces -%}
+                <li>
+                  <a href="{{ p.url }}">
+                    <span class="o3-look__thumb">
+                      {%- if p.featured_media -%}
+                        {{ p.featured_media.preview_image | image_url: width: 120 | image_tag: loading: 'lazy', alt: '', width: 52, height: 65 }}
+                      {%- endif -%}
+                    </span>
+                    <span class="o3-look__name">{{ p.title | escape }}</span>
+                    <span class="o3-look__price">{{ p.price | money }}</span>
+                  </a>
+                </li>
+              {%- endfor -%}
+            </ul>
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "O3 · Looks",
+  "tag": "div",
+  "class": "o3-section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Antetítulo", "default": "Ideas para combinar" },
+    { "type": "text", "id": "title", "label": "Título", "default": "Looks de otoño" },
+    { "type": "textarea", "id": "text", "label": "Texto", "default": "Elegidas para combinar con lo que ya tienes." }
+  ],
+  "blocks": [
+    {
+      "type": "look",
+      "name": "Look",
+      "limit": 3,
+      "settings": [
+        { "type": "text", "id": "title", "label": "Nombre del look", "default": "Look" },
+        { "type": "text", "id": "text", "label": "Frase (opcional)" },
+        { "type": "image_picker", "id": "image", "label": "Foto del look (opcional)", "info": "Sin foto se usa la de la primera prenda." },
+        { "type": "product_list", "id": "products", "label": "Prendas del look", "limit": 4 }
+      ]
+    }
+  ],
+  "presets": [{ "name": "O3 · Looks", "blocks": [{ "type": "look" }, { "type": "look" }] }]
+}
+{% endschema %}

@@ -15,7 +15,7 @@
           "type": "link",
           "settings": {
             "title": "Envíos",
-            "text": "Gratis · 1-3 días de preparación",
+            "text": "Gratis · Llega en 7–14 días laborables desde el envío",
             "url": "/policies/shipping-policy"
           }
         },
@@ -83,11 +83,11 @@
       ],
       "settings": {
         "eyebrow": "Contacto",
-        "heading_1": "Hablemos.",
-        "heading_2": "Sin rodeos.",
-        "text": "¿Una duda con tu pedido, las tallas o una devolución? Cuéntanos qué necesitas y te respondemos lo antes posible.",
+        "heading_1": "Estamos",
+        "heading_2": "para ayudarte",
+        "text": "¿Una duda con tu pedido, las tallas o una devolución? Escríbenos y lo vemos contigo.",
         "email": "",
-        "response_note": "Respondemos por email lo antes posible",
+        "response_note": "Solemos responder en 24–48 h laborables",
         "quick_eyebrow": "Antes de escribir",
         "form_heading": "Escríbenos",
         "topics": "Mi pedido, Tallas, Devoluciones, Otra consulta",

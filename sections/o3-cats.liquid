@@ -1,0 +1,67 @@
+{%- comment -%}
+  OELNOR — Categories: a photo and a name per collection, no product counts.
+{%- endcomment -%}
+<section class="o3 o3-cats" aria-labelledby="O3CatsTitle-{{ section.id }}">
+  <div class="o3-wrap">
+    <header class="o3-head">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="o3-head__eyebrow o3-mono">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      <h2 class="o3-head__title" id="O3CatsTitle-{{ section.id }}">{{ section.settings.title }}</h2>
+    </header>
+
+    <ul class="o3-cats__list" role="list">
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign c = block.settings.collection
+          assign name = block.settings.title | default: c.title | default: 'Colección'
+          assign img = block.settings.image
+          if img == blank and block.settings.product != blank
+            assign img = block.settings.product.featured_media.preview_image
+          endif
+          if img == blank
+            assign img = c.featured_image
+          endif
+        -%}
+        <li class="o3-cat" data-o3-reveal style="--i: {{ forloop.index0 }}" {{ block.shopify_attributes }}>
+          <a href="{% if c != blank %}{{ c.url }}{% else %}{{ routes.collections_url }}{% endif %}">
+            <span class="o3-cat__media">
+              {%- if img != blank -%}
+                {{ img | image_url: width: 800 | image_tag: loading: 'lazy', widths: '360, 540, 800', sizes: '(min-width: 990px) 23vw, 48vw', alt: '' }}
+              {%- else -%}
+                {{ 'collection-1' | placeholder_svg_tag }}
+              {%- endif -%}
+            </span>
+            <span class="o3-cat__name">{{ name }}</span>
+          </a>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "O3 · Categorías",
+  "tag": "div",
+  "class": "o3-section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Antetítulo", "default": "Explora" },
+    { "type": "text", "id": "title", "label": "Título", "default": "Categorías" }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Categoría",
+      "limit": 8,
+      "settings": [
+        { "type": "collection", "id": "collection", "label": "Colección" },
+        { "type": "text", "id": "title", "label": "Nombre a mostrar (opcional)" },
+        { "type": "image_picker", "id": "image", "label": "Foto (opcional)" },
+        { "type": "product", "id": "product", "label": "O foto de este producto" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "O3 · Categorías", "blocks": [{ "type": "collection" }, { "type": "collection" }, { "type": "collection" }, { "type": "collection" }] }]
+}
+{% endschema %}
