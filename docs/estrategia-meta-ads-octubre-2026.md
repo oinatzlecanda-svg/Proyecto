@@ -3,6 +3,11 @@
 Resumen fiel del manual operativo interno del 27/10/2026. Fuente de verdad
 para cualquier decisión de tests de producto, anuncios y escalado.
 
+> **Actualización 28/10/2026:** se retira la oferta de −25 % por 2+ artículos.
+> Todos los cálculos se hacen a PVP completo y con pedido de 1 artículo como
+> escenario base. Ver «Cambios por retirar el −25 %». Las reglas de corte del
+> mentor no cambian.
+
 ## Sistema en una página
 
 - **Regla del sistema:** proteger caja en los tests. Escalar solo con compras
@@ -18,7 +23,7 @@ para cualquier decisión de tests de producto, anuncios y escalado.
   no orden de gastar). Techo: 50 € de gasto acumulado por producto. Los cortes se
   aplican al gasto acumulado del producto.
 - **Creatividades:** 3–4 ángulos por producto; estándar 2 vídeos + 2 imágenes.
-- **Oferta:** 25 % de descuento en el total del pedido al comprar 2+ artículos.
+- **Oferta:** ninguna. El −25 % por 2+ artículos se retiró el 28/10/2026; se vende a PVP completo.
 - **Prioridad de producto:** mujer, otoño/invierno, estilo editorial + streetwear;
   debe funcionar en creativos y tener margen.
 
@@ -55,7 +60,7 @@ Si aparece compra, medir margen y CPA antes de decidir escalado.
 3. **Prueba de mercado:** mismo producto exacto en ≥ 2 tiendas; guardar URL, fecha, screenshots de anuncios y ficha.
 4. **Duración + variaciones:** priorizar anunciantes con anuncios activos desde hace semanas y varias creatividades (pistas, no prueba de rentabilidad).
 5. **Proveedor:** variante, coste final, disponibilidad, tallas, fotos fieles, devoluciones, envíos y coste fijo de **3 €/pedido**.
-6. **Margen/oferta:** simular pedido de 1 artículo y de 2+ (−25 %), comisiones, logística, impuestos, devoluciones.
+6. **Margen:** simular pedido de 1 artículo a PVP completo (escenario base) con comisiones, logística, impuestos y devoluciones; el pedido de 2 es solo escenario favorable.
 7. **Calidad creativa:** 3–4 ganchos distinguibles; sin vídeo convincente en 3 s → bajar prioridad.
 8. **Seleccionar:** puntuar 10, 3 a final, activar solo el primero que supere filtros duros.
 
@@ -68,7 +73,7 @@ y equivalentes en español/francés/inglés. En Meta: país España/Europa, todo
 |---|---|---|
 | Anuncios de competidores | 20 | Activos con varias creatividades; antigüedad y anunciantes |
 | Producto exacto en ≥ 2 tiendas | 15 | Fotos, variantes y detalles idénticos (no solo categoría) |
-| Economía unitaria real | 25 | Margen y CPA máx. razonables, incluido 2+ con −25 % |
+| Economía unitaria real | 25 | Margen y CPA máx. razonables a PVP completo con pedido de 1 artículo |
 | Gancho y demostración | 15 | 3–4 ángulos claros (estética, utilidad, diferencia) |
 | Estacionalidad y búsqueda | 10 | Interés actual, no solo pico viral |
 | Proveedor y experiencia | 10 | Calidad, muestras, logística, devoluciones |
@@ -78,7 +83,7 @@ y equivalentes en español/francés/inglés. En Meta: país España/Europa, todo
 margen sostenible, variante real, creativos disponibles. Herramienta de trabajo, no garantía.
 
 **Descartar de inmediato si:** el "ganador" solo tiene un anuncio reciente o el parecido es dudoso;
-no hay coste fiable / el margen desaparece con la oferta / CPA máx. demasiado pequeño;
+no hay coste fiable / el CPA máx. de un pedido de 1 artículo es demasiado pequeño;
 proveedor no confirma material, tallas, composición o plazos; fotos poco fiables;
 copia con riesgo de marca/diseño o promesas no demostrables; ya testeado y apagado por regla sin cambio demostrable.
 
@@ -89,7 +94,7 @@ Heurísticas de tiendas grandes ("100 anuncios", "80 productos", "25 % best sell
 1. **Prioridad — Bolso Numa efecto ante café, 49,99 €.** Tesis: textura ante, color café, estética editorial otoño.
    Condición: ≥ 2 tiendas con el mismo bolso y coste neto. Ganchos: 3 looks / textura / qué cabe.
 2. **Siguiente — Jersey Dalia asimétrico de punto, 29,99 €.** Tesis: detalle asimétrico, vídeos outfit antes/después.
-   Condición: ticket bajo → vigilar margen tras −25 %. Ganchos: silueta / combinaciones / detalle cuello-hombro.
+   Condición: ticket bajo → CPA máx. ajustado incluso sin descuento; confirmar coste antes de testear. Ganchos: silueta / combinaciones / detalle cuello-hombro.
 3. **Suplente — Cárdigan Naya de punto a rayas, 34,99 €.** Tesis: punto con personalidad, entretiempo.
    Condición: no testear justo tras Dalia si compite por el mismo ángulo; verificar patrón, calidades, búsquedas.
 
@@ -101,21 +106,46 @@ Medias térmicas: analizar ventas y beneficio del test previo; no presentarlas c
 
 ## Margen y CPA
 
-- Oferta −25 % sobre el total de pedidos con 2+ artículos. Coste fijo proveedor **+3 € por pedido** (no por unidad).
-- **CPA máximo admisible (pedido)** = ingreso cobrado neto de impuestos y descuentos − coste de todas las unidades
+- Sin descuento: el ingreso del pedido es el PVP completo. Coste fijo proveedor **+3 € por pedido** (no por unidad).
+- **CPA máximo admisible (pedido)** = ingreso cobrado neto de impuestos − coste de todas las unidades
   − 3 €/pedido − comisiones de pago − reserva devoluciones/otros variables.
 - **Beneficio de contribución** = CPA máx. admisible − CPA real Meta. Negativo → no escalar.
 
-Ingreso por pedido (sin costes): Numa 49,99 € / 2 uds 74,99 € · Dalia 29,99 € / 44,99 € · Naya 34,99 € / 52,49 €.
-Costes de Numa, Dalia y Naya no confirmados.
+Ingreso por pedido de 1 artículo (sin costes; orientativo, base imponible si aplica IVA 21 % — en Canarias rige IGIC, confirmar con asesoría):
+
+| Producto | PVP (pedido 1 ud) | Sin IVA 21 % | Pedido 2 uds (escenario favorable) |
+|---|---|---|---|
+| Numa | 49,99 € | 41,31 € | 99,98 € |
+| Dalia | 29,99 € | 24,79 € | 59,98 € |
+| Naya | 34,99 € | 28,92 € | 69,98 € |
+| Elva | 42,99 € | 35,53 € | 85,98 € |
+
+Son importes comerciales, no beneficios. Costes de Numa, Dalia, Naya y Elva no confirmados.
+Plantilla: CPA máx. ≈ PVP sin IVA − coste unidad − 3 € − comisión de pago − reserva devoluciones.
 
 Casos conocidos:
 - **Medias térmicas:** coste 10 €/par + 3 €/pedido; pack de 2 a 44,99 € = 20 € de producto antes de publicidad, pago, impuestos.
 - **Botas Sora:** proveedor 29 € + 3 €/pedido, PVP 54,99 €. No repetir solo por temporada.
-- **Packs:** si el carrito contiene solo un pack de 3 medias, no se aplica el 25 %; pack 3 + otro artículo sí activa la oferta.
+- **Packs:** la excepción del pack de 3 medias con el 25 % queda obsoleta al retirarse la oferta.
 
 Controles de caja antes de escalar: pedidos cobrados, proveedor pagado/provisionado, IVA/IGIC según territorio,
 comisiones, devoluciones, capital de reposición. Confirmar fiscalidad Canarias/península con asesoría.
+
+## Cambios por retirar el −25 %
+
+- **Escenario base = 1 artículo a PVP completo.** Más margen por pedido que antes en ventas de 1 ud,
+  pero sin palanca para subir el ticket: no contar con pedidos de 2+.
+- **El +3 €/pedido pesa más** en productos baratos (Dalia, medias); en Numa/Elva pesa menos.
+  Esto refuerza priorizar tickets medios-altos con margen claro.
+- **Creatividades y copy** venden estética, calidad y diferencia, nunca la oferta. Revisar que ningún
+  anuncio, banner, ficha o descuento automático de Shopify siga mencionando/aplicando el −25 %.
+- **Comparaciones:** los tests anteriores (Rona, Mavi, Eira, Sora, medias…) se hicieron con oferta;
+  sus tasas de ATC/checkout/compra no son directamente comparables con los nuevos.
+- **Embudo:** sin incentivo puede bajar la conversión carrito → compra; vigilar ATC → checkout → compra
+  antes de culpar al producto.
+- **Las reglas de corte 10/20/30/40/50 € y el presupuesto no cambian.**
+- Si más adelante se quiere una palanca de ticket (envío gratis desde X €, packs, otra oferta), se testea
+  como hipótesis separada y documentada, no mezclada con un test de producto.
 
 ## Ejecución de un test (un producto por tanda, objetivo Compra)
 
@@ -129,7 +159,7 @@ comisiones, devoluciones, capital de reposición. Confirmar fiscalidad Canarias/
 Diagnóstico clics sin ventas:
 - CTR bajo / CPC alto → gancho, producto-mercado o primer fotograma.
 - Clics reales pero 0 ATC → precio/valor percibido, ficha, variantes, confianza, carga móvil.
-- ATC pero poco checkout → carrito, envío, descuento, fricción.
+- ATC pero poco checkout → carrito, gastos de envío, falta de incentivo, fricción.
 - Checkouts sin pago → método de pago, errores, sorpresa de precio, confianza.
 
 ## Escalado
