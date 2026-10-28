@@ -1,8 +1,8 @@
 # Cambio de precios en Shopify · 29/10/2026
 
-Aplicado según . Todas las variantes de cada producto
+Aplicado según `docs/precios-posicionamiento-2026-10-29.md`. Todas las variantes de cada producto
 tienen el mismo precio nuevo. **Se han quitado todos los precios tachados** (no eran precios reales anteriores).
-Copia de los precios anteriores con los IDs de variante:  (para revertir).
+Copia de los precios anteriores con los IDs de variante: `docs/precios-backup-2026-10-29.json` (para revertir).
 
 | Producto | Antes | Ahora | Motivo |
 |---|---|---|---|
@@ -59,9 +59,9 @@ Copia de los precios anteriores con los IDs de variante:  (para revertir).
 | Medias térmicas efecto transparente | 24,99; 44,99; 59,99 € | sin cambio | no es moda / precio por pack |
 | cárdigan Rosadalinda | 59,99 € | 69,95 € | Canalé con detalles denim, pieza diferencial |
 | Brunella - Robe longue effet daim avec ourlet en dentelle | 64,95 (tachado 130,00) € | 79,95 € | Vestido largo efecto ante con encaje → techo de 55–79 |
-| NORINA | Bottines en cuir à talon moyen | 49,95 (tachado 139,95) € | 89,95 € | Botín declarado de piel (verificar con la muestra) |
-| MORETTI | Scarpe Mary Jane in Pelle con Tacco Véronique | 59,95 (tachado 139,95) € | 69,95 € | Mary Jane de tacón declarada de piel |
-| Nadia | Cardigan in Maglia a Quadri | 49,95 (tachado 154,95) € | 64,95 € | Punto a cuadros tipo sobrecamisa |
+| NORINA – Bottines en cuir à talon moyen | 49,95 (tachado 139,95) € | 89,95 € | Botín declarado de piel (verificar con la muestra) |
+| MORETTI – Scarpe Mary Jane in Pelle con Tacco Véronique | 59,95 (tachado 139,95) € | 69,95 € | Mary Jane de tacón declarada de piel |
+| Nadia – Cardigan in Maglia a Quadri | 49,95 (tachado 154,95) € | 64,95 € | Punto a cuadros tipo sobrecamisa |
 
 ## Pendiente
 - Confirmar con muestra o proveedor que **Botas Vega**, **NORINA** y **MORETTI** son de piel real. Si no lo son, bajarlas a ~69,95 €.
