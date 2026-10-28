@@ -89,16 +89,11 @@ copia con riesgo de marca/diseño o promesas no demostrables; ya testeado y apag
 
 Heurísticas de tiendas grandes ("100 anuncios", "80 productos", "25 % best sellers") son pistas, no evidencia: manda la validación cruzada.
 
-## Qué testear ahora (activos en Shopify; anuncios y costes aún NO verificados)
+## Qué testear ahora
 
-1. **Prioridad — Bolso Numa efecto ante café, 49,99 €.** Tesis: textura ante, color café, estética editorial otoño.
-   Condición: ≥ 2 tiendas con el mismo bolso y coste neto. Ganchos: 3 looks / textura / qué cabe.
-2. **Siguiente — Jersey Dalia asimétrico de punto, 29,99 €.** Tesis: detalle asimétrico, vídeos outfit antes/después.
-   Condición: ticket bajo → CPA máx. ajustado incluso sin descuento; confirmar coste antes de testear. Ganchos: silueta / combinaciones / detalle cuello-hombro.
-3. **Suplente — Cárdigan Naya de punto a rayas, 34,99 €.** Tesis: punto con personalidad, entretiempo.
-   Condición: no testear justo tras Dalia si compite por el mismo ángulo; verificar patrón, calidades, búsquedas.
-
-Alternativa de temporada: **Chaqueta Elva sherpa chocolate (42,99 €)** — solo tras confirmar prenda exacta del proveedor y margen/atributos.
+**Actualización 28/10/2026:** se descartan Numa, Dalia, Naya y Elva como candidatos de test
+(decisión de la dueña). Los candidatos salen de la búsqueda semanal de productos nuevos;
+ver `docs/busqueda-productos-2026-10-28.md` (semana 1).
 
 **Ya testeados (no repetir por inercia):** Rona, Mavi, Eira/chaqueta impermeable, Bomber Noa,
 jeans Stella/Alba, Botas Sora, medias térmicas. Repetir exige hipótesis escrita y datos nuevos.
@@ -175,10 +170,10 @@ Diagnóstico clics sin ventas:
 
 | Semana | Trabajo | Entregable |
 |---|---|---|
-| 1 · Radar | Investigar 10 ideas, depurar 3, anuncios/proveedor/margen | Scorecard y decisión Numa |
-| 2 · Test 1 | 4 creativos, reglas 10/20/30/40, documentar | Informe Numa: pausa / venta / escalado |
-| 3 · Test 2 | Elegir Dalia con resultados, validar coste, ángulo diferente | Informe Dalia + comparación con Numa |
-| 4 · Test 3 | Naya solo si pasa filtros y no duplica Dalia; si no, reservar caja y estudiar Elva | Informe final + plan mes próximo |
+| 1 · Radar | Investigar 10 ideas, depurar 5, anuncios/proveedor/margen | Scorecard + presupuesto de proveedor del finalista |
+| 2 · Test 1 | 4 creativos del primer finalista que supere ≥ 75/100, reglas 10/20/30/40 | Informe test 1: pausa / venta / escalado |
+| 3 · Test 2 | Siguiente finalista, ángulo diferente al test 1 | Informe test 2 + comparación |
+| 4 · Test 3 | Tercer finalista solo si supera filtros; si no, reservar caja | Informe final + plan mes próximo |
 
 Regla de caja: gastar menos del máximo es una victoria si las señales obligan a cortar. Si hay ganador real,
 reservar capital para pedidos/proveedor antes de subir Meta.
