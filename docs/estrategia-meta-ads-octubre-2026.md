@@ -8,6 +8,10 @@ para cualquier decisión de tests de producto, anuncios y escalado.
 > escenario base. Ver «Cambios por retirar el −25 %». Las reglas de corte del
 > mentor no cambian.
 
+> **Actualización 29/10/2026 — posicionamiento de calidad:** OELNOR deja de competir con el
+> fast fashion. Se vende producto de calidad real a **50–120 € según el producto**, para la
+> clienta que lo quiere de verdad (no para la compra por impulso). Ver «Posicionamiento de calidad».
+
 ## Sistema en una página
 
 - **Regla del sistema:** proteger caja en los tests. Escalar solo con compras
@@ -25,12 +29,41 @@ para cualquier decisión de tests de producto, anuncios y escalado.
 - **Creatividades:** 3–4 ángulos por producto; estándar 2 vídeos + 2 imágenes.
 - **Oferta:** ninguna. El −25 % por 2+ artículos se retiró el 28/10/2026; se vende a PVP completo.
 - **Prioridad de producto:** mujer, otoño/invierno, estilo editorial + streetwear;
+  calidad real y demostrable (tejido, composición, acabados), PVP 50–120 €;
   debe funcionar en creativos y tener margen.
 
 **Qué NO hacemos**
 - Lanzar un producto nuevo cada día, duplicar campañas sin ventas reales o mantener tests por intuición.
 - Confundir compras atribuidas por Meta con pedidos confirmados de Shopify.
 - Repetir un test de Rona, Mavi, Eira u otro ya evaluado sin hipótesis nueva documentada.
+
+## Posicionamiento de calidad (29/10/2026)
+
+**Por qué:** a 30–50 € el CPA máx. queda en 5–15 €, por debajo de lo que suele costar una venta
+en Meta. A 50–120 € con coste controlado deja 20–45 € por venta para pagar anuncios.
+Un precio más alto también filtra la compra por impulso (menos devoluciones, más recompra).
+
+**Reglas:**
+- **PVP 50–120 €** según producto. Referencia económica: PVP ≥ 3 × coste unidad y **CPA máx. ≥ 25 €**.
+  Ejemplos: 89 € con coste 25 € → CPA máx. ≈ 37 €; 59 € con coste 18 € → ≈ 22 € (justo); 49 € con coste 12 € → ≈ 21 €.
+- **Muestra física obligatoria** antes de testear: tacto, costuras, composición real, tallaje.
+- **Proveedor que confirme por escrito** composición, gramaje, tallas y plazos; si es posible,
+  agente con control de calidad antes de enviar.
+- **Fotos reales** (propias o del proveedor tras ver la muestra). No usar fotos generadas por IA
+  que no correspondan a la prenda.
+- **Copy honesto:** sin historias inventadas ("familia con 30 años"), sin precios tachados falsos,
+  sin "últimas unidades" falsas. La ficha explica tejido, composición y por qué vale lo que cuesta.
+- **Pocos productos y bien hechos** en vez de catálogo amplio.
+- **Competidores de referencia:** marcas DTC europeas de gama media y alta que vendan prendas parecidas
+  a 60–150 €. Las tiendas de dropshipping de fast fashion solo sirven como señal de demanda, no como modelo.
+
+**Pendiente de decidir:** dropshipping puro o pequeño stock (10–20 uds) del producto ganador para
+controlar calidad y enviar en 24–48 h.
+
+**Propuesta pendiente de validar con el mentor:** con tickets de 50–120 € convierte menos gente por
+clic y cada test necesita más gasto para dar señal. Propuesta: 2 tests/mes con techo de ~80–100 €
+cada uno (o techo ≈ 1,5 × CPA máx.), manteniendo el corte de 10 € por CPC. Hasta que el mentor lo
+apruebe, siguen vigentes las reglas de abajo.
 
 ## Reglas del mentor (umbrales de corte, sin cambios)
 
@@ -77,15 +110,17 @@ y equivalentes en español/francés/inglés. En Meta: país España/Europa, todo
 | Gancho y demostración | 15 | 3–4 ángulos claros (estética, utilidad, diferencia) |
 | Estacionalidad y búsqueda | 10 | Interés actual, no solo pico viral |
 | Proveedor y experiencia | 10 | Calidad, muestras, logística, devoluciones |
-| Ajuste a OELNOR | 5 | Mujer editorial streetwear y precio percibido |
+| Ajuste a OELNOR | 5 | Mujer editorial streetwear, calidad y precio percibido 50–120 € |
 
 **Umbral: ≥ 75/100** + todos los filtros duros: proveedor confirmado, coste claro,
-margen sostenible, variante real, creativos disponibles. Herramienta de trabajo, no garantía.
+margen sostenible (CPA máx. ≥ 25 €), variante real, creativos disponibles,
+**muestra física revisada y composición confirmada**. Herramienta de trabajo, no garantía.
 
 **Descartar de inmediato si:** el "ganador" solo tiene un anuncio reciente o el parecido es dudoso;
 no hay coste fiable / el CPA máx. de un pedido de 1 artículo es demasiado pequeño;
 proveedor no confirma material, tallas, composición o plazos; fotos poco fiables;
-copia con riesgo de marca/diseño o promesas no demostrables; ya testeado y apagado por regla sin cambio demostrable.
+copia con riesgo de marca/diseño o promesas no demostrables; ya testeado y apagado por regla sin cambio demostrable;
+la calidad no aguanta el precio (p. ej. polipiel o sudadera básica vendidas a 80 €).
 
 Heurísticas de tiendas grandes ("100 anuncios", "80 productos", "25 % best sellers") son pistas, no evidencia: manda la validación cruzada.
 
@@ -93,7 +128,12 @@ Heurísticas de tiendas grandes ("100 anuncios", "80 productos", "25 % best sell
 
 **Actualización 28/10/2026:** se descartan Numa, Dalia, Naya y Elva como candidatos de test
 (decisión de la dueña). Los candidatos salen de la búsqueda semanal de productos nuevos;
-ver `docs/busqueda-productos-2026-10-28.md` (semana 1).
+ver `docs/busqueda-productos-2026-10-28.md` (semana 1) y `docs/busqueda-productos-europa-2026-10-28.md`.
+
+Con el posicionamiento de calidad (29/10/2026), de los candidatos de la búsqueda europea:
+- **Siguen:** blazer efecto ante (89–99 € si el ante es bueno), jersey poncho de punto (79–89 € si es mezcla de lana).
+- **Condicional:** botines de piel (89–119 € solo si son de piel real; riesgo de tallas).
+- **Descartados:** chaqueta de polipiel con capucha y abrigo sudadera oversize (fast fashion, la calidad no aguanta el precio).
 
 **Ya testeados (no repetir por inercia):** Rona, Mavi, Eira/chaqueta impermeable, Bomber Noa,
 jeans Stella/Alba, Botas Sora, medias térmicas. Repetir exige hipótesis escrita y datos nuevos.
