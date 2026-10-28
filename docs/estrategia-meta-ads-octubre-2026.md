@@ -57,8 +57,9 @@ Un precio más alto también filtra la compra por impulso (menos devoluciones, m
 - **Competidores de referencia:** marcas DTC europeas de gama media y alta que vendan prendas parecidas
   a 60–150 €. Las tiendas de dropshipping de fast fashion solo sirven como señal de demanda, no como modelo.
 
-**Pendiente de decidir:** dropshipping puro o pequeño stock (10–20 uds) del producto ganador para
-controlar calidad y enviar en 24–48 h.
+**Modelo: dropshipping** (decisión 29/10/2026). Para que la calidad aguante el precio sin stock:
+pedir muestra antes de testear, trabajar con agente que haga control de calidad antes de cada envío,
+y mostrar plazos de entrega reales en la ficha.
 
 **Propuesta pendiente de validar con el mentor:** con tickets de 50–120 € convierte menos gente por
 clic y cada test necesita más gasto para dar señal. Propuesta: 2 tests/mes con techo de ~80–100 €
