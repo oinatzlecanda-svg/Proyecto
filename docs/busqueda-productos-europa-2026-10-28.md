@@ -1,100 +1,73 @@
-# Búsqueda de productos en dropshipping europeo · 28/10/2026
+# Búsqueda de productos en dropshipping europeo · 28/10/2026 (v2)
 
-Objetivo: encontrar productos que tiendas de dropshipping de **Francia e Italia** ya están
-vendiendo y anunciando ahora, para traerlos a España.
+Regla de esta versión: **un producto solo entra si tiene anuncios activos cuyo enlace
+lleva a esa prenda** (comprobado en Meta Ad Library, destino de cada anuncio), y además
+está entre los más vendidos de la tienda que lo anuncia.
 
 ## Método
+1. Meta Ad Library, anuncios activos en FR, IT, DE, NL y BE. Búsquedas genéricas de moda mujer
+   ("veste femme", "manteau femme", "Damen Jacke", "dames jas"…) y por nombre de tienda.
+   De cada anuncio se extrae la URL de destino.
+2. Se agrupan los anuncios por producto de destino: nº de anuncios y fecha del más antiguo.
+3. Puesto del producto en "más vendidos" de su tienda (`/collections/all?sort_by=best-selling`).
+4. Verificación visual de que es la misma prenda cuando aparece en varias tiendas.
 
-1. **Radar de anunciantes** en Meta Ad Library (anuncios activos por país): FR, IT, DE, NL y PT.
-   Búsquedas con el copy típico de estas tiendas ("Il y a un moment que toute femme connaît",
-   "C'è un momento che ogni donna conosce"…). Salen 25 tiendas de moda de dropshipping
-   (FR 12, IT 9, DE 4). En DE, NL y PT casi no aparecieron tiendas de moda con este método.
-2. **Más vendidos reales** de cada tienda (`/collections/all?sort_by=best-selling`; el orden lo calcula
-   Shopify con sus ventas) y fichas (`/products/*.json`): precio, fecha de alta y fotos.
-3. **Producto exacto en varias tiendas**: comparación automática de las fotos (hash de imagen)
-   entre las 49 tiendas (25 europeas y 24 españolas) y **verificación visual una a una** de cada coincidencia.
-4. **Anuncios** de las tiendas en su país (Meta Ad Library), con fechas.
-5. **Proveedor** en AliExpress por coincidencia de foto (solo encontrado para el blazer).
-
-Limitaciones: estas tiendas usan fotos generadas por IA y anuncios de tipo historia, así
-que no siempre se ve qué producto lleva cada anuncio. Que Ad Library devuelva 0 anuncios
-puede deberse al límite de consultas de Facebook, no a que no haya anuncios.
-Casi todas son tiendas nuevas (altas de sept.–oct. 2026) y su público principal es mujer de 40+.
+Limitación: Facebook limita las consultas seguidas y algunas búsquedas devolvieron 0.
+Que no aparezcan anuncios de un producto no prueba que no los tenga.
 
 ## Los 5 productos
 
-### 1. Jersey poncho de punto con capucha
-| Tienda | País | Puesto en más vendidos | Precio | Enlace |
-|---|---|---|---|---|
-| Atelier Deauville | FR | **#1, #2, #3, #6, #7, #8** (el mismo poncho en 6 colores) | 49,95 € | [taupe](https://atelierdeauville.com/products/manon-taupe-poncho-sweater) · [azul](https://atelierdeauville.com/products/lea-sky-blue-poncho-sweater) |
-| Valentina Verona | IT | #5 | 44,95 € | [ver](https://valentinaveronamoda.com/products/ottavia-poncho) |
+### 1. Abrigo sudadera oversize largo con capucha y cremallera (forro polar)
+| Tienda | País | Anuncios que llevan a la prenda | Desde | Más vendidos | Precio |
+|---|---|---|---|---|---|
+| [Beiiry](https://beiiry.com/products/womens-oversized-hooded-sweatshirt-coat) | DE | 3 | 17/08 (**72 días**) | #1 | 34,99 € |
+| [Gute Saison](https://gute-saison.com/products/oversize-kapuzen-sweatshirt-mantel-f-r-damen) | DE | 3 | 15/09 (43 días) | #4 | 29,99 € |
+| [Tewtinz](https://tewtinz.com/products/womens-oversized-hooded-sweatshirt-coat-1) | DE | — | — | #8 | 29,99 € |
 
-- Anuncios (verificado por destino del enlace): Atelier Deauville tiene **17 anuncios activos en Francia**
-  (1, 17, 20, 26 y 27/10). Llevan a `/pages/bestseller`, una página que es casi entera de este poncho
-  en todos sus colores. Los anuncios de Valentina Verona **no** llevan al poncho: llevan a sus chaquetas de piel.
-- Talla única u holgada → pocas devoluciones por talla. Es muy fácil de enseñar en vídeo.
-- Proveedor: no localizado aún. En AliExpress, ponchos de punto con capucha parecidos cuestan 15–20 €.
+Es la campaña más longeva de toda la búsqueda: 3 tiendas alemanas la venden y 2 la anuncian
+desde hace 6–10 semanas. Encaja con el streetwear de OELNOR. Ticket bajo (30–35 €): el margen
+depende de conseguir coste ≤ 12 €.
 
-### 2. Blazer efecto ante marrón
-| Tienda | País | Puesto | Precio | Enlace |
-|---|---|---|---|---|
-| Famille Dumont | FR | #6 | 59,95 € | [ver](https://familledumont.fr/products/sidonie-blazer) |
-| Carolina Moretti | IT | #8 | 49,95 € | [ver](https://carolinamoretti.com/products/imogen-blazer-vintage-marrone) |
-| Amparo Cortés | ES | #1 | 44,95 € | [ver](https://amparocortes.com/products/imogen-blazer-vintage-marrone) |
-| (+ Marta Belmonte #2, Sira Montero #4, Veyora #1 en ES) | | | | |
+### 2. Jersey poncho de punto con capucha
+| Tienda | País | Anuncios | Desde | Más vendidos | Precio |
+|---|---|---|---|---|---|
+| [Atelier Deauville](https://atelierdeauville.com/products/manon-taupe-poncho-sweater) | FR | 17 (llevan a [su página de más vendidos](https://atelierdeauville.com/pages/bestseller), dedicada a este poncho) | 01/10 | #1, #2, #3, #6, #7, #8 (colores) | 49,95 € |
+| [Joessunt](https://joessunt.com/products/zzmszx) | NL | 2 | 15/09 (43 días) | #9 | 34,99 € |
 
-- **Proveedor exacto encontrado** (misma foto): [AliExpress, 22,79 €, 90 vendidos](https://es.aliexpress.com/item/1005010159775249.html).
-- Anuncios (verificado): Famille Dumont tiene 3 anuncios activos en Francia desde el 26/10 que nombran "Sidonie"
-  y enlazan a `familledumont.fr/products/sidonie-blazer`.
-- CPA máx. a 54,95 € con ese coste: ≈ 14 €. Ajuste OELNOR: alto (el ante es tendencia).
+Anunciado en 2 países, talla única (pocas devoluciones).
 
-### 3. Chaqueta acolchada ligera
-| Tienda | País | Puesto | Precio | Enlace |
-|---|---|---|---|---|
-| Famille Dumont | FR | #2 | 59,95 € | [ver](https://familledumont.fr/products/rose-pauline) |
-| Bellandi Sartoria | IT | #2 | 49,95 € | [ver](https://bellandisartoria.com/products/kelley-giacca-trapuntata-leggera) |
-| Valentina Verona | IT | #8 | 49,95 € | [ver](https://valentinaveronamoda.com/products/giacca-imbottita-leggera) |
-| (+ 5 tiendas en ES, #1 en dos de ellas) | | | | |
+### 3. Botines de piel con tacón medio
+| Tienda | País | Anuncios | Desde | Más vendidos | Precio |
+|---|---|---|---|---|---|
+| [Rose Varenne](https://rosevarenne.com/products/norina-botines-piel-tacon-medio) | FR | **8** | 11/10 | #1 | 49,95 € |
+| [Carolina Moretti](https://carolinamoretti.com/products/norina-bottines) | IT | 3 | 20/10 | #5 | 49,95 € |
 
-- Es el producto **más repetido de toda la búsqueda: 8 tiendas en 3 países**.
-- Anuncios (verificado por destino del enlace): Famille Dumont tiene **3 anuncios activos en Francia
-  desde el 22/10** que nombran la prenda ("Rose-Pauline") y enlazan a `familledumont.fr/products/rose-pauline`.
-  No he encontrado anuncios de esta chaqueta en Bellandi ni en Valentina Verona (IT), ni atribuibles en las tiendas españolas.
-  Son anuncios recientes (6 días), no una campaña de semanas.
-- Riesgo: España ya está saturada (5 tiendas) y el estilo es clásico.
+Misma prenda (fotos idénticas), anunciada en 2 países. Riesgo: es calzado (tallas, devoluciones;
+precedente Botas Sora).
 
-### 4. Abrigo vaquero largo de estilo militar con botones dorados
-| Tienda | País | Puesto | Precio | Enlace |
-|---|---|---|---|---|
-| Atelier Deauville | FR | #4 (alta el 17/10) | 54,95 € | [ver](https://atelierdeauville.com/products/hortense-manteau-long-en-jean-cintre-style-militaire-a-boutons-dores) |
-| Bellandi Sartoria | IT | #9 | 59,95 € | [ver](https://bellandisartoria.com/products/cappotto-in-denim-lungo-e-aderente-in-stile-militare-con-bottoni-dorati-per-donna) |
+### 4. Chaqueta de polipiel con capucha
+| Tienda | País | Anuncios | Desde | Más vendidos | Precio |
+|---|---|---|---|---|---|
+| [Valentina Verona](https://valentinaveronamoda.com/products/assunta-giacca) | IT | **7** | 10/10 | #2 | 54,95 € |
+| [Bellandi Sartoria](https://bellandisartoria.com/products/zelinda-giacca-pelle-morbida) | IT | 3 | 22/10 | #1 | 54,95 € |
 
-- **No se vende en ninguna de las 24 tiendas españolas analizadas** → hay ventana en España.
-- Anuncios: **no he encontrado ningún anuncio que lleve a este abrigo** (los de Atelier Deauville llevan a ponchos, botas y lino).
-- Es la prenda más visual y con más ajuste editorial-streetwear para OELNOR.
-- Proveedor: no localizado aún.
+También la venden Chiara Verona (IT) y Amparo Cortés (ES, #3).
 
-### 5. Blazer con mangas de punto
-| Tienda | País | Puesto | Precio | Enlace |
-|---|---|---|---|---|
-| Chiara Verona | IT | #3 | 54,95 € | [ver](https://chiaraverona.it/products/carla-blazer-elegante-con-maniche-in-maglia) |
-| Bellandi Sartoria | IT | #3 | 54,95 € | [ver](https://bellandisartoria.com/products/carla-blazer-elegante-con-maniche-in-maglia) |
-| Valeraq (variante parecida, cruzada) | FR | #5 | 49,99 € | [ver](https://valeraq.com/products/double-breasted-lapel-jacket-fashion-knitted-sleeves-splicing-design-coat-outerwear-womens-clothing) |
+### 5. Blazer efecto ante marrón
+| Tienda | País | Anuncios | Desde | Más vendidos | Precio |
+|---|---|---|---|---|---|
+| [Famille Dumont](https://familledumont.fr/products/sidonie-blazer) | FR | 3 | 26/10 | #6 | 59,95 € |
+| [Carolina Moretti](https://carolinamoretti.com/products/imogen-blazer-vintage-marrone) | IT | — | — | #8 | 49,95 € |
 
-- **No se vende en las tiendas españolas analizadas.**
-- Anuncios: **no he encontrado ninguno activo** de Chiara Verona ni de Bellandi Sartoria.
-- Proveedor: en AliExpress hay blazers con mangas de punto parecidos (9–27 €), pero no
-  se ha confirmado el exacto.
+Vendido en 7 tiendas (FR, IT, ES). Es el único con **proveedor exacto**:
+[AliExpress, 22,79 €](https://es.aliexpress.com/item/1005010159775249.html). Anuncios muy recientes.
 
-## También validados (2+ tiendas, fotos idénticas)
-- Cárdigan largo de punto con ribetes vaqueros: [Anna Luce IT #6](https://annaluce.it/products/rosalinda) · Teodora Marchetti ES #1
-- Vestido largo efecto ante con bajo de encaje: [Alma Valenne FR #2](https://almavalenne.com/products/brunela) · A Ruiz Studio ES
-- Botines de piel con tacón medio: [Rose Varenne FR #1](https://rosevarenne.com/products/norina-botines-piel-tacon-medio) · Carolina Moretti IT #5
-- Mary Jane de tacón con hebilla (5 tiendas): [Carolina Moretti IT](https://carolinamoretti.com/products/moretti-tacco) · [Delacroix FR](https://delacroix-paris.fr/products/delacroix-babies-a-talon-veronique) · Valentina Verona IT · 2 en ES
-- Cárdigan/sobrecamisa de punto a cuadros: [Chiara Verona IT #4–6](https://chiaraverona.it/products/nadia-cardigan) · Silvia Dávila ES #2
-- Chaqueta de polipiel con capucha (4 tiendas): [Bellandi IT #1](https://bellandisartoria.com/products/zelinda-giacca-pelle-morbida) · Valentina Verona IT #2 · Chiara Verona IT · Amparo Cortés ES
+## Descartados de la v1 (sin anuncios que lleven a la prenda)
+- Chaqueta acolchada ligera: solo 3 anuncios en Francia desde el 22/10; ninguno en IT ni ES.
+- Abrigo vaquero largo militar: ningún anuncio encontrado.
+- Blazer con mangas de punto: ningún anuncio encontrado.
 
-## Siguiente paso
-1. Pasar a tu agente o proveedor los enlaces del poncho, el abrigo vaquero y el blazer con
-   mangas de punto, y pedir el coste puesto en España y fotos reales.
-2. Con el coste, calcular el CPA máx. y puntuar con el scorecard (≥ 75 para testear).
+## Proveedor
+Salvo el blazer, no se ha encontrado el proveedor exacto en AliExpress: estas tiendas usan fotos
+generadas con IA, así que la búsqueda por foto no funciona. Siguiente paso: pasar los enlaces de
+arriba al agente y pedir coste puesto en España y fotos reales.
