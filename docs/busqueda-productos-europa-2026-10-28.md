@@ -29,8 +29,9 @@ Casi todas son tiendas nuevas (altas de sept.–oct. 2026) y su público princip
 | Atelier Deauville | FR | **#1, #2, #3, #6, #7, #8** (el mismo poncho en 6 colores) | 49,95 € | [taupe](https://atelierdeauville.com/products/manon-taupe-poncho-sweater) · [azul](https://atelierdeauville.com/products/lea-sky-blue-poncho-sweater) |
 | Valentina Verona | IT | #5 | 44,95 € | [ver](https://valentinaveronamoda.com/products/ottavia-poncho) |
 
-- Anuncios: Atelier Deauville tiene **17 anuncios activos en Francia**, publicados el 1, 17, 20, 26 y 27/10
-  (sigue sacando anuncios nuevos, señal de que escala). Valentina Verona tiene 21 activos en Italia (25/09–25/10).
+- Anuncios (verificado por destino del enlace): Atelier Deauville tiene **17 anuncios activos en Francia**
+  (1, 17, 20, 26 y 27/10). Llevan a `/pages/bestseller`, una página que es casi entera de este poncho
+  en todos sus colores. Los anuncios de Valentina Verona **no** llevan al poncho: llevan a sus chaquetas de piel.
 - Talla única u holgada → pocas devoluciones por talla. Es muy fácil de enseñar en vídeo.
 - Proveedor: no localizado aún. En AliExpress, ponchos de punto con capucha parecidos cuestan 15–20 €.
 
@@ -43,6 +44,8 @@ Casi todas son tiendas nuevas (altas de sept.–oct. 2026) y su público princip
 | (+ Marta Belmonte #2, Sira Montero #4, Veyora #1 en ES) | | | | |
 
 - **Proveedor exacto encontrado** (misma foto): [AliExpress, 22,79 €, 90 vendidos](https://es.aliexpress.com/item/1005010159775249.html).
+- Anuncios (verificado): Famille Dumont tiene 3 anuncios activos en Francia desde el 26/10 que nombran "Sidonie"
+  y enlazan a `familledumont.fr/products/sidonie-blazer`.
 - CPA máx. a 54,95 € con ese coste: ≈ 14 €. Ajuste OELNOR: alto (el ante es tendencia).
 
 ### 3. Chaqueta acolchada ligera
@@ -54,8 +57,10 @@ Casi todas son tiendas nuevas (altas de sept.–oct. 2026) y su público princip
 | (+ 5 tiendas en ES, #1 en dos de ellas) | | | | |
 
 - Es el producto **más repetido de toda la búsqueda: 8 tiendas en 3 países**.
-- Famille Dumont tiene 5 anuncios activos (22–26/10) con un copy de entretiempo
-  ("fresco por la mañana, sol a mediodía…") que encaja con esta chaqueta.
+- Anuncios (verificado por destino del enlace): Famille Dumont tiene **3 anuncios activos en Francia
+  desde el 22/10** que nombran la prenda ("Rose-Pauline") y enlazan a `familledumont.fr/products/rose-pauline`.
+  No he encontrado anuncios de esta chaqueta en Bellandi ni en Valentina Verona (IT), ni atribuibles en las tiendas españolas.
+  Son anuncios recientes (6 días), no una campaña de semanas.
 - Riesgo: España ya está saturada (5 tiendas) y el estilo es clásico.
 
 ### 4. Abrigo vaquero largo de estilo militar con botones dorados
@@ -65,6 +70,7 @@ Casi todas son tiendas nuevas (altas de sept.–oct. 2026) y su público princip
 | Bellandi Sartoria | IT | #9 | 59,95 € | [ver](https://bellandisartoria.com/products/cappotto-in-denim-lungo-e-aderente-in-stile-militare-con-bottoni-dorati-per-donna) |
 
 - **No se vende en ninguna de las 24 tiendas españolas analizadas** → hay ventana en España.
+- Anuncios: **no he encontrado ningún anuncio que lleve a este abrigo** (los de Atelier Deauville llevan a ponchos, botas y lino).
 - Es la prenda más visual y con más ajuste editorial-streetwear para OELNOR.
 - Proveedor: no localizado aún.
 
@@ -76,6 +82,7 @@ Casi todas son tiendas nuevas (altas de sept.–oct. 2026) y su público princip
 | Valeraq (variante parecida, cruzada) | FR | #5 | 49,99 € | [ver](https://valeraq.com/products/double-breasted-lapel-jacket-fashion-knitted-sleeves-splicing-design-coat-outerwear-womens-clothing) |
 
 - **No se vende en las tiendas españolas analizadas.**
+- Anuncios: **no he encontrado ninguno activo** de Chiara Verona ni de Bellandi Sartoria.
 - Proveedor: en AliExpress hay blazers con mangas de punto parecidos (9–27 €), pero no
   se ha confirmado el exacto.
 
