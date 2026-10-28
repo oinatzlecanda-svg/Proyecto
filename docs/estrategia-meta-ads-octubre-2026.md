@@ -44,7 +44,7 @@ en Meta. A 50–120 € con coste controlado deja 20–45 € por venta para pag
 Un precio más alto también filtra la compra por impulso (menos devoluciones, más recompra).
 
 **Reglas:**
-- **PVP 50–120 €** según producto. Referencia económica: PVP ≥ 3 × coste unidad y **CPA máx. ≥ 25 €**.
+- **PVP 50–120 €** según producto (rangos por categoría en `docs/precios-posicionamiento-2026-10-29.md`; básicos como tops y bufandas, 25–39 €). Referencia económica: PVP ≥ 3 × coste unidad y **CPA máx. ≥ 25 €**.
   Ejemplos: 89 € con coste 25 € → CPA máx. ≈ 37 €; 59 € con coste 18 € → ≈ 22 € (justo); 49 € con coste 12 € → ≈ 21 €.
 - **Muestra física obligatoria** antes de testear: tacto, costuras, composición real, tallaje.
 - **Proveedor que confirme por escrito** composición, gramaje, tallas y plazos; si es posible,
