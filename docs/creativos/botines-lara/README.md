@@ -39,7 +39,7 @@ CTA: «Comprar». Etiqueta de Meta «Hecho con IA» si la plataforma lo pide.
 
 ## Archivos originales para subir a Meta
 Los .mp4 de esta carpeta están comprimidos para verlos rápido. **Para Meta, usa los originales**
-(1080×1920, sin marca de agua):
+(v1 y v2: 720×1280 · v3 y v4: 1076×1924 · v5: 1288×1608, 4:5):
 - v1 comodidad: https://d8j0ntlcm91z4.cloudfront.net/user_3J3oLu0MClJ7HT7piSotMD6L8d7/hf_20261029_201208_0832785f-74b8-4106-a5df-dfb090138d42.mp4
 - v2 versatilidad: https://d8j0ntlcm91z4.cloudfront.net/user_3J3oLu0MClJ7HT7piSotMD6L8d7/hf_20261029_201208_229de9b0-574e-43f8-9286-c53bdf8e4976.mp4
 - v3 editorial: https://d8j0ntlcm91z4.cloudfront.net/user_3J3oLu0MClJ7HT7piSotMD6L8d7/hf_20261029_201245_904373b2-d580-42e7-8ac5-f623d02ec259.mp4
