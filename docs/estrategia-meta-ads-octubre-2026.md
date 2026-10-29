@@ -137,7 +137,13 @@ Con el posicionamiento de calidad (29/10/2026), de los candidatos de la búsqued
 - **Descartados:** chaqueta de polipiel con capucha y abrigo sudadera oversize (fast fashion, la calidad no aguanta el precio).
 
 **Ya testeados (no repetir por inercia):** Rona, Mavi, Eira/chaqueta impermeable, Bomber Noa,
-jeans Stella/Alba, Botas Sora, medias térmicas. Repetir exige hipótesis escrita y datos nuevos.
+jeans Stella/Alba, Botas Sora, medias térmicas, y también (por tráfico de anuncios en Shopify)
+Bolso Siena, Bolso Aria, Chaqueta Lena, Chaqueta Kaia, Portalabial Mía y Bolso Mara.
+Repetir exige hipótesis escrita y datos nuevos.
+
+**Estudio del catálogo (29/10/2026):** ver `docs/estudio-catalogo-tests-2026-10-29.md`. Orden propuesto:
+Botines Lara → Cárdigan Mila → Mary Jane Olivia (reserva: Vestido Adela). Cada uno solo tras
+muestra física y coste confirmado. El catálogo antiguo no muestra señal de demanda.
 Medias térmicas: analizar ventas y beneficio del test previo; no presentarlas como nuevo.
 
 ## Margen y CPA
