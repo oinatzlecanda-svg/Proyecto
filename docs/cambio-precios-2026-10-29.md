@@ -68,3 +68,9 @@ Copia de los precios anteriores con los IDs de variante: `docs/precios-backup-20
 - ✅ 29/10: renombrados y publicados. Nadia → Cárdigan Greta de punto a cuadros; Rosadalinda → Cárdigan Mila de canalé con detalles denim;
   Brunella → Vestido Adela largo efecto ante con encaje; NORINA → Botines Lara con tacón medio; MORETTI → Zapatos Mary Jane Olivia con tacón bajo.
 - Productos sin cambio: gadgets (no son moda) y medias térmicas (precio por pack).
+
+## Ajuste 29/10 (productos importados)
+- Vestido Adela: 79,95 → **74,95 €** (dentro del rango de vestido 55–79).
+- Botines Lara: 89,95 → **69,95 €** y Mary Jane Olivia: 69,95 → **59,95 €**. Piel no confirmada: la tabla
+  reserva 79–119 € para calzado de piel real. Si la muestra confirma piel, subir a 89,95 € y 69,95 €.
+- Colección automática «Ropa»: añadidos «Botines» y «Zapatos» a los tipos excluidos (el calzado se estaba colando).
