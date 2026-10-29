@@ -29,6 +29,17 @@ Decisión de la dueña (29/10/2026): primer test del mes. Base: `docs/estudio-ca
   Para los anuncios, mejor fotos o vídeo reales de la muestra.
 - [ ] Revisar el checkout en móvil y que no quede ninguna mención al −25 %.
 
+## Calendario (decisión de la dueña, 29/10/2026)
+
+| Fecha | Qué |
+|---|---|
+| Viernes 30/10, mañana | Lanzar el test de Lara: **25 €/día** (techo de 50 € acumulados) para cubrir viernes y fin de semana |
+| Viernes 30/10 – domingo 1/11 | Cortes a 10/20/30/40 € según se vaya gastando |
+| Semana del 2/11 | Sin test nuevo: subir productos a la web. Si Lara pasa los cortes, retargeting de 3–4 €/día a quien visitó la ficha o añadió al carrito (no audiencia fría) |
+| Semana del 10/11 | Siguiente test serio, también a 25 €/día (mismo ritmo para comparar) |
+
+Mínimo para lanzar el viernes: coste confirmado (≤ 22,90 €) y plazo de entrega real en la ficha.
+
 ## Campaña
 
 - Meta Ads → campaña de **Ventas**, conversión **Compra en web**, España, mujeres de 18 a 40 años (Advantage+ audiencia permitida, sin intereses forzados).
