@@ -7,7 +7,7 @@ Decisión de la dueña (29/10/2026): primer test del mes. Base: `docs/estudio-ca
 | Campo | Valor |
 |---|---|
 | Producto / SKU | Botines Lara con tacón medio · gid://shopify/Product/11298696528209 · Marrón y Negro, tallas 35–42 (16 variantes) |
-| PVP | 69,95 € (89,95 € si la muestra confirma piel real) |
+| PVP | **69,95 €** (decisión de la dueña, 29/10; se mantiene aunque sea piel) |
 | Coste proveedor | **PENDIENTE** + 3 €/pedido |
 | Competidores | [Rose Varenne FR](https://rosevarenne.com/products/norina-botines-piel-tacon-medio) (#1 en ventas, 49,95 €) · [Carolina Moretti IT](https://carolinamoretti.com/products/norina-bottines) (#5, 49,95 €) · también Bellandi, Atelier Deauville, Amparo Cortés, Lurea, Marina Roca |
 | Meta Ad Library | Rose Varenne: 8 anuncios desde el 11/10 · Carolina Moretti: 3 desde el 20/10 (todos llevan a la ficha) |
@@ -19,8 +19,8 @@ Decisión de la dueña (29/10/2026): primer test del mes. Base: `docs/estudio-ca
 ## Requisitos antes de lanzar
 
 - [ ] **Coste confirmado por escrito** puesto en España. A 69,95 €, coste ≤ 22,9 € (para CPA máx. ≥ 25 €).
-- [ ] **Material confirmado** por el proveedor: ¿piel real o sintética? Decide el PVP (89,95 € o 69,95 €) y el copy.
-  Hoy la ficha no menciona piel, y los anuncios tampoco deben hacerlo hasta confirmarlo.
+- [ ] **Material confirmado** por el proveedor: ¿piel real o sintética? El PVP se queda en 69,95 €; solo cambia el copy
+  (hoy la ficha no menciona piel, y los anuncios tampoco deben hacerlo hasta confirmarlo).
 - [ ] **Muestra física** (regla de calidad): horma, tacón, suela, costuras y si la talla es la habitual.
   Si se lanza sin muestra, queda anotado como excepción a la regla y el riesgo de devoluciones es mayor (precedente de las botas Sora).
 - [ ] **Ficha:** añadir altura del tacón, material de la suela, guía de tallas en cm (largo del pie) y **plazo de entrega real**.
@@ -35,7 +35,20 @@ Decisión de la dueña (29/10/2026): primer test del mes. Base: `docs/estudio-ca
 - Configuración orientativa de 50 €/día; techo de **50 € de gasto acumulado**.
 - 1 conjunto de anuncios, 4 anuncios. No cambiar landing, copy y presupuesto a la vez.
 
-### 4 creativos (ganchos)
+### Creativos elegidos (29/10/2026)
+Generados con Higgsfield (`docs/creativos/botines-lara/`). Para el test, 4 anuncios:
+
+| Anuncio | Pieza | Por qué |
+|---|---|---|
+| 1 · Vídeo comodidad | `v1-comodidad.mp4` | El botín ocupa todo el plano los 10 s y el gancho (el tacón pisando) está en los 3 primeros segundos |
+| 2 · Vídeo versatilidad | `v2-versatilidad.mp4` | Responde a «¿con qué me los pongo?» y justifica 69,95 € por uso |
+| 3 · Imagen lifestyle | `01-comodidad-calle-marron.jpg` | Botín grande, en uso y en contexto de otoño |
+| 4 · Imagen detalle | `08-detalle-pareja.jpg` | Enseña los dos colores, la cremallera y el tacón: menos dudas antes del clic |
+
+Reserva (segunda ronda solo si hay clics baratos pero pocos ATC): `v5-ugc.mp4` y `07-detalle-marron.jpg`.
+Descartados para este test: `v3-editorial` (el botín no aparece grande hasta el segundo 8) y `v4-detalle` (sin persona y con una ligera deformación a mitad del giro).
+
+### Plan original de 4 creativos (referencia)
 
 | # | Formato | Ángulo | Idea |
 |---|---|---|---|
