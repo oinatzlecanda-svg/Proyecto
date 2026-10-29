@@ -64,6 +64,7 @@ Copia de los precios anteriores con los IDs de variante: `docs/precios-backup-20
 | Nadia – Cardigan in Maglia a Quadri | 49,95 (tachado 154,95) € | 64,95 € | Punto a cuadros tipo sobrecamisa |
 
 ## Pendiente
-- Confirmar con muestra o proveedor que **Botas Vega**, **NORINA** y **MORETTI** son de piel real. Si no lo son, bajarlas a ~69,95 €.
-- Traducir al español los títulos de Brunella, NORINA, MORETTI y Nadia, y corregir "cárdigan Rosadalinda".
+- Confirmar con muestra o proveedor que **Botas Vega**, **Botines Lara** y **Mary Jane Olivia** son de piel real. Si no lo son, bajarlas a ~69,95 €.
+- ✅ 29/10: renombrados y publicados. Nadia → Cárdigan Greta de punto a cuadros; Rosadalinda → Cárdigan Mila de canalé con detalles denim;
+  Brunella → Vestido Adela largo efecto ante con encaje; NORINA → Botines Lara con tacón medio; MORETTI → Zapatos Mary Jane Olivia con tacón bajo.
 - Productos sin cambio: gadgets (no son moda) y medias térmicas (precio por pack).
