@@ -38,15 +38,14 @@ Así se ve qué ángulo gana sin mezclar variables.
 CTA: «Comprar». Etiqueta de Meta «Hecho con IA» si la plataforma lo pide.
 
 ## Archivos originales para subir a Meta
-Los .mp4 de esta carpeta están comprimidos para verlos rápido. **Para Meta, usa los originales**
-(v1 y v2: 720×1280 · v3 y v4: 1076×1924 · v5: 1288×1608, 4:5):
+Originales de Higgsfield, sin música (v1 y v2: 720×1280 · v3 y v4: 1076×1924 · v5: 1288×1608, 4:5):
 - v1 comodidad: https://d8j0ntlcm91z4.cloudfront.net/user_3J3oLu0MClJ7HT7piSotMD6L8d7/hf_20261029_201208_0832785f-74b8-4106-a5df-dfb090138d42.mp4
 - v2 versatilidad: https://d8j0ntlcm91z4.cloudfront.net/user_3J3oLu0MClJ7HT7piSotMD6L8d7/hf_20261029_201208_229de9b0-574e-43f8-9286-c53bdf8e4976.mp4
 - v3 editorial: https://d8j0ntlcm91z4.cloudfront.net/user_3J3oLu0MClJ7HT7piSotMD6L8d7/hf_20261029_201245_904373b2-d580-42e7-8ac5-f623d02ec259.mp4
 - v4 detalle: https://d8j0ntlcm91z4.cloudfront.net/user_3J3oLu0MClJ7HT7piSotMD6L8d7/hf_20261029_201238_90dfd637-cb5c-4a5c-89b4-b73a65a7fab6.mp4
 - v5 UGC: https://d8j0ntlcm91z4.cloudfront.net/user_3J3oLu0MClJ7HT7piSotMD6L8d7/hf_20261029_201245_0faa55fc-0f12-4150-9bd8-d741df913321.mp4
 
-**Música (30/10):** los .mp4 de esta carpeta ya llevan música (10 s, fundido de entrada y salida, volumen
+**Música (29/10):** los .mp4 de esta carpeta ya llevan música (10 s, fundido de entrada y salida, volumen
 normalizado a −14 LUFS) y están a la resolución original. **Súbelos tal cual a Meta.** Los enlaces de arriba son
 los originales de Higgsfield, sin música.
 
