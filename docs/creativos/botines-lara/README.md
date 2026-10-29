@@ -46,7 +46,25 @@ Los .mp4 de esta carpeta están comprimidos para verlos rápido. **Para Meta, us
 - v4 detalle: https://d8j0ntlcm91z4.cloudfront.net/user_3J3oLu0MClJ7HT7piSotMD6L8d7/hf_20261029_201238_90dfd637-cb5c-4a5c-89b4-b73a65a7fab6.mp4
 - v5 UGC: https://d8j0ntlcm91z4.cloudfront.net/user_3J3oLu0MClJ7HT7piSotMD6L8d7/hf_20261029_201245_0faa55fc-0f12-4150-9bd8-d741df913321.mp4
 
-Los vídeos no llevan audio: en Meta, añadir música de la biblioteca de Meta (sin derechos de autor).
+**Música (30/10):** los .mp4 de esta carpeta ya llevan música (10 s, fundido de entrada y salida, volumen
+normalizado a −14 LUFS) y están a la resolución original. **Súbelos tal cual a Meta.** Los enlaces de arriba son
+los originales de Higgsfield, sin música.
+
+| Vídeo | Pista (Mixkit, licencia gratuita Stock Music Free License) | Tramo |
+|---|---|---|
+| v1 comodidad | «Cat Walk» (https://assets.mixkit.co/music/371/371.mp3) | 1:28,5–1:39 |
+| v2 versatilidad | «Gimme that Groove!» (https://assets.mixkit.co/music/872/872.mp3) | 0:53–1:03 |
+| v3 editorial | «Hazy After Hours» (https://assets.mixkit.co/music/132/132.mp3) | 1:04,5–1:15 |
+| v4 detalle | «Deep Techno Ambience» (https://assets.mixkit.co/music/134/134.mp3) | 0:08–0:18 |
+| v5 UGC | «Motivating Mornings» (https://assets.mixkit.co/music/33/33.mp3) | 0:33,5–0:44 |
+
+Mixkit permite usar su música en proyectos comerciales sin atribución. No permite revenderla ni registrarla en
+Content ID. Si Meta silenciara algún vídeo, sustituir la música por una de la Sound Collection de Meta.
+
+## Foto con texto
+`08-detalle-pareja-texto.jpg` (1080×1350): versión del par marrón y negro con «OELNOR · Botines Lara · El tacón medio
+que aguanta todo el día · Punta afinada · Cremallera trasera · Marrón y negro · 69,95 €». Tipografías Playfair Display
+e Inter. Es el anuncio 4 del test.
 
 ## Coste
 210,5 créditos de Higgsfield (~12,40 €): 12 fotos con GPT Image 2.5 (high), 2 vídeos con Seedance 2.5 (720p, 10 s)

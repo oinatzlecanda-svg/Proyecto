@@ -43,7 +43,7 @@ Generados con Higgsfield (`docs/creativos/botines-lara/`). Para el test, 4 anunc
 | 1 · Vídeo comodidad | `v1-comodidad.mp4` | El botín ocupa todo el plano los 10 s y el gancho (el tacón pisando) está en los 3 primeros segundos |
 | 2 · Vídeo versatilidad | `v2-versatilidad.mp4` | Responde a «¿con qué me los pongo?» y justifica 69,95 € por uso |
 | 3 · Imagen lifestyle | `01-comodidad-calle-marron.jpg` | Botín grande, en uso y en contexto de otoño |
-| 4 · Imagen detalle | `08-detalle-pareja.jpg` | Enseña los dos colores, la cremallera y el tacón: menos dudas antes del clic |
+| 4 · Imagen detalle | `08-detalle-pareja-texto.jpg` (con nombre, gancho, detalles y precio) | Enseña los dos colores, la cremallera y el tacón: menos dudas antes del clic |
 
 Reserva (segunda ronda solo si hay clics baratos pero pocos ATC): `v5-ugc.mp4` y `07-detalle-marron.jpg`.
 Descartados para este test: `v3-editorial` (el botín no aparece grande hasta el segundo 8) y `v4-detalle` (sin persona y con una ligera deformación a mitad del giro).
