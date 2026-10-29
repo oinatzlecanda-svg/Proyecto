@@ -61,9 +61,9 @@ CPA máx. ≈ PVP/1,21 − coste − 3 € − pasarela (1,5 % + 0,25 €) − 8
 |---|---|---|---|---|
 | Vestido Adela | 74,95 | 20 € | ≈ 31,6 € | 26,6 € |
 | Cárdigan Mila | 69,95 | 18 € | ≈ 29,9 € | 22,9 € |
-| Botines Lara | 69,95 | 20 € | ≈ 27,9 € | 22,9 € (con piel real y PVP 89,95: 39,4 €) |
+| Botines Lara | 69,95 | 20 € | ≈ 27,9 € | 22,9 € (con piel real y PVP 89,95: 37,5 €) |
 | Cárdigan Greta | 64,95 | 18 € | ≈ 26,3 € | 19,3 € |
-| Mary Jane Olivia | 59,95 | 18 € | ≈ 22,6 € ❌ | 15,6 € (con piel real y PVP 69,95: 23,8 €) |
+| Mary Jane Olivia | 59,95 | 18 € | ≈ 22,6 € ❌ | 15,6 € (con piel real y PVP 69,95: 22,9 €) |
 
 ## 4. Scorecard /100
 
@@ -84,7 +84,7 @@ La diferencia entre 71 y ≥ 75 la deciden el proveedor y la muestra (10 + 25 pu
 Orden de test, cada uno solo si su muestra y su coste pasan el filtro:
 
 1. **Botines Lara.** La demanda más clara: n.º 1 en ventas de Rose Varenne, 11 anuncios en 2 países y 7 tiendas.
-   Condición: muestra que confirme **piel real** y horma correcta. Si es piel → PVP 89,95 € (CPA máx. ≈ 44 €
+   Condición: muestra que confirme **piel real** y horma correcta. Si es piel → PVP 89,95 € (CPA máx. ≈ 42,5 €
    con coste 20 €). Si no es piel → no testear a 69,95 € (precedente de Sora: calzado sintético a precio medio).
 2. **Cárdigan Mila.** Sin el riesgo de tallas del calzado, prenda diferencial (punto + denim) y buen margen.
    Condición: coste ≤ 23 € y canalé de calidad en la muestra.
