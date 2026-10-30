@@ -68,3 +68,9 @@ e Inter. Es el anuncio 4 del test.
 ## Coste
 210,5 créditos de Higgsfield (~12,40 €): 12 fotos con GPT Image 2.5 (high), 2 vídeos con Seedance 2.5 (720p, 10 s)
 y 3 vídeos con Kling 3.0 (pro, 10 s). Quedan 289,9 créditos para repeticiones o el siguiente test.
+
+## Fotos de la ficha en Shopify (30/10)
+Primera foto de cada color: la foto de fondo blanco (`lara-brown-fondo-blanco.jpg`, `lara-black-fondo-blanco.jpg`).
+Es la misma de estudio de antes, con sombra de contacto suave en el suelo y grano fotográfico ligero para que no parezca
+que flota. El botín no se ha modificado. Detrás de cada una van las fotos reales del proveedor: 4 en marrón y 5 en negro.
+Las fotos de estudio anteriores (sin sombra) se quitaron de la ficha, pero siguen en Archivos de Shopify.
