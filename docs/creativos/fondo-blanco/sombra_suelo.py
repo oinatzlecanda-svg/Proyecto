@@ -7,6 +7,16 @@ mn, mx = a.min(2), a.max(2)
 neutral_pale = (mn > 190) & ((mx - mn) < 7)
 obj = ndimage.binary_opening((mn < 236) & ~neutral_pale, iterations=2)
 obj = ndimage.binary_fill_holes(ndimage.binary_closing(obj, iterations=3))
+# pale pixels below the solid part of the product are floor reflection / baked shadow, not product
+strong = ndimage.binary_opening(mn < 200, iterations=2)
+pale = mn > 200
+for x in range(W):
+    ys = np.nonzero(strong[:, x])[0]
+    if len(ys) == 0:
+        obj[:, x] &= ~pale[:, x]; continue
+    sb = ys.max() + 2
+    obj[sb:, x] &= ~pale[sb:, x]
+obj = ndimage.binary_opening(obj, iterations=1)
 lab, n = ndimage.label(obj)
 sizes = ndimage.sum(obj, lab, range(1, n + 1))
 keep = [i + 1 for i, s in enumerate(sizes) if s > 0.002 * H * W]

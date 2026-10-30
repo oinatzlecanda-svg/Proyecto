@@ -8,3 +8,11 @@ En Shopify se sustituyó cada archivo en su sitio, con el mismo ID: no cambian e
 ni la foto asociada a cada color.
 
 Script: `python3 sombra_suelo.py entrada.png salida.png` (necesita numpy, pillow y scipy).
+
+## Resto del catálogo (30/10/2026)
+Mismo tratamiento en las **147 fotos de fondo blanco** de los otros 49 productos (una por color). Quedan fuera Top Cristina
+y Jeans Haku, que tienen fotos reales y no de fondo blanco. Se sustituyó cada archivo en su sitio (`fileUpdate`), así que
+no cambian el orden, el texto alternativo ni la foto de cada color. Resumen visual: `resumen-resto-1/2/3.jpg`.
+
+`sombra_suelo.py` es la versión mejorada: trata como suelo el reflejo claro que traían algunas imágenes bajo bolsos,
+botas y objetos, para que no quede una franja blanca bajo el producto.
