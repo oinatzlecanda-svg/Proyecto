@@ -74,3 +74,23 @@ Copia de los precios anteriores con los IDs de variante: `docs/precios-backup-20
 - Botines Lara: 89,95 → **69,95 €** y Mary Jane Olivia: 69,95 → **59,95 €**. Piel no confirmada: la tabla
   reserva 79–119 € para calzado de piel real. Si la muestra confirma piel, subir a 89,95 € y 69,95 €.
 - Colección automática «Ropa»: añadidos «Botines» y «Zapatos» a los tipos excluidos (el calzado se estaba colando).
+
+## Ajuste 30/10 (un escalón abajo en lo que no tiene calidad demostrada)
+Copia de los precios del 29/10 con los IDs de variante: `docs/precios-backup-2026-10-30.json`.
+
+| Producto | 29/10 | 30/10 |
+|---|---|---|
+| Cárdigan Alma | 54,95 € | 44,95 € |
+| Chaqueta Lena | 79,95 € | 64,95 € |
+| Bomber Noa | 74,95 € | 59,95 € |
+| Botas Sora | 69,95 € | 59,95 € |
+| Chaqueta Kaia | 79,95 € | 64,95 € |
+| Chaqueta Mavi | 79,95 € | 64,95 € |
+| Chaqueta Eira | 74,95 € | 64,95 € |
+| Jeans Lucía | 64,95 € | 54,95 € |
+| Jersey Ares | 59,95 € | 49,95 € |
+| Jersey Riven | 64,95 € | 54,95 € |
+| Botas Vega | 94,95 € | 74,95 € |
+| Bolso Siena | 54,95 € | 44,95 € |
+
+Sin precios tachados: ver `docs/precios-comparacion-2026-10-30.md`. Una prenda vuelve a subir cuando la muestra confirma su calidad.
