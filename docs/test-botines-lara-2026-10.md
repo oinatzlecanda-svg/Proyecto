@@ -86,3 +86,4 @@ Ejemplo: «El botín que se pone igual un lunes que un sábado. Tacón medio est
 | Fecha | Gasto | Impresiones | CTR enlace | CPC enlace | Sesiones Shopify | ATC | Checkouts | Compras reales | Ingresos | CPA | Decisión y motivo |
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | 30/10 14:43 · corte 10 € | 9,66 € | 958 (alcance 866, frec. 1,11) | 2,40 % | **0,42 €** | 8 desde FB/IG (23 clics en el enlace) | 0 | 0 | 0 | 0 € | — | **CONTINUAR hasta el corte de 20 €.** CPC de enlace 0,42 € < 1,00 €. Ojo: solo 8 de 23 clics llegan a Shopify como sesión (35 %) |
+| 30/10 21:45 · corte 20 € | 20,34 € | 1.892 (alcance 1.522, frec. 1,24) | 2,75 % | **0,39 €** | 21 desde FB/IG (52 clics en el enlace) | **2** (Instagram) | 2 | 0 | 0 € | — | **CONTINUAR hasta el corte de 30 €.** Hay añadidos al carrito, así que no se cumple «0 ATC → pausar». Los 2 pagos iniciados no dejaron email (no hay carritos abandonados recuperables) |
