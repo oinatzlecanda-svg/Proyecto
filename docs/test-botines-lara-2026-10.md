@@ -102,3 +102,18 @@ Ejemplo: «El botín que se pone igual un lunes que un sábado. Tacón medio est
 
 Decisión: mantener 25 €/día sin cambios. Escalar (+20 % cada 48 h) solo si: ≥ 3 pedidos reales confirmados, coste confirmado
 con CPA real ≤ CPA máx. de un pedido de 1 par, y caja para pagar al proveedor. Riesgo: 2 de 3 pares son talla 38 en distinto color (posible devolución).
+
+## Regla de beneficio aplicada a Lara (01/11/2026)
+Regla general en `docs/estrategia-meta-ads-octubre-2026.md` («Regla de beneficio»). No hay techo fijo de 100 €:
+**si el gasto llega a la contribución de los pedidos sin un pedido nuevo → PAUSAR.**
+Con los 2 pedidos actuales (3 pares, 173,43 € sin IVA):
+
+| Coste por par | Contribución de los 2 pedidos = límite de gasto | Un pedido nuevo de 1 par sube el límite en |
+|---|---|---|
+| 15 € | 101,99 € | +32,91 € |
+| 20 € | 86,99 € | +27,91 € |
+| 25 € | **71,99 €** (vigente mientras el coste no esté confirmado) | +22,91 € |
+
+Gasto a 01/11: 68,65 €. Hasta conocer el coste (lunes 2/11) el límite es **72 €**: si se llega sin un tercer pedido → pausar.
+Con el coste confirmado se recalcula el límite con la fila que toque.
+

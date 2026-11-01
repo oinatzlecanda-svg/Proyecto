@@ -87,6 +87,22 @@ Reglas adicionales:
 Árbol: gastar → 10 € (CPC) → 20 € (ATC) → 30 € (compra / ≥10 ATC) → 40 € (sin compra, apagar).
 Si aparece compra, medir margen y CPA antes de decidir escalado.
 
+### Regla de beneficio (decisión de la dueña, 01/11/2026 · para todos los tests)
+
+Objetivo: **que cada test termine con beneficio siempre que sea posible.** Antes de la primera compra
+mandan los cortes de 10/20/30/40/50 €. En cuanto hay compras reales, manda esta regla:
+
+- **Beneficio acumulado del test** = suma de la contribución de sus pedidos − gasto total en Meta.
+  Contribución de un pedido = ingreso sin IVA − coste de todas las unidades − 3 € − comisión Shopify
+  (1,5 % + 0,25 €) − reserva de devoluciones.
+- **Límite de gasto = suma de la contribución de los pedidos.** Si el gasto llega a ese límite sin un
+  pedido nuevo → **PAUSAR**. Cada pedido nuevo sube el límite con su contribución.
+- **Coste sin confirmar → usar el coste más alto posible** (escenario pesimista) hasta tenerlo por escrito.
+- Nada de techos fijos («hasta 100 €»): el límite lo marca el beneficio, no una cifra redonda.
+- **Escalar** (+20 % cada 48 h) solo con beneficio acumulado > 0, ≥ 3 pedidos reales, coste confirmado
+  y caja. Si al escalar el beneficio acumulado baja a 0 → volver al presupuesto anterior o pausar.
+- Registrar en cada revisión: gasto, pedidos, contribución acumulada, beneficio acumulado y límite.
+
 ## Ruta de búsqueda de productos (embudo semanal: 10 ideas → 3 finalistas → 1 test)
 
 1. **Mapa del catálogo:** revisar activos y ya probados; eliminar duplicados; mujer, estación y precio compatibles.
