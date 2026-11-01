@@ -89,3 +89,16 @@ Ejemplo: «El botín que se pone igual un lunes que un sábado. Tacón medio est
 | 30/10 21:45 · corte 20 € | 20,34 € | 1.892 (alcance 1.522, frec. 1,24) | 2,75 % | **0,39 €** | 21 desde FB/IG (52 clics en el enlace) | **2** (Instagram) | 2 | 0 | 0 € | — | **CONTINUAR hasta el corte de 30 €.** Hay añadidos al carrito, así que no se cumple «0 ATC → pausar». Los 2 pagos iniciados no dejaron email (no hay carritos abandonados recuperables) |
 | 30/10 23:44 · corte 30 € | 31,18 € | 2.603 (alcance 2.215, frec. 1,18) | 3,03 % | **0,39 €** | — | — | — | **1 real: pedido #10160** (pagado, sin cancelar, Madrid; llega de Instagram con la campaña 120252044302410190): 2 pares, Negro 38 + Marrón 38 | 139,90 € | 31,18 € | **NO PAUSAR · seguir hasta el techo de 50 € y revisión económica.** Hay compra real, así que no aplica «0 compras → pausar». Riesgo: misma talla en dos colores, probable devolución de un par |
 | 31/10 14:32 · control 40 € | 39,10 € | 3.149 (alcance 2.550, frec. 1,23) | 3,08 % | **0,40 €** | 41 desde FB/IG en total (97 clics en el enlace, 42 %) | 4 | 3 | 1 (#10160, sin cambios: pagado, sin cancelar ni reembolsos) | 139,90 € | 39,10 € | **SEGUIR hasta el techo de 50 €.** La regla de 40 € («sigue con 0 compras → pausar») no aplica porque hay 1 compra real. Al llegar a 50 €: revisión económica, sin subir presupuesto |
+| 01/11 11:57 · techo 50 € | 52,40 € | 4.244 (alcance 3.261, frec. 1,30) | 3,30 % | **0,37 €** | 59 desde FB/IG en total (140 clics en el enlace) | 6 | 4 | **2 reales:** #10160 (139,90 €, 2 pares, Madrid) y #10170 (69,95 €, Negro 38, Cádiz; Shopify no registra el origen, Meta cuenta 2 compras) | 209,85 € | 26,20 € | **NO PAUSAR · NO SUBIR.** Techo alcanzado con compras reales: revisión económica. Se mantienen 25 €/día en seguimiento hasta tener el coste (lunes 2/11) y 3 pedidos reales |
+
+## Revisión económica en el techo de 50 € (01/11)
+2 pedidos, 3 pares, 209,85 € cobrados (173,43 € sin IVA), 52,40 € de anuncios. Coste sin confirmar:
+
+| Coste por par | Beneficio antes de anuncios | Después de anuncios | CPA máx. por pedido de 1 par | ¿CPA real 26,20 € por debajo? |
+|---|---|---|---|---|
+| 15 € | 101,99 € | +49,59 € | 32,91 € | ✅ |
+| 20 € | 86,99 € | +34,59 € | 27,91 € | ✅ (justo) |
+| 25 € | 71,99 € | +19,59 € | 22,91 € | ❌ |
+
+Decisión: mantener 25 €/día sin cambios. Escalar (+20 % cada 48 h) solo si: ≥ 3 pedidos reales confirmados, coste confirmado
+con CPA real ≤ CPA máx. de un pedido de 1 par, y caja para pagar al proveedor. Riesgo: 2 de 3 pares son talla 38 en distinto color (posible devolución).
