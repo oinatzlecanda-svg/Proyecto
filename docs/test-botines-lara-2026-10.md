@@ -137,3 +137,17 @@ Gasto a 02/11 9:46: 73,97 € → beneficio acumulado **+23,38 €**. CPA máx. 
 | 3.er pedido (1 par) | 128,05 € | Seguir; con beneficio > 0 y caja se puede escalar +20 % cada 48 h |
 | 4.º pedido (1 par) | 158,75 € | Seguir / escalar si hay caja |
 
+## Cierre del test (02/11/2026)
+Campaña pausada por la dueña al llegar a ~95 € sin tercer pedido válido (regla de beneficio: límite 97,35 €).
+
+| Gasto final | Impresiones | Alcance | CTR | CPC | Pedidos válidos | Ingresos | CPA |
+|---|---|---|---|---|---|---|---|
+| 95,12 € | 8.619 | 6.213 | 4,84 % | 0,23 € | 2 (#10160 y #10170) | 209,85 € | 47,56 € |
+
+- **#10180** (02/11, 69,95 €, 1 par, Madrid, llega de la campaña) **cancelado por la clienta** a los 51 min: no cuenta.
+  Shopify lo marca como pagado con 0 € reembolsado → comprobar que se le devuelve el dinero.
+- Beneficio del test ≈ 97,35 € de contribución − 95,12 € de anuncios = **+2,23 €** (sin contar devoluciones reales).
+- Lectura: clics muy baratos y compras, pero el CPA (47,56 €) queda por encima del CPA máx. de un pedido de 1 par
+  (30,70 €). Rentable solo gracias al pedido de 2 pares. **No escalar.** Retest solo con hipótesis escrita
+  (otro ángulo o creativo); la caja se reserva para el siguiente test (semana del 10/11).
+
