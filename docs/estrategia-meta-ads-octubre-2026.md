@@ -93,7 +93,7 @@ Objetivo: **que cada test termine con beneficio siempre que sea posible.** Antes
 mandan los cortes de 10/20/30/40/50 €. En cuanto hay compras reales, manda esta regla:
 
 - **Beneficio acumulado del test** = suma de la contribución de sus pedidos − gasto total en Meta.
-  Contribución de un pedido = ingreso sin IVA − coste de todas las unidades − 3 € − comisión Shopify
+  Contribución de un pedido = ingreso sin IVA − coste de todas las unidades − 5 € − comisión Shopify
   (1,5 % + 0,25 €) − reserva de devoluciones.
 - **Límite de gasto = suma de la contribución de los pedidos.** Si el gasto llega a ese límite sin un
   pedido nuevo → **PAUSAR**. Cada pedido nuevo sube el límite con su contribución.
@@ -109,7 +109,7 @@ mandan los cortes de 10/20/30/40/50 €. En cuanto hay compras reales, manda est
 2. **Detección de demanda:** Meta Ad Library (competidores) + Google Trends (España, 90 días y 12 meses).
 3. **Prueba de mercado:** mismo producto exacto en ≥ 2 tiendas; guardar URL, fecha, screenshots de anuncios y ficha.
 4. **Duración + variaciones:** priorizar anunciantes con anuncios activos desde hace semanas y varias creatividades (pistas, no prueba de rentabilidad).
-5. **Proveedor:** variante, coste final, disponibilidad, tallas, fotos fieles, devoluciones, envíos y coste fijo de **3 €/pedido**.
+5. **Proveedor:** variante, coste final, disponibilidad, tallas, fotos fieles, devoluciones, envíos y coste fijo de **5 €/pedido** (desde el 02/11/2026; antes 3 €).
 6. **Margen:** simular pedido de 1 artículo a PVP completo (escenario base) con comisiones, logística, impuestos y devoluciones; el pedido de 2 es solo escenario favorable.
 7. **Calidad creativa:** 3–4 ganchos distinguibles; sin vídeo convincente en 3 s → bajar prioridad.
 8. **Seleccionar:** puntuar 10, 3 a final, activar solo el primero que supere filtros duros.
@@ -164,9 +164,9 @@ Medias térmicas: analizar ventas y beneficio del test previo; no presentarlas c
 
 ## Margen y CPA
 
-- Sin descuento: el ingreso del pedido es el PVP completo. Coste fijo proveedor **+3 € por pedido** (no por unidad).
+- Sin descuento: el ingreso del pedido es el PVP completo. Coste fijo proveedor **+5 € por pedido** (no por unidad; desde el 02/11/2026, antes 3 €).
 - **CPA máximo admisible (pedido)** = ingreso cobrado neto de impuestos − coste de todas las unidades
-  − 3 €/pedido − comisiones de pago − reserva devoluciones/otros variables.
+  − 5 €/pedido − comisiones de pago − reserva devoluciones/otros variables.
 - **Beneficio de contribución** = CPA máx. admisible − CPA real Meta. Negativo → no escalar.
 
 Ingreso por pedido de 1 artículo (sin costes; orientativo, base imponible si aplica IVA 21 % — en Canarias rige IGIC, confirmar con asesoría):
@@ -179,7 +179,7 @@ Ingreso por pedido de 1 artículo (sin costes; orientativo, base imponible si ap
 | Elva | 42,99 € | 35,53 € | 85,98 € |
 
 Son importes comerciales, no beneficios. Costes de Numa, Dalia, Naya y Elva no confirmados.
-Plantilla: CPA máx. ≈ PVP sin IVA − coste unidad − 3 € − comisión de pago − reserva devoluciones.
+Plantilla: CPA máx. ≈ PVP sin IVA − coste unidad − 5 € − comisión de pago − reserva devoluciones.
 
 Casos conocidos:
 - **Medias térmicas:** coste 10 €/par + 3 €/pedido; pack de 2 a 44,99 € = 20 € de producto antes de publicidad, pago, impuestos.
@@ -193,7 +193,7 @@ comisiones, devoluciones, capital de reposición. Confirmar fiscalidad Canarias/
 
 - **Escenario base = 1 artículo a PVP completo.** Más margen por pedido que antes en ventas de 1 ud,
   pero sin palanca para subir el ticket: no contar con pedidos de 2+.
-- **El +3 €/pedido pesa más** en productos baratos (Dalia, medias); en Numa/Elva pesa menos.
+- **El +5 €/pedido (antes 3 €) pesa más** en productos baratos (Dalia, medias); en Numa/Elva pesa menos.
   Esto refuerza priorizar tickets medios-altos con margen claro.
 - **Creatividades y copy** venden estética, calidad y diferencia, nunca la oferta. Revisar que ningún
   anuncio, banner, ficha o descuento automático de Shopify siga mencionando/aplicando el −25 %.
@@ -244,7 +244,7 @@ reservar capital para pedidos/proveedor antes de subir Meta.
 ## Plantilla de decisión (rellenar antes de aprobar cada anuncio)
 
 - Producto / SKU exacto
-- PVP / coste proveedor (+3 €/pedido)
+- PVP / coste proveedor (+5 €/pedido)
 - 2 competidores + enlaces
 - Meta Ad Library: fecha / creativos
 - Interés Google Trends / estacionalidad

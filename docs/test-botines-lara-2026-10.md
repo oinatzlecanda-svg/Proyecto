@@ -8,7 +8,7 @@ Decisión de la dueña (29/10/2026): primer test del mes. Base: `docs/estudio-ca
 |---|---|
 | Producto / SKU | Botines Lara con tacón medio · gid://shopify/Product/11298696528209 · Marrón y Negro, tallas 35–42 (16 variantes) |
 | PVP | **69,95 €** (decisión de la dueña, 29/10; se mantiene aunque sea piel) |
-| Coste proveedor | **16,28 €/par** puesto en España (7,21 € producto + 9,07 € servicio), envío 6–12 días · confirmado 02/11. +3 €/pedido por prudencia hasta confirmar que no se cobra aparte |
+| Coste proveedor | Presupuesto: 16,28 €/par (7,21 € producto + 9,07 € servicio), envío 6–12 días. **Cobrado 02/11: 55,64 € por los 3 pares de los 2 pedidos**, con 5 €/pedido → ≈ 15,21 €/par + 5 €/pedido (un pedido de 1 par ≈ 20,21 €) |
 | Competidores | [Rose Varenne FR](https://rosevarenne.com/products/norina-botines-piel-tacon-medio) (#1 en ventas, 49,95 €) · [Carolina Moretti IT](https://carolinamoretti.com/products/norina-bottines) (#5, 49,95 €) · también Bellandi, Atelier Deauville, Amparo Cortés, Lurea, Marina Roca |
 | Meta Ad Library | Rose Varenne: 8 anuncios desde el 11/10 · Carolina Moretti: 3 desde el 20/10 (todos llevan a la ficha) |
 | Temporada | Botín de tacón medio: otoño-invierno, pico de búsqueda de noviembre a enero |
@@ -126,4 +126,14 @@ CPA máx. de un pedido de 1 par: **31,63 €** (CPA máx. ≥ 25 € ✅). Gasto
 | Sin pedido nuevo | 98,15 € | Al llegar → PAUSAR |
 | 3.er pedido (1 par) | 129,78 € | Seguir; con ≥ 3 pedidos y beneficio > 0 se puede escalar +20 % cada 48 h |
 | 4.º pedido (1 par) | 161,41 € | Seguir / escalar si hay caja |
+
+### Corrección 02/11: cobro real del proveedor 55,64 € (3 pares, 2 pedidos, 5 €/pedido)
+Contribución de los 2 pedidos = 173,43 € − 55,64 € − comisión y reserva (20,44 €) ≈ **97,35 €** = límite de gasto.
+Gasto a 02/11 9:46: 73,97 € → beneficio acumulado **+23,38 €**. CPA máx. de un pedido de 1 par (≈ 20,21 € de coste): **30,70 €** ✅.
+
+| Situación | Límite de gasto | Decisión |
+|---|---|---|
+| Sin pedido nuevo | 97,35 € | Al llegar → PAUSAR |
+| 3.er pedido (1 par) | 128,05 € | Seguir; con beneficio > 0 y caja se puede escalar +20 % cada 48 h |
+| 4.º pedido (1 par) | 158,75 € | Seguir / escalar si hay caja |
 
