@@ -231,6 +231,8 @@ Diagnóstico clics sin ventas:
 
 ## Plan de 4 semanas
 
+Rutina de cada día de la semana (lanzamiento de tests en viernes): ver `docs/guia-semanal.md`.
+
 | Semana | Trabajo | Entregable |
 |---|---|---|
 | 1 · Radar | Investigar 10 ideas, depurar 5, anuncios/proveedor/margen | Scorecard + presupuesto de proveedor del finalista |

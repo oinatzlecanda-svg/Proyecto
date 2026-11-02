@@ -14,5 +14,7 @@ todo se calcula a PVP completo con pedido de 1 artículo como base.
 Desde el 29/10/2026 OELNOR se posiciona en calidad: PVP 50–120 € según producto,
 CPA máx. ≥ 25 €, muestra física obligatoria y nada de copy o precios engañosos.
 
+La rutina semanal (qué toca cada día; los tests se lanzan en viernes) está en `docs/guia-semanal.md`.
+
 Numa, Dalia, Naya y Elva ya no son candidatos de test. Las búsquedas semanales
 de producto se guardan en `docs/busqueda-productos-AAAA-MM-DD.md`.
