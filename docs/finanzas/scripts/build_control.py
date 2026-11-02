@@ -45,7 +45,7 @@ DATA={
  (d(2026,10,18),'MALLAS TÉRMICAS',4,94.97,41.52,77.34,''),
 ],
 (2026,11):[
- (d(2026,10,30),'BOTINES LARA',2,209.85,None,68.65,'Empezó el 30/10. #10160 (2 pares) y #10170 (1 par). En curso: Meta a 01/11. Falta coste proveedor'),
+ (d(2026,10,30),'BOTINES LARA',2,209.85,48.84,73.97,'Empezó el 30/10. #10160 (2 pares) y #10170 (1 par). Coste 16,28 €/par (7,21 producto + 9,07 servicio). En curso: Meta a 02/11 9:46'),
 ],
 }
 wb=Workbook(); res=wb.active; res.title='RESUMEN'

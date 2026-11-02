@@ -8,7 +8,7 @@ Decisión de la dueña (29/10/2026): primer test del mes. Base: `docs/estudio-ca
 |---|---|
 | Producto / SKU | Botines Lara con tacón medio · gid://shopify/Product/11298696528209 · Marrón y Negro, tallas 35–42 (16 variantes) |
 | PVP | **69,95 €** (decisión de la dueña, 29/10; se mantiene aunque sea piel) |
-| Coste proveedor | **PENDIENTE** + 3 €/pedido |
+| Coste proveedor | **16,28 €/par** puesto en España (7,21 € producto + 9,07 € servicio), envío 6–12 días · confirmado 02/11. +3 €/pedido por prudencia hasta confirmar que no se cobra aparte |
 | Competidores | [Rose Varenne FR](https://rosevarenne.com/products/norina-botines-piel-tacon-medio) (#1 en ventas, 49,95 €) · [Carolina Moretti IT](https://carolinamoretti.com/products/norina-bottines) (#5, 49,95 €) · también Bellandi, Atelier Deauville, Amparo Cortés, Lurea, Marina Roca |
 | Meta Ad Library | Rose Varenne: 8 anuncios desde el 11/10 · Carolina Moretti: 3 desde el 20/10 (todos llevan a la ficha) |
 | Temporada | Botín de tacón medio: otoño-invierno, pico de búsqueda de noviembre a enero |
@@ -90,7 +90,7 @@ Ejemplo: «El botín que se pone igual un lunes que un sábado. Tacón medio est
 | 30/10 23:44 · corte 30 € | 31,18 € | 2.603 (alcance 2.215, frec. 1,18) | 3,03 % | **0,39 €** | — | — | — | **1 real: pedido #10160** (pagado, sin cancelar, Madrid; llega de Instagram con la campaña 120252044302410190): 2 pares, Negro 38 + Marrón 38 | 139,90 € | 31,18 € | **NO PAUSAR · seguir hasta el techo de 50 € y revisión económica.** Hay compra real, así que no aplica «0 compras → pausar». Riesgo: misma talla en dos colores, probable devolución de un par |
 | 31/10 14:32 · control 40 € | 39,10 € | 3.149 (alcance 2.550, frec. 1,23) | 3,08 % | **0,40 €** | 41 desde FB/IG en total (97 clics en el enlace, 42 %) | 4 | 3 | 1 (#10160, sin cambios: pagado, sin cancelar ni reembolsos) | 139,90 € | 39,10 € | **SEGUIR hasta el techo de 50 €.** La regla de 40 € («sigue con 0 compras → pausar») no aplica porque hay 1 compra real. Al llegar a 50 €: revisión económica, sin subir presupuesto |
 | 01/11 11:57 · techo 50 € | 52,40 € | 4.244 (alcance 3.261, frec. 1,30) | 3,30 % | **0,37 €** | 59 desde FB/IG en total (140 clics en el enlace) | 6 | 4 | **2 reales:** #10160 (139,90 €, 2 pares, Madrid) y #10170 (69,95 €, Negro 38, Cádiz; Shopify no registra el origen, Meta cuenta 2 compras) | 209,85 € | 26,20 € | **NO PAUSAR · NO SUBIR.** Techo alcanzado con compras reales: revisión económica. Se mantienen 25 €/día en seguimiento hasta tener el coste (lunes 2/11) y 3 pedidos reales |
-
+| 02/11 09:46 · revisión con coste | 73,97 € | 6.317 (alcance 4.596, frec. 1,37) | 4,04 % | **0,29 €** | — | — | — | 2 (#10160 y #10170, pagados, sin cancelar; Meta también cuenta 2) | 209,85 € | 36,99 € | **MANTENER 25 €/día, NO ESCALAR.** Coste 16,28 €/par → límite de la regla de beneficio 98,15 €; beneficio acumulado +24,18 €. Pausar si llega a 98 € sin tercer pedido. Con 3.er pedido de 1 par el límite sube a 129,78 € |
 ## Revisión económica en el techo de 50 € (01/11)
 2 pedidos, 3 pares, 209,85 € cobrados (173,43 € sin IVA), 52,40 € de anuncios. Coste sin confirmar:
 
@@ -116,4 +116,14 @@ Con los 2 pedidos actuales (3 pares, 173,43 € sin IVA):
 
 Gasto a 01/11: 68,65 €. Hasta conocer el coste (lunes 2/11) el límite es **72 €**: si se llega sin un tercer pedido → pausar.
 Con el coste confirmado se recalcula el límite con la fila que toque.
+
+### Con el coste confirmado (02/11): 16,28 €/par
+Contribución de los 2 pedidos = 173,43 € sin IVA − 3 × 16,28 € − 2 × 3 € − comisión y reserva de devoluciones ≈ **98,15 €** = límite de gasto.
+CPA máx. de un pedido de 1 par: **31,63 €** (CPA máx. ≥ 25 € ✅). Gasto a 02/11 9:46: 73,97 € → beneficio acumulado **+24,18 €**.
+
+| Situación | Límite de gasto | Decisión |
+|---|---|---|
+| Sin pedido nuevo | 98,15 € | Al llegar → PAUSAR |
+| 3.er pedido (1 par) | 129,78 € | Seguir; con ≥ 3 pedidos y beneficio > 0 se puede escalar +20 % cada 48 h |
+| 4.º pedido (1 par) | 161,41 € | Seguir / escalar si hay caja |
 
