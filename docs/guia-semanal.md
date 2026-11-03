@@ -1,11 +1,11 @@
 # Guía semanal OELNOR
 
-Decisión de la dueña (02/11/2026). Cada semana se repite el mismo orden para que los tests sean comparables.
+Decisión de la dueña (02/11/2026; contenido orgánico los lunes añadido el 03/11/2026). Cada semana se repite el mismo orden para que los tests sean comparables.
 Reglas de corte, de beneficio y de escalado: `docs/estrategia-meta-ads-octubre-2026.md`.
 
 | Día | Qué hacer | Resultado |
 |---|---|---|
-| **Lunes** | Cerrar la semana anterior: pedidos de Shopify, costes del proveedor y gasto de Meta en el Excel (`docs/finanzas/OELNOR-control-financiero.xlsx`). Mandar los pedidos al proveedor | Excel al día y pedidos enviados |
+| **Lunes** | Cerrar la semana anterior: pedidos de Shopify, costes del proveedor y gasto de Meta en el Excel (`docs/finanzas/OELNOR-control-financiero.xlsx`). Mandar los pedidos al proveedor. **Preparar el contenido orgánico de la semana para Instagram, TikTok y Facebook** | Excel al día, pedidos enviados y publicaciones de la semana preparadas |
 | **Martes** | Búsqueda de productos: 10 ideas con anuncios activos y competidores | `docs/busqueda-productos-AAAA-MM-DD.md` |
 | **Miércoles** | Quedarse con 3 finalistas. Pedir al proveedor coste por escrito (+5 €/pedido) y muestra | Coste y CPA máx. de cada finalista |
 | **Jueves** | Preparar el test del elegido: ficha (tallas, plazo de entrega real, material), fotos y creativos | Ficha lista y 4 creativos |
