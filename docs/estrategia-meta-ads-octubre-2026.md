@@ -157,6 +157,8 @@ jeans Stella/Alba, Botas Sora, medias térmicas, y también (por tráfico de anu
 Bolso Siena, Bolso Aria, Chaqueta Lena, Chaqueta Kaia, Portalabial Mía y Bolso Mara.
 Repetir exige hipótesis escrita y datos nuevos.
 
+**Búsqueda del 03/11/2026:** 20 candidatos nuevos con scorecard en `docs/busqueda-productos-2026-11-03.md` (pendiente: presupuesto de proveedor y segundo estudio para quedarse con 10).
+
 **Estudio del catálogo (29/10/2026):** ver `docs/estudio-catalogo-tests-2026-10-29.md`. Orden propuesto:
 Botines Lara → Cárdigan Mila → Mary Jane Olivia (reserva: Vestido Adela). Cada uno solo tras
 muestra física y coste confirmado. El catálogo antiguo no muestra señal de demanda.
