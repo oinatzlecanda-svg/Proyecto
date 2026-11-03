@@ -74,3 +74,92 @@ coste y muestra**: la guía exige ambos como filtro duro.
 3. **Repetir Meta Ad Library** de las tiendas con 0 resultados (Amparo Cortés, Alda Salvat, Marta Belmonte, Sira Montero,
    Ana Martínez, Camila López, Silvia Dávila), en horas distintas para evitar el límite de Facebook.
 4. Ganchos creativos (3–4 por producto) y comprobar que hay material para vídeo de 3 s.
+
+---
+
+# Segundo estudio · 20 → 10 (03/11/2026)
+
+## Datos nuevos
+
+- **Coste del proveedor:** la dueña confirma que **ningún producto supera los 25 €**. Sin el precio exacto de cada uno,
+  se aplica el escenario pesimista (regla de la estrategia): **25 € + 5 €/pedido** para todos.
+- **PVP** dentro de los rangos de `docs/precios-posicionamiento-2026-10-29.md` (blazer 79–99, abrigo 89–119, chaqueta 69–99,
+  vestido 55–79, cárdigan 55–75, jersey 49–69, calzado 79–119 solo si es piel real).
+- **Meta Ad Library, segunda pasada** (6 tiendas más y 19 búsquedas por tipo de prenda en ES, FR, IT). Productos idénticos encontrados en más tiendas:
+
+| Producto | Antes | Ahora |
+|---|---|---|
+| Zapatos de tacón con cordones | 25 anuncios · 3 tiendas | **30 anuncios · 4 tiendas** (+ [Maison Sandrine](https://maison-sandrine.com/products/audrey-escarpins-retro-lacets) 5 desde 30/10) |
+| Blazer con mangas de encaje | 18 · 4 | **19 · 5** (+ [Martina Serrano](https://martinaserrano.es/products/teresa-blazer-con-maniche-semitrasparenti)) |
+| Cárdigan oversize con botones dorados | 0 · 6 | **5 · 8** (+ [Camilla Ferretti](https://camilla-ferretti.com/products/carlotta-cardigan) 4, [Florinie](https://florinie.com/products/merax-gilet-oversize-boutons-dores) 1 desde 16/09) |
+| Blazer de espiga con ribete | 0 · 4 | **3 · 5** (+ [Martina Agustí](https://martinaagusti.com/products/bella-blazer) desde 23/10, #2) |
+| Blazer con mangas de punto | 0 · 4 | **2 · 5** (+ [Alba Montoro](https://albamontoro.com/products/blazer-carla) desde 28/10, #1) |
+
+- **Google Trends:** sigue bloqueado desde el servidor (error 429). Pendiente de mirar a mano.
+
+## CPA máx. con coste 25 € + 5 €/pedido
+
+CPA máx. = PVP/1,21 − 25 − 5 − (1,5 % PVP + 0,25) − 8 % PVP.
+
+| PVP | 64,95 | 69,95 | 74,95 | 78,95 | 79,95 | 84,95 | 89,95 | 99,95 | 109,95 |
+|---|---|---|---|---|---|---|---|---|---|
+| CPA máx. | 17,3 ❌ | 20,9 ❌ | 24,6 ❌ | 27,5 | 28,2 | 31,9 | 35,5 | 42,9 | 50,2 |
+
+Con coste de 25 €, **por debajo de ~77 € de PVP no se llega al CPA mínimo de 25 €**: jerséis, poncho y cárdigan quedan fuera
+salvo que su coste real sea bastante menor.
+
+## Scorecard actualizado
+
+Economía: CPA ≥ 40 → 22 · 35–40 → 20 · 30–35 → 18 · 27–30 → 15 · 25–27 → 12 · < 25 → 5 (no pasa el filtro duro).
+Proveedor: 5/10 (coste máximo confirmado; faltan composición, fotos reales y muestra).
+
+| Puesto | Producto | PVP | CPA máx. | Anun. /20 | Exac. /15 | Econ. /25 | Gan. /15 | Temp. /10 | Prov. /10 | Aj. /5 | **Total** |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| **1** | Abrigo largo clásico con botones | 99,95 € | 42,9 € | 13 | 13 | 22 | 11 | 10 | 5 | 4 | **78** |
+| **2** | Blazer con mangas de encaje semitransparentes | 79,95 € | 28,2 € | 16 | 15 | 15 | 13 | 7 | 5 | 4 | **75** |
+| **3** | Abrigo largo vaquero estilo militar | 99,95 € | 42,9 € | 4 | 15 | 22 | 14 | 8 | 5 | 5 | **73** |
+| **4** | Abrigo largo de terciopelo | 99,95 € | 42,9 € | 7 | 13 | 22 | 12 | 9 | 5 | 4 | **72** |
+| **5** | Chaqueta acolchada con capucha y mangas de punto | 79,95 € | 28,2 € | 12 | 15 | 15 | 11 | 9 | 5 | 3 | **70** |
+| **6** | Abrigo de paño con botones | 99,95 € | 42,9 € | 13 | 4 | 22 | 11 | 10 | 5 | 4 | **69** |
+| **7** | Abrigo largo reversible acolchado / borrego | 109,95 € | 50,2 € | 10 | 4 | 22 | 13 | 10 | 5 | 4 | **68** |
+| **8** | Chaqueta larga de terciopelo bordada | 89,95 € | 35,5 € | 4 | 15 | 20 | 12 | 8 | 5 | 4 | **68** |
+| **9** | Vestido largo de antelina con cinturón | 78,95 € | 27,5 € | 7 | 15 | 15 | 12 | 7 | 5 | 4 | **65** |
+| **10** | Chaqueta acolchada con cuello drapeado asimétrico | 84,95 € | 31,9 € | 11 | 4 | 18 | 13 | 9 | 5 | 5 | **65** |
+| reserva | Zapatos de tacón con cordones vintage | 69,95 € | 20,9 € ❌ | 18 | 15 | 5 | 12 | 6 | 5 | 4 | 65 |
+| reserva | Abrigo con capucha forrado de borrego | 89,95 € | 35,5 € | 4 | 13 | 20 | 10 | 10 | 5 | 3 | 65 |
+| 13 | Vestido corto de antelina con cuello de cremallera | 78,95 € | 27,5 € | 9 | 11 | 15 | 11 | 7 | 5 | 5 | 63 |
+| 13 | Blazer con mangas de punto | 79,95 € | 28,2 € | 6 | 15 | 15 | 11 | 7 | 5 | 4 | 63 |
+| 13 | Blazer de espiga con ribete en contraste | 79,95 € | 28,2 € | 7 | 15 | 15 | 10 | 7 | 5 | 4 | 63 |
+| 16 | Chaqueta acolchada bicolor con capucha | 79,95 € | 28,2 € | 8 | 11 | 15 | 10 | 9 | 5 | 2 | 60 |
+| 17 | Cárdigan oversize con botones dorados | 74,95 € | 24,6 € ❌ | 9 | 15 | 5 | 12 | 9 | 5 | 3 | 58 |
+| 18 | Jersey oversize con cuello drapeado | 64,95 € | 17,3 € ❌ | 4 | 15 | 5 | 10 | 9 | 5 | 4 | 52 |
+| 19 | Poncho de punto con capucha | 74,95 € | 24,6 € ❌ | 9 | 4 | 5 | 12 | 9 | 5 | 4 | 48 |
+| 20 | Jersey de ochos con cuello y botones | 64,95 € | 17,3 € ❌ | 7 | 4 | 5 | 10 | 9 | 5 | 4 | 44 |
+
+Empates en 65: entran el vestido largo (5 tiendas lo venden) y la chaqueta de cuello drapeado (9 anuncios en 4 días).
+**Zapatos de cordones:** la mejor señal de demanda de toda la búsqueda (30 anuncios, 4 tiendas), pero a 69,95 € con coste
+de 25 € no llega al CPA mínimo. Solo entra si el proveedor confirma **piel real** (rango de calzado 79–119 €) o un coste ≤ 19 €.
+
+## Los 10 · ganchos para creativos (paso 7)
+
+| # | Producto | Ganchos (3 s) |
+|---|---|---|
+| 1 | Abrigo largo clásico con botones | El abrigo que no pasa de moda · un abrigo, 5 looks (vaqueros, traje, vestido) · caída y largo en movimiento · detalle de botones y solapa |
+| 2 | Blazer con mangas de encaje | De la oficina a la cena sin cambiarte · primer plano del encaje a contraluz · el blazer que no es básico · con vaqueros y camiseta blanca |
+| 3 | Abrigo vaquero militar | Botones dorados en primer plano · el abrigo que todo el mundo pregunta dónde es · vaquero de pies a cabeza · giro completo |
+| 4 | Abrigo largo de terciopelo | Tacto del terciopelo a cámara · color que destaca en la calle gris · look de fiestas · corte sastre en movimiento |
+| 5 | Chaqueta acolchada con capucha | Abrigo sin peso · capas: camiseta + chaqueta · paseo con frío · bolsillos y capucha |
+| 6 | Abrigo de paño con botones | Básico de invierno bien hecho · camel con todo · cuello subido al viento · comparativa de colores |
+| 7 | Abrigo reversible | Dos abrigos en uno (darle la vuelta en 3 s) · borrego por dentro · largo que tapa del frío · 2 colores |
+| 8 | Chaqueta de terciopelo bordada | Bordado en macro · vaqueros + chaqueta = look de noche · pieza única en el armario · giro |
+| 9 | Vestido largo de antelina | Botas + vestido + cinturón: look de otoño · caída al caminar · tacto · 4 colores |
+| 10 | Chaqueta de cuello drapeado | El cuello que cambia la silueta · 3 formas de llevar el cuello · negro total · paseo urbano |
+
+## Riesgos antes de elegir el test
+
+1. **Cinco de los 10 son abrigos.** Para el test del viernes, uno solo; si funciona, el resto sirve para escalar la categoría.
+2. **Precio frente a las tiendas que lo anuncian:** ellas venden lo mismo a 45–65 € (con tachados falsos). A 80–100 €, OELNOR
+   tiene que justificar la diferencia con fotos reales, composición y calidad comprobada en la muestra; si no, la clienta lo
+   encuentra más barato.
+3. **Filtros duros pendientes:** muestra física, composición por escrito, fotos reales y coste exacto de cada uno.
+   Hasta tenerlos, ninguno está aprobado para testear, aunque el abrigo (78) y el blazer (75) superen los 75 puntos.
