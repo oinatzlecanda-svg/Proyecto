@@ -70,3 +70,21 @@ ninguna venta** (si ya hay ventas, se mantiene; ver también la Directiva Ómnib
 
 ⚠️ = solo se puede testear en Meta si el coste real queda por debajo de esa cifra; si no, se sube el precio antes del test.
 Fórmula: coste máx. = PVP × 0,731 − 30,25 € (IVA 21 %, 5 €/pedido, comisión Shopify, 8 % reserva de devoluciones).
+
+## Guías de tallas (04/11/2026)
+Añadida una tabla «Guía de tallas» en la ficha de los 9 productos, debajo de «Talla y ajuste», copiada de las tiendas de origen:
+
+| Producto | Fuente de la tabla | Medidas |
+|---|---|---|
+| Abrigo Irene | Elena Duero / Anais Roux | Talla española, pecho, largo, manga |
+| Blazer Inés | Anna Luce | Pecho y cintura **del cuerpo**; manga y largo de la prenda |
+| Abrigo Valeria | Alma Valenne (imagen) | Pecho, largo, manga |
+| Chaqueta Leire | Carolina Moretti / Rose Varenne | Pecho, largo, manga |
+| Abrigo Martina | Valenti Sartoria (talla IT pasada a española: IT − 4) | Pecho, largo total |
+| Chaqueta Julia | Alda Salvat | Pecho, largo, manga |
+| Vestido Ainhoa | Alma Valenne (imagen) | Talla española, pecho, largo |
+| Chaqueta Sara | Bianca Corsi | Pecho, hombros, manga, largo |
+| Zapatos Clara | Anna Montero | Largo del pie (35–42) |
+
+Son las medidas que publican esas tiendas, no medidas comprobadas: **confirmarlas con el proveedor y con la muestra** y corregir
+la tabla si no coinciden.
