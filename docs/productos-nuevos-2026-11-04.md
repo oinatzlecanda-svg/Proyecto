@@ -49,4 +49,4 @@ Se bajan al escalón más bajo del rango de posicionamiento que mantiene el **CP
 | Blazer Inés, Chaqueta Leire | 79,95 € | sin cambio (ya en el mínimo) | 28,2 € |
 | Zapatos Clara | 69,95 € | sin cambio | 20,9 € ❌ (no testear hasta tener coste) |
 
-Con el coste exacto de cada uno se puede bajar más: por cada 5 € menos de coste, el PVP puede bajar unos 6 €.
+Con el coste exacto de cada uno se puede bajar más: por cada 5 € menos de coste, el PVP puede bajar unos 7 €.
