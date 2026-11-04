@@ -50,3 +50,23 @@ Se bajan al escalón más bajo del rango de posicionamiento que mantiene el **CP
 | Zapatos Clara | 69,95 € | sin cambio | 20,9 € ❌ (no testear hasta tener coste) |
 
 Con el coste exacto de cada uno se puede bajar más: por cada 5 € menos de coste, el PVP puede bajar unos 7 €.
+
+## Segunda bajada (04/11/2026) · decisión de la dueña, asumiendo el riesgo
+La dueña pide bajar más los precios y asume que, con el coste pesimista (25 €), algunos quedan por debajo del CPA máx. de 25 €.
+**Regla acordada:** cuando el proveedor dé el coste de cada producto, se reajusta el precio **solo si ese producto no tiene
+ninguna venta** (si ya hay ventas, se mantiene; ver también la Directiva Ómnibus si algún día se usa precio tachado).
+
+| Producto | PVP ahora | Coste máximo para CPA máx. ≥ 25 € |
+|---|---|---|
+| Abrigo Martina reversible | 89,95 € | 35,5 € ✅ |
+| Abrigo Irene de paño | 79,95 € | 28,2 € ✅ |
+| Abrigo Valeria vaquero | 79,95 € | 28,2 € ✅ |
+| Chaqueta Julia de terciopelo | 74,95 € | 24,6 € (justo) |
+| Blazer Inés | 69,95 € | 20,9 € ⚠️ |
+| Chaqueta Leire | 69,95 € | 20,9 € ⚠️ |
+| Chaqueta Sara | 69,95 € | 20,9 € ⚠️ |
+| Vestido Ainhoa | 69,95 € | 20,9 € ⚠️ |
+| Zapatos Clara | 59,95 € | 13,6 € ⚠️ |
+
+⚠️ = solo se puede testear en Meta si el coste real queda por debajo de esa cifra; si no, se sube el precio antes del test.
+Fórmula: coste máx. = PVP × 0,731 − 30,25 € (IVA 21 %, 5 €/pedido, comisión Shopify, 8 % reserva de devoluciones).
