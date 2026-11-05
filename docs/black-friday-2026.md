@@ -26,10 +26,19 @@ evita el requisito de «precio más bajo de los últimos 30 días» de la direct
 - ⚠️ **Hay que publicar ese tema** antes del 26/11 (es una copia del actual con solo este cambio). Si se edita el tema publicado
   antes, hay que repetir el cambio sobre la copia.
 
+## Portada, barra superior y fichas (05/11/2026, mismo tema «Black Friday regalo»)
+- **Barra superior:** «Black Friday: compra 2 piezas y llévate unas medias térmicas de regalo» (enlace a Mujer) + envío gratis + 30 días.
+- **Portada:** titular «Compra dos, te regalamos.» con la explicación y botón «Elegir mis dos piezas»; cinta «Black Friday ·
+  Compra 2 · medias de regalo · Hasta el lunes 30 · Envío gratis»; carrusel «Elige tus dos» con los 8 productos de temporada
+  (Irene, Lara, Inés, Martina, Valeria, Julia, Ainhoa, Sara); destacado: Abrigo Irene.
+- **Fichas:** franja superior y nota bajo el precio con la oferta.
+- Estos cambios **no llevan fecha**: se ven mientras el tema esté publicado. **Publicarlo el 26/11 por la noche y volver a
+  publicar el tema normal («Animaciones suaves · 4 NOV») el martes 1/12.** El aviso del carrito y el descuento sí van por fecha.
+- Captura: `docs/tema/carrito-2026-11-04/black-friday-portada-ficha.jpg`.
+
 ## Pendiente (antes del 26/11)
 - [ ] Confirmar con el proveedor **stock de medias de 1 par** en XS-S, M-L y XL-2XL para ~30 pedidos.
-- [ ] Publicar el tema «Black Friday regalo».
-- [ ] Barra superior de la web del 26/11 al 30/11: «Black Friday: compra 2 piezas y llévate unas medias térmicas de regalo».
+- [ ] Publicar el tema «Black Friday regalo» el 26/11 (noche) y volver al normal el 1/12.
 - [ ] Emails Klaviyo: jueves 26 (19:00) aviso a suscriptoras; viernes 27 (9:00) «Ya está aquí»; lunes 30 (9:00) «Último día».
 - [ ] Meta: texto del anuncio activo con la oferta del 27 al 30 (sin urgencias falsas: «hasta el lunes 30» es real).
 - [ ] Recordar que desde el 16/11 los anuncios se encarecen: valorar presupuesto con la regla de beneficio.
