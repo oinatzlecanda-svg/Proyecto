@@ -1,16 +1,19 @@
 # Creativos · Test Abrigo Irene (Higgsfield, 05/11/2026)
 
 Generados con IA: GPT Image 2.5 (calidad alta, 2K) para las fotos y Kling 3.0 Pro (8 s, 9:16, sin sonido) para los vídeos.
-**Gasto total: 75 créditos** (1.ª ronda 41,75 + 2.ª ronda 33,25). Saldo: 178,9.
+**Gasto total: 125 créditos** (1.ª ronda 41,75 + 2.ª ronda 33,25 + 3.ª ronda 50). Saldo: 128,9.
+
+## 3.ª ronda: textura real del paño (05/11/2026)
+La dueña aportó un primer plano del proveedor (`referencia-textura-proveedor.jpg`): el paño **no es liso**, lleva un
+**relieve tono sobre tono con dibujo de volutas/arabescos** (tipo jacquard gofrado). La 2.ª ronda lo había alisado por error.
+Se rehacen con esa foto como referencia: los 3 bodegones de la ficha (sustituidos en Shopify con `fileUpdate`, mismos
+MediaImage y mismos enlaces a cada color), las 3 fotos (+ 2 con texto) y los 2 vídeos (paseo y UGC).
 
 ## 2.ª ronda (petición de la dueña)
-- **Material igual al del proveedor:** las fotos se rehacen usando como referencia las fotos reales del proveedor
-  (paño liso, mate y cepillado, sin relieve tipo bouclé), además del bodegón para el corte.
+- ~~Material liso~~ (corregido en la 3.ª ronda: el paño real tiene relieve de volutas).
 - **Un vídeo UGC:** sustituye al vídeo del viento (que además inventaba una trabilla en la espalda).
 - **Fotos con texto:** 01b y 03b.
-- **Bodegones de la ficha** (`docs/creativos/fondo-blanco/nuevos-2026-11-04/serena_*.jpg`): rehechos con el paño
-  del proveedor y suavizado ligero de la textura (sin tocar costuras ni botones). Sustituidos en Shopify con
-  `fileUpdate` sobre los mismos MediaImage, así que cada color sigue enlazado a su foto.
+- Bodegones de la ficha (`docs/creativos/fondo-blanco/nuevos-2026-11-04/serena_*.jpg`): ver 3.ª ronda.
 
 Revisados contra el producto: largo a la rodilla, cintura entallada con costuras princesa, cuello alto,
 botones oscuros, bolsillos de ojal inclinados. **Al recibir la muestra, comprobar que coincide.** Si no, no usar.
@@ -24,7 +27,7 @@ botones oscuros, bolsillos de ojal inclinados. **Al recibir la muestra, comproba
 | `02-noche-negro.jpg` | Foto 4:5 | Versatilidad: de noche con vestido negro |
 | `03-detalle-cuello-camel.jpg` | Foto 4:5 | Detalle de cuello, botones y paño |
 | `03b-detalle-cuello-camel-texto.jpg` | Foto 4:5 con texto | «Cuello alto, cintura entallada» · 79,95 € |
-| `v1-paseo-camel.mp4` | Vídeo 9:16, 8 s | Paseo hacia cámara (1.ª ronda: paño algo más texturizado que el real) |
+| `v1-paseo-camel.mp4` | Vídeo 9:16, 8 s | Paseo hacia cámara |
 | `v2-ugc-espejo-camel.mp4` | Vídeo 9:16, 8 s, UGC | Selfie en el espejo de casa, con textos en pantalla |
 | `v1-inicio-camel.jpg`, `v2-inicio-ugc-camel.jpg` | 9:16 | Fotograma inicial de cada vídeo (sirven para Stories) |
 
@@ -39,7 +42,7 @@ Usar las fotos con texto **o** sin texto como variantes del mismo anuncio, no co
 |---|---|
 | 01 · Editorial | El abrigo que no pasa de moda. Cuello alto, cintura entallada y largo a la rodilla. En camel, gris y negro. |
 | 02 · Noche | Con vaqueros por el día, con vestido por la noche. Un solo abrigo para todo el invierno. |
-| 03 · Detalle | Fíjate en el cuello: alto y firme. Botones oscuros, costuras que entallan y un paño suave y mate. |
+| 03 · Detalle | Fíjate en el cuello: alto y firme. Botones oscuros, costuras que entallan y un paño con relieve de volutas. |
 | v1 · Paseo | El abrigo de los días de otoño: se pone con todo y queda bien siempre. Camel, gris o negro, tallas S–3XL. |
 | v2 · UGC | Cuello alto, cintura entallada y bolsillos para las manos frías. Abrigo Irene en camel, gris o negro. |
 
@@ -55,5 +58,5 @@ Los .mp4 ya llevan música (8 s, fundidos, −14 LUFS). **Súbelos tal cual a Me
 | v2 UGC | «Motivating Mornings» (https://assets.mixkit.co/music/33/33.mp3) | 0:33,5–0:41,5 |
 
 Originales de Higgsfield sin música ni textos (1080×1912):
-- v1: https://d8j0ntlcm91z4.cloudfront.net/user_3J3oLu0MClJ7HT7piSotMD6L8d7/hf_20261105_003627_6fb2ace3-7ff0-4ffc-9227-db293f120eaa.mp4
-- v2 UGC: https://d8j0ntlcm91z4.cloudfront.net/user_3J3oLu0MClJ7HT7piSotMD6L8d7/hf_20261105_005613_4efcd263-92ae-481e-8f38-a62798922e6f.mp4
+- v1: https://d8j0ntlcm91z4.cloudfront.net/user_3J3oLu0MClJ7HT7piSotMD6L8d7/hf_20261105_010734_0a66f049-265b-4fab-910f-93758e1858e2.mp4
+- v2 UGC: https://d8j0ntlcm91z4.cloudfront.net/user_3J3oLu0MClJ7HT7piSotMD6L8d7/hf_20261105_010639_f2855e87-5a61-4948-b640-cce8aea1a844.mp4
