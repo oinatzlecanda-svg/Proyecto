@@ -88,3 +88,9 @@ Añadida una tabla «Guía de tallas» en la ficha de los 9 productos, debajo de
 
 Son las medidas que publican esas tiendas, no medidas comprobadas: **confirmarlas con el proveedor y con la muestra** y corregir
 la tabla si no coinciden.
+
+## Abrigo Irene · corrección de ficha (05/11/2026)
+La descripción decía «largo a medio muslo» y «corte recto», pero la guía de tallas (largo 91–96 cm) y las fotos muestran un
+abrigo **a la rodilla y entallado**. Corregido: «cintura entallada y largo a la rodilla», «Corte entallado» en talla y ajuste,
+y el tejido pasa de «efecto paño» a «paño suave con relieve de volutas en el mismo color» (primer plano del proveedor).
+Fotos de la ficha rehechas con ese relieve (ver `docs/creativos/abrigo-irene/README.md`).
