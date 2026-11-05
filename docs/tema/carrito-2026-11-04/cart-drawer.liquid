@@ -477,6 +477,40 @@
                     {%- endfor -%}
                   </tbody>
                 </table>
+      {%- comment -%} Black Friday 2026: compra 2 piezas y llévate medias de regalo (descuento automático de Shopify). {%- endcomment -%}
+      {%- assign o3bf_now = 'now' | date: '%s' | plus: 0 -%}
+      {%- if cart != empty and o3bf_now >= 1795734000 and o3bf_now <= 1796079599 -%}
+        {%- assign o3bf_pieces = 0 -%}
+        {%- assign o3bf_has_gift = false -%}
+        {%- for item in cart.items -%}
+          {%- if item.product_id == 11254820503889 -%}
+            {%- if item.variant.option1 == '1 par' -%}{%- assign o3bf_has_gift = true -%}{%- endif -%}
+          {%- else -%}
+            {%- assign o3bf_pieces = o3bf_pieces | plus: item.quantity -%}
+          {%- endif -%}
+        {%- endfor -%}
+        <div class="o3bf">
+          <p class="o3bf__tag">Black Friday · hasta el lunes 30</p>
+          {%- if o3bf_pieces < 2 -%}
+            <p class="o3bf__txt">Añade <strong>una pieza más</strong> y llévate unas <strong>medias térmicas de regalo</strong> (valor 24,99 €).</p>
+          {%- elsif o3bf_has_gift -%}
+            <p class="o3bf__txt">🎁 Tus medias de regalo ya están en la cesta. Se descuentan solas al pagar.</p>
+          {%- else -%}
+            <p class="o3bf__txt">🎁 <strong>¡Tienes regalo!</strong> Elige tu talla de medias térmicas y te salen gratis.</p>
+            {%- assign o3bf_p = all_products['medias-termicas-efecto-transparente-200-g'] -%}
+            <div class="o3c-up__item o3bf__gift">
+              <div class="o3c-up__row">
+                <select class="o3c-up__select" data-o3c-variant aria-label="Talla de las medias de regalo">
+                  {%- for v in o3bf_p.variants -%}
+                    {%- if v.option1 == '1 par' and v.available -%}<option value="{{ v.id }}">{{ v.option2 }}</option>{%- endif -%}
+                  {%- endfor -%}
+                </select>
+                <button type="button" class="o3c-up__add" data-o3c-add>Añadir regalo</button>
+              </div>
+            </div>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
       {%- if cart != empty -%}
         {%- assign o3c_in_cart = cart.items | map: 'product_id' -%}
         {%- assign o3c_count = 0 -%}
@@ -485,6 +519,7 @@
             {%- if o3c_count >= 6 -%}{%- break -%}{%- endif -%}
             {%- unless p.available -%}{%- continue -%}{%- endunless -%}
             {%- if o3c_in_cart contains p.id -%}{%- continue -%}{%- endif -%}
+            {%- if p.id == 11254820503889 and o3bf_now >= 1795734000 and o3bf_now <= 1796079599 -%}{%- continue -%}{%- endif -%}
             {%- assign o3c_count = o3c_count | plus: 1 -%}
             <li class="o3c-up__item">
               <a class="o3c-up__media" href="{{ p.url }}" tabindex="-1" aria-hidden="true">
@@ -711,6 +746,13 @@
   cart-drawer cart-drawer-items{display:flex;flex-direction:column;flex:1 1 auto;min-height:0;overflow-y:auto}
   cart-drawer .cart-drawer__form,cart-drawer .drawer__contents,cart-drawer .drawer__cart-items-wrapper{display:flex;flex-direction:column;flex:1 0 auto}
   cart-drawer .o3c-up{margin-top:auto;padding:2rem 0 1.2rem}
+  .o3bf{margin:1.6rem 0 .4rem;padding:1.4rem 1.6rem;background:#fff;border:1px solid rgba(58,45,41,.18)}
+  .o3bf__tag{margin:0 0 .4rem;font-size:1.05rem;letter-spacing:.12em;text-transform:uppercase;color:var(--o3-accent,#b8806f)}
+  .o3bf__txt{margin:0;font-size:1.35rem;line-height:1.45}
+  .o3bf__gift{display:block;padding:0;margin-top:1rem;background:none;max-width:none}
+  .o3bf__gift .o3c-up__row{flex-direction:row;align-items:stretch}
+  .o3bf__gift .o3c-up__select{flex:1;width:auto}
+  .o3bf__gift .o3c-up__add{width:auto;flex:0 0 auto;padding:0 1.4rem;background:var(--o3-ink,#3a2d29);color:#fff}
   .o3c-trust{margin:1.2rem 0 1rem;text-align:center;font-size:1.2rem;letter-spacing:.02em;color:rgba(58,45,41,.72)}
   .o3c-pay{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;list-style:none;margin:0;padding:0}
   .o3c-pay li{display:flex;line-height:0}
