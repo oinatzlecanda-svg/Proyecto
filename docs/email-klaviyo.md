@@ -41,3 +41,10 @@ Vista previa en móvil: `docs/creativos/abrigo-irene/email-novedad-preview.png`.
 - Lista de Klaviyo: 24 personas; Shopify: 54 clientes. Comprobar en Klaviyo → Integraciones → Shopify que está activada
   la sincronización de suscriptores con la lista «Oelnor | Suscriptores email» (si no, el popup no las añade y la bienvenida no salta).
 - Dirección postal de la empresa en Klaviyo (aparece en el pie de los emails; ver Ajustes → Cuenta).
+
+## Entregabilidad (05/11/2026)
+- Dominio de envío Klaviyo `send.oelnorstore.com` y DKIM (`mtd1`/`mtd2._domainkey`): verificados. SPF correcto.
+- **Problema:** había **dos registros DMARC** (`p=quarantine` y `p=none`): Gmail lo trata como DMARC inválido → spam.
+- **Arreglado** en GoDaddy (DNS `domaincontrol.com`): un solo registro
+  `_dmarc` TXT = `v=DMARC1; p=none; rua=mailto:dmarc_rua@onsecureserver.net;` (comprobado en Google y Cloudflare DNS).
+- Pasar a `p=quarantine` cuando lleve unas semanas sin problemas.
