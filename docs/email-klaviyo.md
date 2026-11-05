@@ -33,7 +33,7 @@ El «email cada 7 días» no puede ser un flujo (un flujo repite siempre el mism
 
 | Fecha | Campaña | Asunto | Estado |
 |---|---|---|---|
-| 06/11/2026 | Novedad semanal · Abrigo Irene (plantilla `UriJuV`) | El abrigo que no pasa de moda | Borrador, pendiente de revisión |
+| 05/11/2026 19:00 (Canarias) | Novedad semanal · Abrigo Irene (plantilla `UriJuV`) | El abrigo que no pasa de moda | **Programada** (aprobada por la dueña) |
 
 Vista previa en móvil: `docs/creativos/abrigo-irene/email-novedad-preview.png`.
 
