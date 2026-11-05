@@ -32,4 +32,4 @@ Pedido #10190 = compra de prueba (modo de prueba): cancelar, no cuenta.
 
 | Fecha | Gasto | CPC enlace | ATC | Pedidos | Contribución acum. | Beneficio acum. | Decisión |
 |---|---|---|---|---|---|---|---|
-| 05/11 | — | — | — | 1 | 43,89 € | — | En curso |
+| 05/11 14:40 | 9,01 € | 0,20 € (CTR enlace 4,64 %, 45 clics; Shopify: 22 visitas) | 0 | 1 | 43,89 € | +34,88 € | Seguir. Coste por compra 9,01 € (máx. 33,74 €). No tocar precio |
