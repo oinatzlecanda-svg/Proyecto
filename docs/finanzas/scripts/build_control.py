@@ -8,13 +8,13 @@ BLACKF=PatternFill('solid',fgColor='000000'); BEIGE=PatternFill('solid',fgColor=
 BLUEF=PatternFill('solid',fgColor='C5E3F2'); WHITE=PatternFill('solid',fgColor='FFFFFF')
 RED=PatternFill('solid',fgColor='F4C7C3'); GREEN=PatternFill('solid',fgColor='D4EDDA')
 s=Side(style='thin',color='BFBFBF'); B=Border(top=s,bottom=s,left=s,right=s)
-EUR='#,##0.00 €;-#,##0.00 €;"-"'; PCT='0.0%;-0.0%;"-"'; DATE='dd/mm/yyyy'
+EUR='#,##0.00 €;-#,##0.00 €;"-"'; ROASF='0.00"x"'; PCT='0.0%;-0.0%;"-"'; DATE='dd/mm/yyyy'
 C=Alignment(horizontal='center',vertical='center',wrap_text=True)
 MESES=['ENERO','FEBRERO','MARZO','ABRIL','MAYO','JUNIO','JULIO','AGOSTO','SEPTIEMBRE','OCTUBRE','NOVIEMBRE','DICIEMBRE']
 CORTO=['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic']
 NROWS=40; FIRST=6; LAST=FIRST+NROWS-1
-COLS=['Fecha','Test / Producto','Pedidos','Precio / Ingresos (€)','Impuesto Shopify (€)','Coste proveedor (€)','Meta Ads (€)','Beneficio neto (€)','Notas']
-W=[13,30,10,17,16,17,14,17,44]
+COLS=['Fecha','Test / Producto','Pedidos','Precio / Ingresos (€)','Impuesto Shopify (€)','Coste proveedor (€)','Meta Ads (€)','Beneficio neto (€)','ROAS','Notas']
+W=[13,30,10,17,16,17,14,17,10,44]
 d=dt.date
 # (fecha, test, pedidos, ingresos, coste, meta, nota)
 DATA={
@@ -46,7 +46,7 @@ DATA={
 ],
 (2026,11):[
  (d(2026,10,30),'BOTINES LARA',2,209.85,55.64,95.12,'30/10–02/11, cerrada sin 3.er pedido. #10160 (2 pares) y #10170 (1 par). Proveedor 55,64 € (incluye 5 €/pedido). #10180 cancelado: no cuenta'),
-(d(2026,11,5),'ABRIGO IRENE',1,104.94,32.62,0,'EN CURSO desde 05/11 8:00. #10200 (abrigo negro L + medias M-L). Proveedor 32,62 € (abrigo 19,49 + medias 8,13 + 5 €/pedido). Meta: anotar gasto al cerrar'),
+(d(2026,11,5),'ABRIGO IRENE',1,104.94,32.62,9.01,'EN CURSO desde 05/11 8:00. #10200 (abrigo negro L + medias M-L). Proveedor 32,62 € (abrigo 19,49 + medias 8,13 + 5 €/pedido). Meta: gasto a 05/11 14:40, actualizar en cada revisión'),
 ],
 }
 wb=Workbook(); res=wb.active; res.title='RESUMEN'
@@ -75,52 +75,55 @@ for (y,m) in months:
     name=f'{CORTO[m-1]} {y}'; names.append(name)
     ws=wb.create_sheet(name)
     for i,w in enumerate(W,1): ws.column_dimensions[chr(64+i)].width=w
-    title(ws,f'OELNOR · CONTROL SIMPLE · {MESES[m-1]} {y}',9)
+    title(ws,f'OELNOR · CONTROL SIMPLE · {MESES[m-1]} {y}',10)
     R=lambda col:f'{col}{FIRST}:{col}{LAST}'
-    kpis(ws,['Total tests','Total pedidos','Ingresos','Impuesto Shopify','Proveedor','Meta Ads','Beneficio neto','Margen'],
+    kpis(ws,['Total tests','Total pedidos','Ingresos','Impuesto Shopify','Proveedor','Meta Ads','Beneficio neto','Margen','ROAS total'],
          [f'=COUNTA({R("B")})',f'=SUM({R("C")})',f'=SUM({R("D")})',f'=SUM({R("E")})',f'=SUM({R("F")})',f'=SUM({R("G")})',
-          '=C4-D4-E4-F4','=IF(C4=0,"",G4/C4)'],['0','0',EUR,EUR,EUR,EUR,EUR,PCT])
+          '=C4-D4-E4-F4','=IF(C4=0,"",G4/C4)','=IF(F4=0,"",C4/F4)'],['0','0',EUR,EUR,EUR,EUR,EUR,PCT,ROASF])
     benef_cf(ws,'G4:G4')
     header(ws,COLS,FIRST-1)
     rows=DATA.get((y,m),[])
     for k in range(NROWS):
         r=FIRST+k; fill=BLUEF if k%2==0 else WHITE
         vals=list(rows[k]) if k<len(rows) else [None]*7
-        for ci,v in zip([1,2,3,4,6,7,9],vals):
+        for ci,v in zip([1,2,3,4,6,7,10],vals):
             c=ws.cell(row=r,column=ci,value=v if v!='' else None)
         ws.cell(row=r,column=5,value=f'=IF(B{r}="","",IF(N(C{r})=0,0,ROUND(N(D{r})*0.015+0.25*C{r},2)))')
         ws.cell(row=r,column=8,value=f'=IF(B{r}="","",N(D{r})-N(E{r})-N(F{r})-N(G{r}))')
-        for ci in range(1,10):
+        ws.cell(row=r,column=9,value=f'=IF(OR(B{r}="",N(G{r})=0),"",N(D{r})/N(G{r}))')
+        for ci in range(1,11):
             c=ws.cell(row=r,column=ci); c.fill=fill; c.border=B
-            calc=ci in (5,8)
+            calc=ci in (5,8,9)
             c.font=Font(name=F,bold=(ci==8),color='000000' if calc else '0000FF',size=10)
-            c.alignment=Alignment(horizontal='left' if ci in (2,9) else 'center',vertical='center',wrap_text=(ci==9))
+            c.alignment=Alignment(horizontal='left' if ci in (2,10) else 'center',vertical='center',wrap_text=(ci==10))
             if ci==1: c.number_format=DATE
             elif ci in (4,5,6,7,8): c.number_format=EUR
+            elif ci==9: c.number_format=ROASF
     benef_cf(ws,f'H{FIRST}:H{LAST}')
     for j,t in enumerate(['Escribe en azul. Lo negro se calcula solo.',
         '«Impuesto Shopify» = 1,5 % del importe + 0,25 € por pedido (comisión de Shopify Payments, tarjeta europea).',
         '«Beneficio neto» = Ingresos − Impuesto Shopify − Coste proveedor − Meta Ads.',
+        '«ROAS» = Ingresos ÷ Meta Ads (cuántos euros de venta trae cada euro de anuncios). Sale vacío si no hay gasto en Meta.',
         'Si falta el coste del proveedor, el beneficio sale más alto de lo real: apúntalo en «Notas».']):
         ws.cell(row=LAST+2+j,column=1,value=t).font=Font(name=F,italic=True,size=9,color='666666')
     ws.freeze_panes=f'A{FIRST}'
 
 # RESUMEN
-for i,w in enumerate([16,12,12,16,16,16,14,16,11],1): res.column_dimensions[chr(64+i)].width=w
-title(res,'OELNOR · CONTROL SIMPLE · RESUMEN',9)
+for i,w in enumerate([16,12,12,16,16,16,14,16,11,11],1): res.column_dimensions[chr(64+i)].width=w
+title(res,'OELNOR · CONTROL SIMPLE · RESUMEN',10)
 T0=6; T1=T0+len(names)-1
-kpis(res,['Total tests','Total pedidos','Ingresos','Impuesto Shopify','Proveedor','Meta Ads','Beneficio neto','Margen'],
-     [f'=SUM(B{T0}:B{T1})',f'=SUM(C{T0}:C{T1})',f'=SUM(D{T0}:D{T1})',f'=SUM(E{T0}:E{T1})',f'=SUM(F{T0}:F{T1})',f'=SUM(G{T0}:G{T1})','=C4-D4-E4-F4','=IF(C4=0,"",G4/C4)'],
-     ['0','0',EUR,EUR,EUR,EUR,EUR,PCT])
+kpis(res,['Total tests','Total pedidos','Ingresos','Impuesto Shopify','Proveedor','Meta Ads','Beneficio neto','Margen','ROAS total'],
+     [f'=SUM(B{T0}:B{T1})',f'=SUM(C{T0}:C{T1})',f'=SUM(D{T0}:D{T1})',f'=SUM(E{T0}:E{T1})',f'=SUM(F{T0}:F{T1})',f'=SUM(G{T0}:G{T1})','=C4-D4-E4-F4','=IF(C4=0,"",G4/C4)','=IF(F4=0,"",C4/F4)'],
+     ['0','0',EUR,EUR,EUR,EUR,EUR,PCT,ROASF])
 benef_cf(res,'G4:G4')
-header(res,['Mes','Tests','Pedidos','Ingresos (€)','Impuesto Shopify (€)','Proveedor (€)','Meta Ads (€)','Beneficio neto (€)','Margen'],T0-1)
+header(res,['Mes','Tests','Pedidos','Ingresos (€)','Impuesto Shopify (€)','Proveedor (€)','Meta Ads (€)','Beneficio neto (€)','Margen','ROAS'],T0-1)
 for k,nm in enumerate(names):
     r=T0+k; q=f"'{nm}'!"
-    vals=[nm,f'={q}A4',f'={q}B4',f'={q}C4',f'={q}D4',f'={q}E4',f'={q}F4',f'={q}G4',f'=IF(D{r}=0,"",H{r}/D{r})']
+    vals=[nm,f'={q}A4',f'={q}B4',f'={q}C4',f'={q}D4',f'={q}E4',f'={q}F4',f'={q}G4',f'=IF(D{r}=0,"",H{r}/D{r})',f'=IF(N(G{r})=0,"",D{r}/G{r})']
     for ci,v in enumerate(vals,1):
         c=res.cell(row=r,column=ci,value=v); c.fill=BLUEF if k%2==0 else WHITE; c.border=B
         c.font=Font(name=F,bold=(ci in (1,8)),size=10); c.alignment=Alignment(horizontal='left' if ci==1 else 'center')
-        c.number_format=EUR if ci in (4,5,6,7,8) else PCT if ci==9 else '0'
+        c.number_format=EUR if ci in (4,5,6,7,8) else PCT if ci==9 else ROASF if ci==10 else '0'
     res.cell(row=r,column=1).hyperlink=f"#'{nm}'!A1"
 benef_cf(res,f'H{T0}:H{T1}')
 res.cell(row=T1+2,column=1,value='Haz clic en el mes para ir a su pestaña. Cada mes se rellena en su propia pestaña; este resumen se actualiza solo.').font=Font(name=F,italic=True,size=9,color='666666')
