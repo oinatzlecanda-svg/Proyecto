@@ -31,7 +31,7 @@ evita el requisito de «precio más bajo de los últimos 30 días» de la direct
 - **Portada:** titular «Compra dos, te regalamos.» con la explicación y botón «Elegir mis dos piezas»; cinta «Black Friday ·
   Compra 2 · medias de regalo · Hasta el lunes 30 · Envío gratis»; carrusel «Elige tus dos» con los 8 productos de temporada
   (Irene, Lara, Inés, Martina, Valeria, Julia, Ainhoa, Sara); destacado: Abrigo Irene.
-- **Fichas:** franja superior y nota bajo el precio con la oferta.
+- **Fichas:** franja superior con la oferta y **bloque destacado** bajo el precio (fondo oscuro, foto de las medias, etiqueta «Black Friday · 27–30 nov»). En la ficha de las medias: «Te salen gratis si compras 2 piezas». Captura: `docs/tema/carrito-2026-11-04/black-friday-fichas-movil.jpg`.
 - Estos cambios **no llevan fecha**: se ven mientras el tema esté publicado. **Publicarlo el 26/11 por la noche y volver a
   publicar el tema normal («Animaciones suaves · 4 NOV») el martes 1/12.** El aviso del carrito y el descuento sí van por fecha.
 - Captura: `docs/tema/carrito-2026-11-04/black-friday-portada-ficha.jpg`.
