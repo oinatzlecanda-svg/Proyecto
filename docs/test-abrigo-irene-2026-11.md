@@ -18,11 +18,12 @@ Fórmula: PVP/1,21 − 19,49 − 5 − (1,5 % PVP + 0,25) − 8 % PVP.
 
 | Pedido | Fecha | Contenido | Ingreso | Contribución |
 |---|---|---|---|---|
-| #10200 | 05/11 8:27 (27 min tras el lanzamiento) | Abrigo negro L + medias M-L | 104,94 € | **42,02 €** |
+| #10200 | 05/11 8:27 (27 min tras el lanzamiento) | Abrigo negro L + medias M-L | 104,94 € | **43,89 €** |
 
-Contribución = ingreso/1,21 − coste de las unidades (19,49 + 10) − 5 € − comisión Shopify − 8 % devoluciones.
+Proveedor del #10200: **32,62 €** (abrigo 19,49 + medias 8,13 + 5 €/pedido).
+Contribución = ingreso/1,21 − proveedor − comisión Shopify − 8 % devoluciones.
 
-**Límite de gasto actual: 42,02 €.** Si Meta llega a 42 € sin un pedido nuevo → pausar. Cada pedido nuevo de 1 abrigo sube
+**Límite de gasto actual: 43,89 €.** Si Meta llega a 43,89 € sin un pedido nuevo → pausar. Cada pedido nuevo de 1 abrigo sube
 el límite en 33,74 €. Escalar (+20 % cada 48 h) solo con ≥ 3 pedidos, beneficio acumulado > 0 y coste por escrito.
 
 Pedido #10190 = compra de prueba (modo de prueba): cancelar, no cuenta.
@@ -31,4 +32,4 @@ Pedido #10190 = compra de prueba (modo de prueba): cancelar, no cuenta.
 
 | Fecha | Gasto | CPC enlace | ATC | Pedidos | Contribución acum. | Beneficio acum. | Decisión |
 |---|---|---|---|---|---|---|---|
-| 05/11 | — | — | — | 1 | 42,02 € | — | En curso |
+| 05/11 | — | — | — | 1 | 43,89 € | — | En curso |
