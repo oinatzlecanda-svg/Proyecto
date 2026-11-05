@@ -46,6 +46,7 @@ DATA={
 ],
 (2026,11):[
  (d(2026,10,30),'BOTINES LARA',2,209.85,55.64,95.12,'30/10–02/11, cerrada sin 3.er pedido. #10160 (2 pares) y #10170 (1 par). Proveedor 55,64 € (incluye 5 €/pedido). #10180 cancelado: no cuenta'),
+(d(2026,11,5),'ABRIGO IRENE',1,104.94,34.49,0,'EN CURSO desde 05/11 8:00. #10200 (abrigo negro L + medias M-L). Proveedor: abrigo 19,49 + medias 10 + 5 €/pedido. Meta: anotar gasto al cerrar'),
 ],
 }
 wb=Workbook(); res=wb.active; res.title='RESUMEN'
