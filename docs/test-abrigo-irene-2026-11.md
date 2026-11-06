@@ -28,6 +28,11 @@ el límite en 33,74 €. Escalar (+20 % cada 48 h) solo con ≥ 3 pedidos, benef
 
 Pedido #10190 = compra de prueba (modo de prueba): cancelar, no cuenta.
 
+## Corte acordado (06/11/2026, decisión de la dueña)
+**Si el gasto llega a 35 € sin una 2.ª compra y sin ningún añadido al carrito ese día → pausar.**
+Es más prudente que la regla de beneficio (límite 43,89 €): al cortar en 35 € el test cierra con ≈ +8,89 € de beneficio.
+Si hay añadidos al carrito pero no compra, se sigue hasta el límite de la regla de beneficio (43,89 €).
+
 ## Revisiones
 
 | Fecha | Gasto | CPC enlace | ATC | Pedidos | Contribución acum. | Beneficio acum. | Decisión |
