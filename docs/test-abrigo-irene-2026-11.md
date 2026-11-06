@@ -9,24 +9,24 @@
 
 | Escenario | CPA máx. (pedido de 1 abrigo) |
 |---|---|
-| PVP 79,95 € | **33,74 €** |
-| Con el −10 % del popup (71,96 €) | 27,89 € |
+| PVP 79,95 € | **47,61 €** (33,74 € el día que haya que pagar IVA) |
+| Con el −10 % del popup (71,96 €) | 40,38 € |
 
-Fórmula: PVP/1,21 − 19,49 − 5 − (1,5 % PVP + 0,25) − 8 % PVP.
+Sin IVA (la dueña aún no está dada de alta como autónoma, 06/11): PVP − 19,49 − 5 − (1,5 % PVP + 0,25) − 8 % PVP.
 
 ## Pedidos y regla de beneficio
 
 | Pedido | Fecha | Contenido | Ingreso | Contribución |
 |---|---|---|---|---|
-| #10200 | 05/11 8:27 (27 min tras el lanzamiento) | Abrigo negro L + medias M-L | 104,94 € | **43,89 €** |
-| #10210 | 06/11 10:37 | Abrigo camel L | 79,95 € | **33,74 €** |
-| **Total** | | | **184,89 €** | **77,63 €** |
+| #10200 | 05/11 8:27 (27 min tras el lanzamiento) | Abrigo negro L + medias M-L | 104,94 € | **62,10 €** |
+| #10210 | 06/11 10:37 | Abrigo camel L | 79,95 € | **47,61 €** |
+| **Total** | | | **184,89 €** | **109,71 €** |
 
 Proveedor del #10200: **32,62 €** (abrigo 19,49 + medias 8,13 + 5 €/pedido). #10210: **24,49 €** (19,49 + 5).
-Contribución = ingreso/1,21 − proveedor − comisión Shopify − 8 % devoluciones.
+Contribución = ingreso (sin IVA) − proveedor − comisión Shopify − 8 % devoluciones.
 
-**Límite de gasto actual: 77,63 €** (desde el #10210; antes 43,89 €). Si Meta llega a 77,63 € sin un pedido nuevo → pausar. Cada pedido nuevo de 1 abrigo sube
-el límite en 33,74 €. Escalar (+20 % cada 48 h) solo con ≥ 3 pedidos, beneficio acumulado > 0 y coste por escrito.
+**Límite de gasto actual: 109,71 €** (recalculado sin IVA el 06/11). Si Meta llega a 109,71 € sin un pedido nuevo → pausar. Cada pedido nuevo de 1 abrigo sube
+el límite en 47,61 €. Escalar (+20 % cada 48 h) solo con ≥ 3 pedidos, beneficio acumulado > 0 y coste por escrito.
 
 Pedido #10190 = compra de prueba (modo de prueba): cancelar, no cuenta.
 
@@ -41,4 +41,4 @@ Si hay añadidos al carrito pero no compra, se sigue hasta el límite de la regl
 | Fecha | Gasto | CPC enlace | ATC | Pedidos | Contribución acum. | Beneficio acum. | Decisión |
 |---|---|---|---|---|---|---|---|
 | 05/11 14:40 | 9,01 € | 0,20 € (CTR enlace 4,64 %, 45 clics; Shopify: 22 visitas) | 0 | 1 | 43,89 € | +34,88 € | Seguir. Coste por compra 9,01 € (máx. 33,74 €). No tocar precio |
-| 06/11 14:37 | 35,89 € | 0,18 € (CTR enlace 5,40 %, 196 clics; Shopify: 76 visitas de redes en 2 días, 39 %) | 3 (redes) | 2 | 77,63 € | **+41,74 €** | Seguir sin tocar nada. Coste por compra 17,95 € (máx. 33,74 €). Escalar +20 % con el 3.er pedido (no antes del sáb 07/11 8:00) |
+| 06/11 14:37 | 35,89 € | 0,18 € (CTR enlace 5,40 %, 196 clics; Shopify: 76 visitas de redes en 2 días, 39 %) | 3 (redes) | 2 | 109,71 € (sin IVA) | **+73,82 €** | Seguir sin tocar nada. Coste por compra 17,95 € (máx. 47,61 €). Escalar +20 % con el 3.er pedido (no antes del sáb 07/11 8:00) |
