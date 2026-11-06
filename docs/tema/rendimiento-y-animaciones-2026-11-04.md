@@ -38,3 +38,11 @@ ruido. **La nota no sube de verdad hasta quitar scripts de terceros.**
 3. **Klaviyo**: si no hay flujos activos en Klaviyo (el popup es del tema), desactivar su app embed.
 4. **ConversionBear (iconos de pago)**: comprobar que no muestra métodos que no se aceptan (bitcoin).
 5. Quitar apps desinstaladas que dejan código y revisar los píxeles en Configuración → Eventos de clientes.
+
+## 06/11/2026 · Ficha del Abrigo Irene (página de destino de los anuncios)
+- La dueña quitó el **seguimiento de conversiones de Google Ads** (Google & YouTube) y el **píxel de TikTok**: −527 KB en la ficha
+  (Google Tag Manager 481 KB + TikTok 46 KB). Píxel de Meta y wetracked siguen cargando (comprobado).
+- Carga completa en móvil (Playwright): ~4,6 s → ~3,1–3,5 s (5,2 s sin caché).
+- **PageSpeed móvil, ficha del abrigo: 85/100** (referencia).
+- Pendiente tras cerrar el test (para no mezclar variables): retrasar CSS no crítico (quantity-popover, component-card,
+  component-slider, slideshow; ~770 ms) y servir imágenes más pequeñas en móvil (~138 KB). Aplicarlo también al tema de Black Friday.
