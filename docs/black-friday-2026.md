@@ -43,14 +43,15 @@ evita el requisito de «precio más bajo de los últimos 30 días» de la direct
 - [ ] Meta: texto del anuncio activo con la oferta del 27 al 30 (sin urgencias falsas: «hasta el lunes 30» es real).
 - [ ] Recordar que desde el 16/11 los anuncios se encarecen: valorar presupuesto con la regla de beneficio.
 
-## Cambio de planes (07/11/2026, decisión de la dueña): el regalo empieza ya
-- **Promo «Compra 2 y llévate medias de regalo» del 07/11 al 26/11 23:59 peninsular** (Canarias 22:59). Para el 27–30/11
-  la dueña quiere «otra cosa» (por decidir); el descuento y el tema de Black Friday de arriba siguen programados por si se mantiene el regalo.
-- Descuento automático nuevo **«Compra 2 y llévate medias de regalo (7–26 nov)»** (id 1848086888785): activo 07/11 17:00 UTC →
-  26/11 22:59:59 UTC; misma colección `bf-compra-2` y mismas 3 variantes de medias. No se solapa con el de Black Friday.
-- Tema **«OELNOR 3.0 · Regalo medias · 7 NOV»** (id 210537906513): copia del de Black Friday sin la palabra «Black Friday»
-  (barra superior, portada, franja y bloque de la ficha, cesta). Etiqueta «Regalo · hasta el 26 nov». El bloque de la ficha y
-  el de la cesta se ocultan solos el 26/11 a las 23:59 peninsular; la barra superior y la portada no (cambiar de tema ese día).
+## Cambio de planes (07/11/2026, decisión de la dueña): el regalo empieza ya y dura hasta el 30/11
+- **Promo «Compra 2 y llévate medias de regalo» del 07/11 al 30/11 23:59 peninsular** (Canarias 22:59), sin interrupción.
+- Descuento automático **«Compra 2 y llévate medias de regalo (7–30 nov)»** (id 1848086888785): activo 07/11 17:00 UTC →
+  30/11 22:59:59 UTC; colección `bf-compra-2` y las 3 variantes de medias. El de Black Friday (1847816782161) se ha
+  **desactivado** para que no se solapen.
+- Tema **«OELNOR 3.0 · Regalo medias · 7 NOV»** (id 210537906513): copia del de Black Friday sin la palabra «Black Friday».
+  Etiqueta «Regalo · hasta el 30 nov». El bloque de la ficha y el de la cesta se ocultan solos el 30/11 a las 23:59 peninsular;
+  la barra superior y la portada no: **el 1/12 volver a publicar «Animaciones suaves · 4 NOV»**.
+- El tema «Black Friday regalo» (210393792849) ya no hace falta salvo que se quiera la estética «Black Friday» del 27 al 30.
 - **La dueña tiene que publicarlo** (Tienda online → Temas → «Regalo medias · 7 NOV» → Publicar).
-- Coste: medias 8,13 € por pedido de 2 piezas (el envío de 5 € ya va en el pedido). Afecta al test de Abrigo Irene:
-  desde el 07/11 sus resultados incluyen la promo.
+- Coste: medias 8,13 € por pedido de 2 piezas (el envío de 5 € ya va en el pedido). Desde el 07/11 los resultados del test de
+  Abrigo Irene incluyen la promo.
