@@ -20,12 +20,13 @@ Sin IVA (la dueña aún no está dada de alta como autónoma, 06/11): PVP − 19
 |---|---|---|---|---|
 | #10200 | 05/11 8:27 (27 min tras el lanzamiento) | Abrigo negro L + medias M-L | 104,94 € | **62,10 €** |
 | #10210 | 06/11 10:37 | Abrigo camel L | 79,95 € | **47,61 €** |
-| **Total** | | | **184,89 €** | **109,71 €** |
+| #10220 | 07/11 10:31 | Abrigo gris XL | 79,95 € | **47,61 €** |
+| **Total** | | | **264,84 €** | **157,32 €** |
 
-Proveedor del #10200: **32,62 €** (abrigo 19,49 + medias 8,13 + 5 €/pedido). #10210: **24,49 €** (19,49 + 5).
+Proveedor del #10200: **32,62 €** (abrigo 19,49 + medias 8,13 + 5 €/pedido). #10210 y #10220: **24,49 €** cada uno (19,49 + 5).
 Contribución = ingreso (sin IVA) − proveedor − comisión Shopify − 8 % devoluciones.
 
-**Límite de gasto actual: 109,71 €** (recalculado sin IVA el 06/11). Si Meta llega a 109,71 € sin un pedido nuevo → pausar. Cada pedido nuevo de 1 abrigo sube
+**Límite de gasto actual: 157,32 €** (desde el #10220). Si Meta llega a 157,32 € sin un pedido nuevo → pausar. Cada pedido nuevo de 1 abrigo sube
 el límite en 47,61 €. Escalar (+20 % cada 48 h) solo con ≥ 3 pedidos, beneficio acumulado > 0 y coste por escrito.
 
 Pedido #10190 = compra de prueba (modo de prueba): cancelar, no cuenta.
@@ -37,7 +38,7 @@ Es más prudente que la regla de beneficio (límite 43,89 €): al cortar en 35 
 Si hay añadidos al carrito pero no compra, se sigue hasta el límite de la regla de beneficio (43,89 €).
 
 ## Corte acordado (06/11/2026 tarde, decisión de la dueña)
-**Si el gasto llega a 85 € sin un 3.er pedido → pausar.** Deja ≈ +25 € de colchón sobre la regla de beneficio
+**Si el gasto llega a 85 € sin un 3.er pedido → pausar.** *(Superado: 3.er pedido el 07/11 10:31. Nuevo corte: 132 € sin un 4.º pedido.)* Deja ≈ +25 € de colchón sobre la regla de beneficio
 (109,71 €): al cortar, el test cierra con ≈ +25 € con devoluciones o ≈ +40 € sin ellas.
 Con cada pedido nuevo el corte sube 47,61 € (se mantiene el colchón de ~25 €: corte = contribución acumulada − 25 €).
 
@@ -48,3 +49,4 @@ Con cada pedido nuevo el corte sube 47,61 € (se mantiene el colchón de ~25 �
 | 05/11 14:40 | 9,01 € | 0,20 € (CTR enlace 4,64 %, 45 clics; Shopify: 22 visitas) | 0 | 1 | 43,89 € | +34,88 € | Seguir. Coste por compra 9,01 € (máx. 33,74 €). No tocar precio |
 | 06/11 14:37 | 35,89 € | 0,18 € (CTR enlace 5,40 %, 196 clics; Shopify: 76 visitas de redes en 2 días, 39 %) | 3 (redes) | 2 | 109,71 € (sin IVA) | **+73,82 €** | Seguir sin tocar nada. Coste por compra 17,95 € (máx. 47,61 €). Escalar +20 % con el 3.er pedido (no antes del sáb 07/11 8:00) |
 | 07/11 9:38 | 46,46 € | 0,17 € (CTR enlace 5,73 %, 272 clics; Shopify: 94 visitas de redes en 3 días, 35 %) | 4 (redes) | 2 | 109,71 € | **+63,25 €** | Seguir. Sin 3.er pedido en 23 h → no escalar. Corte a 85 € (quedan 38,54 €, ≈ domingo tarde) |
+| 07/11 10:31 | ≈ 47 € | — | — | **3** | 157,32 € | **≈ +110 €** | **Escalar: 25 → 30 €/día** (3 pedidos, beneficio > 0, coste 19,49 € por escrito, 48 h cumplidas). Siguiente +20 % (36 €) no antes del lun 09/11 10:30 y solo con beneficio. Corte: 132 € sin 4.º pedido |
