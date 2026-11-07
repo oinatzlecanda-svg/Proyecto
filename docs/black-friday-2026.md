@@ -42,3 +42,15 @@ evita el requisito de «precio más bajo de los últimos 30 días» de la direct
 - [ ] Emails Klaviyo: jueves 26 (19:00) aviso a suscriptoras; viernes 27 (9:00) «Ya está aquí»; lunes 30 (9:00) «Último día».
 - [ ] Meta: texto del anuncio activo con la oferta del 27 al 30 (sin urgencias falsas: «hasta el lunes 30» es real).
 - [ ] Recordar que desde el 16/11 los anuncios se encarecen: valorar presupuesto con la regla de beneficio.
+
+## Cambio de planes (07/11/2026, decisión de la dueña): el regalo empieza ya
+- **Promo «Compra 2 y llévate medias de regalo» del 07/11 al 26/11 23:59 peninsular** (Canarias 22:59). Para el 27–30/11
+  la dueña quiere «otra cosa» (por decidir); el descuento y el tema de Black Friday de arriba siguen programados por si se mantiene el regalo.
+- Descuento automático nuevo **«Compra 2 y llévate medias de regalo (7–26 nov)»** (id 1848086888785): activo 07/11 17:00 UTC →
+  26/11 22:59:59 UTC; misma colección `bf-compra-2` y mismas 3 variantes de medias. No se solapa con el de Black Friday.
+- Tema **«OELNOR 3.0 · Regalo medias · 7 NOV»** (id 210537906513): copia del de Black Friday sin la palabra «Black Friday»
+  (barra superior, portada, franja y bloque de la ficha, cesta). Etiqueta «Regalo · hasta el 26 nov». El bloque de la ficha y
+  el de la cesta se ocultan solos el 26/11 a las 23:59 peninsular; la barra superior y la portada no (cambiar de tema ese día).
+- **La dueña tiene que publicarlo** (Tienda online → Temas → «Regalo medias · 7 NOV» → Publicar).
+- Coste: medias 8,13 € por pedido de 2 piezas (el envío de 5 € ya va en el pedido). Afecta al test de Abrigo Irene:
+  desde el 07/11 sus resultados incluyen la promo.
