@@ -47,3 +47,4 @@ Con cada pedido nuevo el corte sube 47,61 € (se mantiene el colchón de ~25 �
 |---|---|---|---|---|---|---|---|
 | 05/11 14:40 | 9,01 € | 0,20 € (CTR enlace 4,64 %, 45 clics; Shopify: 22 visitas) | 0 | 1 | 43,89 € | +34,88 € | Seguir. Coste por compra 9,01 € (máx. 33,74 €). No tocar precio |
 | 06/11 14:37 | 35,89 € | 0,18 € (CTR enlace 5,40 %, 196 clics; Shopify: 76 visitas de redes en 2 días, 39 %) | 3 (redes) | 2 | 109,71 € (sin IVA) | **+73,82 €** | Seguir sin tocar nada. Coste por compra 17,95 € (máx. 47,61 €). Escalar +20 % con el 3.er pedido (no antes del sáb 07/11 8:00) |
+| 07/11 9:38 | 46,46 € | 0,17 € (CTR enlace 5,73 %, 272 clics; Shopify: 94 visitas de redes en 3 días, 35 %) | 4 (redes) | 2 | 109,71 € | **+63,25 €** | Seguir. Sin 3.er pedido en 23 h → no escalar. Corte a 85 € (quedan 38,54 €, ≈ domingo tarde) |
