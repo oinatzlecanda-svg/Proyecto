@@ -5,7 +5,7 @@
 - **PVP:** 79,95 € (se mantiene: ya hay ventas, regla de precios del 04/11).
 
 ## Coste confirmado por el proveedor (05/11/2026)
-**19,49 € por abrigo** + 5 €/pedido. (Confirmar por escrito que incluye el envío a España.)
+**19,49 € por abrigo** + 5 €/pedido aparte = **24,49 € por pedido de 1 abrigo** (confirmado por la dueña el 07/11: los 19,49 € no incluyen los 5 €; ya estaban sumados en todas las cuentas).
 
 | Escenario | CPA máx. (pedido de 1 abrigo) |
 |---|---|
