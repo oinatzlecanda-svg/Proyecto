@@ -38,7 +38,7 @@ Es más prudente que la regla de beneficio (límite 43,89 €): al cortar en 35 
 Si hay añadidos al carrito pero no compra, se sigue hasta el límite de la regla de beneficio (43,89 €).
 
 ## Corte acordado (06/11/2026 tarde, decisión de la dueña)
-**Si el gasto llega a 85 € sin un 3.er pedido → pausar.** *(Superado: 3.er pedido el 07/11 10:31.)* **Corte vigente (07/11, decisión de la dueña): 120 € de gasto total sin un 4.º pedido → pausar** (cierra con ≈ +37 € con devoluciones, ≈ +58 € sin ellas; punto de pérdida 157,32 €). Deja ≈ +25 € de colchón sobre la regla de beneficio
+**Si el gasto llega a 85 € sin un 3.er pedido → pausar.** *(Superado: 3.er pedido el 07/11 10:31.)* **Corte vigente (08/11, decisión de la dueña): si el gasto llega a 100 € sin ningún añadido al carrito (desde el 08/11) → pausar; si hay carritos pero no compra, se sigue hasta 120 € sin un 4.º pedido → pausar** (cierra con ≈ +37 € con devoluciones, ≈ +58 € sin ellas; punto de pérdida 157,32 €). Deja ≈ +25 € de colchón sobre la regla de beneficio
 (109,71 €): al cortar, el test cierra con ≈ +25 € con devoluciones o ≈ +40 € sin ellas.
 Con cada pedido nuevo el corte sube 47,61 € (se mantiene el colchón de ~25 €: corte = contribución acumulada − 25 €).
 
