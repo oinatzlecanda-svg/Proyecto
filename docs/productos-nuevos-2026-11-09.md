@@ -31,3 +31,15 @@ Formato de la tienda (por qué te va a gustar, detalles, talla y ajuste, cómo c
 
 ## Pendiente del proveedor (antes de testear cualquiera)
 Coste por escrito (+5 €/pedido), plazo real, composición, medidas por talla, fotos reales y muestra.
+
+## Bajada de precios (09/11/2026, petición de la dueña: «algo elevados»)
+Sin precio tachado (no se anuncia como rebaja). CPA máx. sin IVA = PVP × 0,905 − 0,25 − coste − 5 €.
+
+| Producto | Antes | Ahora | CPA máx. con coste 18 € | con 20 € | con 25 € |
+|---|---|---|---|---|---|
+| Chaqueta Nerea, Blazer Carmen, Vestido Elena | 69,95 € | **59,95 €** | 31,0 € | 29,0 € | 24,0 € ⚠️ |
+| Chaqueta Paula | 64,95 € | **54,95 €** | 26,5 € | 24,5 € ⚠️ | 19,5 € ❌ |
+| Blazer Inés, Cárdigan Mila (finalistas del test) | 69,95 € | **59,95 €** | 31,0 € | 29,0 € | 24,0 € ⚠️ |
+
+La competencia vende los mismos productos a 40–55 €. Con coste ≤ 20 € todos cumplen el CPA máx. ≥ 25 € (salvo Paula, que
+necesita ≤ 19 €). Si el proveedor da un coste mayor, subir el precio antes de lanzar el test (sin ventas todavía).
