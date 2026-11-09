@@ -1,5 +1,6 @@
 # Test Abrigo Irene · noviembre 2026
 
+- **Cerrado:** lunes 09/11/2026 a las 20:33 con 127,01 € gastados, 3 pedidos, +30,31 € (con reserva de devoluciones).
 - **Lanzado:** jueves 05/11/2026 a las 8:00 (adelantado un día respecto a la guía, que dice viernes; decisión de la dueña).
 - **Presupuesto:** 25 €/día · campaña de Ventas, objetivo Compra · creativos en `docs/creativos/abrigo-irene/`.
 - **PVP:** 79,95 € (se mantiene: ya hay ventas, regla de precios del 04/11).
@@ -52,3 +53,4 @@ Con cada pedido nuevo el corte sube 47,61 € (se mantiene el colchón de ~25 �
 | 07/11 10:31 | ≈ 47 € | — | — | **3** | 157,32 € | **≈ +110 €** | **Escalar: 25 → 30 €/día** (3 pedidos, beneficio > 0, coste 19,49 € por escrito, 48 h cumplidas). Siguiente +20 % (36 €) no antes del lun 09/11 10:30 y solo con beneficio. Corte: 120 € sin 4.º pedido (decisión de la dueña) |
 | 08/11 14:23 | 84,47 € (30 €/día) | 0,18 € (CTR enlace 5,89 %, 464 clics; Shopify 05–08/11: 230 visitas) | 12 (todas las fuentes) | 3 | 157,32 € | **+72,85 €** | Seguir. Sin 4.º pedido desde el 07/11 10:31 → no subir a 36 €. Corte a 120 € (quedan 35,53 €, ≈ lun 09/11 por la tarde). Meta: «FOTO 1» se lleva el 92 % del gasto |
 | 09/11 14:37 | 118,75 € (30 €/día) | 0,19 € (CTR enlace 5,90 %, 629 clics; frecuencia 1,53) | dom 2 · lun 0 (43 visitas) | 3 | 157,32 € | **+38,57 €** | Seguir hasta 157 € (regla de la dueña). ≈ 72 € sin compra desde el 07/11 10:31; carritos a la baja (dom 2,8 %, lun 0 %). Tema «botón arriba» publicado hoy al mediodía: revisar carritos esta noche |
+| **09/11 20:33 · CERRADO** | **127,01 €** | 0,19 € (CTR enlace 5,91 %, 676 clics; frecuencia 1,57) | — | **3** | 157,32 € | **+30,31 €** (+51,51 € sin reserva de devoluciones) | Pausado por la dueña al acercarse a 130 € sin 4.º pedido (última compra 07/11 10:31). ROAS 2,09x. Test ganador: relanzable con creativos nuevos (gris/negro) |
