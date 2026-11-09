@@ -6,7 +6,7 @@ TikTok y Google & YouTube. Stock sin seguimiento (como el resto). Entran solos e
 
 | Producto | Origen | PVP | Colores | Tallas | Colecciones |
 |---|---|---|---|---|---|
-| [Chaqueta Nerea acolchada ligera](https://oelnorstore.com/products/chaqueta-nerea-acolchada-ligera) | «Kelley / Aurora» (11 tiendas, n.º 1 en 4) | 69,95 € | Caqui, crudo, azul marino, negro | S–3XL | Chaquetas mujer, Moda Mujer |
+| [Chaqueta Nerea acolchada ligera](https://oelnorstore.com/products/chaqueta-nerea-acolchada-ligera) | «Kelley / Aurora» (11 tiendas, n.º 1 en 4) | 69,95 € | Caqui, crudo, azul marino, negro | M–3XL (M = 38) | Chaquetas mujer, Moda Mujer |
 | [Blazer Carmen efecto ante](https://oelnorstore.com/products/blazer-carmen-efecto-ante) | «Cristina / Marcela» (7 tiendas) | 69,95 € | Marrón | XS–2XL | Chaquetas mujer, Moda Mujer |
 | [Vestido Elena largo de encaje](https://oelnorstore.com/products/vestido-elena-largo-de-encaje) | «Quintina» (3 tiendas) | 69,95 € | Negro | XS–2XL | Vestidos, Moda Mujer |
 | [Chaqueta Paula bordada con volantes](https://oelnorstore.com/products/chaqueta-paula-bordada-con-volantes) | «Ascensión / Rocío» (6 tiendas) | 64,95 € | Verde oliva | S–3XL | Chaquetas mujer, Moda Mujer |
@@ -23,8 +23,11 @@ En la chaqueta bordada, el estampado de leopardo.
 
 ## Fichas
 Formato de la tienda (por qué te va a gustar, detalles, talla y ajuste, cómo combinarlo) y envío «1–3 días hábiles de preparación
-+ 7–14 de transporte» (igual que la política de envíos). **Sin composición inventada.** Guía de tallas en cm solo en el Blazer Carmen
-(de la tienda de origen); en las otras tres, pedir medidas al proveedor y añadir la tabla.
++ 7–14 de transporte» (igual que la política de envíos). **Sin composición inventada.** Guías de tallas copiadas de las tiendas de referencia (indicación de la dueña, 09/11):
+- Nerea: Marta Belmonte (imagen «Guía de tallas Aurora»), medidas de prenda M–3XL. La talla S se quitó: el origen empieza en M (= 38).
+- Carmen: Marta Belmonte («Marcela»), prenda XS–2XL.
+- Elena: Silvia Dávila («Quintina»), **medidas del cuerpo** (pecho, cintura, cadera) XS–2XL.
+- Paula: Elena Duero («Rocío»), prenda S–3XL.
 
 ## Pendiente del proveedor (antes de testear cualquiera)
 Coste por escrito (+5 €/pedido), plazo real, composición, medidas por talla, fotos reales y muestra.
