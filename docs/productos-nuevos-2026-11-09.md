@@ -43,3 +43,12 @@ Sin precio tachado (no se anuncia como rebaja). CPA máx. sin IVA = PVP × 0,905
 
 La competencia vende los mismos productos a 40–55 €. Con coste ≤ 20 € todos cumplen el CPA máx. ≥ 25 € (salvo Paula, que
 necesita ≤ 19 €). Si el proveedor da un coste mayor, subir el precio antes de lanzar el test (sin ventas todavía).
+
+## Fotos con IA (09/11/2026, petición de la dueña)
+- **Chaqueta Nerea:** las fotos de fondo blanco de caqui, crudo y negro se rehicieron a partir de la azul marino (antes unas tenían
+  4 botones y otras 5, y la crudo salía más corta y con un defecto en el bajo). Sustituidas con `fileUpdate` (mismo MediaImage, cada
+  color sigue enlazado a su foto). Añadidas 3 fotos de modelo con IA: azul marino (calle), crudo (paseo marítimo), negro (terraza).
+- **Blazer Carmen:** las 4 fotos de modelo del origen son casi iguales (misma pose, sin cara). Añadidas 2 con IA, en 2.º y 3.er
+  lugar: look de calle de cuerpo entero y look de noche con jersey negro. (Un primer plano del ante lo bloqueó el filtro de la IA.)
+- Archivos en `docs/creativos/fondo-blanco/nuevos-2026-11-09/`; galerías: `galerias-nerea-carmen.jpg`.
+- Las personas están generadas con IA: no presentarlas como clientas. Al recibir la muestra, comprobar que la prenda coincide.
