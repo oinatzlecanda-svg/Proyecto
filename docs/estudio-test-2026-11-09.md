@@ -46,3 +46,12 @@ Notas:
 ## Lo que hace falta del proveedor (hoy–mañana)
 - Coste exacto del Blazer Inés y del Cárdigan Mila (+ 5 €/pedido), plazo real, composición y medidas por talla.
 - Fotos reales o vídeo del producto (para que los creativos coincidan con lo que llega) y muestra.
+
+## Actualización 09/11 noche: ranking conjunto con la búsqueda nueva
+Los productos nuevos (`docs/busqueda-productos-2026-11-09.md`) salen con 63–69 puntos: no superan a Blazer Inés (80) ni a
+Cárdigan Mila (78), en parte porque no tienen coste del proveedor ni anuncios encontrados. Finalistas para el miércoles:
+
+1. **Blazer Inés** (80) · 2. **Cárdigan Mila** (78) · 3. **Chaqueta acolchada ligera** (69, nueva; la más vendida de la búsqueda).
+
+Propuesta: test del miércoles = Blazer Inés; añadir a la tienda la chaqueta acolchada ligera y el blazer marrón efecto ante
+para las semanas del 18/11 y 25/11 (pedir coste al proveedor ya).
