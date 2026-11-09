@@ -52,3 +52,4 @@ necesita ≤ 19 €). Si el proveedor da un coste mayor, subir el precio antes d
   lugar: look de calle de cuerpo entero y look de noche con jersey negro. (Un primer plano del ante lo bloqueó el filtro de la IA.)
 - Archivos en `docs/creativos/fondo-blanco/nuevos-2026-11-09/`; galerías: `galerias-nerea-carmen.jpg`.
 - Las personas están generadas con IA: no presentarlas como clientas. Al recibir la muestra, comprobar que la prenda coincide.
+- **09/11:** «Vestidos» añadido al menú principal (Moda Mujer, después de Chaquetas).
