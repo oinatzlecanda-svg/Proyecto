@@ -55,3 +55,6 @@ evita el requisito de «precio más bajo de los últimos 30 días» de la direct
 - **La dueña tiene que publicarlo** (Tienda online → Temas → «Regalo medias · 7 NOV» → Publicar).
 - Coste: medias 8,13 € por pedido de 2 piezas (el envío de 5 € ya va en el pedido). Desde el 07/11 los resultados del test de
   Abrigo Irene incluyen la promo.
+- **09/11:** el domingo los añadidos al carrito bajaron al 1,8–2,8 % (antes 5–8 %). Nueva copia del tema
+  **«OELNOR 3.0 · Regalo medias · botón arriba · 9 NOV»** (id 210682937681) con el recuadro del regalo y el contador
+  **debajo** del botón «Añadir a la cesta» (antes iba entre el precio y la talla). La dueña la publica; el 1/12 se vuelve a «Animaciones suaves · 4 NOV».
