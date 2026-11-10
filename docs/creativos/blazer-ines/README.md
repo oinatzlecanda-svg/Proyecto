@@ -1,6 +1,6 @@
 # Creativos · Test Blazer Inés (miércoles 11/11/2026)
 
-Generados con IA (Higgsfield): GPT Image 2.5 (2K) para fotos y fotogramas; Kling 3.0 Pro (8 s, 9:16, sin sonido) para vídeos.
+Generados con IA (Higgsfield): GPT Image 2.5 (2K) para fotos y fotogramas (Nano Banana 2.1 para el fotograma del vídeo 1); Kling 3.0 Pro (8 s, 9:16, sin sonido) para vídeos.
 Referencia: fotos de producto de la ficha (negro y blanco). Música de Mixkit (licencia gratuita, uso comercial), −14 LUFS.
 **Incluyen la oferta vigente** (decisión de la dueña): «Compra 2 productos y llévate unas medias térmicas de regalo · hasta el 30 nov».
 
@@ -9,7 +9,7 @@ Referencia: fotos de producto de la ficha (negro y blanco). Música de Mixkit (l
 | `01-noche-negro.jpg` / `01b-noche-negro-texto.jpg` | Foto 4:5 (sin / con texto) | «De los vaqueros a la cena» · 59,95 € · banda de la oferta |
 | `02-dia-blanco.jpg` | Foto 4:5 | El blanco de día, con vaqueros oscuros |
 | `03-detalle-mangas.jpg` / `03b-detalle-mangas-texto.jpg` | Foto 4:5 (sin / con texto) | «Las mangas lo cambian todo» · 59,95 € · oferta |
-| `v1-paseo-iphone-negro.mp4` | Vídeo 9:16, 10,5 s | Paseo grabado «con iPhone» (cámara en mano, calle normal al anochecer, textos estilo TikTok) + cierre con la oferta (música «Gimme that Groove!», 0:20). Sustituye a la versión de cine del 09/11, que se veía demasiado IA |
+| `v1-paseo-iphone-negro.mp4` | Vídeo 9:16, 10,5 s | Paseo grabado «con iPhone» (cámara en mano, calle normal al anochecer, textos estilo TikTok) + cierre con la oferta (música «Gimme that Groove!», 0:20). Sustituye a la versión de cine del 09/11, que se veía demasiado IA. 10/11: modelo cambiada (imagen con Nano Banana 2.1, mujer corriente de ~38 años a la salida de un bar) porque la anterior parecía una muñeca |
 | `v2-ugc-espejo-negro.mp4` | Vídeo 9:16, 10,5 s, UGC | «POV: cena de empresa y solo te apetece ir en vaqueros» + cierre con la oferta (música «Cat Walk», 0:40) |
 | `v1-inicio-iphone-negro.jpg`, `v2-inicio-ugc-negro.jpg` | 9:16 | Fotogramas iniciales (Stories) |
 
