@@ -2,7 +2,7 @@
 
 Generados con IA (Higgsfield): GPT Image 2.5 (2K) para fotos y fotogramas; Kling 3.0 Pro (8 s, 9:16, sin sonido) para vídeos.
 Referencia: fotos de producto de la ficha (negro y blanco). Música de Mixkit (licencia gratuita, uso comercial), −14 LUFS.
-**Incluyen la oferta vigente** (decisión de la dueña): «Compra 2 piezas y llévate unas medias térmicas de regalo · hasta el 30 nov».
+**Incluyen la oferta vigente** (decisión de la dueña): «Compra 2 productos y llévate unas medias térmicas de regalo · hasta el 30 nov».
 
 | Archivo | Formato | Ángulo |
 |---|---|---|
@@ -21,12 +21,12 @@ texto como variantes del mismo anuncio. La persona está generada con IA: el UGC
 **Texto principal 1**
 > El blazer que convierte unos vaqueros en un look de cena. Entallado, con escote de encaje y mangas de encaje semitransparente.
 > En negro y blanco, tallas S a 2XL. 59,95 € con envío gratis.
-> Y hasta el 30 de noviembre: compra 2 piezas y llévate unas medias térmicas de regalo.
+> Y hasta el 30 de noviembre: compra 2 productos y llévate unas medias térmicas de regalo.
 
 **Texto principal 2**
 > ¿Cena de empresa, Navidad o Nochevieja y nada que ponerte? Este blazer lo resuelve: póntelo con vaqueros y ya vas arreglada.
 > Mangas de encaje, cintura entallada y 30 días para devolverlo.
-> Regalo: con 2 piezas, unas medias térmicas gratis (hasta el 30/11).
+> Regalo: con 2 productos, unas medias térmicas gratis (hasta el 30/11).
 
 **Títulos:** Blazer Inés · 59,95 € — De los vaqueros a la cena — Mangas de encaje que lo cambian todo — Compra 2 y llévate medias de regalo
 **Descripciones:** Envío gratis · 30 días para devolver — Negro y blanco · S a 2XL — Medias térmicas de regalo hasta el 30/11

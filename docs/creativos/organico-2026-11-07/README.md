@@ -15,7 +15,7 @@ Orden recomendado: **sáb/dom 1 → lun/mar 2 → mié/jue 3**. Hora: 19:00–21
 
 **1 · Reel regalo**
 > Compra dos, te regalamos. 🎁
-> Hasta el 30 de noviembre, al comprar 2 piezas te llevas unas medias térmicas de regalo (valor 24,99 €). Sin códigos: se aplica sola en la cesta.
+> Hasta el 30 de noviembre, al comprar 2 productos te llevas unas medias térmicas de regalo (valor 24,99 €). Sin códigos: se aplica sola en la cesta.
 > 🔗 oelnorstore.com
 > #oelnor #modamujer #abrigos #otoño2026 #lookdeotoño #regalo #mediastermicas
 
@@ -27,7 +27,7 @@ Orden recomendado: **sáb/dom 1 → lun/mar 2 → mié/jue 3**. Hora: 19:00–21
 
 **3 · Carrusel**
 > Un abrigo, tres colores. Cuello alto, cintura entallada y un paño con relieve que se nota de cerca (desliza hasta la 5.ª foto).
-> Y hasta el 30/11: compra 2 piezas y las medias van de regalo.
+> Y hasta el 30/11: compra 2 productos y las medias van de regalo.
 > #oelnor #abrigoirene #modamujer #abrigos #otoño
 
 Notas: en TikTok, poner los hashtags al final y elegir un sonido en tendencia bajo si se quiere (el vídeo ya lleva música).
