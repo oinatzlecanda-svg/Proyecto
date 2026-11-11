@@ -44,3 +44,14 @@ Suelo: 49,95 € (CPA máx. 26 €); por debajo no cumple CPA máx. ≥ 25 €.
 - **11/11 noche (dueña):** si mañana se pausa o se cambia el precio, bajar a **49,95 €** (ella propone 49,99; todo el catálogo termina en ,95). CPA máx. 26,0 € sin IVA: cumple ≥ 25 € justo. Con IVA no cumpliría.
 - **11/11 ~21:00: precio bajado a 49,95 €** a petición de la dueña, para probar si el precio frena (1 carrito en 24 visitas). CPA máx. 26,0 €. Creativos con precio rehechos a 49,95 €; en Meta hay que cambiar texto y títulos.
 - **11/11 ~21:00 (dueña): precio de comparación 59,95 € (tachado).** Ómnibus: 59,95 € es el precio más bajo aplicado en los 30 días anteriores (79,95 → 69,95 el 04/11 → 59,95 el 09/11), así que el tachado es válido. Si se vuelve a cambiar el precio, revisar que el tachado siga siendo el más bajo de los últimos 30 días; para Black Friday (27/11) el «precio anterior» ya sería 49,95 €.
+
+## Cierre (11/11 23:40) — pausada por la dueña
+| Fecha | Gasto | CPC enlace | ATC | Pedidos | Decisión |
+|---|---|---|---|---|---|
+| 11/11 23:40 | 29,59 € | 0,39 € (CTR enlace 5,78 %, 75 clics; CPM 22,81 €; alcance 974, frecuencia 1,33) | 1 (en todo el día: 38 sesiones en Shopify) | 0 | **Pausada.** Corte de 30 €: 0 compras y < 10 carritos. Tras bajar a 49,95 € (21:00) llegaron 14 sesiones y 0 carritos: no era (solo) el precio |
+
+**Lectura:** el anuncio funciona (CTR casi 6 %, CPC 0,39 €; las fotos mucho mejor que el UGC), pero la ficha no convence:
+75 clics → 1 carrito → 0 compras. El problema está en la web/oferta del producto, no en Meta.
+- El blazer se queda en la tienda a 49,95 € (tachado 59,95 €).
+- Si se relanza: solo fotos, y antes revisar la ficha (fotos reales del producto, medidas, tejido).
+- Pérdida del test: 29,59 € (sin coste de producto).
