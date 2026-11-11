@@ -234,8 +234,16 @@ ventas − proveedor − 5 €/pedido − comisión Shopify − Meta del día).
 4. **Desde 200 €/día**, con ≥ 15 % de beneficio → **+20 %**.
 5. **Después de cada subida, 2 días sin tocar nada**, aunque el primero sea malo.
 - Mantener / desescalar: según el vídeo del mentor «Testeo de Campaña de Producto», min 5:52 (pendiente de que la dueña lo pase).
-- Nota: el mentor parte de tests a 50 €/día (de 50 a 70 es +40 %). Con tests a 25 €/día, el salto a 70 es casi ×3: decidir con la dueña
-  si se aplica igual o se sube primero a 50.
+- **Adaptación para tests a 25 €/día (acordada con la dueña, 11/11/2026):** mismos saltos proporcionales hasta llegar a 50 €/día,
+  y desde ahí la regla del mentor tal cual.
+  | Situación (test a 25 €/día) | Acción |
+  |---|---|
+  | Día 1 con **≥ 2 ventas** (a mitad de presupuesto, mitad de ventas) | Esa noche a **35 €/día** (+40 %) |
+  | ≥ 15 % de beneficio 2 días seguidos | A **35 €/día** |
+  | ≥ 30 % de beneficio 2 días seguidos | A **50 €/día** (×2) |
+  | Ya en 50 €/día | Regla del mentor: ≥ 15 % 2 días → 70 · ≥ 30 % 2 días → 100 · desde 200, ≥ 15 % → +20 % |
+  | Tras cada subida | 2 días sin tocar |
+  Con tests a 50 €/día, se aplica directamente la regla del mentor.
 - La regla de beneficio (pausar si el gasto alcanza la contribución acumulada sin pedido nuevo) sigue protegiendo el test.
 
 ### Tabla anterior (orientativa)
