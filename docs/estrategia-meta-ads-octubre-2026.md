@@ -233,7 +233,16 @@ ventas − proveedor − 5 €/pedido − comisión Shopify − Meta del día).
 3. **≥ 30 % de beneficio 2 días seguidos** → a **100 €/día**.
 4. **Desde 200 €/día**, con ≥ 15 % de beneficio → **+20 %**.
 5. **Después de cada subida, 2 días sin tocar nada**, aunque el primero sea malo.
-- Mantener / desescalar: según el vídeo del mentor «Testeo de Campaña de Producto», min 5:52 (pendiente de que la dueña lo pase).
+- **Mantener / desescalar (mentor, vídeo «Cuándo desescalar o escalar», min 3:21):**
+  1. Día siguiente a escalar en pérdidas → no tocar (Meta optimiza).
+  2. 2.º día seguido en pérdidas **con presupuesto de test** → apagar.
+  3. 2 días de pérdidas **ya escalado** → apagar o bajar. Criterio OELNOR (11/11): **bajar al escalón anterior**; si con eso el beneficio
+     acumulado del producto llega a 0 → apagar.
+  4. Si el límite de gasto de la cuenta es menor que el siguiente escalón → mantener y pedir a soporte de Meta que lo suba.
+  - Escalado avanzado (bumpscaling: subir durante el día y volver al presupuesto inicial al cerrar; surfscaling: igual, pero si el día va
+    muy bien se deja al día siguiente): no se usa todavía.
+  - **Por encima de todo, la regla de beneficio:** si el gasto acumulado alcanza la contribución de los pedidos sin pedido nuevo, se pausa
+    aunque no hayan pasado los 2 días.
 - **Adaptación para tests a 25 €/día (acordada con la dueña, 11/11/2026):** mismos saltos proporcionales hasta llegar a 50 €/día,
   y desde ahí la regla del mentor tal cual.
   | Situación (test a 25 €/día) | Acción |
