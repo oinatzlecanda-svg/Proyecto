@@ -42,3 +42,4 @@ La dueña ve caro 59,95 €. Se mantiene hasta el corte de 30 € (12/11 por la 
 - Alguna compra → se queda a 59,95 €.
 Suelo: 49,95 € (CPA máx. 26 €); por debajo no cumple CPA máx. ≥ 25 €.
 - **11/11 noche (dueña):** si mañana se pausa o se cambia el precio, bajar a **49,95 €** (ella propone 49,99; todo el catálogo termina en ,95). CPA máx. 26,0 € sin IVA: cumple ≥ 25 € justo. Con IVA no cumpliría.
+- **11/11 ~21:00: precio bajado a 49,95 €** a petición de la dueña, para probar si el precio frena (1 carrito en 24 visitas). CPA máx. 26,0 €. Creativos con precio rehechos a 49,95 €; en Meta hay que cambiar texto y títulos.
