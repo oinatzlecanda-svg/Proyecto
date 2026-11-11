@@ -48,3 +48,9 @@ Vista previa en móvil: `docs/creativos/abrigo-irene/email-novedad-preview.png`.
 - **Arreglado** en GoDaddy (DNS `domaincontrol.com`): un solo registro
   `_dmarc` TXT = `v=DMARC1; p=none; rua=mailto:dmarc_rua@onsecureserver.net;` (comprobado en Google y Cloudflare DNS).
 - Pasar a `p=quarantine` cuando lleve unas semanas sin problemas.
+
+## Novedad semanal · Blazer Inés (11/11/2026)
+- Campaña `01M755WE1TVA1STPKTRV3KDXGK`, mensaje `01M755WE4T0QJ7E5CCG7Y6YQ19`, plantilla `T8nn3r`, lista «Oelnor | Suscriptores email».
+- **Programada para el 11/11 a las 17:00 (Canarias = 17:00 UTC)**, a petición de la dueña (en vez de las 19:00).
+- Asunto «De los vaqueros a la cena» · vista previa «El Blazer Inés, con mangas de encaje. Y con 2 productos, medias de regalo.»
+- Fotos en el CDN de Shopify (`ines-mail-noche/dia/detalle.jpg`), bloque de la oferta «Compra 2 productos y llévate unas medias térmicas de regalo · hasta el 30 nov».
