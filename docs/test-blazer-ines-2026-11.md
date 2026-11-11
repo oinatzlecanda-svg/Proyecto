@@ -1,6 +1,6 @@
 # Test Blazer Inés · noviembre 2026
 
-- **Lanzamiento previsto:** miércoles 11/11/2026 por la mañana (≈ 8:00), 25 €/día, campaña de Ventas, objetivo Compra.
+- **Lanzado:** miércoles 11/11/2026 por la mañana, 25 €/día, campaña de Ventas, objetivo Compra.
 - **Creativos y textos:** `docs/creativos/blazer-ines/` (2 vídeos, 3 fotos con variantes con texto; oferta «Compra 2 productos» → medias de regalo hasta el 30/11).
 - **PVP:** 59,95 € (bajado de 69,95 € el 09/11 a petición de la dueña). Sin precio tachado.
 - **Elegido** en `docs/estudio-test-2026-11-09.md` (80/100: más anuncios activos de la competencia, temporada de fiestas).
@@ -31,3 +31,4 @@ con ≥ 3 pedidos y beneficio > 0 (coste ya confirmado).
 ## Revisiones
 | Fecha | Gasto | CPC enlace | ATC | Pedidos | Contribución acum. | Beneficio acum. | Decisión |
 |---|---|---|---|---|---|---|---|
+| 11/11 11:25 | 11,64 € | 0,83 € (CTR enlace 4,23 %, 14 clics; CPM 35,17 €) | 1 (7 visitas a la ficha desde redes) | 0 | — | — | Pasa el corte de 10 € (CPC < 1,00 €), pero el CPC es 4 veces el de Irene (0,18 €) por un CPM muy alto (35 € vs 10 €). Seguir hasta 20 €; vigilar CPC |
