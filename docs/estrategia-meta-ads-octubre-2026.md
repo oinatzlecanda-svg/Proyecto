@@ -304,6 +304,16 @@ el orden es una lista de investigación priorizada, no tres ganadores demostrado
 Ejemplo: Abrigo Irene fue ganador validado pero no escalable (al subir a 30 €/día el CPA pasó de 17 € a 42 € y dejó de vender).
 
 ### Cuándo cambiar o añadir creativos (11/11/2026)
+**Regla del mentor (manda):**
+1. Creativo que sigue vendiendo → no se toca.
+2. Cuanto más se escala, más creativos nuevos hacen falta.
+3. Nunca concentrar todo el presupuesto en un solo creativo (se fatiga, se encarece y la campaña cae). Criterio OELNOR: si un anuncio
+   se lleva > 70–80 % del gasto (como la «FOTO 1» de Irene, 92 %), meter 2–3 creativos nuevos.
+4. Al subir presupuesto, creativos nuevos rápido (si se escala el sábado, el domingo ya hay otro tanda lista) → **en cuanto un test
+   tenga la 1.ª venta, preparar la siguiente tanda de creativos para tenerla lista al escalar.**
+5. Los nuevos no sustituyen al ganador: le suman volumen antes de que se canse.
+
+**Señales y detalle (complementan la regla):**
 - **Durante el test (hasta la primera venta / 40 €): no tocar.** Si se corta: CTR enlace < 1,5 % o CPC > 0,70 € → problema de creativo
   (un 2.º intento con creativos nuevos); CTR bueno pero sin carritos → problema de ficha, precio o producto (no repetir creativos).
 - **Con ventas:** añadir 2–3 creativos nuevos (nunca quitar el que vende) cuando pase **cualquiera** de estas:
