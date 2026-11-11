@@ -293,3 +293,11 @@ el orden es una lista de investigación priorizada, no tres ganadores demostrado
 2. **Ganador validado:** ≥ 3 compras en ≥ 2–3 días distintos; CPA < CPA máx. (ideal < 70 % del CPA máx.); beneficio acumulado > 0; frecuencia < 2 y CTR estable → escalar con la regla del mentor (ver «Escalado»).
 3. **Ganador escalable:** tras 2–3 subidas el CPA sigue < CPA máx.; vende casi todos los días; funciona con creativos nuevos → presupuesto fuerte, creativos cada semana y valorar otros países (misma tienda traducida).
 Ejemplo: Abrigo Irene fue ganador validado pero no escalable (al subir a 30 €/día el CPA pasó de 17 € a 42 € y dejó de vender).
+
+### Cuándo cambiar o añadir creativos (11/11/2026)
+- **Durante el test (hasta la primera venta / 40 €): no tocar.** Si se corta: CTR enlace < 1,5 % o CPC > 0,70 € → problema de creativo
+  (un 2.º intento con creativos nuevos); CTR bueno pero sin carritos → problema de ficha, precio o producto (no repetir creativos).
+- **Con ventas:** añadir 2–3 creativos nuevos (nunca quitar el que vende) cuando pase **cualquiera** de estas:
+  frecuencia > 2–2,5 · CTR del enlace −30 % frente a su media · CPC +50 % durante 2–3 días · CPA > CPA máx. 2 días seguidos con tráfico normal.
+- **Al escalar:** añadirlos el mismo día de la subida (un solo reinicio del aprendizaje) y, mientras se escala, renovar 2–3 cada 7–10 días.
+- Pausar un anuncio solo si ha gastado ≥ CPA máx. sin ventas mientras otros del mismo conjunto venden.
