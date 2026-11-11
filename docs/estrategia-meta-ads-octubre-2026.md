@@ -263,3 +263,9 @@ Vogue España (tendencias AW 26–27, 15/09/2026; botas, 05/10/2026), FashionUni
 WGSN AW26/27, Meta Ad Library, guía de Google Trends. Catálogo Shopify consultado el 27/10/2026: 51 artículos activos.
 Limitación: no se han comprobado anuncios de Numa, Dalia y Naya en Meta Ad Library ni sus costes con proveedor;
 el orden es una lista de investigación priorizada, no tres ganadores demostrados.
+
+### Cuándo un producto es ganador (11/11/2026, acordado con la dueña)
+1. **Prometedor** (primeros 30–60 €): ≥ 1 compra o ≥ 10 ATC; CPC enlace < 0,50 € y CTR enlace > 2 %; ≥ 5 % de visitas con ATC → no cortar, regla de beneficio.
+2. **Ganador validado:** ≥ 3 compras en ≥ 2–3 días distintos; CPA < CPA máx. (ideal < 70 % del CPA máx.); beneficio acumulado > 0; frecuencia < 2 y CTR estable → escalar +20–30 % cada 48 h.
+3. **Ganador escalable:** tras 2–3 subidas el CPA sigue < CPA máx.; vende casi todos los días; funciona con creativos nuevos → presupuesto fuerte, creativos cada semana y valorar otros países (misma tienda traducida).
+Ejemplo: Abrigo Irene fue ganador validado pero no escalable (al subir a 30 €/día el CPA pasó de 17 € a 42 € y dejó de vender).
