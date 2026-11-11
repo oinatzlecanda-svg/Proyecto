@@ -41,3 +41,4 @@ La dueña ve caro 59,95 €. Se mantiene hasta el corte de 30 € (12/11 por la 
 - 0 carritos nuevos → pausar (no es el precio).
 - Alguna compra → se queda a 59,95 €.
 Suelo: 49,95 € (CPA máx. 26 €); por debajo no cumple CPA máx. ≥ 25 €.
+- **11/11 noche (dueña):** si mañana se pausa o se cambia el precio, bajar a **49,95 €** (ella propone 49,99; todo el catálogo termina en ,95). CPA máx. 26,0 € sin IVA: cumple ≥ 25 € justo. Con IVA no cumpliría.
