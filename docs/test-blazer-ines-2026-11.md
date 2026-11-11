@@ -33,3 +33,10 @@ con ≥ 3 pedidos y beneficio > 0 (coste ya confirmado).
 |---|---|---|---|---|---|---|---|
 | 11/11 11:25 | 11,64 € | 0,83 € (CTR enlace 4,23 %, 14 clics; CPM 35,17 €) | 1 (7 visitas a la ficha desde redes) | 0 | — | — | Pasa el corte de 10 € (CPC < 1,00 €), pero el CPC es 4 veces el de Irene (0,18 €) por un CPM muy alto (35 € vs 10 €). Seguir hasta 20 €; vigilar CPC |
 | 11/11 17:18 | 19,25 € | 0,48 € (CTR enlace 5,51 %, 40 clics; CPM 26,52 €) | 1 (19 visitas a la ficha desde redes) | 0 | — | — | Corte de 20 €: hay 1 carrito → seguir. El CPC baja (0,83 → 0,48 €). Próximo corte: 30 € sin compra y < 10 ATC → pausar |
+
+## Decisión sobre el precio (11/11, con la dueña)
+La dueña ve caro 59,95 €. Se mantiene hasta el corte de 30 € (12/11 por la mañana):
+- Carritos pero 0 compras → bajar a 54,95 € (CPA máx. 30,5 €) y seguir hasta 40 €.
+- 0 carritos nuevos → pausar (no es el precio).
+- Alguna compra → se queda a 59,95 €.
+Suelo: 49,95 € (CPA máx. 26 €); por debajo no cumple CPA máx. ≥ 25 €.
