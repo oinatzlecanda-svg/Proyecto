@@ -48,7 +48,7 @@ Suelo: 49,95 € (CPA máx. 26 €); por debajo no cumple CPA máx. ≥ 25 €.
 ## Cierre (11/11 23:40) — pausada por la dueña
 | Fecha | Gasto | CPC enlace | ATC | Pedidos | Decisión |
 |---|---|---|---|---|---|
-| 11/11 23:40 | 29,59 € | 0,39 € (CTR enlace 5,78 %, 75 clics; CPM 22,81 €; alcance 974, frecuencia 1,33) | 1 (en todo el día: 38 sesiones en Shopify) | 0 | **Pausada.** Corte de 30 €: 0 compras y < 10 carritos. Tras bajar a 49,95 € (21:00) llegaron 14 sesiones y 0 carritos: no era (solo) el precio |
+| 11/11 23:40 | 29,59 € | 0,39 € (CTR enlace 5,78 %, 75 clics; CPM 22,81 €; alcance 974, frecuencia 1,33) | 1 (en todo el día: 38 sesiones en Shopify) | 0 | **Pausada.** Corte de 30 €: 0 compras y < 10 carritos. Tras bajar a 49,95 € (21:00) llegaron 6 sesiones y 0 carritos (poca muestra): no era (solo) el precio |
 
 **Lectura:** el anuncio funciona (CTR casi 6 %, CPC 0,39 €; las fotos mucho mejor que el UGC), pero la ficha no convence:
 75 clics → 1 carrito → 0 compras. El problema está en la web/oferta del producto, no en Meta.
