@@ -52,6 +52,7 @@ Suelo: 49,95 € (CPA máx. 26 €); por debajo no cumple CPA máx. ≥ 25 €.
 
 **Lectura:** el anuncio funciona (CTR casi 6 %, CPC 0,39 €; las fotos mucho mejor que el UGC), pero la ficha no convence:
 75 clics → 1 carrito → 0 compras. El problema está en la web/oferta del producto, no en Meta.
+**Corrección 12/11** (`docs/estudio-ficha-blazer-ines-2026-11-12.md`): solo 33 sesiones y una tasa de carrito del 3 % (Irene 3,9 %); la muestra era pequeña y la visita salió cara (0,90 € frente a 0,55 €). La ficha tiene fallos, pero no se puede afirmar que fuera la causa.
 - El blazer se queda en la tienda a 49,95 € (tachado 59,95 €).
 - Si se relanza: solo fotos, y antes revisar la ficha (fotos reales del producto, medidas, tejido).
 - Pérdida del test: 29,59 € (sin coste de producto).
