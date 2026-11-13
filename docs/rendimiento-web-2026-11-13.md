@@ -29,3 +29,9 @@ Loox 71 KB, Klaviyo 76 KB, Conversion Bear 47 KB, wetracked 8 KB.
 - **Píxel de Meta + wetracked** (TBT): necesarios para medir los anuncios. No tocar.
 - **Botón «Comprar con Shop»** (precarga ~0,5 MB del checkout de Shop Pay): ayuda a comprar rápido; se deja.
 - **Loox y Klaviyo:** necesarios (opiniones y emails).
+
+## Comprobación (vista previa del tema copia, móvil)
+- Precarga de la foto principal en la cabecera ✅ · Archivo y Anton 1 sola descarga ✅.
+- Iconos de pago de Shopify: Amex, Apple Pay, **Bizum**, Google Pay, Klarna, Maestro, Mastercard, Shop Pay, UnionPay, Visa ✅;
+  caja de Conversion Bear oculta ✅.
+- Los tiempos en vista previa no son comparables (Shopify no usa caché en la vista previa): medir otra vez tras publicar.
