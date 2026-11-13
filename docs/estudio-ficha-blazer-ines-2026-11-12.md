@@ -46,3 +46,14 @@ consejo de talla, barra fija de «Añadir» abajo, métodos de pago (Shop Pay, A
 ## Para el próximo test
 Los puntos 1, 2, 3 y 8 son de toda la tienda: arreglarlos antes del miércoles 18/11. Los puntos 4, 5 y 6 se repasan
 en la ficha del producto elegido.
+
+## Arreglos hechos (13/11, la dueña: «arregla todo lo que puedas menos las reseñas»)
+- **Tema nuevo «OELNOR 3.0 · Ficha limpia · 13 NOV»** (211157942609), copia del activo «botón arriba · 9 NOV», **sin publicar**
+  hasta que la dueña diga sí:
+  - Fuera la etiqueta «−16 %» de la foto y la píldora «Ahorras 10 €» (se quedan precio y tachado): una sola oferta, el regalo.
+  - Pestaña lateral «−10 % primera compra» oculta en móvil en las fichas (el popup de bienvenida sigue).
+  - «Compra 2 piezas» → «Compra 2 productos» en barra superior, caja del regalo, franja de la ficha y cesta.
+  - Comprobado en vista previa móvil (Playwright): pestaña oculta, 0 «pieza», precio limpio.
+- **Blazer Inés:** primera foto = modelo con el negro puesto (antes bodegón); consejo «con un body o top debajo» en «Cómo combinarlo».
+- **Pendiente:** composición/forro/lavado y talla de la modelo (proveedor); fotos del blanco puesto (si se relanza);
+  velocidad de carga; opiniones (decisión de la dueña: no tocarlas por ahora).
