@@ -46,3 +46,6 @@ y porque tiene la señal de anuncios más fuerte de todas las búsquedas (23 act
 
 Riesgo a vigilar: es vestido, no abrigo (lo único que ha vendido hasta ahora). En la ficha, guía de tallas muy clara.
 Antes del miércoles: plazo, composición y fotos/vídeo reales del proveedor; estudiar la ficha de Alicia el martes.
+
+## Decisión final (15/11, estudio exhaustivo)
+Ver `docs/estudio-ganador-2026-11-15.md`: **ganador Chaqueta Sara (84)**; reserva Vestido Alicia (80). Sustituye al cambio anterior.
