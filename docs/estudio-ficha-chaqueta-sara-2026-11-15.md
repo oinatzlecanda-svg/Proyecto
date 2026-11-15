@@ -53,3 +53,11 @@ sigue con la foto y el texto anteriores).
 - **Pendiente:** precio (con el coste exacto), composición/relleno/lavado (proveedor) y, si llegan, fotos reales del proveedor.
 - La espalda y el detalle son fotos generadas: comprobar con la muestra o las fotos del proveedor que la hebilla y la espalda coinciden.
 Captura de la copia en móvil: `docs/creativos/chaqueta-sara/ficha-copia-movil.jpg`.
+
+## Revisión completa de la copia antes de publicar (15/11)
+16 páginas en móvil y ordenador (portada, colecciones, 6 fichas, cesta, búsqueda, contacto, políticas): sin errores de código,
+sin imágenes rotas, sin desbordes, sin errores de Liquid. Cesta con 2 productos correcta (99,90 €; el regalo se elige en la cesta).
+Cambios extra en la portada de la copia: «dos piezas» → «dos productos» (texto de cabecera, botón y carril) y carril «Elige tus dos»
+con Sara primera y Vestido Alicia en lugar de Botines Lara (ya testeados).
+**Publicación:** el conector de Shopify no tiene permiso para publicar temas → la dueña publica «OELNOR 3.0 · Ficha Sara · 15 NOV» desde
+Shopify → Tienda online → Temas → «…» → Publicar. El tema anterior («Ficha limpia · 13 NOV») queda guardado para volver atrás.
