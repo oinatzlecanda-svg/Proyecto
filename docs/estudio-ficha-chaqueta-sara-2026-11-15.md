@@ -36,3 +36,20 @@ Ficha que recibirá el tráfico del test del 18/11. Revisada en móvil (iPhone, 
 - **Lunes 16:** pedir al proveedor coste, composición, relleno, equivalencia de tallas, altura de la modelo y fotos/vídeo reales.
 - **Martes 17:** aplicar 2–5 y 7 en la ficha; generar fotos nuevas; preparar creativos.
 - **Miércoles 18 (antes de lanzar):** ajustar precio (6) y poner primera la foto del anuncio (1).
+
+## Arreglos hechos (15/11, «arréglalo todo en una copia del tema publicado»)
+Tema **«OELNOR 3.0 · Ficha Sara · 15 NOV»** (211336757585), copia del publicado, **sin publicar**. Archivos: `docs/tema/ficha-sara-2026-11-15/`.
+La web real no cambia: lo nuevo de Sara se guarda en metacampos `oelnor.*` del producto que solo lee la copia (comprobado: la web real
+sigue con la foto y el texto anteriores).
+1. **Primera foto = foto de calle con la chaqueta negra puesta** (`oelnor.foto_principal`), también precargada para que salga rápido.
+2. **4 fotos nuevas** (IA, a partir de la foto real de la percha y la de la modelo): calle negro (primera), detalle del cuello y la hebilla,
+   espalda, look camel con el cuello subido. Galería: 11 fotos. Archivos en `docs/creativos/chaqueta-sara/`.
+3. **Cierre explicado:** cuello drapeado que se sujeta con una hebilla en el hombro; se lleva subido, abierto o cruzado.
+4. **Tallas:** «Corte amplio, pensado para llevar un jersey debajo. Elige tu talla de siempre»; aviso de que el pecho de la tabla es de la prenda
+   (126–138 cm) y no del cuerpo. También en el cajón «¿Dudas con tu talla?» (`oelnor.guia_tallas_v2`). Sin equivalencias inventadas.
+5. **Texto:** «abriga sin pesar», «sitio para capas», «el cuello es el protagonista». Composición: **sin inventar** (pendiente del proveedor).
+6. **«Combínalo con»** activado con la colección «Sugerencias del carrito» (medias, bufanda, jersey, bolsos, bailarinas): ayuda a llegar a
+   2 productos para el regalo. Nota: aparecen también las medias (el regalo); comprarlas como 2.º producto da otro par de regalo.
+- **Pendiente:** precio (con el coste exacto), composición/relleno/lavado (proveedor) y, si llegan, fotos reales del proveedor.
+- La espalda y el detalle son fotos generadas: comprobar con la muestra o las fotos del proveedor que la hebilla y la espalda coinciden.
+Captura de la copia en móvil: `docs/creativos/chaqueta-sara/ficha-copia-movil.jpg`.
