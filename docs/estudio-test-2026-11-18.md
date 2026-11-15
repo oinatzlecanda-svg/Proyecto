@@ -33,3 +33,16 @@ Buen candidato para el test siguiente.
 - **Martes 17:** estudiar la ficha de Sara en móvil (fotos, primera foto = la del anuncio, guía de tallas, información) y preparar creativos
   (fotos con modelo primero: en Inés las fotos fueron mucho mejor que el UGC).
 - **Miércoles 18:** lanzar a 25 €/día con los cortes de siempre (10/20/30/40 €). Ojo: desde el 16/11 los anuncios se encarecen por Black Friday.
+
+## Actualización 15/11 (noche): coste del Vestido Alicia confirmado
+El proveedor da **19 € por vestido + 5 €/pedido**. CPA máx. sin IVA = 0,905 × 59,95 − 19 − 5,25 = **30,0 €** (≥ 25 € ✅;
+con IVA, el día que haya alta, quedaría en ~19,6 €: entonces subir a 64,95–69,95 €).
+
+Nueva puntuación de Alicia: Anun. 18 · Exac. 15 · Econ. 18 · Gan. 13 · Temp. 9 · **Prov. 5** · Aj. 5 = **83**, y ya pasa el filtro de coste.
+
+**Cambio de ganador: Vestido Alicia (83) > Chaqueta Sara (80).** Por la regla de la guía (el de más puntos que pase los filtros duros)
+y porque tiene la señal de anuncios más fuerte de todas las búsquedas (23 activos, uno desde hace 3 semanas con varias versiones).
+**Sara pasa a reserva** (coste solo con tope de 25 €, sin precio exacto).
+
+Riesgo a vigilar: es vestido, no abrigo (lo único que ha vendido hasta ahora). En la ficha, guía de tallas muy clara.
+Antes del miércoles: plazo, composición y fotos/vídeo reales del proveedor; estudiar la ficha de Alicia el martes.

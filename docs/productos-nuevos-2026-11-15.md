@@ -31,6 +31,9 @@ Formato de la tienda (por qué te va a gustar, detalles, talla y ajuste, cómo c
 - Noelia: A Ruiz («Victoria»), medidas del cuerpo S–2XL (tabla orientativa del origen).
 - Victoria: Anna Montero, prenda S–2XL (pecho, hombros, manga, largo).
 
+## Costes confirmados
+- **Vestido Alicia: 19 € + 5 €/pedido** (15/11). CPA máx. sin IVA 30,0 €.
+
 ## Pendiente del proveedor (antes de testear cualquiera)
 Coste por escrito (+5 €/pedido), plazo real, composición, medidas por talla, fotos reales y muestra. Con coste ≤ 20 € (vestido,
 blazer) o ≤ 25 € (abrigos) cumplen CPA máx. ≥ 25 € sin IVA; el cárdigan a 54,95 € necesita coste ≤ 19 €.
