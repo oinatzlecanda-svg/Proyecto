@@ -60,6 +60,11 @@ vestido largo de encaje (Elena), abrigo vaquero militar (Valeria), Mary Jane (Ol
 | Chaqueta Nerea | no visibles | **10 tiendas**, n.º 1 en 4 |
 
 ## Los 5 mejores
+
+> **Corrección (15/11, al subirlos a la tienda):** el n.º 2, «Abrigo largo clásico con botones», **es el Abrigo Irene**
+> (mismo producto; la comprobación de duplicados solo miraba las 6 primeras fotos de cada ficha). Queda fuera y entra el
+> reserva, el **Abrigo largo efecto ante (62)**. Ver `docs/productos-nuevos-2026-11-15.md`.
+
 1. **Vestido corto efecto ante con cuello de cremallera (81).** Es el único de los 20 que pasa el umbral de 75 puntos.
    Es el único con anuncios probados (23 activos en 2 tiendas, uno desde hace 3 semanas con varias versiones) y está en 3 tiendas.
    Gancho: «el vestido que se pone con botas altas» (ante + botas = otoño), de día y de cena.
