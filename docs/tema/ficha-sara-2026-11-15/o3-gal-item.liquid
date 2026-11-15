@@ -1,0 +1,32 @@
+{%- comment -%}
+  One gallery slide of sections/o3-product.liquid (split out 15/11/2026 so the gallery can be reordered:
+  a lead photo first, then the rest, then extra photos from the product metafield oelnor.fotos_extra).
+  Accepts: media (media object or media_image from a file_reference), product, eager (bool), idx, count.
+{%- endcomment -%}
+{%- assign m_alt = media.alt | default: product.title | escape -%}
+<button
+  type="button"
+  class="o3-gal__item"
+  data-o3-gal-item
+  data-media-id="{{ media.id }}"
+  aria-label="Ampliar imagen {{ idx }} de {{ count }}"
+>
+  {%- case media.media_type -%}
+    {%- when 'video' -%}
+      {{ media | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false, image_size: '1100x' }}
+    {%- else -%}
+      {%- if eager -%}
+        {{
+          media.preview_image
+          | image_url: width: 1400
+          | image_tag: loading: 'eager', fetchpriority: 'high', widths: '480, 720, 960, 1200, 1400', sizes: '(min-width: 990px) 58vw, 100vw', alt: m_alt
+        }}
+      {%- else -%}
+        {{
+          media.preview_image
+          | image_url: width: 1100
+          | image_tag: loading: 'lazy', widths: '480, 720, 960, 1100', sizes: '(min-width: 990px) 29vw, 100vw', alt: m_alt
+        }}
+      {%- endif -%}
+  {%- endcase -%}
+</button>

@@ -1,0 +1,111 @@
+{%- comment -%}
+  OELNOR 3.0 assets, rendered from snippets/meta-tags.liquid so every page gets
+  them in <head> without touching the section files.
+
+  CSS is split by page so a phone only downloads what the page renders:
+  - o3.css          every page (palette, header, home and landing sections, popup)
+  - o3-pages.css    collection, contact, tracking, policies, ParcelPanel, product
+  - o3-product.css  product pages
+  Fonts: only the faces the first screen needs are preloaded, so they don't
+  compete with the hero photo. Archivo is the body text everywhere; the serif
+  is preloaded on pages that open with the editorial hero, Anton elsewhere.
+{%- endcomment -%}
+{%- liquid
+  assign o3_pages_css = false
+  assign o3_product_css = false
+  assign o3_editorial_top = false
+
+  case request.page_type
+    when 'index'
+      assign o3_editorial_top = true
+    when 'product'
+      assign o3_pages_css = true
+      assign o3_product_css = true
+    when 'collection', 'policy'
+      assign o3_pages_css = true
+    when 'page'
+      case template.suffix
+        when 'about', 'autumn'
+          assign o3_editorial_top = true
+        when 'contact', 'tracking'
+          assign o3_pages_css = true
+      endcase
+  endcase
+  if settings.oelnor_pp_path != blank and request.path contains settings.oelnor_pp_path
+    assign o3_pages_css = true
+  endif
+-%}
+{%- if request.page_type == 'index' -%}
+  {%- comment -%}
+    The home hero photo is the page's largest paint, but the browser only finds it ~110 KB into the
+    HTML, after the CSS and fonts, so it started downloading ~2.7s late on a slow phone. Announce it
+    here first. Same files and widths as the o3-ehero section in templates/index.json: if the hero
+    image is changed there, change the file names here too (a stale name only wastes the preload).
+  {%- endcomment -%}
+  {%- liquid
+    assign hero_mobile = images['oelnor-hero-editorial-mobile-2k.png']
+    assign hero_desktop = images['oelnor-hero-editorial-desktop-2k.png']
+  -%}
+  {%- if hero_mobile -%}
+    <link rel="preload" as="image" fetchpriority="high" media="(max-width: 749px)" imagesizes="100vw" imagesrcset="{{ hero_mobile | image_url: width: 540 }} 540w, {{ hero_mobile | image_url: width: 720 }} 720w, {{ hero_mobile | image_url: width: 900 }} 900w, {{ hero_mobile | image_url: width: 1080 }} 1080w">
+  {%- endif -%}
+  {%- if hero_desktop -%}
+    <link rel="preload" as="image" fetchpriority="high" media="(min-width: 750px)" imagesizes="100vw" imagesrcset="{{ hero_desktop | image_url: width: 1000 }} 1000w, {{ hero_desktop | image_url: width: 1400 }} 1400w, {{ hero_desktop | image_url: width: 1800 }} 1800w, {{ hero_desktop | image_url: width: 2200 }} 2200w">
+  {%- endif -%}
+{%- endif -%}
+{%- if request.page_type == 'product' and product.media.first.media_type == 'image' -%}
+  {%- comment -%}
+    13/11/2026: the first gallery photo is the product page's largest paint (LCP), but it sits ~190 KB
+    into the HTML, so a phone only started downloading it after the CSS and fonts. Same srcset and
+    sizes as the eager image in sections/o3-product.liquid: keep both in step.
+  {%- endcomment -%}
+  {%- assign o3_lcp = product.media.first.preview_image -%}
+  {%- if product.metafields.oelnor.foto_principal.value != blank -%}{%- assign o3_lcp = product.metafields.oelnor.foto_principal.value.preview_image -%}{%- endif -%}
+  <link rel="preload" as="image" fetchpriority="high" imagesizes="(min-width: 990px) 58vw, 100vw" imagesrcset="{{ o3_lcp | image_url: width: 480 }} 480w, {{ o3_lcp | image_url: width: 720 }} 720w, {{ o3_lcp | image_url: width: 960 }} 960w, {{ o3_lcp | image_url: width: 1200 }} 1200w, {{ o3_lcp | image_url: width: 1400 }} 1400w">
+{%- endif -%}
+{%- comment -%}
+  The cart drawer's stylesheet loads deferred (media="print" onload), so until it arrives the empty
+  <cart-drawer> sat in the page flow and pushed everything ~500px down on slow phones, then the page
+  jumped back up (CLS 0.57 in PageSpeed). Keep it out of the flow from the first paint;
+  component-cart-drawer.css takes over with the same rules once loaded.
+{%- endcomment -%}
+{%- comment -%}
+  o3.css only restyles the announcement bar and header when the page has an O3 section
+  (body:has(.o3-top)). Cart, search, 404 and the collections list are built from Dawn/older
+  sections, so they kept the old light header. These are the same rules, applied on every page.
+{%- endcomment -%}
+<style>
+  cart-drawer.drawer { position: fixed; top: 0; left: 0; z-index: 1000; width: 100vw; height: 100%; visibility: hidden; }
+  html body .announcement-bar-section .utility-bar, html body .announcement-bar-section .announcement-bar { background: #d9b3a6; color: #3a2d29; border: 0; }
+  html body .announcement-bar__message { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: #3a2d29; }
+  html body .section-header .header-wrapper { background: #3a2d29; color: #f7f0ea; border-bottom: 1.5px solid rgba(247,240,234,.22); --color-foreground: 247, 240, 234; --color-background: 58, 45, 41; --color-link: 247, 240, 234; }
+  html body .header__heading-link .h2, html body .header__heading-link { font-family: "O3 Anton", Impact, sans-serif; font-size: 28px; letter-spacing: .02em; text-transform: uppercase; color: #f7f0ea; }
+  html body .header__menu-item, html body .header__menu-item span { font-family: "O3 Archivo", Arial, sans-serif; font-size: 12px; font-weight: 700; font-stretch: 125%; letter-spacing: .06em; text-transform: uppercase; color: #f7f0ea; }
+  html body .header__icon, html body .header__icon .svg-wrapper { color: #f7f0ea; }
+  {%- comment -%}
+    Product rails scroll sideways. Cards waiting for their scroll-in reveal sat 24px lower, so each
+    card jumped up as it was swiped into view, and that extra 24px also let the rail scroll vertically
+    under the finger. Rails keep still: no vertical scroll, no rise-in for their cards.
+  {%- endcomment %}
+  [data-o3-track] { overflow-y: hidden; }
+  html.o3-js .o3 [data-o3-track] > [data-o3-reveal]:not([data-in]) { opacity: 1; transform: none; }
+</style>
+{%- comment -%}
+  13/11/2026: o3.css asks for the fonts as url(o3-archivo.woff2), without the ?v= version that
+  asset_url adds, so a versioned preload was a different URL: the phone downloaded each font twice
+  (48 KB extra) and the preload never helped. Preload the exact URL the stylesheet uses.
+{%- endcomment -%}
+<link rel="preload" href="{{ 'o3-archivo.woff2' | asset_url | split: '?' | first }}" as="font" type="font/woff2" crossorigin>
+{%- if o3_editorial_top -%}
+  <link rel="preload" href="{{ 'o3-cormorant-normal.woff2' | asset_url | split: '?' | first }}" as="font" type="font/woff2" crossorigin>
+{%- else -%}
+  <link rel="preload" href="{{ 'o3-anton.woff2' | asset_url | split: '?' | first }}" as="font" type="font/woff2" crossorigin>
+{%- endif -%}
+{{ 'o3.css' | asset_url | stylesheet_tag }}
+{%- if o3_pages_css -%}
+  {{ 'o3-pages.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
+{%- if o3_product_css -%}
+  {{ 'o3-product.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
+<script src="{{ 'o3.js' | asset_url }}" defer="defer"></script>
