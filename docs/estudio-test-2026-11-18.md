@@ -8,10 +8,10 @@ Economía sin IVA: CPA máx. = 0,905 × PVP − coste − 5,25 €. Fuera: ya te
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | **1** | **Chaqueta Sara acolchada con cuello drapeado** | 69,95 € | ≤ 25 € (tope confirmado por la dueña, 04/11) | 33,1 € | **6** (4: sube) | **10** (Bianca Corsi, desde el 03/11) | 17 | 15 | 18 | 12 | 9 | 5 | 4 | **80** |
 | 2 | Vestido Alicia corto efecto ante con cremallera | 59,95 € | ~18 € (estimado, sin presupuesto) | 31,0 € | 3 | **23** (desde el 27/10, varias versiones) | 18 | 15 | 18 | 13 | 9 | 3 | 5 | 81 ⚠️ |
-| 3 | Chaqueta Nerea acolchada ligera | 59,95 € | ~18 € (est.) | 31,0 € | **10** (11), n.º 1 en 4 | no visibles | 8 | 15 | 18 | 11 | 9 | 3 | 4 | 68 |
-| 3 | Blazer Carmen efecto ante | 59,95 € | ~20 € (est.) | 29,0 € | 7 (7) | 1 | 8 | 15 | 15 | 13 | 9 | 3 | 5 | 68 |
-| 5 | Abrigo Lola terciopelo con forro de leopardo | 69,95 € | ~25 € (est.) | 33,1 € | 3 | no visibles | 6 | 15 | 18 | 13 | 9 | 3 | 4 | 68 |
-| 6 | Chaqueta Leire acolchada con capucha | 69,95 € | ≤ 25 € | 33,1 € | 6 (5) | no visibles | 8 | 15 | 18 | 11 | 9 | 5 | 3 | 69 |
+| 3 | Chaqueta Leire acolchada con capucha | 69,95 € | ≤ 25 € | 33,1 € | 6 (5) | no visibles | 8 | 15 | 18 | 11 | 9 | 5 | 3 | 69 |
+| 4 | Chaqueta Nerea acolchada ligera | 59,95 € | ~18 € (est.) | 31,0 € | **10** (11), n.º 1 en 4 | no visibles | 8 | 15 | 18 | 11 | 9 | 3 | 4 | 68 |
+| 4 | Blazer Carmen efecto ante | 59,95 € | ~20 € (est.) | 29,0 € | 7 (7) | 1 | 8 | 15 | 15 | 13 | 9 | 3 | 5 | 68 |
+| 4 | Abrigo Lola terciopelo con forro de leopardo | 69,95 € | ~25 € (est.) | 33,1 € | 3 | no visibles | 6 | 15 | 18 | 13 | 9 | 3 | 4 | 68 |
 | 7 | Zapatos Clara con cordones | 59,95 € | ≤ 25 € | 24,0 € ❌ | 4 | **15** | 16 | 15 | 5 | 12 | 6 | 5 | 4 | 63 (no pasa: CPA < 25 €) |
 | — | Cárdigan Mila, Vestido Adela, Abrigo Beatriz, Cárdigan Noelia, Blazer Victoria, Ainhoa, Paula, Elena… | | | | 2–6 | no visibles | | | | | | | | 54–64 |
 
