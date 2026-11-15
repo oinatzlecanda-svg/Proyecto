@@ -59,5 +59,4 @@ Captura de la copia en móvil: `docs/creativos/chaqueta-sara/ficha-copia-movil.j
 sin imágenes rotas, sin desbordes, sin errores de Liquid. Cesta con 2 productos correcta (99,90 €; el regalo se elige en la cesta).
 Cambios extra en la portada de la copia: «dos piezas» → «dos productos» (texto de cabecera, botón y carril) y carril «Elige tus dos»
 con Sara primera y Vestido Alicia en lugar de Botines Lara (ya testeados).
-**Publicación:** el conector de Shopify no tiene permiso para publicar temas → la dueña publica «OELNOR 3.0 · Ficha Sara · 15 NOV» desde
-Shopify → Tienda online → Temas → «…» → Publicar. El tema anterior («Ficha limpia · 13 NOV») queda guardado para volver atrás.
+**Publicación:** publicada por la dueña el 15/11 por la noche (el conector no tiene permiso para publicar temas). Comprobado en la web real: Sara con foto de calle primero, 11 fotos, descripción nueva y «Combínalo con»; portada con «dos productos»; sin errores.
