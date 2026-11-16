@@ -17,6 +17,9 @@ CPA máx. = 0,905 × PVP − coste − 5,25 €.
 
 **16/11: precio bajado a 64,95 €** (12 variantes, sin precio tachado), a petición de la dueña. Con el tope de coste confirmado (25 €)
 el CPA máx. sin IVA queda en ≥ 28,5 € (≥ 25 € ✅); con coste ≤ 22 €, ≥ 31,5 €.
+**16/11 (después): vuelve a 69,95 €** (la dueña lo cambia). Motivo: Irene vendió a 79,95 € con la competencia a 55–62 € e Inés no vendió
+ni a 49,95 €; el precio no ha sido lo que frena. 69,95 € está en el rango de chaquetas (69–99 €) y da CPA máx. ≥ 33,1 € con coste ≤ 25 €.
+Solo bajar si en el test hay muchos carritos y ninguna compra.
 
 ## Creativos (martes 17/11)
 Lo aprendido con Inés: las **fotos** tuvieron CPC 0,19–0,34 € y CTR 7 %; el vídeo UGC fue malo (CPC 3,41 €). Por eso 4 fotos + 1 vídeo:
