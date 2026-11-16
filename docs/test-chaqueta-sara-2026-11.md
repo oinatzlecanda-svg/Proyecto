@@ -44,7 +44,8 @@ Revisar en móvil como con Inés: primera foto, guía de tallas, composición (d
 
 Tras la primera compra: regla de beneficio. Escalado y creativos: reglas del mentor (`docs/estrategia-meta-ads-octubre-2026.md`).
 
-## Pendiente del proveedor (lunes 16/11)
+## Pendiente del proveedor (mensaje enviado el lunes 16/11)
+Enlaces enviados: Bianca Corsi («Fernanda») y nuestra ficha. Esperando respuesta.
 Coste exacto (+5 €/pedido), plazo real, composición del tejido y del relleno, medidas por talla, fotos o vídeo reales, stock de los 3 colores.
 
 ## Revisiones
