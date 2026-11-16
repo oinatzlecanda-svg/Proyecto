@@ -15,6 +15,9 @@ CPA máx. = 0,905 × PVP − coste − 5,25 €.
 | ≤ 22 € | **64,95 €** (más cerca de la competencia: 54,95–63,95 €) | ≥ 28,5 € |
 | 23–25 € | 69,95 € | 33,1–35,1 € |
 
+**16/11: precio bajado a 64,95 €** (12 variantes, sin precio tachado), a petición de la dueña. Con el tope de coste confirmado (25 €)
+el CPA máx. sin IVA queda en ≥ 28,5 € (≥ 25 € ✅); con coste ≤ 22 €, ≥ 31,5 €.
+
 ## Creativos (martes 17/11)
 Lo aprendido con Inés: las **fotos** tuvieron CPC 0,19–0,34 € y CTR 7 %; el vídeo UGC fue malo (CPC 3,41 €). Por eso 4 fotos + 1 vídeo:
 1. **Foto calle** con la chaqueta negra puesta, cuello subido (gancho: el cuello).
