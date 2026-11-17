@@ -21,6 +21,12 @@ el CPA máx. sin IVA queda en ≥ 28,5 € (≥ 25 € ✅); con coste ≤ 22 �
 ni a 49,95 €; el precio no ha sido lo que frena. 69,95 € está en el rango de chaquetas (69–99 €) y da CPA máx. ≥ 33,1 € con coste ≤ 25 €.
 Solo bajar si en el test hay muchos carritos y ninguna compra.
 
+## Coste confirmado por el proveedor (17/11/2026)
+**19,17 € por chaqueta** (producto 7,94 € + servicio 11,23 €), tallas S–XL, envío a España **6–12 días**, + 5 €/pedido aparte.
+Contribución de un pedido de 1 chaqueta a **69,95 €**, sin IVA: 69,95 − 19,17 − 5 − (1,5 % + 0,25) − 8 % = **CPA máx. 38,9 €** ✅
+(con IVA, el día del alta: ≈ 27,7 €, sigue ≥ 25 €). Pedido de 2 productos con medias de regalo: sumar el 2.º producto y restar 8,13 €.
+Pendiente aún: composición, relleno, equivalencia de tallas, stock por color y fotos/vídeo reales.
+
 ## Creativos (martes 17/11)
 Lo aprendido con Inés: las **fotos** tuvieron CPC 0,19–0,34 € y CTR 7 %; el vídeo UGC fue malo (CPC 3,41 €). Por eso 4 fotos + 1 vídeo:
 1. **Foto calle** con la chaqueta negra puesta, cuello subido (gancho: el cuello).
