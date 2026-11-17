@@ -71,3 +71,5 @@ gastos de envío de la devolución a cargo de la clienta (cambio de opinión), r
   del 30 % = −24 €. Recomendado: ofrecer el parcial primero, informando con transparencia de que la devolución va a China.
 - **Pendiente:** la política de devoluciones no dice que la dirección puede estar fuera de la UE. Añadirlo (transparencia y para que el
   coste del envío de vuelta a cargo de la clienta sea válido).
+- **17/11 10:33:** la clienta acepta el **reembolso parcial de 24 €** y se queda el abrigo. Resultado del test de Irene: +51,51 € − 24 € ≈ **+27,5 €**
+  (sin reserva de devoluciones). Pendiente: hacer el reembolso de 24 € en Shopify (pedido #10210) y anotarlo en el Excel.
