@@ -11,7 +11,7 @@ La persona está generada con IA: no presentarla como clienta. Precio 69,95 € 
 | `a2-frio-cuello.jpg` (+ `-sin-texto`) | 4:5 | «¿El frío se te mete por el cuello?» → el cuello drapeado hace de bufanda |
 | `a3-jersey-capas.jpg` (+ `-sin-texto`) | 4:5 | «Con el jersey gordo no te cierra ninguna chaqueta» → corte amplio con sitio para capas |
 | `a4-fuera-dentro.jpg` (+ `a4-cafe-sin-texto`) | 4:5 | «Fuera frío, dentro calefacción» → cuello subido en la calle, abierto dentro |
-| `v1-frio-cuello.mp4` | 9:16 | Vídeo: tiembla de frío → se sube el cuello → sonríe + cierre con precio y regalo |
+| `v1-frio-cuello.mp4` (+ `v1-inicio.jpg`) | 9:16, 12,5 s, con música | Vídeo estilo iPhone: camina con frío («Cuando el frío se te mete por el cuello…») → se sube el cuello («…súbelo. Hace de bufanda.») → sonríe; cierre con precio, colores y regalo. Música de Mixkit (la del reel de Irene), −14 LUFS |
 | `../real-detalles-hebilla.jpg` | 1:1 | Opcional (confianza): «Así es de verdad» con fotos reales |
 
 Montaje en Meta: 1 campaña de Ventas, 1 conjunto, 25 €/día, Advantage+ público (mujeres 30–55, España). Fotos al feed; vídeo a Reels/Stories.
