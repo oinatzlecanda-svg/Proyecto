@@ -65,3 +65,9 @@ gastos de envío de la devolución a cargo de la clienta (cambio de opinión), r
 - **Pendiente:** pedir al agente la dirección de devolución y si reembolsa algo.
 - **Lección:** primera queja de calidad. Confirma la regla de la estrategia (muestra física antes de escalar) y es un aviso para Sara
   (el producto cuesta 7,94 € y se vende a 69,95 €).
+- **17/11, respuesta del agente:** la devolución va a su **almacén de China** (Ningbo, Zhejiang); cuando la reciben, reembolsan **solo el
+  precio del producto** (no el servicio ni los envíos). Devolver a China desde España cuesta a la clienta ~30–45 € (Correos internacional).
+  → Para nosotras: devolución completa ≈ −70 € (79,95 € reembolsados − la parte de producto que devuelve el agente); reembolso parcial
+  del 30 % = −24 €. Recomendado: ofrecer el parcial primero, informando con transparencia de que la devolución va a China.
+- **Pendiente:** la política de devoluciones no dice que la dirección puede estar fuera de la UE. Añadirlo (transparencia y para que el
+  coste del envío de vuelta a cargo de la clienta sea válido).
