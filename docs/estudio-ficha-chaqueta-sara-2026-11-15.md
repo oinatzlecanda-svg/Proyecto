@@ -60,3 +60,10 @@ sin imágenes rotas, sin desbordes, sin errores de Liquid. Cesta con 2 productos
 Cambios extra en la portada de la copia: «dos piezas» → «dos productos» (texto de cabecera, botón y carril) y carril «Elige tus dos»
 con Sara primera y Vestido Alicia en lugar de Botines Lara (ya testeados).
 **Publicación:** publicada por la dueña el 15/11 por la noche (el conector no tiene permiso para publicar temas). Comprobado en la web real: Sara con foto de calle primero, 11 fotos, descripción nueva y «Combínalo con»; portada con «dos productos»; sin errores.
+
+## Fotos reales del proveedor (17/11)
+Recibidas 3: crudo en percha, negro en percha (ya estaba en la ficha) y collage de 4 detalles reales (cuello y hebilla) — en
+`docs/creativos/chaqueta-sara/real-*.jpg`. Confirman: hebilla de tira de piel con anilla metálica en el hombro (como la foto de detalle
+generada), tejido mate con buena caída, costuras por paneles, bolsillos curvos, bajo abullonado; el crudo es crema (no blanco óptico).
+Galería en la web (13 fotos): calle negro (primera) → **3 reales** (negro, detalles, crudo) → 3 de fondo blanco → 3 de modelo → 3 generadas
+(detalle, espalda, camel). Las reales sirven también para el creativo «Así es de verdad».
