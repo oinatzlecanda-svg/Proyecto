@@ -54,3 +54,14 @@ Con cada pedido nuevo el corte sube 47,61 € (se mantiene el colchón de ~25 �
 | 08/11 14:23 | 84,47 € (30 €/día) | 0,18 € (CTR enlace 5,89 %, 464 clics; Shopify 05–08/11: 230 visitas) | 12 (todas las fuentes) | 3 | 157,32 € | **+72,85 €** | Seguir. Sin 4.º pedido desde el 07/11 10:31 → no subir a 36 €. Corte a 120 € (quedan 35,53 €, ≈ lun 09/11 por la tarde). Meta: «FOTO 1» se lleva el 92 % del gasto |
 | 09/11 14:37 | 118,75 € (30 €/día) | 0,19 € (CTR enlace 5,90 %, 629 clics; frecuencia 1,53) | dom 2 · lun 0 (43 visitas) | 3 | 157,32 € | **+38,57 €** | Seguir hasta 157 € (regla de la dueña). ≈ 72 € sin compra desde el 07/11 10:31; carritos a la baja (dom 2,8 %, lun 0 %). Tema «botón arriba» publicado hoy al mediodía: revisar carritos esta noche |
 | **09/11 20:33 · CERRADO** | **127,01 €** | 0,19 € (CTR enlace 5,91 %, 676 clics; frecuencia 1,57) | — | **3** | 157,32 € | **+30,31 €** (+51,51 € sin reserva de devoluciones) | Pausado por la dueña al acercarse a 130 € sin 4.º pedido (última compra 07/11 10:31). ROAS 2,09x. Test ganador: relanzable con creativos nuevos (gris/negro) |
+
+## Devolución solicitada · #10210 (17/11/2026)
+Clienta de Zaragoza (abrigo camel L, 79,95 €, enviado con 4PX). Motivo: «la prenda no es lo que esperaba, esperaba algo mejor elaborado».
+Dentro de plazo (30 días desde la recepción; desistimiento legal 14 días). Según la política: devolución sin usar y con etiquetas,
+gastos de envío de la devolución a cargo de la clienta (cambio de opinión), reembolso tras recibir y revisar la prenda.
+- **Impacto:** si se reembolsa entero, se pierden los 79,95 € y el coste del proveedor ya pagado → el test de Irene pasa de
+  +51,51 € (sin reserva) a unos −28 € (pendiente de cerrar cuando se resuelva).
+- **Propuesta a la clienta:** devolución normal o, si prefiere quedárselo, reembolso parcial del 30 % (24 €).
+- **Pendiente:** pedir al agente la dirección de devolución y si reembolsa algo.
+- **Lección:** primera queja de calidad. Confirma la regla de la estrategia (muestra física antes de escalar) y es un aviso para Sara
+  (el producto cuesta 7,94 € y se vende a 69,95 €).
