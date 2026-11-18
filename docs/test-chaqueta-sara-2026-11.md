@@ -57,6 +57,7 @@ Coste exacto (+5 €/pedido), plazo real, composición del tejido y del relleno,
 ## Revisiones
 | Fecha | Gasto | CPC enlace | ATC | Pedidos | Contribución acum. | Beneficio acum. | Decisión |
 |---|---|---|---|---|---|---|---|
+| 18/11 12:58 | 10,53 € | 0,59 € (CTR enlace 3,73 %, 18 clics; CPM 21,80 €; alcance 403, frecuencia 1,20) | 0 (6 visitas a la ficha desde redes; las «directas» de hoy incluyen mis mediciones de rendimiento) | 0 | — | — | **Pasa el corte de 10 €** (CPC < 1,00 €). Mejor que Inés a este gasto (0,83 €, CPM 35 €) y peor que Irene (0,20 €). Seguir hasta 20 €: pausar si 0 carritos. A los 20 €, mirar qué anuncio se lleva los clics |
 
 ## 18/11/2026 · día de lanzamiento
 - La dueña confirma hechas las tareas pendientes del día (lanzamiento del test y los pendientes de la rutina).
