@@ -57,7 +57,7 @@ Vista previa en móvil: `docs/creativos/abrigo-irene/email-novedad-preview.png`.
 
 ## Novedad semanal · Chaqueta Sara (18/11/2026)
 - Campaña `01M7PX9JTCXE428WGXDW7RDSCR`, mensaje `01M7PX9JX743V6QXQC8EK8S863`, plantilla `XP5FE6`, lista «Oelnor | Suscriptores email» (`Wev8G3`).
-- **Programada para el 18/11 a las 17:00 (Canarias = 17:00 UTC)**, aprobada por la dueña.
+- **Programada para el 18/11 a las 12:00 (Canarias = 12:00 UTC)**, a petición de la dueña (primero 17:00, cambiada a las 12:00).
 - Asunto «El cuello que hace de bufanda» · vista previa «Chaqueta Sara: abriga sin volumen. Y con 2 productos, medias de regalo.»
 - Fotos subidas a la biblioteca de Klaviyo: `a5-bufanda-editorial-sin-texto` (cabecera), `sara-calle-negro`, `sara-detalle-cuello`.
   69,95 € · negro, camel y crudo · S a XL · bloque del regalo de medias hasta el 30 nov. Sin materiales sin confirmar.

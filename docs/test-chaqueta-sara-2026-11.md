@@ -60,4 +60,4 @@ Coste exacto (+5 €/pedido), plazo real, composición del tejido y del relleno,
 
 ## 18/11/2026 · día de lanzamiento
 - La dueña confirma hechas las tareas pendientes del día (lanzamiento del test y los pendientes de la rutina).
-- Email semanal de Sara: preparado en Klaviyo, programado para hoy a las 17:00 (Canarias), aprobado por la dueña (ver `docs/email-klaviyo.md`).
+- Email semanal de Sara: preparado en Klaviyo, programado para hoy a las 12:00 (Canarias), aprobado por la dueña (ver `docs/email-klaviyo.md`).
