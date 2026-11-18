@@ -10,3 +10,8 @@ Archivos cambiados en la copia:
 
 Comprobación: capturas de la ficha de Sara en móvil y ordenador, y con el cajón de la guía de tallas abierto, antes y
 después: idénticas (solo cambia el segundero de la cuenta atrás).
+
+Copia creada: tema `211614007633` («OELNOR 3.0 · Rendimiento · 18 NOV»), archivos subidos y comprobados (MD5 iguales).
+Vista previa comparada con la web publicada (móvil y ordenador): ficha Sara, ficha medias, home y colección Mujer, sin
+diferencias (salvo la cuenta atrás y el carrusel de anuncios, que cambian solos). La ficha ya no pide `o3-pages.css`;
+la colección sí (la necesita). **Pendiente: que la dueña publique la copia** (yo no tengo permiso para publicar temas).

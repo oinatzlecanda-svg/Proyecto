@@ -57,3 +57,8 @@ Opcional, después del test: quitar el botón exprés de Shop Pay de la ficha (�
 **18/11/2026, tras desinstalar Conversion Bear** (comprobado: ya no está en las apps ni se carga en la web). Ficha Sara, 2 pasadas:
 nota 53–59 (antes 51) · LCP 4,2–4,6 s (antes 5,5) · TBT 0,81–0,94 s · JS sin usar 153 KiB (antes 330 KiB en PageSpeed).
 Los iconos de pago de Shopify (con Bizum) siguen en la ficha.
+
+**Arreglos 18/11 (tema copia «Rendimiento · 18 NOV», ver `docs/tema/rendimiento-2026-11-18/LEEME.md`):** la ficha deja de cargar
+`o3-pages.css` (16 KB que bloqueaban y se usaban 2 KB) y se quita la barra de anuncios vacía que duplicaba el CSS del carrusel.
+Lo que queda en PageSpeed: el CSS sin usar restante es de `base.css` (Dawn, compartido por todas las páginas) y de Shop Pay;
+el «tamaño total» incluye 1,1 MB de la precarga del checkout de Shopify y ~190 KB de las fuentes del aviso «Iniciar sesión con Shop».
