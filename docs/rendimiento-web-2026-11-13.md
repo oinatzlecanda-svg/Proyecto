@@ -35,3 +35,21 @@ Loox 71 KB, Klaviyo 76 KB, Conversion Bear 47 KB, wetracked 8 KB.
 - Iconos de pago de Shopify: Amex, Apple Pay, **Bizum**, Google Pay, Klarna, Maestro, Mastercard, Shop Pay, UnionPay, Visa ✅;
   caja de Conversion Bear oculta ✅.
 - Los tiempos en vista previa no son comparables (Shopify no usa caché en la vista previa): medir otra vez tras publicar.
+
+## Revisión 18/11/2026 (tema publicado «Ficha Sara · 15 NOV»), Lighthouse móvil
+| Página | Nota | FCP | LCP | TBT | CLS |
+|---|---|---|---|---|---|
+| Ficha Chaqueta Sara | 51 | 2,8 s | 5,5 s | 830 ms | 0 |
+| Home | 59 | 1,5 s | 5,4 s | 700 ms | 0,001 |
+
+Los avisos de PageSpeed «Minimiza el trabajo del hilo principal» y «Reduce el JavaScript que no se use (330 KiB)» vienen de
+scripts externos, no del tema:
+- JS sin usar: Meta (fbevents + config, 75 KiB sin usar), gestor de píxeles de Shopify (35 KiB), botón Shop Pay (43 KiB).
+- Tiempo de procesador en la ficha: Shopify píxeles 0,97 s · Loox 0,74 s · Shop (inicio de sesión) 0,38 s · Meta 0,68 s ·
+  Klaviyo 0,57 s · Shop Pay 0,33 s · wetracked 0,28 s · **Conversion Bear 0,28 s (sigue cargándose, con el sello de Bitcoin)**.
+- La foto principal (sara-calle-negro) se precarga bien: llega a la vez que el CSS. El LCP alto es por el procesador ocupado
+  con esos scripts. El CSS sin usar (12 KiB) son las hojas pequeñas del carrusel de la barra de anuncios: no compensa tocarlas.
+- Tras la carga, Shopify precarga el checkout (220 peticiones, 1,1 MB): es de Shopify y no se puede quitar desde el tema.
+
+Qué hacer (dueña): desinstalar **Conversion Bear** en Apps (sigue instalada; ocultarla en el tema no basta).
+Opcional, después del test: quitar el botón exprés de Shop Pay de la ficha (−0,3 s de procesador) si las compras no lo usan.
