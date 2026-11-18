@@ -57,3 +57,7 @@ Coste exacto (+5 €/pedido), plazo real, composición del tejido y del relleno,
 ## Revisiones
 | Fecha | Gasto | CPC enlace | ATC | Pedidos | Contribución acum. | Beneficio acum. | Decisión |
 |---|---|---|---|---|---|---|---|
+
+## 18/11/2026 · día de lanzamiento
+- La dueña confirma hechas las tareas pendientes del día (lanzamiento del test y los pendientes de la rutina).
+- Email semanal de Sara: preparado en Klaviyo, en borrador hasta que la dueña confirme la hora (ver `docs/email-klaviyo.md`).
