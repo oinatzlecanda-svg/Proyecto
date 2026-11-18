@@ -53,3 +53,7 @@ scripts externos, no del tema:
 
 Qué hacer (dueña): desinstalar **Conversion Bear** en Apps (sigue instalada; ocultarla en el tema no basta).
 Opcional, después del test: quitar el botón exprés de Shop Pay de la ficha (−0,3 s de procesador) si las compras no lo usan.
+
+**18/11/2026, tras desinstalar Conversion Bear** (comprobado: ya no está en las apps ni se carga en la web). Ficha Sara, 2 pasadas:
+nota 53–59 (antes 51) · LCP 4,2–4,6 s (antes 5,5) · TBT 0,81–0,94 s · JS sin usar 153 KiB (antes 330 KiB en PageSpeed).
+Los iconos de pago de Shopify (con Bizum) siguen en la ficha.
