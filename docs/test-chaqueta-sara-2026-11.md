@@ -63,3 +63,16 @@ Coste exacto (+5 €/pedido), plazo real, composición del tejido y del relleno,
 ## 18/11/2026 · día de lanzamiento
 - La dueña confirma hechas las tareas pendientes del día (lanzamiento del test y los pendientes de la rutina).
 - Email semanal de Sara: preparado en Klaviyo, programado para hoy a las 12:00 (Canarias), aprobado por la dueña (ver `docs/email-klaviyo.md`).
+
+## Anuncios a 19,52 € (18/11 20:58)
+| Anuncio | Gasto | Clics enlace | CPC enlace | CTR enlace | CPM |
+|---|---|---|---|---|---|
+| **FOTO 2 (jersey grueso, camel)** | 5,89 € | **15** | **0,39 €** | **4,49 %** | 17,63 € |
+| FOTO 1 (plumífero vs Sara) | 4,55 € | 5 | 0,91 € | 2,08 % | 18,96 € |
+| VIDEO UGC (frío en el cuello) | 4,28 € | 4 | 1,07 € | 1,41 % | 15,07 € |
+| VIDEO CON MÚSICA | 4,27 € | 4 | 1,07 € | 3,96 % | 42,28 € |
+| FOTO 3 | 0,53 € | 1 | 0,53 € | 4,55 % | 24,09 € |
+
+FOTO 2 trae la mitad de los clics al menor coste. Sin tocar los anuncios (regla: no tocar hasta la 1.ª venta o 40 €; Meta ya
+reparte). **Ficha:** primera foto cambiada a la de FOTO 2 sin texto (`sara-jersey-camel.jpg`, metacampo `oelnor.foto_principal`);
+la de calle en negro pasa al final de la galería. Si se relanza o hay ventas: creativos nuevos en la línea de FOTO 2 (capas, camel).
