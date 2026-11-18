@@ -62,3 +62,7 @@ Los iconos de pago de Shopify (con Bizum) siguen en la ficha.
 `o3-pages.css` (16 KB que bloqueaban y se usaban 2 KB) y se quita la barra de anuncios vacía que duplicaba el CSS del carrusel.
 Lo que queda en PageSpeed: el CSS sin usar restante es de `base.css` (Dawn, compartido por todas las páginas) y de Shop Pay;
 el «tamaño total» incluye 1,1 MB de la precarga del checkout de Shopify y ~190 KB de las fuentes del aviso «Iniciar sesión con Shop».
+
+**Medición tras publicar «Rendimiento · 18 NOV» (18/11/2026):** ficha Sara nota 53–56, LCP 4,4–4,6 s, TBT 0,82–1,1 s, CLS 0;
+CSS que bloquea la carga: 4 hojas (antes 7). Home: nota 71, LCP 3,7 s, TBT 0,5 s (una segunda pasada salió 37 por un
+fallo de red puntual y no cuenta). El resto del tiempo de procesador sigue siendo de Meta, Shopify, Shop Pay, Loox y Klaviyo.
