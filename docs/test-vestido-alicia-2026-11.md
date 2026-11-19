@@ -24,6 +24,15 @@ Bien: precio, regalo, plazo (lun 30 nov–mié 9 dic), guía de tallas con medid
 Cambiar antes de lanzar: primera foto = la del anuncio principal (ahora es el fondo blanco azul marino).
 Sin opiniones (como todas las nuevas).
 
+## Montaje en Meta (19/11, hecho por Claude con la conexión de Higgsfield)
+- Campaña **CAMPAÑA ALICIA** `120252409981590190` · Ventas · 25 €/día (presupuesto de campaña) · coste más bajo · **programada: empieza el
+  20/11 a las 7:00 (Canarias)** (activa con fecha de inicio).
+- Conjunto **ADSET 1 ALICIA** `120252409984970190` · compra (píxel 1559595368646858) · España, 18–65, público Advantage+ (como Sara).
+- 5 anuncios con «Comprar», Instagram de la marca y UTM `utm_source=facebook&utm_medium=paid&utm_campaign={{campaign.id}}&utm_content={{ad.name}}`:
+  FOTO 1 ESTUDIO, FOTO 2 CREMALLERA, FOTO 3 COSTURAS, FOTO 4 COLORES (fotos comerciales `c1`–`c4`) y VIDEO EDITORIAL (`v2-editorial.mp4`).
+  3 textos, 4 títulos y 2 descripciones que Meta combina. Imágenes marcadas como generadas con IA.
+- Estado al crearla: anuncios en revisión de Meta.
+
 ## Revisiones
 | Fecha | Gasto | CPC enlace | ATC | Pedidos | Contribución acum. | Beneficio acum. | Decisión |
 |---|---|---|---|---|---|---|---|
