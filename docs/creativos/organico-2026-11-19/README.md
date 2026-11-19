@@ -33,3 +33,10 @@ Hora: 19:00–21:00 península (18:00–20:00 Canarias).
 
 Notas: no poner materiales (composición sin confirmar por el proveedor) ni «quedan pocas». Marcar «Contenido generado con IA»
 si la red lo pide; no presentar a las modelos como clientas reales. En TikTok, hashtags al final.
+
+## Facebook (página Oelnor), publicado por Claude vía Higgsfield
+- **19/11 ~19:30:** foto 1 del carrusel (`1-carrusel-sara-01.jpg`) con el texto 1 (sin «desliza»: la conexión no admite carruseles)
+  y enlace a la ficha. Post `1273682892503835_122133911469470240`.
+- **Programado (tarea en la sesión):** sáb 21/11 19:00 reel «3 colores» · lun 23/11 19:00 vídeo editorial.
+- La conexión publica pero no puede leer los «me gusta» ni los comentarios (Meta pide un permiso que la app no tiene).
+- Instagram y TikTok: los sube la dueña (TikTok, cuando quede conectado).
