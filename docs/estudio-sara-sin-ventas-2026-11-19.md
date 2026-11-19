@@ -27,7 +27,7 @@ Sara no es rentable aunque la ficha fuera perfecta.** El CPM alto encaja con el 
 ## 4. En la ficha (móvil), lo que frena a quien llega
 1. **Precio:** 69,95 €, el más caro de las 6 marcas (54,95–63,95 €). Quien ve varios anuncios de la misma chaqueta compara.
 2. **Entrega:** «entre el lun 30 nov y el mié 9 dic» (6–12 días laborables). Una chaqueta de abrigo comprada hoy llega en 2–3 semanas;
-   las tiendas españolas que la venden suelen entregar en 24–72 h.
+   si alguna de las otras marcas envía desde España (sin comprobar), llega en días.
 3. **Sin opiniones** («Todavía no hay opiniones de esta pieza») y **sin composición** (el proveedor no la ha dado).
 4. Detalle: la primera foto es camel pero el color marcado al entrar es Negro (la barra fija muestra la negra).
 
