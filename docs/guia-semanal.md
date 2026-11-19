@@ -34,3 +34,10 @@ Reglas de corte, de beneficio y de escalado: `docs/estrategia-meta-ads-octubre-2
 ## Email a suscriptoras (desde el 05/11/2026)
 Klaviyo, lista «Oelnor | Suscriptores email». **Un email de novedad por semana** (el producto del test), sin descuentos ni
 urgencias falsas, con baja en un clic. Detalle y flujos activos: `docs/email-klaviyo.md`.
+
+## Conexión de Meta (19/11/2026)
+Meta conectado a Higgsfield (Ads Studio): cuenta publicitaria «Oinatz Moda 1» (`act_1109714574736460`, EUR) y página de Facebook
+«Oelnor» (`1273682892503835`), visibilidad «solo quien la conecta». Permite leer campañas y resultados (cortes sin capturas),
+crear campañas **en pausa** (las activa la dueña) y publicar en la página de Facebook (1 foto o 1 vídeo por publicación, al momento,
+sin programar ni carruseles). La página **no tiene Instagram vinculado** en Meta: para publicar en Instagram hay que vincular la
+cuenta de Instagram a la página (Meta Business Suite → Configuración → Cuentas de Instagram) o usar Supermetrics.
