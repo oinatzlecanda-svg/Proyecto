@@ -28,6 +28,14 @@ Ficha: primera foto = `a1` sin texto; las otras 3 al final de la galería (metac
 que todavía no hemos comprobado con una muestra. Si el vestido real no se parece, habrá quejas y devoluciones. Pedir fotos reales /
 muestra al proveedor cuanto antes. Las fotos de look (`a1`–`a4`) quedan de reserva. El vídeo `v1-dia-noche.mp4` se mantiene.
 
+## Vídeo editorial (19/11, petición de la dueña: estilo marcas de streetwear tipo campaña) · **es el que se sube**
+`v2-editorial.mp4` (portada `v2-editorial-portada.jpg`) · 9:16, 12 s, música «Deep Techno Ambience» (Mixkit), −14 LUFS.
+5 planos de ~2 s con corte seco y grano de película, textos en mayúsculas centrados: calle a contraluz en marrón («ALICIA ·
+VESTIDO EFECTO ANTE») → primer plano de la cremallera («MEDIA CREMALLERA») → noche con flash en burdeos («DE NOCHE») → escalera
+de hormigón en verde oliva («CORTE RECTO · COSTURAS VISTAS») → plaza al anochecer en azul marino («4 COLORES · XS—2XL») →
+cierre negro con «ALICIA · 59,95 €», colores, envío gratis y 30 días. Planos de Kling 3.0 Pro desde fotos editoriales de
+Nano Banana 2.1. El plano de noche se corta antes de que la IA cambie la cremallera por botones. `v1-dia-noche.mp4` queda de reserva.
+
 ## Textos (público frío, España)
 
 **Texto principal 1 (botas)**
