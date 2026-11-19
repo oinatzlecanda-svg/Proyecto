@@ -62,3 +62,5 @@ Vista previa en móvil: `docs/creativos/abrigo-irene/email-novedad-preview.png`.
 - Fotos subidas a la biblioteca de Klaviyo: `a5-bufanda-editorial-sin-texto` (cabecera), `sara-calle-negro`, `sara-detalle-cuello`.
   69,95 € · negro, camel y crudo · S a XL · bloque del regalo de medias hasta el 30 nov. Sin materiales sin confirmar.
 - Vista previa en móvil: `docs/creativos/chaqueta-sara/email-novedad-preview.png`.
+
+**Resultado (19/11 9:10):** 22 entregados, 5 aperturas (23 %), 0 clics, 0 bajas. Tendencia a la baja: Irene 54 % → Inés 35 % → Sara 23 % (envío a las 12:00).

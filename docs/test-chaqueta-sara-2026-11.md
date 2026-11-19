@@ -59,6 +59,7 @@ Coste exacto (+5 €/pedido), plazo real, composición del tejido y del relleno,
 |---|---|---|---|---|---|---|---|
 | 18/11 12:58 | 10,53 € | 0,59 € (CTR enlace 3,73 %, 18 clics; CPM 21,80 €; alcance 403, frecuencia 1,20) | 0 (6 visitas a la ficha desde redes; las «directas» de hoy incluyen mis mediciones de rendimiento) | 0 | — | — | **Pasa el corte de 10 €** (CPC < 1,00 €). Mejor que Inés a este gasto (0,83 €, CPM 35 €) y peor que Irene (0,20 €). Seguir hasta 20 €: pausar si 0 carritos. A los 20 €, mirar qué anuncio se lleva los clics |
 | 18/11 20:55 | 19,46 € | 0,67 € (CTR enlace 2,96 %, 29 clics; CPM 19,86 €; alcance 798, frecuencia 1,23) | **1** (11 visitas a la ficha desde Meta, utm facebook/paid) | 0 | — | — | **Pasa el corte de 20 €** (hay 1 carrito). Por la tarde empeora: 11 clics por 8,93 € (CPC ≈ 0,81 €, CTR 2,96 % total). Email de las 12:00: 0 visitas en Shopify. Corte de 30 € (≈ mañana a media mañana): pausar si 0 compras y < 10 carritos |
+| 19/11 9:10 · **CORTE 30 €** | 29,02 € | 0,64 € (CTR enlace 3,54 %, 45 clics; CPM 22,81 €; alcance 993, frecuencia 1,28) | 1 (14 visitas de Meta en Shopify: solo 1 de cada 3 clics llega a la web) | 0 | — | — | **Pausar** (regla: 0 compras y < 10 carritos). Anuncio aceptable (CTR > 1,5 %, CPC < 0,70 €) y 1 carrito de 14 visitas: el freno está después del clic (ficha/precio/producto o pérdida entre clic y carga) |
 
 ## 18/11/2026 · día de lanzamiento
 - La dueña confirma hechas las tareas pendientes del día (lanzamiento del test y los pendientes de la rutina).
