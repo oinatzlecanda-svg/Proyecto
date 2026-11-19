@@ -37,6 +37,12 @@ a las modelos (IA) como clientas.
 3. Apuntarlo en el registro de abajo (fecha, franja, producto, idea, id del post) y commit.
 4. Avisar a la dueña en una línea. Si algo falla (créditos, Meta), avisar y no reintentar en bucle.
 
+## Tareas programadas
+- «Facebook OELNOR · post de media mañana»: todos los días a las **10:43** (Canarias).
+- «Facebook OELNOR · post de tarde»: todos los días a las **17:41** (Canarias).
+- Queda un aviso suelto del sáb 21/11 a las 19:00 (reel «3 colores» de Sara) que no se pudo borrar: cuando salte, **no publicar**
+  (ya cubre la rutina de la tarde); el reel puede usarse como contenido de un día sin test.
+
 ## Registro
 | Fecha | Franja | Producto | Idea | Post |
 |---|---|---|---|---|
