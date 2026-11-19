@@ -16,6 +16,18 @@ Gancho único: **«el vestido que se pone con botas»**, de día y de noche. Pre
 Montaje en Meta: 1 campaña de Ventas, 1 conjunto, 25 €/día, Advantage+ público (mujeres 30–55, España). Fotos al feed; vídeo a Reels/Stories.
 Ficha: primera foto = `a1` sin texto; las otras 3 al final de la galería (metacampos `oelnor.foto_principal` y `oelnor.fotos_extra`).
 
+## Versión comercial (19/11, petición de la dueña: «modo comercial, centrado en la calidad del producto») · **son las que se suben**
+| Archivo | Idea |
+|---|---|
+| `c1-estudio-marron.jpg` (+ `-sin-texto`) | Estudio, fondo beige, cuerpo entero en marrón con botas: «Efecto ante, corte recto.» + 59,95 € · envío gratis |
+| `c2-detalle-cremallera.jpg` (+ `-sin-texto`) | Macro del cuello camisero y la media cremallera: «Media cremallera y cuello camisero.» |
+| `c3-detalle-costuras.jpg` (+ `-sin-texto`) | Detalle de manga y costuras vistas en verde oliva: «Costuras vistas y tacto de ante.» |
+| `c4-cuatro-colores.jpg` (+ `-sin-texto`) | Los 4 colores colgados en estudio: «Elige el tuyo.» + precio |
+
+**Ojo (lección de Irene):** son recreaciones con IA a partir de las fotos del proveedor; los primeros planos muestran un acabado
+que todavía no hemos comprobado con una muestra. Si el vestido real no se parece, habrá quejas y devoluciones. Pedir fotos reales /
+muestra al proveedor cuanto antes. Las fotos de look (`a1`–`a4`) quedan de reserva. El vídeo `v1-dia-noche.mp4` se mantiene.
+
 ## Textos (público frío, España)
 
 **Texto principal 1 (botas)**
