@@ -48,3 +48,4 @@ a las modelos (IA) como clientas.
 |---|---|---|---|---|
 | 19/11 | tarde | Chaqueta Sara | Portada carrusel «El cuello que hace de bufanda» | 1273682892503835_122133911469470240 |
 | 20/11 | mañana | Vestido Alicia (día del test) | Vídeo editorial de campaña (`docs/creativos/vestido-alicia/anuncios/v2-editorial.mp4`, reutilizado: no estaba en Facebook) | vídeo 4208818602749121 |
+| 20/11 | tarde | Vestido Alicia (día del test) | Foto editorial nocturna con flash en burdeos, 9:16 (fotograma inicial del vídeo, no publicado antes) · `docs/creativos/organico-facebook/2026-11-20-tarde-vestido-alicia.jpg` | 1273682892503835_122134215945470240 |
