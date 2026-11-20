@@ -36,3 +36,4 @@ Sin opiniones (como todas las nuevas).
 ## Revisiones
 | Fecha | Gasto | CPC enlace | ATC | Pedidos | Contribución acum. | Beneficio acum. | Decisión |
 |---|---|---|---|---|---|---|---|
+| 20/11 ~11:00 · **corte 10 €** | 10,82 € | 0,72 € (15 clics; CPM ≈ 16 €; FOTO 1 ESTUDIO 84 % del gasto a 0,91 €; FOTO 2 0,37 € y FOTO 3 0,25 € con muy poco gasto; vídeo sin gasto) | 1 (y 1 pago iniciado) · 9 visitas de Meta en Shopify (60 % de los clics, Sara 31 %) | 0 | — | — | **Pasa el corte de 10 €** (CPC < 1 €), pero por encima del aviso de 0,50 €. Coste por visita ≈ 1,20 € (Sara 2,07 €, Irene ≈ 0,50 €). Seguir sin tocar; el corte de 20 € (0 carritos) ya está superado. Decisivo: 30 € (< 10 carritos) y 40 € (0 compras) |
