@@ -21,7 +21,15 @@ Bien: descripción, guía de tallas (largo del pie), combinaciones, plazo 6–12
 Ojo: en la guía la 42 salta a 26,5 cm (de 25,5) — confirmar con el proveedor. Sin materiales afirmados (bien: no decir piel).
 
 ## Creativos
-`docs/creativos/zapatos-clara/anuncios/` (4 fotos de look + vídeo editorial). Pendientes del visto bueno de la dueña.
+`docs/creativos/zapatos-clara/anuncios/` (4 fotos de look + vídeo editorial). **Aprobados por la dueña el 21/11.**
+Ficha: primera foto = coñac con vaqueros (`oelnor.foto_principal`); las otras 3 de look en `oelnor.fotos_extra`.
+
+## Montaje en Meta (21/11, Claude vía Higgsfield)
+- **CAMPAÑA CLARA** `120252439668600190` · Ventas · 25 €/día · **programada: domingo 22/11 a las 7:00 (Canarias)**.
+- **ADSET 1 CLARA** `120252439670830190` · compra (píxel) · España 18–65 · Advantage+.
+- 5 anuncios: N01 COÑAC VAQUEROS, N02 NEGRO MIDI, N03 CREMA VESTIDO, DETALLE CORDONES, VIDEO EDITORIAL. 3 textos, 4 títulos,
+  2 descripciones; Instagram de la marca; UTM con el nombre del anuncio.
+- Precio de lanzamiento 59,95 € (coste del proveedor sin confirmar: si pasa de 20 €, subir a 64,95 €).
 
 ## Cortes antes de la primera compra
 10 € (CPC ≥ 1 €; aviso si ≥ 0,50 €) · 20 € (0 carritos) · 30 € (0 compras y < 10 carritos) · 40 € (0 compras).
