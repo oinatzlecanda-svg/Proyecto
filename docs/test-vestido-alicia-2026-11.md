@@ -33,6 +33,11 @@ Sin opiniones (como todas las nuevas).
   3 textos, 4 títulos y 2 descripciones que Meta combina. Imágenes marcadas como generadas con IA.
 - Estado al crearla: anuncios en revisión de Meta.
 
+## 21/11 · 4 anuncios nuevos de look cotidiano (decisión de la dueña)
+Motivo: CPC 0,82 € (> 0,70 €: según la estrategia, problema de creativo) y CTR 2 % frente al 5,9 % de Irene; la foto de estudio se
+llevaba el 84 % del gasto con CTR 1,8 %. Añadidos sin quitar nada, mismos textos: LOOK 1 CALLE BOTAS (`a1`), LOOK 2 CAFE VERDE (`a2`),
+LOOK 3 NOCHE BURDEOS (`a3`), LOOK 4 CASA AZUL (`a4`). Revisar en el corte de 30 € si bajan el CPC.
+
 ## Revisiones
 | Fecha | Gasto | CPC enlace | ATC | Pedidos | Contribución acum. | Beneficio acum. | Decisión |
 |---|---|---|---|---|---|---|---|
