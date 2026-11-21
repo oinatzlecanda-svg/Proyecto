@@ -1,0 +1,31 @@
+# Test Zapatos Clara · noviembre 2026 (plan)
+
+- **Producto:** [Zapatos Clara de tacón con cordones](https://oelnorstore.com/products/zapatos-clara-de-tacon-con-cordones) · Negro, coñac, crema · 35–42 · 59,95 €.
+- **Por qué (21/11):** la dueña quiere producto nuevo y que se anuncie mucho. Es el único sin testear con señal fuerte de anuncios:
+  15 anuncios activos (Anna Montero, «Rosa», desde el 02/11) y 4 tiendas en más vendidos (búsqueda del 15/11, sin actualizar).
+  Los zapatos ya vendieron (Botines Lara, 3 pedidos). Pocas marcas en España → CPM menor que Sara.
+- **Lanzamiento:** domingo 22/11 a las 7:00 (Canarias), si la dueña aprueba los creativos. Ventas, España, Advantage+, 25 €/día.
+  Semana de Black Friday: CPM más alto hasta el 27/11.
+
+## Economía (sin IVA) — **pendiente del coste del proveedor**
+CPA máx. = 0,905 × PVP − coste − 5,25 €.
+| Coste | 59,95 € | 64,95 € |
+|---|---|---|
+| 15 € | 34,0 € ✅ | 38,5 € |
+| 20 € | 29,0 € ✅ | 33,5 € |
+| 25 € | 24,0 € ❌ | 28,5 € ✅ |
+Si el coste pasa de 20 €, subir a 64,95 € antes de lanzar; si pasa de 25 €, no se testea.
+
+## Ficha (revisada 21/11)
+Bien: descripción, guía de tallas (largo del pie), combinaciones, plazo 6–12 días. Fotos: solo de producto (IA) → añadir las de look.
+Ojo: en la guía la 42 salta a 26,5 cm (de 25,5) — confirmar con el proveedor. Sin materiales afirmados (bien: no decir piel).
+
+## Creativos
+`docs/creativos/zapatos-clara/anuncios/` (4 fotos de look + vídeo editorial). Pendientes del visto bueno de la dueña.
+
+## Cortes antes de la primera compra
+10 € (CPC ≥ 1 €; aviso si ≥ 0,50 €) · 20 € (0 carritos) · 30 € (0 compras y < 10 carritos) · 40 € (0 compras).
+
+## Revisiones
+| Fecha | Gasto | CPC enlace | ATC | Pedidos | Contribución acum. | Beneficio acum. | Decisión |
+|---|---|---|---|---|---|---|---|
