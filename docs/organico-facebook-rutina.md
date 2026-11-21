@@ -43,6 +43,10 @@ a las modelos (IA) como clientas.
 - Queda un aviso suelto del sáb 21/11 a las 19:00 (reel «3 colores» de Sara) que no se pudo borrar: cuando salte, **no publicar**
   (ya cubre la rutina de la tarde); el reel puede usarse como contenido de un día sin test.
 
+## TikTok (21/11/2026)
+Cuenta de TikTok de OELNOR conectada a Higgsfield (connector `12e15629-76a9-4973-a198-d84a94cd1ddd`, activa).
+Pendiente de que la dueña diga si la rutina diaria también publica en TikTok.
+
 ## Registro
 | Fecha | Franja | Producto | Idea | Post |
 |---|---|---|---|---|
