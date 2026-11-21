@@ -52,6 +52,7 @@ Rutina: tarea programada «TikTok OELNOR · vídeo del mediodía», todos los d�
 
 | Fecha | Producto | Vídeo |
 |---|---|---|
+| 21/11 | Vestido Alicia (test activo) | `docs/creativos/vestido-alicia/anuncios/v2-editorial.mp4` (reutilizado, no estaba en TikTok) · enviado a la dueña 11:48 |
 
 ## Registro
 | Fecha | Franja | Producto | Idea | Post |
