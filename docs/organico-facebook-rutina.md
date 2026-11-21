@@ -45,7 +45,13 @@ a las modelos (IA) como clientas.
 
 ## TikTok (21/11/2026)
 Cuenta de TikTok de OELNOR conectada a Higgsfield (connector `12e15629-76a9-4973-a198-d84a94cd1ddd`, activa).
-Pendiente de que la dueña diga si la rutina diaria también publica en TikTok.
+**TikTok no deja publicar en automático:** cada publicación exige que la dueña confirme en un formulario de TikTok
+(privacidad, comentarios, declaraciones), que esta app no muestra. Probado el 21/11 con el vídeo de Alicia.
+Rutina: tarea programada «TikTok OELNOR · vídeo del mediodía», todos los días a las **11:47** (Canarias): Claude prepara el vídeo
+(`docs/creativos/tiktok/`), se lo manda a la dueña con el texto listo para pegar y ella lo sube a las 12:00.
+
+| Fecha | Producto | Vídeo |
+|---|---|---|
 
 ## Registro
 | Fecha | Franja | Producto | Idea | Post |
