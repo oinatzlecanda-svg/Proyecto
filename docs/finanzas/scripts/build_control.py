@@ -48,6 +48,8 @@ DATA={
  (d(2026,10,30),'BOTINES LARA',2,209.85,55.64,95.12,'30/10–02/11, cerrada sin 3.er pedido. #10160 (2 pares) y #10170 (1 par). Proveedor 55,64 € (incluye 5 €/pedido). #10180 cancelado: no cuenta'),
 (d(2026,11,5),'ABRIGO IRENE',3,240.84,81.60,127.01,'05/11–09/11, cerrada con 3 pedidos (ROAS 2,09x). #10200 (abrigo negro L + medias M-L, proveedor 32,62 €) #10210 (abrigo camel L) y #10220 (abrigo gris XL), 24,49 € cada uno. Meta: gasto final. 17/11: reembolso parcial de 24 € en #10210 (la clienta se queda el abrigo; esperaba mejor confección): ingresos 264,84 → 240,84 €.'),
 (d(2026,11,11),'BLAZER INÉS',0,0,0,29.59,'11/11, pausada a las 23:40 con 0 pedidos. Meta bien (CTR enlace 5,78 %, CPC 0,39 €, 75 clics) pero la web no convirtió: 1 carrito en ~38 sesiones; bajada a 49,95 € a las 21:00 sin carritos nuevos. Corte de 30 €.'),
+(d(2026,11,18),'CHAQUETA SARA',0,0,0,30.11,'18–19/11, pausada en el corte de 30 € con 0 pedidos. 48 clics (CPC 0,63 €, CPM ~22 €), 1 carrito. Clic caro por 6 marcas anunciando la misma chaqueta (ver docs/estudio-sara-sin-ventas-2026-11-19.md).'),
+(d(2026,11,20),'VESTIDO ALICIA',0,0,0,33.79,'20–21/11, pausada por la dueña el 21/11 con 0 pedidos. 42 clics (CPC 0,80 €), 4 carritos, 2 pagos iniciados. 21/11: añadidos 4 anuncios de look cotidiano.'),
 ],
 }
 wb=Workbook(); res=wb.active; res.title='RESUMEN'
