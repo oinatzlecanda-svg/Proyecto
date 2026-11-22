@@ -38,3 +38,4 @@ Ficha: primera foto = coñac con vaqueros (`oelnor.foto_principal`); las otras 3
 | Fecha | Gasto | CPC enlace | ATC | Pedidos | Contribución acum. | Beneficio acum. | Decisión |
 |---|---|---|---|---|---|---|---|
 | 22/11 ~13:00 · **corte 10 €** | 12,34 € | 0,73 € (17 clics; CPM ≈ 14 €; DETALLE CORDONES 93 % del gasto a 0,77 € y CTR 1,8 %; N01 COÑAC 2 clics a 0,26 € con 20 impresiones; vídeo sin gasto) | 0 · 10 visitas de Meta en Shopify | 0 | — | — | **Pasa el corte de 10 €** (CPC < 1 €), por encima del aviso de 0,50 €. Seguir sin tocar. Corte de 20 €: pausar si 0 carritos |
+| 22/11 noche · **corte 20 €** | 19,78 € | 0,64 € (31 clics; CPM ≈ 12,5 €; DETALLE CORDONES 93 % del gasto a 0,64 €, CTR 1,9 %; N01 COÑAC 0,29 € con 32 impresiones; vídeo sin gasto) | **1** · 16 visitas de Meta en Shopify | 0 | — | — | **Pasa el corte de 20 €** (hay 1 carrito). Seguir hasta 30 €: pausar si 0 compras y < 10 carritos |
