@@ -52,6 +52,7 @@ Rutina: tarea programada «TikTok OELNOR · vídeo del mediodía», todos los d�
 
 | Fecha | Producto | Vídeo |
 |---|---|---|
+| 22/11 | Zapatos Clara (test lanzado hoy) | `docs/creativos/zapatos-clara/anuncios/v1-editorial.mp4` (reutilizado) · enviado a la dueña 11:48 |
 | 21/11 | Vestido Alicia (test activo) | `docs/creativos/vestido-alicia/anuncios/v2-editorial.mp4` (reutilizado, no estaba en TikTok) · enviado a la dueña 11:48 |
 
 ## Registro
@@ -62,3 +63,4 @@ Rutina: tarea programada «TikTok OELNOR · vídeo del mediodía», todos los d�
 | 20/11 | tarde | Vestido Alicia (día del test) | Foto editorial nocturna con flash en burdeos, 9:16 (fotograma inicial del vídeo, no publicado antes) · `docs/creativos/organico-facebook/2026-11-20-tarde-vestido-alicia.jpg` | 1273682892503835_122134215945470240 |
 | 21/11 | mañana | Abrigo Lola (azul) | Editorial en calle de piedra con arcos, abriendo el abrigo para enseñar el forro de leopardo · `docs/creativos/organico-facebook/2026-11-21-manana-abrigo-lola.jpg` | 1273682892503835_122134368201470240 |
 | 21/11 | tarde | Medias térmicas efecto transparente | Editorial de piernas en un puente al anochecer, falda corta y abrigo camel; oferta de regalo con 2 productos · `docs/creativos/organico-facebook/2026-11-21-tarde-medias-termicas.jpg` | 1273682892503835_122134461993470240 |
+| 22/11 | mañana | Zapatos Clara (día del test) | Vídeo editorial de campaña (`docs/creativos/zapatos-clara/anuncios/v1-editorial.mp4`) | vídeo 1474265404666857 |
