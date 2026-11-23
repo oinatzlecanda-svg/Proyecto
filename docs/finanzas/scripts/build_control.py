@@ -50,6 +50,7 @@ DATA={
 (d(2026,11,11),'BLAZER INÉS',0,0,0,29.59,'11/11, pausada a las 23:40 con 0 pedidos. Meta bien (CTR enlace 5,78 %, CPC 0,39 €, 75 clics) pero la web no convirtió: 1 carrito en ~38 sesiones; bajada a 49,95 € a las 21:00 sin carritos nuevos. Corte de 30 €.'),
 (d(2026,11,18),'CHAQUETA SARA',0,0,0,30.11,'18–19/11, pausada en el corte de 30 € con 0 pedidos. 48 clics (CPC 0,63 €, CPM ~22 €), 1 carrito. Clic caro por 6 marcas anunciando la misma chaqueta (ver docs/estudio-sara-sin-ventas-2026-11-19.md).'),
 (d(2026,11,20),'VESTIDO ALICIA',0,0,0,33.79,'20–21/11, pausada por la dueña el 21/11 con 0 pedidos. 42 clics (CPC 0,80 €), 4 carritos, 2 pagos iniciados. 21/11: añadidos 4 anuncios de look cotidiano.'),
+(d(2026,11,22),'ZAPATOS CLARA',0,0,0,28.47,'22–23/11, pausada por la dueña la noche del 22/11 (≈ corte de 30 €) con 0 pedidos. 66 clics (CPC 0,43 €, CPM ≈ 12 €), 2 carritos en Meta; DETALLE CORDONES 92 % del gasto. Vídeo sin gasto.'),
 ],
 }
 wb=Workbook(); res=wb.active; res.title='RESUMEN'
