@@ -52,6 +52,7 @@ Rutina: tarea programada «TikTok OELNOR · vídeo del mediodía», todos los d�
 
 | Fecha | Producto | Vídeo |
 |---|---|---|
+| 23/11 | Chaqueta Sara | `docs/creativos/chaqueta-sara/anuncios/v2-editorial.mp4` (reutilizado) · enviado a la dueña 11:48 |
 | 22/11 | Zapatos Clara (test lanzado hoy) | `docs/creativos/zapatos-clara/anuncios/v1-editorial.mp4` (reutilizado) · enviado a la dueña 11:48 |
 | 21/11 | Vestido Alicia (test activo) | `docs/creativos/vestido-alicia/anuncios/v2-editorial.mp4` (reutilizado, no estaba en TikTok) · enviado a la dueña 11:48 |
 
@@ -65,3 +66,4 @@ Rutina: tarea programada «TikTok OELNOR · vídeo del mediodía», todos los d�
 | 21/11 | tarde | Medias térmicas efecto transparente | Editorial de piernas en un puente al anochecer, falda corta y abrigo camel; oferta de regalo con 2 productos · `docs/creativos/organico-facebook/2026-11-21-tarde-medias-termicas.jpg` | 1273682892503835_122134461993470240 |
 | 22/11 | mañana | Zapatos Clara (día del test) | Vídeo editorial de campaña (`docs/creativos/zapatos-clara/anuncios/v1-editorial.mp4`) | vídeo 1474265404666857 |
 | 22/11 | tarde | Zapatos Clara (día del test) | Editorial nocturna con flash en una terraza, negros con medias finas y blazer · `docs/creativos/organico-facebook/2026-11-22-tarde-zapatos-clara.jpg` | 1273682892503835_122134689609470240 |
+| 23/11 | mañana (publicado ≈ 11:50 por un reinicio) | Abrigo Beatriz (marrón) | Editorial setentera en un bulevar con plátanos, gafas tintadas y botas altas · `docs/creativos/organico-facebook/2026-11-23-manana-abrigo-beatriz.jpg` | 1273682892503835_122134935441470240 |
