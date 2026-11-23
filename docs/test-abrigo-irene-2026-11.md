@@ -73,3 +73,9 @@ gastos de envío de la devolución a cargo de la clienta (cambio de opinión), r
   coste del envío de vuelta a cargo de la clienta sea válido).
 - **17/11 10:33:** la clienta acepta el **reembolso parcial de 24 €** y se queda el abrigo. Resultado del test de Irene: +51,51 € − 24 € ≈ **+27,5 €**
   (sin reserva de devoluciones). Pendiente: hacer el reembolso de 24 € en Shopify (pedido #10210) y anotarlo en el Excel.
+
+## Devolución solicitada · #10220 (20/11/2026)
+Clienta (abrigo gris XL, 79,95 €). Motivo: «No es la calidad de producto que esperaba» (2.ª queja de calidad de Irene).
+- 20/11: email con dos opciones (parcial 24 € quedándose el abrigo, o devolución completa con envío a su cargo a almacén fuera de la UE).
+- 23/11: recordatorio enviado (sin respuesta al primero). Si no contesta, ~26/11 aprobar la devolución en Shopify sin etiqueta y con la
+  dirección de China; reembolsar solo al recibir el abrigo o con justificante de envío con seguimiento.
