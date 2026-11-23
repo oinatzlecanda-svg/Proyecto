@@ -17,6 +17,11 @@ y otra por la **tarde** (≈ 17:45 Canarias). Las publica Claude con la conexió
   `docs/creativos/chaqueta-sara/anuncios/v2-editorial.mp4` como referencia.
 - **Creatividad:** variar formato y concepto (look completo, detalle de tejido, dos colores juntos, «cómo combinarlo», bodegón,
   vídeo corto de 5–12 s). Un vídeo como mucho al día (los vídeos cuestan más créditos).
+- **Reels (petición del 23/11):** la publicación de la **tarde** es un **vídeo vertical 9:16 de 8–15 s** (la de la mañana sigue
+  siendo foto). Opción barata por defecto: montaje con ffmpeg de 2–4 fotos editoriales (movimiento lento, cortes, grano, textos
+  cortos en mayúsculas, música Mixkit a −14 LUFS); o reutilizar un vídeo ya hecho que no esté en Facebook. Clips de Kling solo
+  cuando merezca la pena. Se sube con `video_url`: Facebook lo publica como vídeo vertical en la página; que además salga en la
+  pestaña Reels lo decide Facebook (la conexión no tiene opción específica de Reels).
 - Imagen nueva: Higgsfield `nano_banana_2_1` con la foto de fondo blanco del color como referencia (prenda idéntica: cuello,
   cierres, costuras), 4:5. Vídeo: `kling3_0` pro 5 s desde la imagen y montaje con ffmpeg (música Mixkit, −14 LUFS).
   Se puede reutilizar un creativo ya hecho si no se publicó antes en Facebook.
@@ -39,7 +44,7 @@ a las modelos (IA) como clientas.
 
 ## Tareas programadas
 - «Facebook OELNOR · post de media mañana»: todos los días a las **10:43** (Canarias).
-- «Facebook OELNOR · post de tarde»: todos los días a las **17:41** (Canarias).
+- «Facebook OELNOR · post de tarde»: todos los días a las **17:41** (Canarias) · desde el 23/11, vídeo vertical (reel).
 - Queda un aviso suelto del sáb 21/11 a las 19:00 (reel «3 colores» de Sara) que no se pudo borrar: cuando salte, **no publicar**
   (ya cubre la rutina de la tarde); el reel puede usarse como contenido de un día sin test.
 
