@@ -57,6 +57,7 @@ Rutina: tarea programada «TikTok OELNOR · vídeo del mediodía», todos los d�
 
 | Fecha | Producto | Vídeo |
 |---|---|---|
+| 24/11 | Botines Lara | `docs/creativos/tiktok/2026-11-24-botines-lara-tacon-medio.mp4` (= `botines-lara/v3-editorial.mp4`, no estaba en TikTok) · enviado a la dueña 11:49 |
 | 23/11 | Chaqueta Sara | `docs/creativos/chaqueta-sara/anuncios/v2-editorial.mp4` (reutilizado) · enviado a la dueña 11:48 |
 | 22/11 | Zapatos Clara (test lanzado hoy) | `docs/creativos/zapatos-clara/anuncios/v1-editorial.mp4` (reutilizado) · enviado a la dueña 11:48 |
 | 21/11 | Vestido Alicia (test activo) | `docs/creativos/vestido-alicia/anuncios/v2-editorial.mp4` (reutilizado, no estaba en TikTok) · enviado a la dueña 11:48 |
