@@ -37,4 +37,6 @@ A 64,95 €: coste ≤ 23 € para CPA máx. ≥ 30 €. Jersey a 59,95 €: cos
 - **Vestido Marta: 21,33 € por unidad con envío** (11,91 € producto + 9,42 € servicio), 6–12 días, 100 % poliéster (24/11).
   CPA máx. sin IVA 32,2 €. Con las 2 fotos reales del proveedor se rehízo la foto de fondo blanco (solapas mate, sin raso, como la
   prenda real), se añadieron las 2 fotos reales al final de la galería, la talla 3XL y la composición en la ficha.
+  Tabla de medidas del proveedor (modelo A173, medidas de prenda XS–3XL) añadida a la ficha el 24/11: talla entallada en cintura
+  (XS 69 cm, M 77 cm). Pendiente: forro, flecos cosidos o pegados, y muestra.
   Las fotos y el presupuesto del proveedor no se guardan en el repositorio (solo en Shopify).
