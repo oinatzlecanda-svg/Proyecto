@@ -86,3 +86,12 @@ cortes en la semana más cara del año. Desde el 30/11 los precios bajan y empie
 - Pedir al proveedor (hoy): coste (+5 €/pedido), composición, tallas, plazo y **muestra/fotos reales** del vestido de lentejuelas,
   y de reserva el jersey de botones asimétricos.
 - Con el coste, subir el vestido a la tienda (ficha, tallas, plazo real) y preparar creativos (fotos primero; vídeos solo editorial).
+
+## Actualización 24/11 (tarde): coste del proveedor del vestido de lentejuelas
+El proveedor da **21,33 € por unidad con envío a España** (11,91 € producto + 9,42 € servicio/envío), **tallas XS–3XL**,
+**plazo 6–12 días**, **100 % poliéster**, y manda 2 fotos reales (delante y espalda en maniquí) que coinciden con el producto.
+Pendiente: tabla de medidas y muestra.
+
+CPA máx. sin IVA = 0,905 × 64,95 − 21,33 − 5,25 = **32,2 €** (≥ 25 € ✅).
+Nueva puntuación: Anun. 4 · Exac. 11 · Econ. 18 · Gan. 14 · Temp. 10 · **Prov. 7** (coste y fotos reales, sin muestra) · Aj. 4 = **68**
+→ supera a Leire (67) y pasa el filtro de coste. **Ganador: Vestido Marta.** Test previsto el miércoles 2/12 (decisión de fecha de la dueña).

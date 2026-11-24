@@ -6,7 +6,7 @@ TikTok y Google & YouTube. Stock sin seguimiento. Sin precio tachado. Mismo proc
 
 | Producto | Origen | PVP | Colores | Tallas | Colecciones |
 |---|---|---|---|---|---|
-| [Vestido Marta con cuerpo blazer y falda de lentejuelas](https://oelnorstore.com/products/vestido-marta-con-cuerpo-blazer-y-falda-de-lentejuelas) | «Jimena / Ottoline» (Rose Varenne #3, Carolina Moretti #6) | 64,95 € | Negro | XS–2XL | Vestidos, Moda Mujer |
+| [Vestido Marta con cuerpo blazer y falda de lentejuelas](https://oelnorstore.com/products/vestido-marta-con-cuerpo-blazer-y-falda-de-lentejuelas) | «Jimena / Ottoline» (Rose Varenne #3, Carolina Moretti #6) | 64,95 € | Negro | XS–3XL | Vestidos, Moda Mujer |
 | [Botines Emma de puntera cuadrada con tacón esculpido](https://oelnorstore.com/products/botines-emma-de-puntera-cuadrada-con-tacon-esculpido) | «Pilar» (Anitta Moretti #2, 27 anuncios) | 64,95 € | Marrón, negro | 35–40 | Calzado mujer, Moda Mujer |
 | [Jersey Celia de cuello alto con botones asimétricos](https://oelnorstore.com/products/jersey-celia-de-cuello-alto-con-botones-asimetricos) | «Clara» (Silvia Dávila #2, Valenti Sartoria #2) | 59,95 € | Verde, moka, morado, negro, burdeos | S–3XL | Jerséis mujer, Moda Mujer |
 | [Mono Daniela cargo efecto ante con cremallera](https://oelnorstore.com/products/mono-daniela-cargo-efecto-ante-con-cremallera) | «Vittoria» (Carolina Moretti #2, Rose Varenne #6) | 64,95 € | Verde oscuro, azul marino | XS–2XL | Moda Mujer |
@@ -32,3 +32,9 @@ Formato de la tienda (por qué te va a gustar, detalles, talla y ajuste, cómo c
 ## Pendiente del proveedor (antes de testear cualquiera)
 Coste por escrito (+5 €/pedido), plazo real, composición, medidas por talla, fotos reales y muestra.
 A 64,95 €: coste ≤ 23 € para CPA máx. ≥ 30 €. Jersey a 59,95 €: coste ≤ 18 €.
+
+## Costes confirmados
+- **Vestido Marta: 21,33 € por unidad con envío** (11,91 € producto + 9,42 € servicio), 6–12 días, 100 % poliéster (24/11).
+  CPA máx. sin IVA 32,2 €. Con las 2 fotos reales del proveedor se rehízo la foto de fondo blanco (solapas mate, sin raso, como la
+  prenda real), se añadieron las 2 fotos reales al final de la galería, la talla 3XL y la composición en la ficha.
+  Las fotos y el presupuesto del proveedor no se guardan en el repositorio (solo en Shopify).
