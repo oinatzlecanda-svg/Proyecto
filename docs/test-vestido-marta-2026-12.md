@@ -14,7 +14,8 @@ CPA máx. = 0,905 × 64,95 − 21,33 − 5,25 = **32,2 €** ✅ (≥ 25 €).
 Foto principal de fondo blanco rehecha desde la foto real del proveedor (solapas mate, sin raso). 4 fotos de modelo del origen
 y 2 fotos reales al final (la ficha lo dice). Tabla de medidas del proveedor (A173): entallado en cintura (XS 69 · M 77 · XL 89 cm).
 **Pendiente del proveedor:** forro, flecos cosidos o pegados, muestra (regla de muestra física del 29/10).
-Añadir la fecha límite para recibirlo antes de Navidad (6–12 días laborables).
+24/11: quitado un precio tachado de 79,99 € que no ponía nadie de este lado (el vestido nunca se vendió a ese precio:
+precio engañoso). Añadido «Pide antes del 7 de diciembre para recibirlo antes de Navidad» (12 días laborables + festivo del 8/12).
 
 ## Creativos
 `docs/creativos/vestido-marta/anuncios/` · m1 salida de noche (flash, calle mojada), m2 estudio (comercial, calidad),
