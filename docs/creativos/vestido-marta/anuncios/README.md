@@ -10,7 +10,8 @@ Cada foto tiene versión con texto (banda inferior, estilo editorial) y `-sin-te
 | m2-estudio | Comercial de estudio, fondo beige, calidad de la prenda | N.º 02 · El vestido — «Un blazer que se convierte en fiesta.» |
 | m3-detalle-flecos | Detalle de fajín y flecos con clutch | El detalle — «Capas de flecos que se mueven contigo.» |
 | m4-nochevieja | Terraza de noche con copa | N.º 03 · Nochevieja — «Para brindar por lo que viene.» |
-| v1-editorial.mp4 | Vídeo editorial 9:16 (Kling: salida de noche + terraza) | — |
+| v1-editorial.mp4 | Vídeo editorial 9:16, 12 s (Kling: salida de noche + terraza + cierre) | MARTA · N.º 03 Nochevieja |
+| v2-estudio-detalle.mp4 | Vídeo comercial 9:16, 12 s (Kling: giro en estudio + flecos en primer plano + cierre), pedido por la dueña el 24/11 | El vestido · El detalle |
 
 ## Textos para Meta
 **1 ·** Sastrería arriba, brillo abajo.
