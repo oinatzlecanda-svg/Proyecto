@@ -79,3 +79,4 @@ Clienta (abrigo gris XL, 79,95 €). Motivo: «No es la calidad de producto que 
 - 20/11: email con dos opciones (parcial 24 € quedándose el abrigo, o devolución completa con envío a su cargo a almacén fuera de la UE).
 - 23/11: recordatorio enviado (sin respuesta al primero). Si no contesta, ~26/11 aprobar la devolución en Shopify sin etiqueta y con la
   dirección de China; reembolsar solo al recibir el abrigo o con justificante de envío con seguimiento.
+- 25/11: aprobada en Shopify por Claude (a petición de la dueña). Instrucciones con la dirección del almacén de Ruby (ver docs/devoluciones.md).
