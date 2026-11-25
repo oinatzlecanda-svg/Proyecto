@@ -9,6 +9,8 @@
 ## Economía (sin IVA)
 Coste del proveedor **21,33 €** con envío a España (11,91 € producto + 9,42 € servicio), 6–12 días, 100 % poliéster.
 CPA máx. = 0,905 × 64,95 − 21,33 − 5,25 = **32,2 €** ✅ (≥ 25 €).
+**Del 25/11 (noche) al 30/11: 25 % en toda la web** → precio efectivo 48,71 € → **CPA máx. ≈ 17,5 €**, ROAS de equilibrio ≈ 2,8
+(por debajo de la regla de 25 €; decisión de la dueña por Black Friday). Con regalo de medias (8,13 €) en pedidos de 2 piezas.
 
 ## Ficha (24/11)
 Foto principal de fondo blanco rehecha desde la foto real del proveedor (solapas mate, sin raso). 4 fotos de modelo del origen

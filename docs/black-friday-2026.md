@@ -70,3 +70,13 @@ el **25/11 19:05 UTC** (antes empezaban el 27/11) hasta el **29/11 23:59 UTC** (
 - Los dos automáticos y el regalo de medias (1848086888785) ahora **se suman** (combinesWith productDiscounts = true).
 - El Vestido Marta y los productos nuevos **no** llevan descuento (solo el regalo con 2 piezas).
 - Los descuentos se aplican en la cesta (sin precio tachado en la ficha): no afecta a la regla Ómnibus de precio de referencia.
+
+## 25/11/2026 (noche) · Cambio: 25 % en toda la web (decisión de la dueña)
+- **Desactivados** los antiguos «Black Friday 2026 · 20 %», «· 10 %» y el código BLACKFRIDAY5.
+- **Nuevo descuento automático «Black Friday · 25 % en toda la web (hasta el 30 nov)»** (1851203387729): 25 % sobre todo el
+  pedido, desde el 25/11 19:50 UTC hasta el **30/11 22:59:59 UTC** (lunes 23:59 peninsular). Se aplica en la cesta, sin precio
+  tachado (legal: no se anuncia precio anterior).
+- **Se suma** al regalo de medias con 2 piezas (1848086888785, combinesWith order/product/shipping = true).
+- Propuesta de 35 % descartada por la dueña (elige 25 %). Precio tachado sobre el precio actual descartado por Ómnibus
+  (17 de 20 productos costaban menos hace < 30 días).
+- **Efecto en el test del Vestido Marta:** precio efectivo 48,71 € → CPA máx. ≈ 17,5 € (antes 32,2 €), ROAS de equilibrio ≈ 2,8.
