@@ -4,7 +4,7 @@
 - **Por qué (24/11):** ganador de `docs/busqueda-productos-2026-11-24.md` (68 puntos). Temporada de fiestas (cenas de empresa,
   Navidad, Nochevieja) y **ninguna tienda española lo vende** (Rose Varenne #3, Carolina Moretti #6): CPM más bajo que Sara.
 - **Lanzamiento:** **miércoles 25/11 a las 7:00 (Canarias)**, decisión de la dueña (24/11) frente a la propuesta del 2/12.
-  Semana de Black Friday (27/11): CPM más alto; tenerlo en cuenta al leer los cortes de CPC. Ventas, España, Advantage+, 25 €/día.
+  Semana de Black Friday (27/11): CPM más alto; tenerlo en cuenta al leer los cortes de CPC. Ventas, España, Advantage+, 25 €/día (se queda en 25 €: los 50 €/día empiezan en el siguiente test).
 
 ## Economía (sin IVA)
 Coste del proveedor **21,33 €** con envío a España (11,91 € producto + 9,42 € servicio), 6–12 días, 100 % poliéster.

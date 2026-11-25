@@ -41,3 +41,10 @@ Meta conectado a Higgsfield (Ads Studio): cuenta publicitaria «Oinatz Moda 1» 
 crear campañas **en pausa** (las activa la dueña) y publicar en la página de Facebook (1 foto o 1 vídeo por publicación, al momento,
 sin programar ni carruseles). La página **no tiene Instagram vinculado** en Meta: para publicar en Instagram hay que vincular la
 cuenta de Instagram a la página (Meta Business Suite → Configuración → Cuentas de Instagram) o usar Supermetrics.
+
+## Presupuesto de los tests hasta final de 2026 (decisión de la dueña, 25/11/2026)
+- **Desde el próximo test (no el Vestido Marta, que sigue a 25 €/día) y hasta el 31/12: 50 €/día por test.**
+- Motivo: en Q4 el clic cuesta 0,60–0,80 € (antes 0,18 €) y con 25 €/día los tests se cortaban con 15–25 visitas reales,
+  sin opciones de vender (la tienda convierte ~1 de cada 100–130 visitas).
+- Los cortes en euros no cambian (10/20/30/40 €), solo llegan el doble de rápido: revisarlos varias veces al día.
+  Propuesta pendiente de confirmar: ampliar el último corte de 40 € a 50 €.
