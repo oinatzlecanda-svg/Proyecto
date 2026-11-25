@@ -46,5 +46,5 @@ cuenta de Instagram a la página (Meta Business Suite → Configuración → Cue
 - **Desde el próximo test (no el Vestido Marta, que sigue a 25 €/día) y hasta el 31/12: 50 €/día por test.**
 - Motivo: en Q4 el clic cuesta 0,60–0,80 € (antes 0,18 €) y con 25 €/día los tests se cortaban con 15–25 visitas reales,
   sin opciones de vender (la tienda convierte ~1 de cada 100–130 visitas).
-- Los cortes en euros no cambian (10/20/30/40 €), solo llegan el doble de rápido: revisarlos varias veces al día.
-  Propuesta pendiente de confirmar: ampliar el último corte de 40 € a 50 €.
+- Cortes antes de la primera compra: 10 € (CPC ≥ 1 €) · 20 € (0 carritos) · 30 € (0 compras y < 10 carritos) ·
+  **50 € (0 compras)** — el último pasa de 40 a 50 € (decisión de la dueña, 25/11). Llegan el doble de rápido: revisarlos varias veces al día.
