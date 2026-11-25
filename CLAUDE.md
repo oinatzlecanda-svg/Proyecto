@@ -21,3 +21,5 @@ de producto se guardan en `docs/busqueda-productos-AAAA-MM-DD.md`.
 
 Al revisar una campaña: analizar todas las métricas una a una y explicarle a la dueña cómo leerlas
 (guía y plantilla en `docs/como-leer-metricas.md`; petición del 25/11/2026).
+Al cortar o cerrar un test: guardar el creativo ganador y su ángulo en `docs/angulos-ganadores.md`
+y usar esa biblioteca al preparar los creativos del siguiente test (petición del 25/11/2026).
