@@ -95,3 +95,8 @@ el **25/11 19:05 UTC** (antes empezaban el 27/11) hasta el **29/11 23:59 UTC** (
   pedidos de 2 piezas. Objetivo: primeras clientas y opiniones, no beneficio.
 - **Corte:** 30 € sin ninguna venta → pausar. Con ventas: seguir hasta el 30 y, si hay beneficio, subir.
 - Sale del presupuesto de 400 € de tests (quedan ~325 € para diciembre).
+- **Tema «OELNOR 3.0 · Black Friday −25 % · 25 NOV»** (212283457873), copia del tema de rendimiento con: barra superior fija
+  «BLACK FRIDAY · −25 % EN TODA LA WEB · HASTA EL LUNES 30» y franja negra grande bajo la cabecera en portada, fichas y colecciones
+  (`snippets/o3-bf-banner.liquid`, sección custom-liquid en `header-group.json`; se oculta sola tras el 30/11 22:59 UTC).
+  **Publicado por la dueña el 25/11** (comprobado en vivo). **1/12: volver a publicar «OELNOR 3.0 · Rendimiento · 18 NOV»**
+  (211614007633) para quitar la barra (recordatorio programado el 1/12 a las 8:30).
