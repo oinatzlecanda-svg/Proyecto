@@ -23,3 +23,4 @@ Al revisar una campaña: analizar todas las métricas una a una y explicarle a l
 (guía y plantilla en `docs/como-leer-metricas.md`; petición del 25/11/2026).
 Al cortar o cerrar un test: guardar el creativo ganador y su ángulo en `docs/angulos-ganadores.md`
 y usar esa biblioteca al preparar los creativos del siguiente test (petición del 25/11/2026).
+Cada campaña nueva: 5 creativos = 3 con ángulos ya probados + 2 con ángulos nuevos (ver `docs/angulos-ganadores.md`).

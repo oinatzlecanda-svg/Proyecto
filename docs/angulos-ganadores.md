@@ -25,8 +25,18 @@ CTR más alto**. Si hubo compras o carritos, cuenta más el anuncio del que sali
 4. **La ocasión de uso** concreta para productos de temporada (cena, Nochevieja, frío): Marta.
 5. **Colores cálidos (camel, marrón) y luz natural** han ido mejor que el negro sobre fondo neutro.
 
-## Plantilla para cada test nuevo (mínimo)
-- 1 foto con el **ángulo ganador** adaptado al producto (look completo en la calle / ocasión de uso).
-- 1 foto de **detalle diferencial**.
-- 1–2 fotos para **probar un ángulo nuevo** (y así seguir aprendiendo).
-- 1–2 vídeos editoriales.
+## Estructura de cada campaña (decisión de la dueña, 25/11/2026)
+**5 creativos por campaña: 3 con ángulos que ya han funcionado + 2 con ángulos nuevos.**
+
+| # | Tipo | Ángulo (hoy) | De dónde sale |
+|---|---|---|---|
+| 1 | Probado | **Look completo de día en la calle**, luz natural, prenda de cuerpo entero | Irene (vendió, CTR 5,9 %) |
+| 2 | Probado | **Look cotidiano por capas / ocasión de uso** (con qué y dónde se lleva) | Sara (CTR 4,5 %) · Marta (CTR 3,6 %) |
+| 3 | Probado | **Primer plano del detalle diferencial** del producto | Clara (93 % del gasto) · Inés (encaje) |
+| 4 | Nuevo | Un ángulo que no se haya probado (formato, escena o mensaje distinto) | Se apunta como prueba |
+| 5 | Nuevo | Otro ángulo nuevo (puede ser un vídeo editorial) | Se apunta como prueba |
+
+- Los 3 probados se adaptan al producto (misma idea, nueva foto). Si un producto no tiene detalle diferencial, el 3.º se
+  sustituye por el siguiente ángulo probado con mejores números.
+- Al cerrar cada test se actualiza esta tabla: si un ángulo nuevo gana a uno probado, pasa a «probado» y sale el más flojo.
+- Ángulos ya descartados (no repetir como nuevos): estudio sobre fondo liso (Alicia), vídeo UGC tipo «espejo»/testimonio (Inés, Sara).
