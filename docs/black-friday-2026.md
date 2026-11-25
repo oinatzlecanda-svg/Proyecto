@@ -82,8 +82,16 @@ el **25/11 19:05 UTC** (antes empezaban el 27/11) hasta el **29/11 23:59 UTC** (
 - **Efecto en el test del Vestido Marta:** precio efectivo 48,71 € → CPA máx. ≈ 17,5 € (antes 32,2 €), ROAS de equilibrio ≈ 2,8.
 - **Creativo de marca** `docs/creativos/black-friday-2026/bf-oelnor-25-feed.jpg` (y versión 9:16): 4 fotos editoriales (Irene, Marta,
   Sara, Carmen) + «Black Friday · −25 % · En toda la web, aplicado en la cesta · Hasta el lunes 30 · Envío gratis».
-  Anuncio **BLACK FRIDAY OELNOR HOME** (`120252496493400190`) añadido al ADSET 1 MARTA, enlace a la **portada**. Los textos de los
-  otros anuncios no se tocan (decisión de la dueña). Ojo: sus ventas cuentan en la campaña del test de Marta; separarlas por
-  `utm_content` en Shopify al leer el test.
+  Primero se añadió como anuncio BLACK FRIDAY OELNOR HOME (`120252496493400190`) al ADSET 1 MARTA y a los 4 minutos se **pausó**:
+  la dueña decidió una campaña aparte para no ensuciar el test.
 - **Email Klaviyo** «Black Friday: −25 % en toda la web» (campaña `01M8A7FP7FRJS4ZV6Z3X9X9K2W`, mensaje `01M8A7FP9X8NQAMSC4V6HGYDP8`,
   plantilla `Sy7WpK`): **en borrador**, pendiente de la hora de envío.
+
+## Campaña «BLACK FRIDAY OELNOR» (25/11/2026, decisión de la dueña)
+- Campaña `120252496542000190` · Ventas · **15 €/día** · del 25/11 21:00 UTC al **30/11 22:59 UTC** (se apaga sola).
+- ADSET BLACK FRIDAY `120252496550520190` · compra (píxel) · España 18–65 · Advantage+.
+- Anuncio **BF MARCA 4 LOOKS** `120252496553670190` → **portada**, con el creativo de marca.
+- Economía: con −25 %, cada pedido de 1 pieza deja ~15–20 € y cada venta cuesta en anuncios ~30–40 € → probable pérdida salvo
+  pedidos de 2 piezas. Objetivo: primeras clientas y opiniones, no beneficio.
+- **Corte:** 30 € sin ninguna venta → pausar. Con ventas: seguir hasta el 30 y, si hay beneficio, subir.
+- Sale del presupuesto de 400 € de tests (quedan ~325 € para diciembre).
