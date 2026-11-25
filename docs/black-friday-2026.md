@@ -80,3 +80,10 @@ el **25/11 19:05 UTC** (antes empezaban el 27/11) hasta el **29/11 23:59 UTC** (
 - Propuesta de 35 % descartada por la dueña (elige 25 %). Precio tachado sobre el precio actual descartado por Ómnibus
   (17 de 20 productos costaban menos hace < 30 días).
 - **Efecto en el test del Vestido Marta:** precio efectivo 48,71 € → CPA máx. ≈ 17,5 € (antes 32,2 €), ROAS de equilibrio ≈ 2,8.
+- **Creativo de marca** `docs/creativos/black-friday-2026/bf-oelnor-25-feed.jpg` (y versión 9:16): 4 fotos editoriales (Irene, Marta,
+  Sara, Carmen) + «Black Friday · −25 % · En toda la web, aplicado en la cesta · Hasta el lunes 30 · Envío gratis».
+  Anuncio **BLACK FRIDAY OELNOR HOME** (`120252496493400190`) añadido al ADSET 1 MARTA, enlace a la **portada**. Los textos de los
+  otros anuncios no se tocan (decisión de la dueña). Ojo: sus ventas cuentan en la campaña del test de Marta; separarlas por
+  `utm_content` en Shopify al leer el test.
+- **Email Klaviyo** «Black Friday: −25 % en toda la web» (campaña `01M8A7FP7FRJS4ZV6Z3X9X9K2W`, mensaje `01M8A7FP9X8NQAMSC4V6HGYDP8`,
+  plantilla `Sy7WpK`): **en borrador**, pendiente de la hora de envío.
