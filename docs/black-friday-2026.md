@@ -58,3 +58,15 @@ evita el requisito de «precio más bajo de los últimos 30 días» de la direct
 - **09/11:** el domingo los añadidos al carrito bajaron al 1,8–2,8 % (antes 5–8 %). Nueva copia del tema
   **«OELNOR 3.0 · Regalo medias · botón arriba · 9 NOV»** (id 210682937681) con el recuadro del regalo y el contador
   **debajo** del botón «Añadir a la cesta» (antes iba entre el precio y la talla). La dueña la publica; el 1/12 se vuelve a «Animaciones suaves · 4 NOV».
+
+## 25/11/2026 · Descuentos de Black Friday activados ya (decisión de la dueña)
+La dueña elige «regalo + descuento» y pide activar los descuentos que ya estaban programados (creados el 27/10). Activos desde
+el **25/11 19:05 UTC** (antes empezaban el 27/11) hasta el **29/11 23:59 UTC** (sin cambiar):
+- **«Black Friday 2026 · 20 %»** (automático, 1843100647761): Bolso Siena, Bolso Mara, Parka Elara, Chaqueta Kaia, Bomber Noa,
+  Pantalón Raze, Chaqueta Lena, Chaqueta Elva, Jeans Stella.
+- **«Black Friday 2026 · 10 %»** (automático, 1843100680529): Pantalón Ciro, Jeans Lucía, Pantalón Zuri, Jersey Violeta,
+  Jersey Ares, Botas Sora, Chaqueta Elia, Jersey Arlo, Jeans Kairo, Jeans Haku, **Abrigo Irene**.
+- **BLACKFRIDAY5** (código): 5 % en todo el pedido, compra mínima 50 €, solo suscriptoras, 1 uso por clienta.
+- Los dos automáticos y el regalo de medias (1848086888785) ahora **se suman** (combinesWith productDiscounts = true).
+- El Vestido Marta y los productos nuevos **no** llevan descuento (solo el regalo con 2 piezas).
+- Los descuentos se aplican en la cesta (sin precio tachado en la ficha): no afecta a la regla Ómnibus de precio de referencia.
