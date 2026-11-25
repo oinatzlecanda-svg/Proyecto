@@ -27,6 +27,9 @@ El destinatario tiene que ser exactamente «Ruby + win-winfulfillment» y llevar
   lo que ocurra antes (ley española).
 - El agente devuelve a OELNOR solo el precio del producto (no el servicio ni el envío).
 - Sin respuesta de la clienta en ~6 días tras el recordatorio: aprobar en Shopify y mandar las instrucciones.
+- Tras aprobar: la clienta tiene **14 días naturales** para enviar el producto (ley). Si pasado ese plazo no hay número de
+  seguimiento ni respuesta: último correo de aviso y, 3 días después, **cerrar la devolución en Shopify sin reembolso**.
+  #10220 y #10170 aprobadas el 25/11 → plazo hasta el **9/12**; cierre el **12/12** si siguen sin contestar.
 
 ## Abiertas
 | Pedido | Clienta | Producto | Estado |
