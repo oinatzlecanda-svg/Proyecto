@@ -32,4 +32,4 @@ El destinatario tiene que ser exactamente «Ruby + win-winfulfillment» y llevar
 | Pedido | Clienta | Producto | Estado |
 |---|---|---|---|
 | #10220 | Ana Karina | Abrigo Irene gris XL (79,95 €) | **Aprobada en Shopify el 25/11** (sin aviso automático de Shopify). Correo de instrucciones con la dirección de Ruby: lo envía la dueña. Reembolsar 79,95 € al recibir el abrigo o el justificante de envío con seguimiento |
-| #10170 | Carmen | Botines Lara negros 38 (69,95 €) | Recordatorio 24/11. Esperando respuesta |
+| #10170 | Carmen | Botines Lara negros 38 (69,95 €) | **Aprobada en Shopify el 25/11** (sin aviso automático). Correo de instrucciones: lo envía la dueña. Reembolsar 69,95 € al recibir los botines o el justificante; 20 € si se los queda |
