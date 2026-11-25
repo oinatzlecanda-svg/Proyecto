@@ -64,3 +64,11 @@ Vista previa en móvil: `docs/creativos/abrigo-irene/email-novedad-preview.png`.
 - Vista previa en móvil: `docs/creativos/chaqueta-sara/email-novedad-preview.png`.
 
 **Resultado (19/11 9:10):** 22 entregados, 5 aperturas (23 %), 0 clics, 0 bajas. Tendencia a la baja: Irene 54 % → Inés 35 % → Sara 23 % (envío a las 12:00).
+
+## Novedad semanal · Vestido Marta (25/11/2026)
+- Campaña `01M891VBB0T7CZ5WKRPN8MFCER`, mensaje `01M891VBCBKRBJ8RPH775KA3FV`, plantilla `VCY4mw`, lista «Oelnor | Suscriptores email» (`Wev8G3`).
+- **En borrador**, pendiente del OK de la dueña y de la hora de envío.
+- Asunto «Sastrería arriba, brillo abajo» · vista previa «Vestido Marta: el de las cenas de diciembre. Y con 2 productos, medias de regalo.»
+- Fotos de los creativos (m1 noche de cabecera, m2 estudio, m3 detalle). 64,95 € · negro · XS a 3XL · «pide antes del 7 de diciembre
+  para recibirlo antes de Navidad» · bloque del regalo de medias hasta el 30 nov. Sin materiales sin confirmar.
+- Vista previa en móvil: `docs/creativos/vestido-marta/email-novedad-preview.png`.
