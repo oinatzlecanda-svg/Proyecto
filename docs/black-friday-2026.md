@@ -85,7 +85,7 @@ el **25/11 19:05 UTC** (antes empezaban el 27/11) hasta el **29/11 23:59 UTC** (
   Primero se añadió como anuncio BLACK FRIDAY OELNOR HOME (`120252496493400190`) al ADSET 1 MARTA y a los 4 minutos se **pausó**:
   la dueña decidió una campaña aparte para no ensuciar el test.
 - **Email Klaviyo** «Black Friday: −25 % en toda la web» (campaña `01M8A7FP7FRJS4ZV6Z3X9X9K2W`, mensaje `01M8A7FP9X8NQAMSC4V6HGYDP8`,
-  plantilla `Sy7WpK`): **en borrador**, pendiente de la hora de envío.
+  plantilla `Sy7WpK`): **programado para el viernes 27/11 a las 9:00 (Canarias = 9:00 UTC)**, aprobado por la dueña.
 
 ## Campaña «BLACK FRIDAY OELNOR» (25/11/2026, decisión de la dueña)
 - Campaña `120252496542000190` · Ventas · **15 €/día** · del 25/11 21:00 UTC al **30/11 22:59 UTC** (se apaga sola).
