@@ -35,3 +35,4 @@ Tras la primera compra: regla de beneficio.
 ## Revisiones
 | Fecha | Gasto | CPC enlace | ATC | Pedidos | Contribución acum. | Beneficio acum. | Decisión |
 |---|---|---|---|---|---|---|---|
+| 25/11 ~13:00 · **corte 10 €** | 12,31 € | 0,56 € (22 clics; CTR 3,16 %; CPM 17,7 €; N01 SALIDA NOCHE 62 % del gasto a 0,51 € y CTR 3,6 %; N02 ESTUDIO 0,58 €; DETALLE FLECOS 0,92 € con 1 carrito; vídeos sin gasto) | 1 (Meta y Shopify) · 16 visitas a la ficha según Meta, 14 sesiones en Shopify | 0 | — | — | **Pasa el corte de 10 €** (CPC < 1 €), algo por encima del aviso de 0,50 €. Mejor que Clara (0,73 €) y Sara (0,64 €) en su corte de 10 €. Seguir sin tocar. Corte de 20 €: pausar si 0 carritos (ya hay 1) |
