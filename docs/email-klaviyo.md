@@ -75,3 +75,24 @@ Vista previa en móvil: `docs/creativos/abrigo-irene/email-novedad-preview.png`.
 - **Resultado (26/11):** 23 enviados · 23 entregados · 6 aperturas únicas (**26 %**) · 0 clics · 0 pedidos · 1 baja.
   Lectura: la apertura está bien (asunto ok), pero nadie pinchó → el cuerpo/botón no empujó al clic. Lista muy pequeña (23):
   una sola persona mueve 4 puntos, así que no sacar conclusiones fuertes.
+
+## Flujos · revisión del 26/11/2026 (últimos 30 días)
+| Flujo | Estado | Envíos | Apertura | Clics | Pedidos |
+|---|---|---|---|---|---|
+| 1 · Bienvenida con 10 % (3 emails) | activo | 1 persona × 3 emails | 100 % | 0 | 0 |
+| 2 · Navegación abandonada | activo | **0** | — | — | — |
+| 3 · Carrito abandonado | activo | **0** | — | — | — |
+| 4 · Pago abandonado (1 h y 24 h) | activo | **0** | — | — | — |
+| 5 · Petición de reseña | activo | 3 | 33 % | 1 (33 %) | 0 |
+| Antiguos (sept./oct., 5 flujos) | borrador | — | — | — | — |
+
+**Por qué 2, 3 y 4 no envían:**
+- Los tres solo envían a perfiles **suscritos al marketing por email** (filtro de consentimiento). Quien empieza el pago sin marcar
+  «quiero recibir novedades» no entra. Hubo 14 «Checkout Started» en Klaviyo desde el 27/10 y ninguno estaba suscrito.
+  Es lo correcto según la LSSI/RGPD → la palanca es **conseguir más suscripciones** (popup, casilla en el checkout), no quitar el filtro.
+- El flujo 2 además escucha la métrica «Viewed Product» **de Shopify (`QTeuj7`), que no registra nada** (0 eventos en 30 días);
+  la que sí registra es la «Viewed Product» de Klaviyo (`VDv6dV`). Hay que cambiar el disparador (pendiente del OK de la dueña).
+
+**Cómo leer un flujo:** se mira **por email** (no solo el total): destinatarios (si es 0, el flujo no se dispara → revisar
+disparador y filtros), apertura (> 40 % en flujos), clics (> 3 %), pedidos y € por destinatario. Un flujo con 0 envíos no es
+«malo»: está roto o filtrado.
