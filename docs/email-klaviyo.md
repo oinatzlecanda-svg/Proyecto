@@ -72,3 +72,6 @@ Vista previa en móvil: `docs/creativos/abrigo-irene/email-novedad-preview.png`.
 - Fotos de los creativos (m1 noche de cabecera, m2 estudio, m3 detalle). 64,95 € · negro · XS a 3XL · «pide antes del 7 de diciembre
   para recibirlo antes de Navidad» · bloque del regalo de medias hasta el 30 nov. Sin materiales sin confirmar.
 - Vista previa en móvil: `docs/creativos/vestido-marta/email-novedad-preview.png`.
+- **Resultado (26/11):** 23 enviados · 23 entregados · 6 aperturas únicas (**26 %**) · 0 clics · 0 pedidos · 1 baja.
+  Lectura: la apertura está bien (asunto ok), pero nadie pinchó → el cuerpo/botón no empujó al clic. Lista muy pequeña (23):
+  una sola persona mueve 4 puntos, así que no sacar conclusiones fuertes.
