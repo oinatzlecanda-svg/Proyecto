@@ -57,3 +57,6 @@ cuenta de Instagram a la página (Meta Business Suite → Configuración → Cue
   después, +30 % cada 48 h.
 - Creativos: 3 ángulos probados (ocasión de uso de noche, look completo, detalle) + 2 nuevos («3 looks para 3 cenas»…).
 - Antes del lunes 30/11: coste del proveedor de Sofía y Victoria (y Elena).
+- **Lunes 30/11 (decisión de la dueña):** búsqueda de productos centrada en **fiesta** (más vendidos de las 191 tiendas + anuncios)
+  para cerrar la colección: confirmar si Vestido Elena y Blazer Victoria siguen subiendo, y si hay algún producto de fiesta mejor
+  que Sofía. Ancla fija: Vestido Marta. Recomendación actual: Marta + Elena + Victoria (Sofía solo si sale muy barata).
