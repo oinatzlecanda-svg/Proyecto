@@ -91,7 +91,11 @@ Vista previa en móvil: `docs/creativos/abrigo-irene/email-novedad-preview.png`.
   «quiero recibir novedades» no entra. Hubo 14 «Checkout Started» en Klaviyo desde el 27/10 y ninguno estaba suscrito.
   Es lo correcto según la LSSI/RGPD → la palanca es **conseguir más suscripciones** (popup, casilla en el checkout), no quitar el filtro.
 - El flujo 2 además escucha la métrica «Viewed Product» **de Shopify (`QTeuj7`), que no registra nada** (0 eventos en 30 días);
-  la que sí registra es la «Viewed Product» de Klaviyo (`VDv6dV`). Hay que cambiar el disparador (pendiente del OK de la dueña).
+  la que sí registra es la «Viewed Product» de Klaviyo (`VDv6dV`). **Arreglado el 26/11:** nuevo flujo «OELNOR 2026 | 2 · Navegación abandonada (v2)» (`TZGUSq`, activo) con el disparador
+  `VDv6dV` y el mismo email (plantilla copiada `Vb7KLg`); el antiguo `QQPtpQ` pasa a borrador.
+- **Popup en las fichas (26/11):** la dueña quiere que salga también en las fichas. En el tema publicado está en modo «solo pestaña»
+  (`product_teaser: true`). Ajuste: Personalizar tema → pie de página → «O3 · Popup oferta» → desmarcar «En fichas de producto,
+  solo una pestaña discreta» (y dejar marcado «solo al hacer scroll»): sale al bajar el 35 % de la ficha o al ir a cerrar la pestaña.
 
 **Cómo leer un flujo:** se mira **por email** (no solo el total): destinatarios (si es 0, el flujo no se dispara → revisar
 disparador y filtros), apertura (> 40 % en flujos), clics (> 3 %), pedidos y € por destinatario. Un flujo con 0 envíos no es
