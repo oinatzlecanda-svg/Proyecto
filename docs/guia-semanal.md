@@ -48,3 +48,12 @@ cuenta de Instagram a la página (Meta Business Suite → Configuración → Cue
   sin opciones de vender (la tienda convierte ~1 de cada 100–130 visitas).
 - Cortes antes de la primera compra: 10 € (CPC ≥ 1 €) · 20 € (0 carritos) · 30 € (0 compras y < 10 carritos) ·
   **50 € (0 compras)** — el último pasa de 40 a 50 € (decisión de la dueña, 25/11). Llegan el doble de rápido: revisarlos varias veces al día.
+
+## Test de colección «Fiestas» · miércoles 2/12/2026 (decisión de la dueña, 26/11)
+- Colección (no un solo producto): **Vestido Marta** (ya vendió) + **Vestido Sofía** + **Blazer Victoria** (+ opcional Vestido Elena).
+- **100 €/día** (decisión de la dueña; recomendación previa 50 €). Presupuesto de tests: 400 €.
+- **Cortes para la colección entera:** 20 € (CPC ≥ 1 €) · 40 € (0 carritos) · 60 € (0 compras y < 10 carritos) ·
+  **100 € (0 compras)** · tras la 1.ª compra, regla de beneficio. No subir de 100 €/día antes de 3 compras con beneficio;
+  después, +30 % cada 48 h.
+- Creativos: 3 ángulos probados (ocasión de uso de noche, look completo, detalle) + 2 nuevos («3 looks para 3 cenas»…).
+- Antes del lunes 30/11: coste del proveedor de Sofía y Victoria (y Elena).
