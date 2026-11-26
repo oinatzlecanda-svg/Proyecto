@@ -57,6 +57,7 @@ Rutina: tarea programada «TikTok OELNOR · vídeo del mediodía», todos los d�
 
 | Fecha | Producto | Vídeo |
 |---|---|---|
+| 26/11 | Abrigo Irene (Black Friday −25 %) | `docs/creativos/tiktok/2026-11-26-abrigo-irene.mp4` (= `abrigo-irene/v1-paseo-camel.mp4`, no estaba en TikTok) · enviado a la dueña 11:49 |
 | 25/11 | Vestido Marta (test lanzado hoy) | `docs/creativos/tiktok/2026-11-25-vestido-marta.mp4` (= `vestido-marta/anuncios/v1-editorial.mp4`) · enviado a la dueña 11:49 |
 | 24/11 | Botines Lara | `docs/creativos/tiktok/2026-11-24-botines-lara-tacon-medio.mp4` (= `botines-lara/v3-editorial.mp4`, no estaba en TikTok) · enviado a la dueña 11:49 |
 | 23/11 | Chaqueta Sara | `docs/creativos/chaqueta-sara/anuncios/v2-editorial.mp4` (reutilizado) · enviado a la dueña 11:48 |
