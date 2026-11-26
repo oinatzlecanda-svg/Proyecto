@@ -104,3 +104,10 @@ el **25/11 19:05 UTC** (antes empezaban el 27/11) hasta el **29/11 23:59 UTC** (
   **ángulos probados** y franja «BLACK FRIDAY · −25 %» (`docs/creativos/black-friday-2026/bf-*.jpg`):
   BF MARTA NOCHE (`120252508419610190`, → ficha Vestido Marta), BF IRENE CALLE (`120252508440070190`, → ficha Abrigo Irene),
   BF SARA CAPAS (`120252508464090190`, → portada).
+
+### Revisión campaña BF · 26/11 (≈ 20 h activa)
+Gasto **11,05 €** · 644 impresiones · ~450 personas · CPM 17,2 € · 21 clics (CTR 3,26 %) · CPC 0,53 € · 16 visitas a la ficha
+(76 % de los clics) · Shopify: 8 sesiones con UTM de la campaña · **0 carritos · 0 compras**.
+Por anuncio: MARTA NOCHE 6,30 € (CTR 3,9 %, CPC 0,70 €, 9 visitas) · MARCA 4 LOOKS 2,74 € (CTR 2,1 %, CPC 0,39 €, frecuencia 2,0) ·
+IRENE CALLE 1,66 € (CTR 3,3 %) · SARA CAPAS 0,35 € (19 impresiones, sin datos).
+Decisión: seguir; corte a los 30 € sin venta (≈ sábado 28). Vigilar carritos: si a los 20 € sigue en 0 carritos, la ficha/oferta no convence.
