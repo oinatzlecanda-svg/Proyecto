@@ -100,3 +100,7 @@ el **25/11 19:05 UTC** (antes empezaban el 27/11) hasta el **29/11 23:59 UTC** (
   (`snippets/o3-bf-banner.liquid`, sección custom-liquid en `header-group.json`; se oculta sola tras el 30/11 22:59 UTC).
   **Publicado por la dueña el 25/11** (comprobado en vivo). **1/12: volver a publicar «OELNOR 3.0 · Rendimiento · 18 NOV»**
   (211614007633) para quitar la barra (recordatorio programado el 1/12 a las 8:30).
+- **26/11:** la campaña casi no gastaba (1,64 € en 14 h, 0 clics) con un solo creativo tipo collage. Añadidos 3 anuncios con
+  **ángulos probados** y franja «BLACK FRIDAY · −25 %» (`docs/creativos/black-friday-2026/bf-*.jpg`):
+  BF MARTA NOCHE (`120252508419610190`, → ficha Vestido Marta), BF IRENE CALLE (`120252508440070190`, → ficha Abrigo Irene),
+  BF SARA CAPAS (`120252508464090190`, → portada).
