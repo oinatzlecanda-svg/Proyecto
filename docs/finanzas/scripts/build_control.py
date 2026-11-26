@@ -51,6 +51,7 @@ DATA={
 (d(2026,11,18),'CHAQUETA SARA',0,0,0,30.11,'18–19/11, pausada en el corte de 30 € con 0 pedidos. 48 clics (CPC 0,63 €, CPM ~22 €), 1 carrito. Clic caro por 6 marcas anunciando la misma chaqueta (ver docs/estudio-sara-sin-ventas-2026-11-19.md).'),
 (d(2026,11,20),'VESTIDO ALICIA',0,0,0,33.79,'20–21/11, pausada por la dueña el 21/11 con 0 pedidos. 42 clics (CPC 0,80 €), 4 carritos, 2 pagos iniciados. 21/11: añadidos 4 anuncios de look cotidiano.'),
 (d(2026,11,22),'ZAPATOS CLARA',0,0,0,28.47,'22–23/11, pausada por la dueña la noche del 22/11 (≈ corte de 30 €) con 0 pedidos. 66 clics (CPC 0,43 €, CPM ≈ 12 €), 2 carritos en Meta; DETALLE CORDONES 92 % del gasto. Vídeo sin gasto.'),
+ (d(2026,11,25),'VESTIDO MARTA',1,64.95,26.33,31.49,'25–26/11, pausada por la dueña al llegar al límite de la regla de beneficio (32,2 €). 1 pedido #10230 a precio completo (antes del −25 % de Black Friday), 59 clics (CPC 0,53 €), 5 carritos en Meta. Proveedor 21,33 € + 5 €/pedido (escenario pesimista: el «service fee» puede incluirlo). Ganador N01 SALIDA NOCHE'),
 ],
 }
 wb=Workbook(); res=wb.active; res.title='RESUMEN'
