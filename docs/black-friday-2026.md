@@ -118,3 +118,9 @@ Gasto **21,42 €** · 1.009 impresiones · CPM 21,2 € · 38 clics (CTR 3,8 %)
 Por anuncio: MARTA NOCHE 13,40 € (CTR 3,4 %, CPC 0,79 €, CPM 26,5) · IRENE CALLE 3,35 € (**CTR 8,4 %, CPC 0,42 €, 2 carritos**) ·
 MARCA 4 LOOKS 3,52 € (CTR 2,3 %) · SARA CAPAS 1,15 € (CTR 8,2 %, poca muestra).
 Decisión: **pasa el corte de 20 €** (hay carritos). Siguiente: 30 € (≈ sábado 28 mañana) → pausar si 0 compras.
+
+### 1.ª venta de la campaña BF · 27/11 20:13 UTC
+Pedido **#10240**: Vestido Marta negro M, 64,95 € − 25 % BF = **48,72 €** (Barcelona). UTM: BF MARTA NOCHE (vía Instagram).
+Contribución (0,905 × 48,72 − 21,33 − 5,25) = **17,51 €**. Gasto de la campaña al entrar: **24,24 €** → beneficio acumulado **−6,73 €**.
+Regla de beneficio: el gasto ya supera la contribución acumulada → **pausar** (propuesto a la dueña; pendiente de su OK).
+Con −25 % el CPA máx. de Marta baja a 17,5 € (a PVP completo: 32,2 €): la oferta deja muy poco margen para pagar anuncios.
