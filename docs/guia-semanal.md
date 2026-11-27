@@ -49,6 +49,13 @@ cuenta de Instagram a la página (Meta Business Suite → Configuración → Cue
 - Cortes antes de la primera compra: 10 € (CPC ≥ 1 €) · 20 € (0 carritos) · 30 € (0 compras y < 10 carritos) ·
   **50 € (0 compras)** — el último pasa de 40 a 50 € (decisión de la dueña, 25/11). Llegan el doble de rápido: revisarlos varias veces al día.
 
+## Presupuesto de tests de diciembre 2026 (decisión de la dueña, 27/11)
+- **300 € solo para tests** (aparte de escalar): 3 tests con **tope de 100 € cada uno** → Fiestas 2/12 · test 2 el 9/12 · test 3 el 16/12.
+- Tope 100 € porque con clics a 0,60–0,80 € y ~1 venta cada 100–130 visitas hacen falta ~130–140 visitas para un test fiable.
+  Los cortes tempranos siguen igual (CPC ≥ 1 € · 0 carritos · 0 compras y < 10 carritos): gasto esperado 150–250 €.
+- Opcional: 4.º test el 12/12 con producto de invierno (no de fiesta) → tope total 400 €.
+- **Sin tests nuevos después del 16/12** (lo pedido ya no llega antes de Navidad y el CPM está en máximos). Enero: retomar.
+
 ## Test de colección «Fiestas» · miércoles 2/12/2026 (decisión de la dueña, 26/11)
 - Colección (no un solo producto): **Vestido Marta** (ya vendió) + **Vestido Sofía** + **Blazer Victoria** (+ opcional Vestido Elena).
 - **100 €/día** (decisión de la dueña; recomendación previa 50 €). Presupuesto de tests: 400 €.
