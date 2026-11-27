@@ -111,3 +111,10 @@ Gasto **11,05 €** · 644 impresiones · ~450 personas · CPM 17,2 € · 21 cl
 Por anuncio: MARTA NOCHE 6,30 € (CTR 3,9 %, CPC 0,70 €, 9 visitas) · MARCA 4 LOOKS 2,74 € (CTR 2,1 %, CPC 0,39 €, frecuencia 2,0) ·
 IRENE CALLE 1,66 € (CTR 3,3 %) · SARA CAPAS 0,35 € (19 impresiones, sin datos).
 Decisión: seguir; corte a los 30 € sin venta (≈ sábado 28). Vigilar carritos: si a los 20 € sigue en 0 carritos, la ficha/oferta no convence.
+
+### Corte de 20 € · 27/11 tarde
+Gasto **21,42 €** · 1.009 impresiones · CPM 21,2 € · 38 clics (CTR 3,8 %) · CPC 0,56 € · 28 visitas a la ficha · Shopify: 23 sesiones,
+**1 sesión con carrito** (Meta cuenta 2 carritos, ambos de IRENE CALLE) · 0 pagos · 0 compras.
+Por anuncio: MARTA NOCHE 13,40 € (CTR 3,4 %, CPC 0,79 €, CPM 26,5) · IRENE CALLE 3,35 € (**CTR 8,4 %, CPC 0,42 €, 2 carritos**) ·
+MARCA 4 LOOKS 3,52 € (CTR 2,3 %) · SARA CAPAS 1,15 € (CTR 8,2 %, poca muestra).
+Decisión: **pasa el corte de 20 €** (hay carritos). Siguiente: 30 € (≈ sábado 28 mañana) → pausar si 0 compras.
