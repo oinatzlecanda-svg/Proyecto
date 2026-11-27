@@ -124,3 +124,6 @@ Pedido **#10240**: Vestido Marta negro M, 64,95 € − 25 % BF = **48,72 €** 
 Contribución (0,905 × 48,72 − 21,33 − 5,25) = **17,51 €**. Gasto de la campaña al entrar: **24,24 €** → beneficio acumulado **−6,73 €**.
 Regla de beneficio: el gasto ya supera la contribución acumulada → **pausar** (propuesto a la dueña; pendiente de su OK).
 Con −25 % el CPA máx. de Marta baja a 17,5 € (a PVP completo: 32,2 €): la oferta deja muy poco margen para pagar anuncios.
+**Decisión de la dueña (27/11 noche):** la campaña sigue el fin de semana. Si entra una **2.ª compra**, se aplica la regla de beneficio
+desde ese momento (límite = contribución acumulada ≈ 35 € con dos pedidos de Marta a −25 %). Sin 2.ª compra, termina sola el lunes 30
+a las 22:59 UTC (gasto total previsto ≈ 70 €).
