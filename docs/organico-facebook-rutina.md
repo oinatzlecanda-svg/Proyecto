@@ -57,6 +57,7 @@ Rutina: tarea programada «TikTok OELNOR · vídeo del mediodía», todos los d�
 
 | Fecha | Producto | Vídeo |
 |---|---|---|
+| 27/11 | Blazer Inés con mangas de encaje | `docs/creativos/tiktok/2026-11-27-blazer-ines-con-mangas-de-encaje.mp4` (= `blazer-ines/v1-paseo-iphone-negro.mp4`, no estaba en TikTok; audio a −14 LUFS) · enviado a la dueña 11:50 |
 | 26/11 | Abrigo Irene (Black Friday −25 %) | `docs/creativos/tiktok/2026-11-26-abrigo-irene.mp4` (= `abrigo-irene/v1-paseo-camel.mp4`, no estaba en TikTok) · enviado a la dueña 11:49 |
 | 25/11 | Vestido Marta (test lanzado hoy) | `docs/creativos/tiktok/2026-11-25-vestido-marta.mp4` (= `vestido-marta/anuncios/v1-editorial.mp4`) · enviado a la dueña 11:49 |
 | 24/11 | Botines Lara | `docs/creativos/tiktok/2026-11-24-botines-lara-tacon-medio.mp4` (= `botines-lara/v3-editorial.mp4`, no estaba en TikTok) · enviado a la dueña 11:49 |
@@ -82,3 +83,4 @@ Rutina: tarea programada «TikTok OELNOR · vídeo del mediodía», todos los d�
 | 25/11 | tarde (reel) | Vestido Marta (día del test) | Vídeo de estudio + detalle de flecos (`vestido-marta/anuncios/v2-estudio-detalle.mp4`) · `docs/creativos/organico-facebook/2026-11-25-tarde-vestido-marta.mp4` | vídeo 1711278850651167 |
 | 26/11 | mañana | Black Friday −25 % (toda la web) | Creativo de marca con 4 looks (Irene, Marta, Sara, Carmen) · `docs/creativos/organico-facebook/2026-11-26-manana-black-friday.jpg` | 1273682892503835_122135672919470240 |
 | 26/11 | tarde (reel) | Blazer Inés con mangas de encaje | Vídeo paseando por una calle de Madrid con vaqueros, «el blazer que convierte unos vaqueros en look de cena» (`blazer-ines/v1-paseo-iphone-negro.mp4`, reutilizado: no estaba en Facebook); texto con el −25 % BF · `docs/creativos/organico-facebook/2026-11-26-tarde-blazer-ines.mp4` | vídeo 1748887352875486 |
+| 27/11 | mañana | Jersey Celia (burdeos) | Editorial en un café antiguo junto a la ventana con nieve, pantalón ancho gris · `docs/creativos/organico-facebook/2026-11-27-manana-jersey-celia.jpg` | 1273682892503835_122135988243470240 |
