@@ -127,3 +127,11 @@ Con −25 % el CPA máx. de Marta baja a 17,5 € (a PVP completo: 32,2 €): la
 **Decisión de la dueña (27/11 noche):** la campaña sigue el fin de semana. Si entra una **2.ª compra**, se aplica la regla de beneficio
 desde ese momento (límite = contribución acumulada ≈ 35 € con dos pedidos de Marta a −25 %). Sin 2.ª compra, termina sola el lunes 30
 a las 22:59 UTC (gasto total previsto ≈ 70 €).
+
+### Cambios del 27/11 noche (decisión de la dueña)
+- **Pausado** BF MARCA 4 LOOKS (`120252496553670190`): CTR 2,3 %, frecuencia 2.
+- **Nuevos, mismo ángulo que vendió (salida de noche con flash) con otros productos:**
+  - BF SOFIA NOCHE (`120252536280620190`, foto) → ficha Vestido Sofía · `docs/creativos/black-friday-2026/bf-sofia-noche.jpg`
+  - BF INES NOCHE VIDEO (`120252536295190190`, vídeo 9:16 de 9,3 s, Kling desde `blazer-ines/01-noche-negro.jpg` + cierre BF)
+    → ficha Blazer Inés · `docs/creativos/black-friday-2026/bf-ines-noche.mp4`
+- Activos ahora: MARTA NOCHE, IRENE CALLE, SARA CAPAS, SOFIA NOCHE, INES NOCHE VIDEO. Presupuesto sin cambios (15 €/día).
