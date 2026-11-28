@@ -57,6 +57,7 @@ Rutina: tarea programada «TikTok OELNOR · vídeo del mediodía», todos los d�
 
 | Fecha | Producto | Vídeo |
 |---|---|---|
+| 28/11 | Vestido Alicia | `docs/creativos/tiktok/2026-11-28-vestido-alicia-corto-efecto-ante-con-cremallera.mp4` (= `vestido-alicia/anuncios/v1-dia-noche.mp4`, no estaba en TikTok; audio a −14 LUFS) · enviado a la dueña 11:50 |
 | 27/11 | Blazer Inés con mangas de encaje | `docs/creativos/tiktok/2026-11-27-blazer-ines-con-mangas-de-encaje.mp4` (= `blazer-ines/v1-paseo-iphone-negro.mp4`, no estaba en TikTok; audio a −14 LUFS) · enviado a la dueña 11:50 |
 | 26/11 | Abrigo Irene (Black Friday −25 %) | `docs/creativos/tiktok/2026-11-26-abrigo-irene.mp4` (= `abrigo-irene/v1-paseo-camel.mp4`, no estaba en TikTok) · enviado a la dueña 11:49 |
 | 25/11 | Vestido Marta (test lanzado hoy) | `docs/creativos/tiktok/2026-11-25-vestido-marta.mp4` (= `vestido-marta/anuncios/v1-editorial.mp4`) · enviado a la dueña 11:49 |
